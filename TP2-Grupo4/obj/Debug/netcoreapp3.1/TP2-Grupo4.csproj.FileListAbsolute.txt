@@ -1,0 +1,17 @@
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2-Grupo4.exe
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2-Grupo4.deps.json
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2-Grupo4.runtimeconfig.json
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2-Grupo4.runtimeconfig.dev.json
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2-Grupo4.dll
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2-Grupo4.pdb
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.csprojAssemblyReference.cache
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Form1.resources
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Properties.Resources.resources
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.csproj.GenerateResource.cache
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.AssemblyInfoInputs.cache
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.AssemblyInfo.cs
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.csproj.CoreCompileInputs.cache
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.dll
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.pdb
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.genruntimeconfig.cache
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Form2.resources
