@@ -5,7 +5,6 @@ D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2-Grupo4
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2-Grupo4.dll
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2-Grupo4.pdb
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.csprojAssemblyReference.cache
-D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Form1.resources
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Properties.Resources.resources
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.csproj.GenerateResource.cache
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.AssemblyInfoInputs.cache
@@ -14,4 +13,6 @@ D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.dll
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.pdb
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.genruntimeconfig.cache
-D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Form2.resources
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.FormularioMDI.resources
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Login.resources
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaCliente.resources

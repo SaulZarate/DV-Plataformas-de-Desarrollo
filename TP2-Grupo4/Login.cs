@@ -10,18 +10,24 @@ using System.Windows.Forms;
 
 namespace TP2_Grupo4
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 cambiarFormulario = new Form2();
+            //validar si el usuario está correcto
+
+            //si es válido y es cliente moverse a la VistaCliente
+            VistaCliente cambiarFormulario = new VistaCliente();
             cambiarFormulario.Show();
             this.Hide();
+            //newMDIChild2.Show();
+
+            //si es válido y es admin moverse a la VistaAdmin
         }
     }
 }
