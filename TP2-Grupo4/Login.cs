@@ -22,7 +22,7 @@ namespace TP2_Grupo4
             //validar si el usuario está correcto
 
             //si es válido y es cliente moverse a la VistaCliente
-            VistaCliente cambiarFormulario = new VistaCliente();
+            VistaClienteFiltrar cambiarFormulario = new VistaClienteFiltrar();
             cambiarFormulario.Show();
             this.Hide();
             //newMDIChild2.Show();

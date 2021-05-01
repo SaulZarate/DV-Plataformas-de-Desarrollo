@@ -7,10 +7,25 @@
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VistaCliente.cs">
+    <Compile Update="VistaAdminAlojamientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="VistaAdminReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="VistaAdminUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="FormularioMDI.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="VistaClienteBuscar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="VistaClienteFiltrar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="VistaClienteReservaciones.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

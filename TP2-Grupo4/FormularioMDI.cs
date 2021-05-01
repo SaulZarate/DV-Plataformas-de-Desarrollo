@@ -18,9 +18,9 @@ namespace TP2_Grupo4
             newMDIChild.Show();
 
 
-            VistaCliente newMDIChild2 = new VistaCliente();
-            newMDIChild2.MdiParent = this;
-            newMDIChild2.Hide();
+            //VistaClienteFiltrar newMDIChild2 = new VistaClienteFiltrar();
+            //newMDIChild2.MdiParent = this;
+            //newMDIChild2.Hide();
         }
 
         private void FormularioMDI_Load(object sender, EventArgs e)
