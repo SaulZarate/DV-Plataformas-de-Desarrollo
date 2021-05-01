@@ -38,6 +38,7 @@ namespace TP2_Grupo4
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.IsMdiContainer = true;
             this.Name = "FormularioMDI";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormularioMDI";
             this.Load += new System.EventHandler(this.FormularioMDI_Load);
             this.ResumeLayout(false);

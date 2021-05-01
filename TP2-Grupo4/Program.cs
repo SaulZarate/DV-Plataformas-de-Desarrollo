@@ -17,7 +17,7 @@ namespace TP2_Grupo4
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormularioMDI());
+            Application.Run(new Login());
         }
     }
 }
