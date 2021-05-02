@@ -13,6 +13,7 @@ namespace TP2_Grupo4
 {
     public partial class Login : Form
     {
+        int intentos = 3;
         string contraseña;
         VistaClienteFiltrar ingresoCliente = new VistaClienteFiltrar();
         VistaAdminUsuarios ingresoAdmin = new VistaAdminUsuarios();
@@ -40,7 +41,16 @@ namespace TP2_Grupo4
                 }
                 else
                 {
-                    MessageBox.Show("La contraseña es incorrecta, por favor vuelva a intentarlo.");
+                    intentos--;
+                    if (intentos == 0)
+                    {
+                        //acá hay que bloquear al usuario
+                        MessageBox.Show("Usuario bloqueado, contacte con un administrador para desbloquear el usuario.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("La contraseña es incorrecta, le quedan " + intentos + " intentos.");
+                    }
                 }
             }
             else
