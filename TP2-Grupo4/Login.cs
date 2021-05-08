@@ -15,7 +15,8 @@ namespace TP2_Grupo4
     {
         int intentos = 3;
         string contraseña;
-        VistaClienteFiltrar ingresoCliente = new VistaClienteFiltrar();
+        //VistaClienteFiltrar ingresoCliente = new VistaClienteFiltrar();
+        ControlPanelClient ingresoCliente = new ControlPanelClient();
         VistaAdminUsuarios ingresoAdmin = new VistaAdminUsuarios();
         public Login()
         {
@@ -104,6 +105,7 @@ namespace TP2_Grupo4
             {
                 textBox2.Text = "";
                 textBox2.ForeColor = Color.LightGray;
+                textBox2.UseSystemPasswordChar = true;
             }
         }
 
@@ -113,7 +115,15 @@ namespace TP2_Grupo4
             {
                 textBox2.Text = "CONTRASEÑA";
                 textBox2.ForeColor = Color.DimGray;
+                textBox2.UseSystemPasswordChar = false;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ControlPanelClient cambiarFormulario = new ControlPanelClient();
+            cambiarFormulario.Show();
+            this.Hide();
         }
     }
 }

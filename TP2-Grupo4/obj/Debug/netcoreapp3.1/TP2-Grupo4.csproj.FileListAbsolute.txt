@@ -21,3 +21,6 @@ D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaClienteBuscar.resources
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaClienteFiltrar.resources
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaClienteReservaciones.resources
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.ControlPanelAdmin.resources
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.ControlPanelClient - Copia.resources
+D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.ControlPanelClient.resources

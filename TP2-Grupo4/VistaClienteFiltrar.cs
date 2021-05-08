@@ -17,7 +17,10 @@ namespace TP2_Grupo4
 
         private void button5_Click(object sender, EventArgs e)
         {
-            VistaClienteBuscar cambiarFormulario = new VistaClienteBuscar();
+            /*VistaClienteBuscar cambiarFormulario = new VistaClienteBuscar();
+            cambiarFormulario.Show();
+            this.Hide();*/
+            ControlPanelClient cambiarFormulario = new ControlPanelClient();
             cambiarFormulario.Show();
             this.Hide();
         }
@@ -39,6 +42,11 @@ namespace TP2_Grupo4
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

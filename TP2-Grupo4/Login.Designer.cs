@@ -40,8 +40,8 @@ namespace TP2_Grupo4
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
@@ -94,7 +94,7 @@ namespace TP2_Grupo4
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(308, 29);
-            this.textBox1.TabIndex = 4;
+            this.textBox1.TabIndex = 1;
             this.textBox1.Text = "USUARIO";
             this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
@@ -114,15 +114,15 @@ namespace TP2_Grupo4
             this.panel2.Location = new System.Drawing.Point(423, 140);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 1);
-            this.panel2.TabIndex = 7;
+            this.panel2.TabIndex = 0;
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel3.Location = new System.Drawing.Point(425, 205);
+            this.panel3.Location = new System.Drawing.Point(423, 205);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(250, 1);
-            this.panel3.TabIndex = 8;
+            this.panel3.TabIndex = 0;
             // 
             // textBox2
             // 
@@ -133,7 +133,7 @@ namespace TP2_Grupo4
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(308, 28);
-            this.textBox2.TabIndex = 9;
+            this.textBox2.TabIndex = 2;
             this.textBox2.Text = "CONTRASEÑA";
             this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
             this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
@@ -147,7 +147,7 @@ namespace TP2_Grupo4
             this.label2.Location = new System.Drawing.Point(465, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(173, 68);
-            this.label2.TabIndex = 10;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Login";
             // 
             // button2
@@ -162,31 +162,19 @@ namespace TP2_Grupo4
             this.button2.Location = new System.Drawing.Point(570, 294);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(190, 70);
-            this.button2.TabIndex = 11;
+            this.button2.TabIndex = 4;
             this.button2.Text = "Registrar";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-2, -8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(283, 489);
-            this.panel1.TabIndex = 12;
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.DimGray;
-            this.linkLabel1.Location = new System.Drawing.Point(469, 406);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(157, 15);
-            this.linkLabel1.TabIndex = 13;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "¿Ha olvidado su contraseña?";
+            this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -197,6 +185,18 @@ namespace TP2_Grupo4
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkColor = System.Drawing.Color.DimGray;
+            this.linkLabel1.Location = new System.Drawing.Point(469, 406);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(157, 15);
+            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "¿Ha olvidado su contraseña?";
             // 
             // Login
             // 

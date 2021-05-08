@@ -55,6 +55,8 @@ namespace TP2_Grupo4
             this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.button7.FlatAppearance.BorderSize = 0;
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button7.ForeColor = System.Drawing.SystemColors.Info;
             this.button7.Location = new System.Drawing.Point(673, 260);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(75, 82);
@@ -67,6 +69,8 @@ namespace TP2_Grupo4
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button6.ForeColor = System.Drawing.SystemColors.Info;
             this.button6.Location = new System.Drawing.Point(673, 144);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(75, 82);
@@ -135,6 +139,8 @@ namespace TP2_Grupo4
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.SystemColors.Info;
             this.button2.Location = new System.Drawing.Point(475, 378);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(273, 51);
@@ -148,6 +154,8 @@ namespace TP2_Grupo4
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.Info;
             this.button1.Location = new System.Drawing.Point(52, 378);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(273, 51);
