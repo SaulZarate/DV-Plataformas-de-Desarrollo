@@ -63,6 +63,16 @@ namespace TP2_Grupo4.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap alojamientos {
+            get {
+                object obj = ResourceManager.GetObject("alojamientos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap btn {
             get {
                 object obj = ResourceManager.GetObject("btn", resourceCulture);

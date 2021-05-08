@@ -41,8 +41,11 @@ namespace TP2_Grupo4
             this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
@@ -167,6 +170,7 @@ namespace TP2_Grupo4
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Location = new System.Drawing.Point(-2, -8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(283, 489);
@@ -183,6 +187,16 @@ namespace TP2_Grupo4
             this.linkLabel1.TabIndex = 13;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "¿Ha olvidado su contraseña?";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TP2_Grupo4.Properties.Resources.alojamientos;
+            this.pictureBox1.Location = new System.Drawing.Point(14, 114);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(259, 197);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Login
             // 
@@ -211,6 +225,8 @@ namespace TP2_Grupo4
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,6 +245,7 @@ namespace TP2_Grupo4
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
