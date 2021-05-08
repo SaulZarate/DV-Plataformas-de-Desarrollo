@@ -22,9 +22,6 @@
     <Compile Update="VistaAdminUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="FormularioMDI.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="VistaClienteBuscar.cs">
       <SubType>Form</SubType>
     </Compile>

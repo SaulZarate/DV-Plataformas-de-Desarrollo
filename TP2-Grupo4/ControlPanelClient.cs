@@ -78,5 +78,10 @@ namespace TP2_Grupo4
             button5.Enabled = false;
             button6.Enabled = true;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }

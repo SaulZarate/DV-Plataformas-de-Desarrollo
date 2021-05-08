@@ -13,7 +13,6 @@ D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.dll
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.pdb
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2-Grupo4.genruntimeconfig.cache
-D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.FormularioMDI.resources
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Login.resources
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaAdminAlojamientos.resources
 D:\usuario\xampp\htdocs\TP2-Grupo4\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaAdminReservas.resources

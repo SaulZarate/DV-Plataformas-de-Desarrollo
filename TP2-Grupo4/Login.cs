@@ -17,7 +17,8 @@ namespace TP2_Grupo4
         string contraseña;
         //VistaClienteFiltrar ingresoCliente = new VistaClienteFiltrar();
         ControlPanelClient ingresoCliente = new ControlPanelClient();
-        VistaAdminUsuarios ingresoAdmin = new VistaAdminUsuarios();
+        //VistaAdminUsuarios ingresoAdmin = new VistaAdminUsuarios();
+        ControlPanelAdmin ingresoAdmin = new ControlPanelAdmin();
         public Login()
         {
             InitializeComponent();
@@ -36,9 +37,10 @@ namespace TP2_Grupo4
                 contraseña = File.ReadAllText(tempurl);
                 if (password.Equals(contraseña))
                 {
-                    MessageBox.Show("Bienvenido usuario.");
-                    ingresoCliente.Show();
+                    ingresoAdmin.Show();
+                    //ingresoCliente.Show();
                     this.Hide();
+                    MessageBox.Show("Bienvenido usuario.");
                 }
                 else
                 {
