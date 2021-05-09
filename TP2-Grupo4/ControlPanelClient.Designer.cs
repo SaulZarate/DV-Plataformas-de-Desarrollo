@@ -56,7 +56,7 @@ namespace TP2_Grupo4
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TP2_Grupo4.Properties.Resources.alojamientos;
-            this.pictureBox1.Location = new System.Drawing.Point(-4, 33);
+            this.pictureBox1.Location = new System.Drawing.Point(-2, 34);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(176, 123);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
