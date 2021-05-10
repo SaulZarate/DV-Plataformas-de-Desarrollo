@@ -8,24 +8,19 @@
     ".NETCoreApp,Version=v3.1": []
   },
   "packageFolders": {
-    "C:\\Users\\user\\.nuget\\packages\\": {},
-    "D:\\Archivos de programa (x86)\\Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\PC 345\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\usuario\\xampp\\htdocs\\TP2-Grupo4\\TP2-Grupo4\\TP2-Grupo4.csproj",
+      "projectUniqueName": "C:\\Users\\PC 345\\source\\repos\\PD-TP2-Grupo4\\TP2-Grupo4\\TP2-Grupo4.csproj",
       "projectName": "TP2-Grupo4",
-      "projectPath": "D:\\usuario\\xampp\\htdocs\\TP2-Grupo4\\TP2-Grupo4\\TP2-Grupo4.csproj",
-      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\usuario\\xampp\\htdocs\\TP2-Grupo4\\TP2-Grupo4\\obj\\",
+      "projectPath": "C:\\Users\\PC 345\\source\\repos\\PD-TP2-Grupo4\\TP2-Grupo4\\TP2-Grupo4.csproj",
+      "packagesPath": "C:\\Users\\PC 345\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PC 345\\source\\repos\\PD-TP2-Grupo4\\TP2-Grupo4\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "D:\\Archivos de programa (x86)\\Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\PC 345\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -68,7 +63,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
