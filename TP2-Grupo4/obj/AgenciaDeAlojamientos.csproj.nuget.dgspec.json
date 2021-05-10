@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2-Grupo4.csproj": {}
+    "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\AgenciaDeAlojamientos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2-Grupo4.csproj": {
+    "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\AgenciaDeAlojamientos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2-Grupo4.csproj",
-        "projectName": "TP2-Grupo4",
-        "projectPath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2-Grupo4.csproj",
+        "projectUniqueName": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\AgenciaDeAlojamientos.csproj",
+        "projectName": "AgenciaDeAlojamientos",
+        "projectPath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\AgenciaDeAlojamientos.csproj",
         "packagesPath": "C:\\Users\\PC 345\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\obj\\",
         "projectStyle": "PackageReference",

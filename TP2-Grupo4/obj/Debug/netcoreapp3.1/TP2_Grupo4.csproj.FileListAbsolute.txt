@@ -1,0 +1,25 @@
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.csprojAssemblyReference.cache
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Properties.Resources.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.ControlPanelAdmin.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.ControlPanelClient - Copia.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.ControlPanelClient.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Login.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaAdminAlojamientos.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaAdminReservas.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaAdminUsuarios.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaClienteBuscar.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaClienteFiltrar.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.VistaClienteReservaciones.resources
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.csproj.GenerateResource.cache
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.AssemblyInfoInputs.cache
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.AssemblyInfo.cs
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.csproj.CoreCompileInputs.cache
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.exe
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.deps.json
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.runtimeconfig.json
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.runtimeconfig.dev.json
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.dll
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.pdb
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.dll
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.pdb
+C:\Users\PC 345\Source\Repos\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.genruntimeconfig.cache

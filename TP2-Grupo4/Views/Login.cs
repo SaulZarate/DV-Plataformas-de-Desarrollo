@@ -13,21 +13,35 @@ namespace TP2_Grupo4
 {
     public partial class Login : Form
     {
-        int intentos = 3;
-        string contraseña;
-        //VistaClienteFiltrar ingresoCliente = new VistaClienteFiltrar();
-        ControlPanelClient ingresoCliente = new ControlPanelClient();
-        //VistaAdminUsuarios ingresoAdmin = new VistaAdminUsuarios();
-        ControlPanelAdmin ingresoAdmin = new ControlPanelAdmin();
+        private int intentos = 3;
+        
+        private ControlPanelClient ingresoCliente = new ControlPanelClient();
+        private ControlPanelAdmin ingresoAdmin = new ControlPanelAdmin();
+
+        private AgenciaManager agencia;
+
         public Login()
         {
+            this.agencia = new AgenciaManager();
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //validar si el usuario está correcto
+            // 40393222, "admin1234"
+            string dni = textBox1.Text;
+            string password = textBox2.Text;
+            if(this.agencia.autenticarUsuario(int.Parse(dni), password))
+            {
+                MessageBox.Show("Logueado");
+            }
+            else
+            {
+                MessageBox.Show("No Logueado");
+            }
 
+            /*
+            //validar si el usuario está correcto
             //si es válido y es cliente moverse a la VistaCliente
             string user = textBox1.Text;
             string password = textBox2.Text;
@@ -63,6 +77,7 @@ namespace TP2_Grupo4
             //newMDIChild2.Show();
 
             //si es válido y es admin moverse a la VistaAdmin
+            */
         }
 
         private void button2_Click(object sender, EventArgs e)

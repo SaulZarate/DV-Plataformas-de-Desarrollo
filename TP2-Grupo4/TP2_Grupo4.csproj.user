@@ -4,31 +4,31 @@
     <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="ControlPanelAdmin.cs">
+    <Compile Update="Views\ControlPanelAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ControlPanelClient.cs">
+    <Compile Update="Views\ControlPanelClient.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Login.cs">
+    <Compile Update="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VistaAdminAlojamientos.cs">
+    <Compile Update="Views\VistaAdminAlojamientos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VistaAdminReservas.cs">
+    <Compile Update="Views\VistaAdminReservas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VistaAdminUsuarios.cs">
+    <Compile Update="Views\VistaAdminUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VistaClienteBuscar.cs">
+    <Compile Update="Views\VistaClienteBuscar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VistaClienteFiltrar.cs">
+    <Compile Update="Views\VistaClienteFiltrar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="VistaClienteReservaciones.cs">
+    <Compile Update="Views\VistaClienteReservaciones.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="ControlPanelClient - Copia.Designer.cs">
+    <Compile Update="Views\ControlPanelClient - Copia.Designer.cs">
       <DependentUpon>ControlPanelClient.Designer.cs</DependentUpon>
     </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="ControlPanelClient - Copia.resx">
+    <EmbeddedResource Update="Views\ControlPanelClient - Copia.resx">
       <DependentUpon>ControlPanelClient.resx</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Update="Properties\Resources.resx">

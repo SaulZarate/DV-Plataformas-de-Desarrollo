@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC 345\\source\\repos\\PD-TP2-Grupo4\\TP2-Grupo4\\TP2-Grupo4.csproj",
-      "projectName": "TP2-Grupo4",
-      "projectPath": "C:\\Users\\PC 345\\source\\repos\\PD-TP2-Grupo4\\TP2-Grupo4\\TP2-Grupo4.csproj",
+      "projectUniqueName": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
+      "projectName": "TP2_Grupo4",
+      "projectPath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
       "packagesPath": "C:\\Users\\PC 345\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC 345\\source\\repos\\PD-TP2-Grupo4\\TP2-Grupo4\\obj\\",
+      "outputPath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\PC 345\\AppData\\Roaming\\NuGet\\NuGet.Config",
