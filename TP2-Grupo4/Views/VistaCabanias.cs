@@ -49,15 +49,16 @@ namespace TP2_Grupo4.Views
 
             // Tabla
             // TODO: Cambiar Ciudad, Barrio, Estrellas, Cant. personas, Habitaciones y Baños por COMBOBOX
-            dgvCabanias.Columns.Add("CODIGO", "CODIGO");
-            dgvCabanias.Columns.Add("CIUDAD", "CIUDAD");
-            dgvCabanias.Columns.Add("BARRIO", "BARRIO");
-            dgvCabanias.Columns.Add("ESTRELLAS", "ESTRELLAS");
-            dgvCabanias.Columns.Add("CANT_PERSONAS", "CANT_PERSONAS");
+            dgvCabanias.Columns.Add("CODIGO", "Codigo");
+            dgvCabanias.Columns.Add("CIUDAD", "Ciudad");
+            dgvCabanias.Columns.Add("BARRIO", "Barrio");
+            dgvCabanias.Columns.Add("ESTRELLAS", "Estrellas");
+            dgvCabanias.Columns.Add("CANT_PERSONAS", "Cant. Personas");
             dgvCabanias.Columns.Add(checkTV);
-            dgvCabanias.Columns.Add("PRECIO_X_DIA", "PRECIO_X_DIA");
-            dgvCabanias.Columns.Add("HABITACIONES", "HABITACIONES");
-            dgvCabanias.Columns.Add("BAÑOS", "BAÑOS");
+            dgvCabanias.Columns.Add("PRECIO_X_DIA", "Precio x dia");
+            dgvCabanias.Columns.Add("HABITACIONES", "habitaciones");
+            dgvCabanias.Columns.Add("BAÑOS", "Baños");
+            dgvCabanias.Columns.Add("PRECIO", "Precio Total");
 
             dgvCabanias.Columns.Add(btnModificar);
             dgvCabanias.Columns.Add(btnBorrar);
@@ -87,8 +88,9 @@ namespace TP2_Grupo4.Views
                     cabania.GetTv(),
                     cabania.GetPrecioPorDia().ToString(),
                     cabania.GetHabitaciones().ToString(),
-                    cabania.GetBanios().ToString()
-                );
+                    cabania.GetBanios().ToString(),
+                    cabania.PrecioTotalDelAlojamiento().ToString()
+                ); ;
             }
 
             // Update y Regresheo de Grid

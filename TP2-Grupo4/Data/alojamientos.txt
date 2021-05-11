@@ -5,3 +5,4 @@
 752,Cordoba,villa carlos paz,2,3,True,1500
 543,La Plata,Centro,3,2,True,4000,1,1
 999893,La plata,Centro,3,2,True,3500
+999,Mamita,Mamita99,3,5,False,800

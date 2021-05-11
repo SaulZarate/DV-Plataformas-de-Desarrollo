@@ -33,7 +33,7 @@ namespace TP2_Grupo4.Views
             table.Columns.Add("Estrellas", typeof(int));
             table.Columns.Add("Cant. Personas", typeof(string));
             table.Columns.Add("TV", typeof(bool));
-            table.Columns.Add("Precio x Persona", typeof(string));
+            table.Columns.Add("Precio", typeof(string));
 
             dgvAlojamiento.DataSource = table;
             dgvAlojamiento.ReadOnly = false;

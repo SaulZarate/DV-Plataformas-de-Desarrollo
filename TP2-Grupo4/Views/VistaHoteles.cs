@@ -60,6 +60,7 @@ namespace TP2_Grupo4.Views
             dgvHoteles.Columns.Add("CANT_PERSONAS", "Personas");
             dgvHoteles.Columns.Add(checkTV);
             dgvHoteles.Columns.Add("PRECIO_X_PERSONA", "Precio x Persona");
+            dgvHoteles.Columns.Add("PRECIO", "Precio Total");
             dgvHoteles.Columns.Add(btnModificar);
             dgvHoteles.Columns.Add(btnBorrar);
 
@@ -87,8 +88,8 @@ namespace TP2_Grupo4.Views
                     hotel.GetEstrellas(),
                     hotel.GetCantidadDePersonas().ToString(),
                     hotel.GetTv(),
-                    "$" + hotel.PrecioTotalDelAlojamiento().ToString(),
-                    hotel.GetPrecioPorPersona()
+                    hotel.GetPrecioPorPersona(),
+                    "$" + hotel.PrecioTotalDelAlojamiento().ToString()
                 );
             }
 
