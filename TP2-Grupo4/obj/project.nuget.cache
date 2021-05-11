@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "CSAd7Un1MO0wL9qyzptr0posTf4UBjHxbcw4A8revHEanfLWpjtUNWFfXDsP5yStHti8QL3qMGT1iM3hMsX1DA==",
+  "dgSpecHash": "7H4tgxgejWipipAQlPY5T7rago9rJz+Sq1pdM7wGTuEWVPaYzrjNcTRHM1uIifOgcRpN0ExqgMYIfGlZvJEkZg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "F:\\Rodrigo\\Documents\\dev\\davinci\\davinci-c4-plat-desarollo\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Rodrigo\\.nuget\\packages\\fontawesome.sharp\\5.15.3\\fontawesome.sharp.5.15.3.nupkg.sha512",
+    "C:\\Users\\Rodrigo\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.14\\microsoft.netcore.app.host.win-x64.3.1.14.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -5,7 +5,12 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>TP2_Grupo4</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
+    <StartupObject>TP2_Grupo4.Program</StartupObject>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome.Sharp" Version="5.15.3" />
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Views\ControlPanelClient - Copia.Designer.cs">

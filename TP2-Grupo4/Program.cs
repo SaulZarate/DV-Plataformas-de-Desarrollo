@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP2_Grupo4.Views;
 
 namespace TP2_Grupo4
 {
@@ -17,7 +18,7 @@ namespace TP2_Grupo4
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+            Application.Run(new VistaLogin());
         }
     }
 }
