@@ -100,6 +100,7 @@ namespace TP2_Grupo4.Views
             this.txtUsuario.TabIndex = 1;
             this.txtUsuario.Text = "USUARIO";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
+            this.txtUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.InputDNI_KeyUp);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
             // 
             // label1

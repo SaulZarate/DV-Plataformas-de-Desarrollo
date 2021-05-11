@@ -25,8 +25,6 @@ namespace TP2_Grupo4
             this.cargarDatosDeLasReservas();
         }
 
-        // TODO: Agregar metodos para los alojamientos
-
         #region METODOS PARA LAS RESERVAS
         public bool AgregarReserva(DateTime fechaDesde, DateTime fechaHasta, int codigoAlojamiento, int dniUsuario)
         {
@@ -181,6 +179,16 @@ namespace TP2_Grupo4
             return Usuario.GuardarCambiosEnElArchivo(this.GetUsuarios());
         }
         #endregion
+
+
+        #region METODOS PARA LAS VISTAS
+        public bool IsUsuarioBloqueado(int dni)
+        {
+            Usuario user = this.usuarios.Find(user => user.GetDni() == dni && user.GetBloqueado() == true);
+            return user == null ? false : true;
+        }
+        #endregion
+
 
         /* GETTERS Y SETTERS */
         public List<Usuario> GetUsuarios() { return this.usuarios; }

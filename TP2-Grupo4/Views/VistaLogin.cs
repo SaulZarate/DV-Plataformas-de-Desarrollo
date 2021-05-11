@@ -17,35 +17,39 @@ namespace TP2_Grupo4.Views
 {
     public partial class VistaLogin : Form
     {
-        private int intentos = 3;
-        private string dni;
-        private string password;
+        private const int MAXIMA_CANTIDAD_DE_INTENTOS_PARA_LOGEARSE = 3;
+
+        private int contadorDeIntentos;
+        private int dniIngresado;
+
         private AgenciaManager agencia;
 
         public VistaLogin()
         {
             this.agencia = new AgenciaManager();
+            this.contadorDeIntentos = 0;
+            this.dniIngresado = 0;
+
             InitializeComponent();
         }
 
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
+            
             if (txtUsuario.Text == "USUARIO")
             {
                 txtUsuario.Text = "";
                 txtUsuario.ForeColor = Color.LightGray;
             }
         }
-
         private void txtUsuario_Leave(object sender, EventArgs e)
         {
             if (txtUsuario.Text == "")
             {
-                txtUsuario.Text = "USUARIO";
+                txtUsuario.Text = "DNI";
                 txtUsuario.ForeColor = Color.DimGray;
             }
         }
-
         // TODO: Password *********
         private void txtContrasena_Enter(object sender, EventArgs e)
         {
@@ -55,7 +59,6 @@ namespace TP2_Grupo4.Views
                 txtContrasena.UseSystemPasswordChar = true;
             }
         }
-
         private void txtContrasena_Leave(object sender, EventArgs e)
         {
             if (txtContrasena.Text == "")
@@ -65,56 +68,102 @@ namespace TP2_Grupo4.Views
             }
         }
 
+        // Validacion del dni  
+        private void InputDNI_KeyUp(object sender, KeyEventArgs e)
+        {
+            String input = this.txtUsuario.Text;
+
+            if (input == "") return;
+
+            try
+            {
+                int dni = int.Parse(input);
+
+                if (this.agencia.IsUsuarioBloqueado(dni))
+                {
+                    MessageBox.Show("Su usuario esta bloqueado. Contacte con un administrador");
+                    this.btnLogin.Enabled = false;
+                }
+                else
+                {
+                    this.btnLogin.Enabled = true;
+                    System.Diagnostics.Debug.WriteLine("Usuario correcto y no esta bloqueado");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Solo puede ingresar numeros!");
+                this.btnLogin.Enabled = false;
+            }
+        }
+        
+        private bool bloquearUsuarioPorIntentos(int dni)
+        {
+            if (this.dniIngresado != dni)
+            {
+                this.dniIngresado = dni;
+                this.contadorDeIntentos = 1;
+            }
+            else if (this.dniIngresado == dni)
+            {
+                this.contadorDeIntentos++;
+            }
+            System.Diagnostics.Debug.WriteLine(this.contadorDeIntentos);
+            if (this.contadorDeIntentos >= VistaLogin.MAXIMA_CANTIDAD_DE_INTENTOS_PARA_LOGEARSE)
+            {
+                if (this.agencia.BloquearUsuario(dni) && this.agencia.GuardarCambiosDeLosUsuarios())
+                {
+                    MessageBox.Show("Has exedido el maximo de intentos. Tu usuario a sido bloqueado, contacte con un administrador");
+                    this.agencia = new AgenciaManager();
+                    this.txtUsuario.Text = "";
+                    this.txtContrasena.Text = "";
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+        /* ~~~~~~~~~~~~~~~~~~~~~~~~ BOTONES ~~~~~~~~~~~~~~~~~~~~~~~~ */
+        /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
         // TODO: Chequear intentos
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // admin
-            // user: 40393222
+            // dni: 40393222
             // pass: admin1234
-            this.dni = txtUsuario.Text;
-            this.password = txtContrasena.Text;
-
+            int dni = int.Parse(txtUsuario.Text); // Validado con el metodo InputDNI
+            String password = txtContrasena.Text;
             
-
-            if (this.agencia.autenticarUsuario(Int32.Parse(dni), password))
+            if (this.agencia.FindUserForDNI(dni) == null)
             {
-                VistaDashboardAdmin vistaAdmin = new VistaDashboardAdmin(this.agencia);
-                // VistaDashboardUsuario vistaUsuario = new VistaDashboardUsuario(this.agencia);
+                MessageBox.Show("No existe ese usuario");
+                return;
+            }
+            
+            // Al bloquear al usuario salgo del metodo con el return
+            if (this.bloquearUsuarioPorIntentos(dni)) return;
 
-                if (!this.agencia.GetUsuarioLogeado().GetBloqueado())
+            if(this.agencia.autenticarUsuario(dni, password))
+            {
+                if (this.agencia.GetUsuarioLogeado().GetIsAdmin())
                 {
-                    this.intentos = 3;
-                    if (this.agencia.GetUsuarioLogeado().GetIsAdmin())
-                    {
-                        MessageBox.Show("Logueado");
-                        vistaAdmin.Show();
-                        this.Hide();
-                    }
-                    else
-                    {
-                        // TODO: Mostrar vistaUsuario
-                        this.Hide();
-                    }
+                    // ADMIN
+                    VistaDashboardAdmin admin = new VistaDashboardAdmin(this.agencia);
+                    admin.Show();
+                    this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show($"Usuario Bloqueado, hable con un administrador para desbloquear el usuario");
+                    // USUARIO CLIENTE
+                    // Crear un objeto de la vista del cliente
+                    // Mostrar la con .show()
+                    // Ocultar el login this.hide()
                 }
-
             }
             else
             {
-                this.intentos--;
-                if (this.intentos == 0)
-                {
-                    this.agencia.BloquearUsuario(Int32.Parse(dni));
-                    this.intentos = 3;
-                    MessageBox.Show($"Usuario Bloqueado, hable con un administrador para desbloquear el usuario");
-                }
-                else
-                {
-                    MessageBox.Show($"Usuario o contraseña incorrecto, intenta de nuevo [ intentos: {this.intentos} ]");
-                }
+                MessageBox.Show("Contraseña incorrecta");
             }
         }
 
@@ -130,7 +179,7 @@ namespace TP2_Grupo4.Views
             Application.Exit();
         }
 
-
+        
         #region Helpers
         // Nos permite utilizar librerias del sistema operativo, para poder mover la ventana
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -146,8 +195,8 @@ namespace TP2_Grupo4.Views
         }
 
 
-        #endregion
 
+        #endregion
 
     }
 }
