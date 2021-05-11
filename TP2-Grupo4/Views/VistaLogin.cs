@@ -96,7 +96,6 @@ namespace TP2_Grupo4.Views
                 this.btnLogin.Enabled = false;
             }
         }
-        
         private bool bloquearUsuarioPorIntentos(int dni)
         {
             if (this.dniIngresado != dni)
@@ -108,7 +107,7 @@ namespace TP2_Grupo4.Views
             {
                 this.contadorDeIntentos++;
             }
-            System.Diagnostics.Debug.WriteLine(this.contadorDeIntentos);
+            
             if (this.contadorDeIntentos >= VistaLogin.MAXIMA_CANTIDAD_DE_INTENTOS_PARA_LOGEARSE)
             {
                 if (this.agencia.BloquearUsuario(dni) && this.agencia.GuardarCambiosDeLosUsuarios())
