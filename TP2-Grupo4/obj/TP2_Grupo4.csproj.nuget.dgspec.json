@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj": {}
+    "F:\\Rodrigo\\Documents\\dev\\davinci\\davinci-c4-plat-desarollo\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj": {
+    "F:\\Rodrigo\\Documents\\dev\\davinci\\davinci-c4-plat-desarollo\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
+        "projectUniqueName": "F:\\Rodrigo\\Documents\\dev\\davinci\\davinci-c4-plat-desarollo\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
         "projectName": "TP2_Grupo4",
-        "projectPath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
-        "packagesPath": "C:\\Users\\PC 345\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\obj\\",
+        "projectPath": "F:\\Rodrigo\\Documents\\dev\\davinci\\davinci-c4-plat-desarollo\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
+        "packagesPath": "C:\\Users\\Rodrigo\\.nuget\\packages\\",
+        "outputPath": "F:\\Rodrigo\\Documents\\dev\\davinci\\davinci-c4-plat-desarollo\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PC 345\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Rodrigo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -39,6 +39,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "FontAwesome.Sharp": {
+              "target": "Package",
+              "version": "[5.15.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -49,6 +55,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.14, 3.1.14]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
@@ -57,7 +69,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }
