@@ -100,6 +100,7 @@ namespace TP2_Grupo4.Views
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 37);
             this.panel4.TabIndex = 18;
+            this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
             // 
             // btnRegistrar
             // 

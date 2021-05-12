@@ -84,3 +84,4 @@ D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\De
 D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.pdb
 D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.genruntimeconfig.cache
 D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaRegistrar.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaRecuperar.resources

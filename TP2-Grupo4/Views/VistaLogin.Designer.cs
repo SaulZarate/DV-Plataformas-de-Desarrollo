@@ -201,6 +201,7 @@ namespace TP2_Grupo4.Views
             this.linkLabel1.TabIndex = 5;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "¿Ha olvidado su contraseña?";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // panel4
             // 
@@ -267,7 +268,6 @@ namespace TP2_Grupo4.Views
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VistaLogin";
-            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.TransparencyKey = System.Drawing.Color.Black;

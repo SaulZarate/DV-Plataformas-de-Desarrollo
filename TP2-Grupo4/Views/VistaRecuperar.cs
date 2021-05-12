@@ -9,9 +9,9 @@ using System.Runtime.InteropServices;
 
 namespace TP2_Grupo4.Views
 {
-    public partial class VistaRegistrar : Form
+    public partial class VistaRecuperar : Form
     {
-        public VistaRegistrar()
+        public VistaRecuperar()
         {
             InitializeComponent();
         }
@@ -23,9 +23,11 @@ namespace TP2_Grupo4.Views
             this.Hide();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            VistaRegistrar cambiarFormulario = new VistaRegistrar();
+            cambiarFormulario.Show();
+            this.Hide();
         }
 
         private void txtUsuario_Enter(object sender, EventArgs e)
@@ -48,10 +50,9 @@ namespace TP2_Grupo4.Views
 
         private void txtContrasena_Enter(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == "CONTRASEÑA")
+            if (txtContrasena.Text == "CONTRASEÑA ANTERIOR")
             {
                 txtContrasena.Text = "";
-                txtContrasena.ForeColor = Color.LightGray;
             }
         }
 
@@ -59,35 +60,15 @@ namespace TP2_Grupo4.Views
         {
             if (txtContrasena.Text == "")
             {
-                txtContrasena.Text = "CONTRASEÑA";
-                txtContrasena.ForeColor = Color.DimGray;
-            }
-        }
-
-        private void textBox2_Enter(object sender, EventArgs e)
-        {
-            if (textBox2.Text == "NOMBRE")
-            {
-                textBox2.Text = "";
-                textBox2.ForeColor = Color.LightGray;
-            }
-        }
-
-        private void textBox2_Leave(object sender, EventArgs e)
-        {
-            if (textBox2.Text == "")
-            {
-                textBox2.Text = "NOMBRE";
-                textBox2.ForeColor = Color.DimGray;
+                txtContrasena.Text = "CONTRASEÑA ANTERIOR";
             }
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            if (textBox1.Text == "EMAIL")
+            if (textBox1.Text == "CONTRASEÑA NUEVA")
             {
                 textBox1.Text = "";
-                textBox1.ForeColor = Color.LightGray;
             }
         }
 
@@ -95,14 +76,8 @@ namespace TP2_Grupo4.Views
         {
             if (textBox1.Text == "")
             {
-                textBox1.Text = "EMAIL";
-                textBox1.ForeColor = Color.DimGray;
+                textBox1.Text = "CONTRASEÑA NUEVA";
             }
-        }
-
-        private void btnRegistrar_Click(object sender, EventArgs e)
-        {
-
         }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -110,11 +85,15 @@ namespace TP2_Grupo4.Views
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
         private void panel4_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
