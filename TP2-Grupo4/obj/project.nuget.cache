@@ -6,5 +6,12 @@
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\fontawesome.sharp\\5.15.3\\fontawesome.sharp.5.15.3.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

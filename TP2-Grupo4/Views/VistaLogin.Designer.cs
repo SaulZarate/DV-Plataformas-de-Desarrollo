@@ -166,7 +166,7 @@ namespace TP2_Grupo4.Views
             this.btnRegistrar.Location = new System.Drawing.Point(538, 43);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(251, 40);
-            this.btnRegistrar.TabIndex = 4;
+            this.btnRegistrar.TabIndex = 0;
             this.btnRegistrar.Text = "Registrarse";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -198,10 +198,9 @@ namespace TP2_Grupo4.Views
             this.linkLabel1.Location = new System.Drawing.Point(469, 406);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(157, 15);
-            this.linkLabel1.TabIndex = 5;
+            this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "¿Ha olvidado su contraseña?";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // panel4
             // 
@@ -210,7 +209,7 @@ namespace TP2_Grupo4.Views
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 37);
-            this.panel4.TabIndex = 6;
+            this.panel4.TabIndex = 0;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
             // 
             // btnExit
@@ -240,7 +239,7 @@ namespace TP2_Grupo4.Views
             this.button1.Location = new System.Drawing.Point(287, 43);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(251, 40);
-            this.button1.TabIndex = 7;
+            this.button1.TabIndex = 0;
             this.button1.Text = "Ingresar";
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -268,6 +267,7 @@ namespace TP2_Grupo4.Views
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VistaLogin";
+            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.TransparencyKey = System.Drawing.Color.Black;

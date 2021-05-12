@@ -60,7 +60,7 @@ namespace TP2_Grupo4.Views
             this.btnRegistrar.Location = new System.Drawing.Point(459, 322);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(181, 60);
-            this.btnRegistrar.TabIndex = 32;
+            this.btnRegistrar.TabIndex = 4;
             this.btnRegistrar.Text = "Confirmar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             // 
@@ -85,7 +85,7 @@ namespace TP2_Grupo4.Views
             this.panel1.Location = new System.Drawing.Point(-1, -19);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(283, 489);
-            this.panel1.TabIndex = 28;
+            this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
@@ -109,7 +109,7 @@ namespace TP2_Grupo4.Views
             this.button1.Location = new System.Drawing.Point(287, 43);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(251, 40);
-            this.button1.TabIndex = 39;
+            this.button1.TabIndex = 0;
             this.button1.Text = "Ingresar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -126,7 +126,7 @@ namespace TP2_Grupo4.Views
             this.button2.Location = new System.Drawing.Point(538, 43);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(251, 40);
-            this.button2.TabIndex = 38;
+            this.button2.TabIndex = 0;
             this.button2.Text = "Registrarse";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -137,7 +137,7 @@ namespace TP2_Grupo4.Views
             this.panel6.Location = new System.Drawing.Point(462, 295);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(175, 1);
-            this.panel6.TabIndex = 37;
+            this.panel6.TabIndex = 0;
             // 
             // textBox1
             // 
@@ -147,7 +147,7 @@ namespace TP2_Grupo4.Views
             this.textBox1.Location = new System.Drawing.Point(462, 277);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 16);
-            this.textBox1.TabIndex = 35;
+            this.textBox1.TabIndex = 3;
             this.textBox1.Text = "CONTRASEÑA NUEVA";
             this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
@@ -158,7 +158,7 @@ namespace TP2_Grupo4.Views
             this.panel2.Location = new System.Drawing.Point(462, 183);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(175, 1);
-            this.panel2.TabIndex = 29;
+            this.panel2.TabIndex = 0;
             // 
             // panel4
             // 
@@ -167,7 +167,7 @@ namespace TP2_Grupo4.Views
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 37);
-            this.panel4.TabIndex = 33;
+            this.panel4.TabIndex = 0;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
             // 
             // label2
@@ -179,7 +179,7 @@ namespace TP2_Grupo4.Views
             this.label2.Location = new System.Drawing.Point(354, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(384, 44);
-            this.label2.TabIndex = 30;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Cambiar Contraseña";
             // 
             // panel3
@@ -188,7 +188,7 @@ namespace TP2_Grupo4.Views
             this.panel3.Location = new System.Drawing.Point(462, 237);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(175, 1);
-            this.panel3.TabIndex = 31;
+            this.panel3.TabIndex = 0;
             // 
             // txtContrasena
             // 
@@ -198,7 +198,7 @@ namespace TP2_Grupo4.Views
             this.txtContrasena.Location = new System.Drawing.Point(462, 219);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(175, 16);
-            this.txtContrasena.TabIndex = 27;
+            this.txtContrasena.TabIndex = 2;
             this.txtContrasena.Text = "CONTRASEÑA ANTERIOR";
             this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
             this.txtContrasena.Leave += new System.EventHandler(this.txtContrasena_Leave);
@@ -211,7 +211,7 @@ namespace TP2_Grupo4.Views
             this.txtUsuario.Location = new System.Drawing.Point(462, 166);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(175, 16);
-            this.txtUsuario.TabIndex = 26;
+            this.txtUsuario.TabIndex = 1;
             this.txtUsuario.Text = "DNI";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);

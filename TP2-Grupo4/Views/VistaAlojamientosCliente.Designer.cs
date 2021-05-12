@@ -1,7 +1,7 @@
 ﻿
 namespace TP2_Grupo4.Views
 {
-    partial class VistaAlojamiento
+    partial class VistaAlojamientosCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,14 @@ namespace TP2_Grupo4.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblAlojamiento = new System.Windows.Forms.Label();
-            this.dgvAlojamiento = new System.Windows.Forms.DataGridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.lblAlojamientos = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBoxLocalidad = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBoxCantPersonas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,32 +45,28 @@ namespace TP2_Grupo4.Views
             this.button1 = new System.Windows.Forms.Button();
             this.comboBoxEstrellas = new System.Windows.Forms.ComboBox();
             this.comboBoxTipoAloj = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlojamiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblAlojamiento
+            // dataGridView1
             // 
-            this.lblAlojamiento.AutoSize = true;
-            this.lblAlojamiento.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblAlojamiento.ForeColor = System.Drawing.Color.Black;
-            this.lblAlojamiento.Location = new System.Drawing.Point(370, 7);
-            this.lblAlojamiento.Name = "lblAlojamiento";
-            this.lblAlojamiento.Size = new System.Drawing.Size(260, 45);
-            this.lblAlojamiento.TabIndex = 0;
-            this.lblAlojamiento.Text = "Alojamientos";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 174);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.Size = new System.Drawing.Size(976, 376);
+            this.dataGridView1.TabIndex = 0;
             // 
-            // dgvAlojamiento
+            // lblAlojamientos
             // 
-            this.dgvAlojamiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgvAlojamiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAlojamiento.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgvAlojamiento.Location = new System.Drawing.Point(12, 174);
-            this.dgvAlojamiento.Name = "dgvAlojamiento";
-            this.dgvAlojamiento.RowTemplate.Height = 25;
-            this.dgvAlojamiento.Size = new System.Drawing.Size(976, 376);
-            this.dgvAlojamiento.TabIndex = 1;
+            this.lblAlojamientos.AutoSize = true;
+            this.lblAlojamientos.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblAlojamientos.Location = new System.Drawing.Point(370, 7);
+            this.lblAlojamientos.Name = "lblAlojamientos";
+            this.lblAlojamientos.Size = new System.Drawing.Size(260, 45);
+            this.lblAlojamientos.TabIndex = 0;
+            this.lblAlojamientos.Text = "Alojamientos";
             // 
             // groupBox1
             // 
@@ -78,7 +74,7 @@ namespace TP2_Grupo4.Views
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.comboBoxLocalidad);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.comboBoxCantPersonas);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label5);
@@ -128,12 +124,12 @@ namespace TP2_Grupo4.Views
             this.label3.TabIndex = 0;
             this.label3.Text = "Precio";
             // 
-            // comboBoxLocalidad
+            // textBox1
             // 
-            this.comboBoxLocalidad.Location = new System.Drawing.Point(114, 74);
-            this.comboBoxLocalidad.Name = "comboBoxLocalidad";
-            this.comboBoxLocalidad.Size = new System.Drawing.Size(121, 23);
-            this.comboBoxLocalidad.TabIndex = 4;
+            this.textBox1.Location = new System.Drawing.Point(114, 74);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(121, 23);
+            this.textBox1.TabIndex = 4;
             // 
             // comboBoxCantPersonas
             // 
@@ -199,7 +195,7 @@ namespace TP2_Grupo4.Views
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 63);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Agregar";
+            this.button1.Text = "Filtrar";
             this.button1.UseVisualStyleBackColor = false;
             // 
             // comboBoxEstrellas
@@ -228,34 +224,19 @@ namespace TP2_Grupo4.Views
             this.comboBoxTipoAloj.Size = new System.Drawing.Size(107, 23);
             this.comboBoxTipoAloj.TabIndex = 1;
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(882, 80);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 63);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // VistaAlojamiento
+            // VistaAlojamientosCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1000, 562);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dgvAlojamiento);
-            this.Controls.Add(this.lblAlojamiento);
+            this.Controls.Add(this.lblAlojamientos);
+            this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "VistaAlojamiento";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormAlojamiento";
-            this.Load += new System.EventHandler(this.FormAlojamiento_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlojamiento)).EndInit();
+            this.Name = "VistaAlojamientosCliente";
+            this.Text = "VistaAlojamientosCliente";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -265,14 +246,9 @@ namespace TP2_Grupo4.Views
 
         #endregion
 
-        private System.Windows.Forms.Label lblAlojamiento;
-        private System.Windows.Forms.DataGridView dgvAlojamiento;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblAlojamientos;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox comboBoxLocalidad;
         private System.Windows.Forms.ComboBox comboBoxCantPersonas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
@@ -281,6 +257,10 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox comboBoxEstrellas;
         private System.Windows.Forms.ComboBox comboBoxTipoAloj;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

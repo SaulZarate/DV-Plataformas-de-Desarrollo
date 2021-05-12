@@ -24,7 +24,7 @@ namespace TP2_Grupo4.Views
             this.agencia = userLogged;
             panelMenu.Controls.Add(leftBorderBtn);
 
-            panelAlojamientoSubmenu.Visible = false;
+            //panelAlojamientoSubmenu.Visible = false;
             lblRoleUser.Text = userLogged.GetUsuarioLogeado().GetNombre();
 
             //FORM
@@ -59,7 +59,7 @@ namespace TP2_Grupo4.Views
         {
             ActivateButton(sender, RGBColors.secondary);
             OpenChildForm(new VistaAlojamiento());
-            showSubMenu(panelAlojamientoSubmenu);
+            //showSubMenu(panelAlojamientoSubmenu);
         }
 
         private void btnHoteles_Click(object sender, EventArgs e)
@@ -139,8 +139,8 @@ namespace TP2_Grupo4.Views
         // Menu Helpers
         private void hideSubMenu()
         {
-            if (panelAlojamientoSubmenu.Visible == true)
-                panelAlojamientoSubmenu.Visible = false;
+            //if (panelAlojamientoSubmenu.Visible == true)
+            //    panelAlojamientoSubmenu.Visible = false;
         }
 
         private void showSubMenu(Panel subMenu)
@@ -177,10 +177,10 @@ namespace TP2_Grupo4.Views
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+
+
+
         #endregion
-
-
-
 
     }
 }

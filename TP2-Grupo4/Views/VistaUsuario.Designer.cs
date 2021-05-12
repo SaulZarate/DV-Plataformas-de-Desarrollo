@@ -51,19 +51,20 @@ namespace TP2_Grupo4.Views
             // lblUsuarios
             // 
             this.lblUsuarios.AutoSize = true;
-            this.lblUsuarios.Location = new System.Drawing.Point(476, 21);
+            this.lblUsuarios.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUsuarios.Location = new System.Drawing.Point(390, 7);
             this.lblUsuarios.Name = "lblUsuarios";
-            this.lblUsuarios.Size = new System.Drawing.Size(62, 15);
+            this.lblUsuarios.Size = new System.Drawing.Size(219, 45);
             this.lblUsuarios.TabIndex = 0;
             this.lblUsuarios.Text = "USUARIOS";
             // 
             // dgvUsuarios
             // 
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Location = new System.Drawing.Point(12, 253);
+            this.dgvUsuarios.Location = new System.Drawing.Point(12, 174);
             this.dgvUsuarios.Name = "dgvUsuarios";
             this.dgvUsuarios.RowTemplate.Height = 25;
-            this.dgvUsuarios.Size = new System.Drawing.Size(976, 297);
+            this.dgvUsuarios.Size = new System.Drawing.Size(976, 376);
             this.dgvUsuarios.TabIndex = 1;
             this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
@@ -74,7 +75,6 @@ namespace TP2_Grupo4.Views
             this.groupBoxHoteles.Controls.Add(this.txtEmail);
             this.groupBoxHoteles.Controls.Add(this.txtNombre);
             this.groupBoxHoteles.Controls.Add(this.btnTopModificar);
-            this.groupBoxHoteles.Controls.Add(this.btnAgregar);
             this.groupBoxHoteles.Controls.Add(this.lblPrecioPorPersona);
             this.groupBoxHoteles.Controls.Add(this.lblBarrio);
             this.groupBoxHoteles.Controls.Add(this.lblNombre);
@@ -83,17 +83,17 @@ namespace TP2_Grupo4.Views
             this.groupBoxHoteles.Controls.Add(this.checkBoxAdmin);
             this.groupBoxHoteles.Controls.Add(this.txtDni);
             this.groupBoxHoteles.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxHoteles.Location = new System.Drawing.Point(193, 51);
+            this.groupBoxHoteles.Location = new System.Drawing.Point(84, 51);
             this.groupBoxHoteles.Name = "groupBoxHoteles";
-            this.groupBoxHoteles.Size = new System.Drawing.Size(627, 172);
+            this.groupBoxHoteles.Size = new System.Drawing.Size(842, 117);
             this.groupBoxHoteles.TabIndex = 3;
             this.groupBoxHoteles.TabStop = false;
-            this.groupBoxHoteles.Text = "Agregar";
+            this.groupBoxHoteles.Text = "Modificar";
             // 
             // checkBoxBloqueado
             // 
             this.checkBoxBloqueado.AutoSize = true;
-            this.checkBoxBloqueado.Location = new System.Drawing.Point(526, 76);
+            this.checkBoxBloqueado.Location = new System.Drawing.Point(518, 71);
             this.checkBoxBloqueado.Name = "checkBoxBloqueado";
             this.checkBoxBloqueado.Size = new System.Drawing.Size(83, 19);
             this.checkBoxBloqueado.TabIndex = 17;
@@ -102,14 +102,14 @@ namespace TP2_Grupo4.Views
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(273, 39);
+            this.txtEmail.Location = new System.Drawing.Point(296, 34);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(175, 23);
             this.txtEmail.TabIndex = 16;
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(64, 77);
+            this.txtNombre.Location = new System.Drawing.Point(70, 72);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(129, 23);
             this.txtNombre.TabIndex = 15;
@@ -119,9 +119,9 @@ namespace TP2_Grupo4.Views
             this.btnTopModificar.BackColor = System.Drawing.Color.White;
             this.btnTopModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTopModificar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnTopModificar.Location = new System.Drawing.Point(495, 126);
+            this.btnTopModificar.Location = new System.Drawing.Point(658, 38);
             this.btnTopModificar.Name = "btnTopModificar";
-            this.btnTopModificar.Size = new System.Drawing.Size(114, 25);
+            this.btnTopModificar.Size = new System.Drawing.Size(114, 57);
             this.btnTopModificar.TabIndex = 14;
             this.btnTopModificar.Text = "Modificar";
             this.btnTopModificar.UseVisualStyleBackColor = false;
@@ -132,7 +132,7 @@ namespace TP2_Grupo4.Views
             this.btnAgregar.BackColor = System.Drawing.Color.White;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(495, 126);
+            this.btnAgregar.Location = new System.Drawing.Point(841, 12);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(114, 25);
             this.btnAgregar.TabIndex = 13;
@@ -143,7 +143,7 @@ namespace TP2_Grupo4.Views
             // lblPrecioPorPersona
             // 
             this.lblPrecioPorPersona.AutoSize = true;
-            this.lblPrecioPorPersona.Location = new System.Drawing.Point(210, 80);
+            this.lblPrecioPorPersona.Location = new System.Drawing.Point(233, 75);
             this.lblPrecioPorPersona.Name = "lblPrecioPorPersona";
             this.lblPrecioPorPersona.Size = new System.Drawing.Size(57, 15);
             this.lblPrecioPorPersona.TabIndex = 12;
@@ -152,7 +152,7 @@ namespace TP2_Grupo4.Views
             // lblBarrio
             // 
             this.lblBarrio.AutoSize = true;
-            this.lblBarrio.Location = new System.Drawing.Point(210, 42);
+            this.lblBarrio.Location = new System.Drawing.Point(233, 37);
             this.lblBarrio.Name = "lblBarrio";
             this.lblBarrio.Size = new System.Drawing.Size(36, 15);
             this.lblBarrio.TabIndex = 9;
@@ -161,7 +161,7 @@ namespace TP2_Grupo4.Views
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(7, 80);
+            this.lblNombre.Location = new System.Drawing.Point(13, 75);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(51, 15);
             this.lblNombre.TabIndex = 8;
@@ -170,7 +170,7 @@ namespace TP2_Grupo4.Views
             // lblDni
             // 
             this.lblDni.AutoSize = true;
-            this.lblDni.Location = new System.Drawing.Point(12, 42);
+            this.lblDni.Location = new System.Drawing.Point(18, 37);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(27, 15);
             this.lblDni.TabIndex = 7;
@@ -178,7 +178,7 @@ namespace TP2_Grupo4.Views
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(273, 77);
+            this.txtPassword.Location = new System.Drawing.Point(296, 72);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(175, 23);
             this.txtPassword.TabIndex = 6;
@@ -186,7 +186,7 @@ namespace TP2_Grupo4.Views
             // checkBoxAdmin
             // 
             this.checkBoxAdmin.AutoSize = true;
-            this.checkBoxAdmin.Location = new System.Drawing.Point(526, 43);
+            this.checkBoxAdmin.Location = new System.Drawing.Point(518, 38);
             this.checkBoxAdmin.Name = "checkBoxAdmin";
             this.checkBoxAdmin.Size = new System.Drawing.Size(62, 19);
             this.checkBoxAdmin.TabIndex = 5;
@@ -195,7 +195,7 @@ namespace TP2_Grupo4.Views
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(64, 39);
+            this.txtDni.Location = new System.Drawing.Point(70, 34);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(129, 23);
             this.txtDni.TabIndex = 0;
@@ -209,6 +209,7 @@ namespace TP2_Grupo4.Views
             this.Controls.Add(this.groupBoxHoteles);
             this.Controls.Add(this.dgvUsuarios);
             this.Controls.Add(this.lblUsuarios);
+            this.Controls.Add(this.btnAgregar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VistaUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

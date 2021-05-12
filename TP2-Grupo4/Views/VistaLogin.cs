@@ -201,12 +201,5 @@ namespace TP2_Grupo4.Views
         {
             txtContrasena.UseSystemPasswordChar = true;
         }
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            VistaRecuperar cambiarFormulario = new VistaRecuperar();
-            cambiarFormulario.Show();
-            this.Hide();
-        }
     }
 }

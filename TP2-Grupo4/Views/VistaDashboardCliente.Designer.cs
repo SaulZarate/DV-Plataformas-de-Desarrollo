@@ -1,7 +1,7 @@
 ﻿
 namespace TP2_Grupo4.Views
 {
-    partial class VistaDashboardAdmin
+    partial class VistaDashboardCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -30,35 +30,29 @@ namespace TP2_Grupo4.Views
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnUsuarios = new FontAwesome.Sharp.IconButton();
             this.btnReservas = new FontAwesome.Sharp.IconButton();
             this.btnAlojamiento = new FontAwesome.Sharp.IconButton();
             this.btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.panelRole = new System.Windows.Forms.Panel();
             this.lblRoleUser = new System.Windows.Forms.Label();
             this.pbUserRole = new FontAwesome.Sharp.IconPictureBox();
             this.lblRole = new System.Windows.Forms.Label();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelRole = new System.Windows.Forms.Panel();
             this.btnExit = new FontAwesome.Sharp.IconButton();
-            this.panelMain = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panelRole.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserRole)).BeginInit();
-            this.panelTop.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.panelRole.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenu
             // 
             this.panelMenu.AutoScroll = true;
             this.panelMenu.BackColor = System.Drawing.Color.White;
-            this.panelMenu.Controls.Add(this.btnUsuarios);
             this.panelMenu.Controls.Add(this.btnReservas);
             this.panelMenu.Controls.Add(this.btnAlojamiento);
             this.panelMenu.Controls.Add(this.btnCerrarSesion);
@@ -66,31 +60,8 @@ namespace TP2_Grupo4.Views
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(220, 641);
-            this.panelMenu.TabIndex = 0;
-            // 
-            // btnUsuarios
-            // 
-            this.btnUsuarios.AutoSize = true;
-            this.btnUsuarios.BackColor = System.Drawing.Color.White;
-            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnUsuarios.FlatAppearance.BorderSize = 0;
-            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.ForeColor = System.Drawing.Color.Black;
-            this.btnUsuarios.IconChar = FontAwesome.Sharp.IconChar.Users;
-            this.btnUsuarios.IconColor = System.Drawing.Color.Black;
-            this.btnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnUsuarios.IconSize = 32;
-            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUsuarios.Location = new System.Drawing.Point(0, 308);
-            this.btnUsuarios.Name = "btnUsuarios";
-            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.btnUsuarios.Size = new System.Drawing.Size(220, 60);
-            this.btnUsuarios.TabIndex = 3;
-            this.btnUsuarios.Text = "Usuarios";
-            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUsuarios.UseVisualStyleBackColor = false;
-            this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
+            this.panelMenu.Size = new System.Drawing.Size(220, 640);
+            this.panelMenu.TabIndex = 1;
             // 
             // btnReservas
             // 
@@ -110,10 +81,9 @@ namespace TP2_Grupo4.Views
             this.btnReservas.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnReservas.Size = new System.Drawing.Size(220, 60);
             this.btnReservas.TabIndex = 2;
-            this.btnReservas.Text = "Reservas";
+            this.btnReservas.Text = "Mis Reservaciones";
             this.btnReservas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReservas.UseVisualStyleBackColor = false;
-            this.btnReservas.Click += new System.EventHandler(this.btnReservas_Click);
             // 
             // btnAlojamiento
             // 
@@ -133,10 +103,9 @@ namespace TP2_Grupo4.Views
             this.btnAlojamiento.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnAlojamiento.Size = new System.Drawing.Size(220, 60);
             this.btnAlojamiento.TabIndex = 1;
-            this.btnAlojamiento.Text = "Alojamientos";
+            this.btnAlojamiento.Text = "Buscar Alojamientos";
             this.btnAlojamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAlojamiento.UseVisualStyleBackColor = false;
-            this.btnAlojamiento.Click += new System.EventHandler(this.btnAlojamiento_Click);
             // 
             // btnCerrarSesion
             // 
@@ -151,15 +120,14 @@ namespace TP2_Grupo4.Views
             this.btnCerrarSesion.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnCerrarSesion.IconSize = 32;
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 581);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 580);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnCerrarSesion.Size = new System.Drawing.Size(220, 60);
-            this.btnCerrarSesion.TabIndex = 4;
+            this.btnCerrarSesion.TabIndex = 3;
             this.btnCerrarSesion.Text = "Cerrar sesión";
             this.btnCerrarSesion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // panelLogo
             // 
@@ -191,17 +159,6 @@ namespace TP2_Grupo4.Views
             this.panelDesktop.Size = new System.Drawing.Size(613, 377);
             this.panelDesktop.TabIndex = 0;
             // 
-            // panelRole
-            // 
-            this.panelRole.BackColor = System.Drawing.Color.Black;
-            this.panelRole.Controls.Add(this.lblRoleUser);
-            this.panelRole.Controls.Add(this.pbUserRole);
-            this.panelRole.Controls.Add(this.lblRole);
-            this.panelRole.Location = new System.Drawing.Point(0, 0);
-            this.panelRole.Name = "panelRole";
-            this.panelRole.Size = new System.Drawing.Size(218, 79);
-            this.panelRole.TabIndex = 0;
-            // 
             // lblRoleUser
             // 
             this.lblRoleUser.AutoSize = true;
@@ -214,6 +171,7 @@ namespace TP2_Grupo4.Views
             // 
             // pbUserRole
             // 
+            this.pbUserRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(33)))), ((int)(((byte)(61)))));
             this.pbUserRole.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
             this.pbUserRole.IconColor = System.Drawing.Color.White;
             this.pbUserRole.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -233,27 +191,18 @@ namespace TP2_Grupo4.Views
             this.lblRole.TabIndex = 0;
             this.lblRole.Text = "role: ";
             // 
-            // panelTop
+            // panelRole
             // 
-            this.panelTop.BackColor = System.Drawing.Color.Black;
-            this.panelTop.Controls.Add(this.panelRole);
-            this.panelTop.Controls.Add(this.flowLayoutPanel1);
-            this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTop.Location = new System.Drawing.Point(220, 0);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1000, 70);
-            this.panelTop.TabIndex = 0;
-            this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.Black;
-            this.flowLayoutPanel1.Controls.Add(this.btnExit);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(958, 0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(42, 70);
-            this.flowLayoutPanel1.TabIndex = 0;
+            this.panelRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(33)))), ((int)(((byte)(61)))));
+            this.panelRole.Controls.Add(this.btnExit);
+            this.panelRole.Controls.Add(this.panel1);
+            this.panelRole.Controls.Add(this.lblRoleUser);
+            this.panelRole.Controls.Add(this.pbUserRole);
+            this.panelRole.Controls.Add(this.lblRole);
+            this.panelRole.Location = new System.Drawing.Point(220, 0);
+            this.panelRole.Name = "panelRole";
+            this.panelRole.Size = new System.Drawing.Size(1000, 70);
+            this.panelRole.TabIndex = 2;
             // 
             // btnExit
             // 
@@ -263,44 +212,37 @@ namespace TP2_Grupo4.Views
             this.btnExit.IconColor = System.Drawing.Color.White;
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExit.IconSize = 20;
-            this.btnExit.Location = new System.Drawing.Point(3, 3);
+            this.btnExit.Location = new System.Drawing.Point(960, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(39, 23);
             this.btnExit.TabIndex = 0;
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // panelMain
+            // panel1
             // 
-            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.panelMain.Cursor = System.Windows.Forms.Cursors.Default;
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(220, 70);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1000, 571);
-            this.panelMain.TabIndex = 0;
+            this.panel1.Location = new System.Drawing.Point(0, 69);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1000, 571);
+            this.panel1.TabIndex = 3;
             // 
-            // VistaDashboardAdmin
+            // VistaDashboardCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1220, 641);
-            this.Controls.Add(this.panelMain);
-            this.Controls.Add(this.panelTop);
+            this.ClientSize = new System.Drawing.Size(1220, 640);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelRole);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "VistaDashboardAdmin";
+            this.Name = "VistaDashboardCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "VistaDashboardCliente";
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbUserRole)).EndInit();
             this.panelRole.ResumeLayout(false);
             this.panelRole.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbUserRole)).EndInit();
-            this.panelTop.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -308,20 +250,17 @@ namespace TP2_Grupo4.Views
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
+        private FontAwesome.Sharp.IconButton btnReservas;
+        private FontAwesome.Sharp.IconButton btnAlojamiento;
+        private FontAwesome.Sharp.IconButton btnCerrarSesion;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.Panel panelDesktop;
-        private System.Windows.Forms.Panel panelMain;
-        private FontAwesome.Sharp.IconButton btnCerrarSesion;
-        private FontAwesome.Sharp.IconButton btnAlojamiento;
-        private System.Windows.Forms.Panel panelRole;
-        private System.Windows.Forms.Label lblRole;
-        private FontAwesome.Sharp.IconPictureBox pbUserRole;
         private System.Windows.Forms.Label lblRoleUser;
-        private FontAwesome.Sharp.IconButton btnUsuarios;
-        private FontAwesome.Sharp.IconButton btnReservas;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private FontAwesome.Sharp.IconPictureBox pbUserRole;
+        private System.Windows.Forms.Label lblRole;
+        private System.Windows.Forms.Panel panelRole;
         private FontAwesome.Sharp.IconButton btnExit;
+        private System.Windows.Forms.Panel panel1;
     }
 }

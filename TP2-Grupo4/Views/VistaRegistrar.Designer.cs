@@ -82,7 +82,7 @@ namespace TP2_Grupo4.Views
             this.panel1.Location = new System.Drawing.Point(-2, -8);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(283, 489);
-            this.panel1.TabIndex = 7;
+            this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
@@ -99,8 +99,7 @@ namespace TP2_Grupo4.Views
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 37);
-            this.panel4.TabIndex = 18;
-            this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
+            this.panel4.TabIndex = 0;
             // 
             // btnRegistrar
             // 
@@ -114,7 +113,7 @@ namespace TP2_Grupo4.Views
             this.btnRegistrar.Location = new System.Drawing.Point(458, 322);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(181, 60);
-            this.btnRegistrar.TabIndex = 16;
+            this.btnRegistrar.TabIndex = 6;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
@@ -128,7 +127,7 @@ namespace TP2_Grupo4.Views
             this.label2.Location = new System.Drawing.Point(377, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(333, 68);
-            this.label2.TabIndex = 9;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Registrarse";
             // 
             // panel3
@@ -189,7 +188,7 @@ namespace TP2_Grupo4.Views
             this.textBox1.Location = new System.Drawing.Point(552, 243);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(175, 16);
-            this.textBox1.TabIndex = 20;
+            this.textBox1.TabIndex = 4;
             this.textBox1.Text = "EMAIL";
             this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
             this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
@@ -202,7 +201,7 @@ namespace TP2_Grupo4.Views
             this.textBox2.Location = new System.Drawing.Point(552, 181);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(175, 16);
-            this.textBox2.TabIndex = 19;
+            this.textBox2.TabIndex = 3;
             this.textBox2.Text = "NOMBRE";
             this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
             this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
@@ -214,7 +213,7 @@ namespace TP2_Grupo4.Views
             this.checkBox1.Location = new System.Drawing.Point(641, 296);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(86, 19);
-            this.checkBox1.TabIndex = 23;
+            this.checkBox1.TabIndex = 5;
             this.checkBox1.Text = "¿Es Admin?";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
@@ -230,7 +229,7 @@ namespace TP2_Grupo4.Views
             this.button1.Location = new System.Drawing.Point(287, 43);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(251, 40);
-            this.button1.TabIndex = 25;
+            this.button1.TabIndex = 0;
             this.button1.Text = "Ingresar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -248,7 +247,7 @@ namespace TP2_Grupo4.Views
             this.button2.Location = new System.Drawing.Point(538, 43);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(251, 40);
-            this.button2.TabIndex = 24;
+            this.button2.TabIndex = 0;
             this.button2.Text = "Registrarse";
             this.button2.UseVisualStyleBackColor = false;
             // 

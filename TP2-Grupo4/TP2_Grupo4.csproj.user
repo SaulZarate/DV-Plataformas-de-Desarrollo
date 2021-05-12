@@ -4,40 +4,19 @@
     <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Views\ControlPanelAdmin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\ControlPanelClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\Login.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\VistaAdminAlojamientos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\VistaAdminReservas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\VistaAdminUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\VistaAlojamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\VistaAlojamientosCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\VistaCabanias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\VistaClienteBuscar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\VistaClienteFiltrar.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\VistaClienteReservaciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\VistaDashboardAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\VistaDashboardCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\VistaHome.cs">
@@ -53,6 +32,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\VistaReservas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\VistaReservasCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\VistaUsuario.cs">
