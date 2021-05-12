@@ -40,19 +40,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PC 345\\.nuget\\packages\\": {}
+    "C:\\Users\\user\\.nuget\\packages\\": {},
+    "D:\\Archivos de programa (x86)\\Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
+      "projectUniqueName": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
       "projectName": "TP2_Grupo4",
-      "projectPath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
-      "packagesPath": "C:\\Users\\PC 345\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\obj\\",
+      "projectPath": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
+      "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
+      "outputPath": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Archivos de programa (x86)\\Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\PC 345\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -101,8 +106,16 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

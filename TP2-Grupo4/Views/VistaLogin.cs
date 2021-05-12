@@ -35,8 +35,7 @@ namespace TP2_Grupo4.Views
 
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
-            
-            if (txtUsuario.Text == "USUARIO")
+            if (txtUsuario.Text == "DNI")
             {
                 txtUsuario.Text = "";
                 txtUsuario.ForeColor = Color.LightGray;
@@ -56,7 +55,6 @@ namespace TP2_Grupo4.Views
             if (txtContrasena.Text == "CONTRASEÑA")
             {
                 txtContrasena.Text = "";
-                txtContrasena.UseSystemPasswordChar = true;
             }
         }
         private void txtContrasena_Leave(object sender, EventArgs e)
@@ -169,7 +167,8 @@ namespace TP2_Grupo4.Views
         // TODO: Mostrar VistaRegistrar
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            //this.vistaRegistrar.Show();
+            VistaRegistrar cambiarFormulario = new VistaRegistrar();
+            cambiarFormulario.Show();
             this.Hide();
         }
 
@@ -197,5 +196,10 @@ namespace TP2_Grupo4.Views
 
         #endregion
 
+
+        private void txtContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtContrasena.UseSystemPasswordChar = true;
+        }
     }
 }
