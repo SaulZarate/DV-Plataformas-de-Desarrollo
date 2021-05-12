@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "WXoDJjt31e7oMeSmtUyj1fgDXN+P788nsZwfrxvjXCXR/tH2uAym67eNlPxDo9cbh271jntxZ7qa+9Ct7+srhg==",
+  "dgSpecHash": "4sr+esFR0wjL1keLqwQWuO6Gcinq0MjWYwPxAsJ8MdEPZxJrv4TkG+In92modeS6bwjdNNHEmEr05rNcLvI5fg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\PC 345\\Source\\Repos\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
+  "projectFilePath": "C:\\Users\\Gabriel\\source\\TP2\\TP2-Grupo4\\TP2_Grupo4.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\PC 345\\.nuget\\packages\\fontawesome.sharp\\5.15.3\\fontawesome.sharp.5.15.3.nupkg.sha512"
+    "C:\\Users\\Gabriel\\.nuget\\packages\\fontawesome.sharp\\5.15.3\\fontawesome.sharp.5.15.3.nupkg.sha512"
   ],
   "logs": []
 }
