@@ -64,12 +64,12 @@ namespace TP2_Grupo4.Views
 
         private void btnHoteles_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new VistaHoteles());
+            //OpenChildForm(new VistaHoteles());
         }
 
         private void btnCabanias_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new VistaCabanias());
+            //OpenChildForm(new VistaCabanias());
         }
 
         // TODO: Mostrar Reservas

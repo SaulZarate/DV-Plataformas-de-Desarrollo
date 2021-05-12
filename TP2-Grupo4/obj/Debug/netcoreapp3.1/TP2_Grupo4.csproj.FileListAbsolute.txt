@@ -84,8 +84,6 @@ D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\De
 D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.pdb
 D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.genruntimeconfig.cache
 D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaRegistrar.resources
-<<<<<<< HEAD
-=======
 D:\Users\Gabriel\Downloads\DV-Plataformas-de-Desarrollo_TP2-Front-main\DV-Plataformas-de-Desarrollo_TP2-Front-main\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.exe
 D:\Users\Gabriel\Downloads\DV-Plataformas-de-Desarrollo_TP2-Front-main\DV-Plataformas-de-Desarrollo_TP2-Front-main\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.deps.json
 D:\Users\Gabriel\Downloads\DV-Plataformas-de-Desarrollo_TP2-Front-main\DV-Plataformas-de-Desarrollo_TP2-Front-main\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.runtimeconfig.json
@@ -122,8 +120,31 @@ D:\Users\Gabriel\Downloads\DV-Plataformas-de-Desarrollo_TP2-Front-main\DV-Plataf
 D:\Users\Gabriel\Downloads\DV-Plataformas-de-Desarrollo_TP2-Front-main\DV-Plataformas-de-Desarrollo_TP2-Front-main\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.dll
 D:\Users\Gabriel\Downloads\DV-Plataformas-de-Desarrollo_TP2-Front-main\DV-Plataformas-de-Desarrollo_TP2-Front-main\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.pdb
 D:\Users\Gabriel\Downloads\DV-Plataformas-de-Desarrollo_TP2-Front-main\DV-Plataformas-de-Desarrollo_TP2-Front-main\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.genruntimeconfig.cache
->>>>>>> ed86f8bc22f4e30ec9b08fe93d94075c9bcf16a2
-D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaAlojamientosCliente.resources
-D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaDashboardCliente.resources
-D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaRecuperar.resources
-D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaReservasCliente.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.exe
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.deps.json
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.runtimeconfig.json
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.runtimeconfig.dev.json
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.dll
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\bin\Debug\netcoreapp3.1\TP2_Grupo4.pdb
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\bin\Debug\netcoreapp3.1\FontAwesome.Sharp.dll
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.csprojAssemblyReference.cache
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Properties.Resources.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaAlojamiento.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaAlojamientosCliente.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaDashboardAdmin.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaDashboardCliente.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaHome.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaLogin.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaRecuperar.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaRegistrar.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaReservas.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaReservasCliente.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.Views.VistaUsuario.resources
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.csproj.GenerateResource.cache
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.AssemblyInfoInputs.cache
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.AssemblyInfo.cs
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.csproj.CoreCompileInputs.cache
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.csproj.CopyComplete
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.dll
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.pdb
+D:\usuario\xampp\htdocs\DV-Plataformas-de-Desarrollo_TP2-Front2\TP2-Grupo4\obj\Debug\netcoreapp3.1\TP2_Grupo4.genruntimeconfig.cache

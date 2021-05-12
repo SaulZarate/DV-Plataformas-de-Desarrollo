@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj": {}
+    "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front2\\TP2-Grupo4\\TP2_Grupo4.csproj": {}
   },
   "projects": {
-    "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj": {
+    "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front2\\TP2-Grupo4\\TP2_Grupo4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
+        "projectUniqueName": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front2\\TP2-Grupo4\\TP2_Grupo4.csproj",
         "projectName": "TP2_Grupo4",
-        "projectPath": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
+        "projectPath": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front2\\TP2-Grupo4\\TP2_Grupo4.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\obj\\",
+        "outputPath": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front2\\TP2-Grupo4\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\Archivos de programa (x86)\\Visual Studio\\Shared\\NuGetPackages"

@@ -1,17 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "cK/FnyubF3qIGqxRw5bIcB9x78RkltmaGXb2xCtiiWnQwjbeBU/0KB7iQnnMryBG1vhqxlL3/u/GqgZRnjD2CA==",
+  "dgSpecHash": "1e0UyvgzArif/Bcb0jXvP42MV/U9Jxbo+ooz5em00j4rJZlOnb06cPsdpVD+7UESsTq13WF6ernDJEOGDoQ/Ug==",
   "success": true,
-  "projectFilePath": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\TP2_Grupo4.csproj",
+  "projectFilePath": "D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front2\\TP2-Grupo4\\TP2_Grupo4.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\fontawesome.sharp\\5.15.3\\fontawesome.sharp.5.15.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema al leer el archivo de caché D:\\usuario\\xampp\\htdocs\\DV-Plataformas-de-Desarrollo_TP2-Front\\TP2-Grupo4\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

@@ -10,9 +10,6 @@
     <Compile Update="Views\VistaAlojamientosCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Views\VistaCabanias.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Views\VistaDashboardAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -20,9 +17,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\VistaHome.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Views\VistaHoteles.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Views\VistaRecuperar.cs">
