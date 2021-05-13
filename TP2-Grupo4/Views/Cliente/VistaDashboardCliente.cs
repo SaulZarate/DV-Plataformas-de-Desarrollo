@@ -58,14 +58,14 @@ namespace TP2_Grupo4.Views
         private void btnAlojamiento_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.secondary);
-            OpenChildForm(new VistaAlojamientosCliente());
+            OpenChildForm(new VistaAlojamientosCliente(this.agencia));
         }
 
         // TODO: Mostrar Reservas
         private void btnReservas_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.secondary);
-            OpenChildForm(new VistaReservasCliente());
+            OpenChildForm(new VistaReservasCliente(this.agencia));
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
