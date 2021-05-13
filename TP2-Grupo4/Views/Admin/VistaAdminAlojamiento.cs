@@ -11,10 +11,10 @@ using TP2_Grupo4;
 
 namespace TP2_Grupo4.Views
 {
-    public partial class VistaAlojamiento : Form
+    public partial class VistaAdminAlojamiento : Form
     {
         AgenciaManager agencia = new AgenciaManager();
-        public VistaAlojamiento()
+        public VistaAdminAlojamiento()
         {
             InitializeComponent();
         }

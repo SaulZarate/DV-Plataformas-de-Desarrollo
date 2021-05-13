@@ -41,9 +41,10 @@ namespace TP2_Grupo4.Views
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.lblRecuperar = new System.Windows.Forms.LinkLabel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnExit = new FontAwesome.Sharp.IconButton();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,7 +55,7 @@ namespace TP2_Grupo4.Views
             // pictureBox2
             // 
             this.pictureBox2.Image = global::TP2_Grupo4.Properties.Resources.icon_5359553_960_720;
-            this.pictureBox2.Location = new System.Drawing.Point(359, 151);
+            this.pictureBox2.Location = new System.Drawing.Point(359, 171);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(52, 49);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -64,7 +65,7 @@ namespace TP2_Grupo4.Views
             // pictureBox3
             // 
             this.pictureBox3.Image = global::TP2_Grupo4.Properties.Resources.istockphoto_1241551153_170667a;
-            this.pictureBox3.Location = new System.Drawing.Point(353, 206);
+            this.pictureBox3.Location = new System.Drawing.Point(353, 226);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(62, 67);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -80,7 +81,7 @@ namespace TP2_Grupo4.Views
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnLogin.Location = new System.Drawing.Point(359, 307);
+            this.btnLogin.Location = new System.Drawing.Point(458, 322);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(177, 60);
             this.btnLogin.TabIndex = 3;
@@ -93,12 +94,11 @@ namespace TP2_Grupo4.Views
             this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuario.Location = new System.Drawing.Point(436, 169);
-            this.txtUsuario.Multiline = true;
+            this.txtUsuario.Location = new System.Drawing.Point(436, 189);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(290, 29);
+            this.txtUsuario.Size = new System.Drawing.Size(290, 16);
             this.txtUsuario.TabIndex = 1;
-            this.txtUsuario.Text = "USUARIO";
+            this.txtUsuario.Text = "DNI";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.InputDNI_KeyUp);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
@@ -115,7 +115,7 @@ namespace TP2_Grupo4.Views
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.Location = new System.Drawing.Point(436, 186);
+            this.panel2.Location = new System.Drawing.Point(436, 206);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(290, 1);
             this.panel2.TabIndex = 0;
@@ -123,7 +123,7 @@ namespace TP2_Grupo4.Views
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel3.Location = new System.Drawing.Point(436, 249);
+            this.panel3.Location = new System.Drawing.Point(436, 269);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(290, 1);
             this.panel3.TabIndex = 0;
@@ -133,13 +133,13 @@ namespace TP2_Grupo4.Views
             this.txtContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContrasena.ForeColor = System.Drawing.Color.DimGray;
-            this.txtContrasena.Location = new System.Drawing.Point(436, 231);
-            this.txtContrasena.Multiline = true;
+            this.txtContrasena.Location = new System.Drawing.Point(436, 251);
             this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(290, 28);
+            this.txtContrasena.Size = new System.Drawing.Size(290, 16);
             this.txtContrasena.TabIndex = 2;
             this.txtContrasena.Text = "CONTRASEÑA";
             this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
+            this.txtContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContrasena_KeyDown);
             this.txtContrasena.Leave += new System.EventHandler(this.txtContrasena_Leave);
             // 
             // label2
@@ -148,7 +148,7 @@ namespace TP2_Grupo4.Views
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial Black", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(458, 62);
+            this.label2.Location = new System.Drawing.Point(458, 84);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(173, 68);
             this.label2.TabIndex = 0;
@@ -157,17 +157,17 @@ namespace TP2_Grupo4.Views
             // btnRegistrar
             // 
             this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnRegistrar.FlatAppearance.BorderSize = 0;
+            this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrar.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnRegistrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRegistrar.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnRegistrar.Location = new System.Drawing.Point(551, 307);
+            this.btnRegistrar.Location = new System.Drawing.Point(538, 43);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(181, 60);
-            this.btnRegistrar.TabIndex = 4;
-            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(251, 40);
+            this.btnRegistrar.TabIndex = 0;
+            this.btnRegistrar.Text = "Registrarse";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -190,17 +190,18 @@ namespace TP2_Grupo4.Views
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // linkLabel1
+            // lblRecuperar
             // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.DimGray;
-            this.linkLabel1.Location = new System.Drawing.Point(469, 406);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(157, 15);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "¿Ha olvidado su contraseña?";
+            this.lblRecuperar.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.lblRecuperar.AutoSize = true;
+            this.lblRecuperar.LinkColor = System.Drawing.Color.DimGray;
+            this.lblRecuperar.Location = new System.Drawing.Point(469, 406);
+            this.lblRecuperar.Name = "lblRecuperar";
+            this.lblRecuperar.Size = new System.Drawing.Size(157, 15);
+            this.lblRecuperar.TabIndex = 4;
+            this.lblRecuperar.TabStop = true;
+            this.lblRecuperar.Text = "¿Ha olvidado su contraseña?";
+            this.lblRecuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblRecuperar_LinkClicked);
             // 
             // panel4
             // 
@@ -209,7 +210,7 @@ namespace TP2_Grupo4.Views
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 37);
-            this.panel4.TabIndex = 6;
+            this.panel4.TabIndex = 0;
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
             // 
             // btnExit
@@ -226,16 +227,34 @@ namespace TP2_Grupo4.Views
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.button1.Enabled = false;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.Info;
+            this.button1.Location = new System.Drawing.Point(287, 43);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(251, 40);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Ingresar";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // VistaLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.lblRecuperar);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.panel3);
@@ -249,7 +268,6 @@ namespace TP2_Grupo4.Views
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "VistaLogin";
-            this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.TransparencyKey = System.Drawing.Color.Black;
@@ -275,10 +293,11 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel lblRecuperar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel4;
         private FontAwesome.Sharp.IconButton btnExit;
+        private System.Windows.Forms.Button button1;
     }
 }
 

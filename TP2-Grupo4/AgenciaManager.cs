@@ -180,7 +180,6 @@ namespace TP2_Grupo4
         }
         #endregion
 
-
         #region METODOS PARA LAS VISTAS
         public bool IsUsuarioBloqueado(int dni)
         {

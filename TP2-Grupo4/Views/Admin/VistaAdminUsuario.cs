@@ -10,10 +10,10 @@ using TP2_Grupo4.Models;
 
 namespace TP2_Grupo4.Views
 {
-    public partial class VistaUsuario : Form
+    public partial class VistaAdminUsuario : Form
     {
         AgenciaManager agencia = new AgenciaManager();
-        public VistaUsuario()
+        public VistaAdminUsuario()
         {
             InitializeComponent();
         }
@@ -61,7 +61,6 @@ namespace TP2_Grupo4.Views
             dgvUsuarios.Columns.Add("DNI", "DNI");
             dgvUsuarios.Columns.Add("Nombre", "Nombre");
             dgvUsuarios.Columns.Add("Email", "Email");
-            dgvUsuarios.Columns.Add("Password", "Password");
             dgvUsuarios.Columns.Add(checkIsAdmin);
             dgvUsuarios.Columns.Add(checkBloqueado);
             dgvUsuarios.Columns.Add(btnModificar);
@@ -87,7 +86,6 @@ namespace TP2_Grupo4.Views
                     usuario.GetDni(),
                     usuario.GetNombre(),
                     usuario.GetEmail(),
-                    usuario.GetPassword(),
                     usuario.GetIsAdmin(),
                     usuario.GetBloqueado()
                 );
@@ -125,7 +123,6 @@ namespace TP2_Grupo4.Views
             {
                 if (MessageBox.Show("Estas seguro que quieres modificar este usuario?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    btnAgregar.Visible = false;
                     btnTopModificar.Visible = true;
 
                     rellenarDatos();
@@ -135,17 +132,15 @@ namespace TP2_Grupo4.Views
 
         private void btnTopModificar_Click(object sender, EventArgs e)
         {
-            btnAgregar.Visible = true;
             btnTopModificar.Visible = false;
 
             var dni = Int32.Parse(txtDni.Text);
             string nombre = txtNombre.Text;
             string email = txtEmail.Text;
-            string password = txtPassword.Text;
             bool bloqueado = checkBoxBloqueado.Checked;
 
 
-            this.agencia.ModificarUsuario(dni, nombre, email, password);
+            this.agencia.ModificarUsuario(dni, nombre, email,"");
 
             if (!bloqueado)
             {
@@ -163,32 +158,14 @@ namespace TP2_Grupo4.Views
             getUsuariosFromTextFile();
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-            var dni = Int32.Parse(txtDni.Text);
-            string nombre = txtNombre.Text;
-            string email = txtEmail.Text;
-            string password = txtPassword.Text;
-            bool isadmin = checkBoxAdmin.Checked;
-            bool bloqueado = checkBoxBloqueado.Checked;
-
-            this.agencia.AgregarUsuario(dni, nombre, email, password, isadmin, bloqueado);
-            this.agencia.GuardarCambiosDeLosUsuarios();
-
-            clearAllControls();
-            getUsuariosFromTextFile();
-        }
-
         #region Helper
         private void rellenarDatos()
         {
             txtDni.Text = dgvUsuarios.CurrentRow.Cells[0].Value.ToString();
             txtNombre.Text = dgvUsuarios.CurrentRow.Cells[1].Value.ToString();
             txtEmail.Text = dgvUsuarios.CurrentRow.Cells[2].Value.ToString();
-            txtPassword.Text = "";
-            checkBoxAdmin.Checked = bool.Parse(dgvUsuarios.CurrentRow.Cells[4].Value.ToString());
-            checkBoxAdmin.Enabled = false;
-            checkBoxBloqueado.Checked = bool.Parse(dgvUsuarios.CurrentRow.Cells[5].Value.ToString());
+            checkBoxAdmin.Checked = bool.Parse(dgvUsuarios.CurrentRow.Cells[3].Value.ToString());
+            checkBoxBloqueado.Checked = bool.Parse(dgvUsuarios.CurrentRow.Cells[4].Value.ToString());
         }
 
         // Resetear campos
@@ -217,8 +194,8 @@ namespace TP2_Grupo4.Views
             }
         }
 
-        #endregion
 
+        #endregion
 
     }
 }

@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace TP2_Grupo4.Views
 {
-    public partial class VistaReservas : Form
+    public partial class VistaAlojamientosCliente : Form
     {
-        public VistaReservas()
+        public VistaAlojamientosCliente()
         {
             InitializeComponent();
         }

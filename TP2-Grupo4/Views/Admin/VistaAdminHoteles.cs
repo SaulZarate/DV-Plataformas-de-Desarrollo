@@ -10,10 +10,10 @@ using TP2_Grupo4.Models;
 
 namespace TP2_Grupo4.Views
 {
-    public partial class VistaHoteles : Form
+    public partial class VistaAdminHoteles : Form
     {
         AgenciaManager agencia = new AgenciaManager();
-        public VistaHoteles()
+        public VistaAdminHoteles()
         {
             InitializeComponent();
         }
@@ -79,6 +79,7 @@ namespace TP2_Grupo4.Views
 
             List<Alojamiento> hoteles = this.agencia.GetAgencia().GetHoteles();
 
+
             foreach (Hotel hotel in hoteles)
             {
                 this.dgvHoteles.Rows.Add(
@@ -103,12 +104,12 @@ namespace TP2_Grupo4.Views
         {
             txtCodigo.Text = dgvHoteles.CurrentRow.Cells[0].Value.ToString();
             txtCodigo.Enabled = false;
-            comboBoxCiudad.Text = dgvHoteles.CurrentRow.Cells[1].Value.ToString();
-            comboBoxBarrio.Text = dgvHoteles.CurrentRow.Cells[2].Value.ToString();
+            txtCiudad.Text = dgvHoteles.CurrentRow.Cells[1].Value.ToString();
+            txtBarrio.Text = dgvHoteles.CurrentRow.Cells[2].Value.ToString();
             comboBoxEstrellas.Text = dgvHoteles.CurrentRow.Cells[3].Value.ToString();
             comboBoxCantPersonas.Text = dgvHoteles.CurrentRow.Cells[4].Value.ToString();
-            checkBoxTV.Checked = bool.Parse(dgvHoteles.CurrentRow.Cells[5].Value.ToString());
-            txtPrecioPorPersona.Text = dgvHoteles.CurrentRow.Cells[6].Value.ToString();
+            checkBoxTv.Checked = bool.Parse(dgvHoteles.CurrentRow.Cells[5].Value.ToString());
+            txtPrecio.Text = dgvHoteles.CurrentRow.Cells[6].Value.ToString();
         }
 
         // Resetear campos
@@ -166,7 +167,7 @@ namespace TP2_Grupo4.Views
             {
                 if (MessageBox.Show("Estas seguro que quieres modificar este hotel?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    btnAgregar.Visible = false;
+                    btnTopAgregar.Visible = false;
                     btnTopModificar.Visible = true;
 
                     rellenarDatos();
@@ -180,16 +181,16 @@ namespace TP2_Grupo4.Views
         // onClick Boton Modificar
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            btnAgregar.Visible = true;
+            btnTopAgregar.Visible = true;
             btnTopModificar.Visible = false;
 
             int codigo = Int32.Parse(txtCodigo.Text);
-            string ciudad = comboBoxCiudad.Text;
-            string barrio = comboBoxBarrio.Text;
+            string ciudad = txtCiudad.Text;
+            string barrio = txtBarrio.Text;
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
-            bool tv = checkBoxTV.Checked;
-            double precioPersonas = double.Parse(txtPrecioPorPersona.Text);
+            bool tv = checkBoxTv.Checked;
+            double precioPersonas = double.Parse(txtPrecio.Text);
 
             this.agencia.GetAgencia().ModificarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
             this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
@@ -199,22 +200,23 @@ namespace TP2_Grupo4.Views
         }
 
         // onClick Boton Agregar
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnTopAgregar_Click(object sender, EventArgs e)
         {
             int codigo = Int32.Parse(txtCodigo.Text);
-            string ciudad = comboBoxCiudad.Text;
-            string barrio = comboBoxBarrio.Text;
+            string ciudad = txtCiudad.Text;
+            string barrio = txtBarrio.Text;
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
-            bool tv = checkBoxTV.Checked;
-            double precioPersonas = double.Parse(txtPrecioPorPersona.Text);
+            bool tv = checkBoxTv.Checked;
+            double precioPersonas = double.Parse(txtPrecio.Text);
 
             this.agencia.GetAgencia().AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
             this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
             clearAllControls();
             getHotelesFromTextFile();
         }
-
         #endregion
+
+
     }
 }

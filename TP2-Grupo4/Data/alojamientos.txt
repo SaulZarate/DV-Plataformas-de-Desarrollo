@@ -6,3 +6,5 @@
 543,La Plata,Centro,3,2,True,4000,1,1
 999893,La plata,Centro,3,2,True,3500
 999,Mamita,Mamita99,3,5,False,800
+33,ciudad33,barrio33,3,1,False,100
+44,ciudad44,barrio44,5,3,True,200,3,2

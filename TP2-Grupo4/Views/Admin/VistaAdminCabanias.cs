@@ -9,10 +9,10 @@ using TP2_Grupo4.Models;
 
 namespace TP2_Grupo4.Views
 {
-    public partial class VistaCabanias : Form
+    public partial class VistaAdminCabanias : Form
     {
         AgenciaManager agencia = new AgenciaManager();
-        public VistaCabanias()
+        public VistaAdminCabanias()
         {
             InitializeComponent();
         }
@@ -103,12 +103,12 @@ namespace TP2_Grupo4.Views
         {
             txtCodigo.Text = dgvCabanias.CurrentRow.Cells[0].Value.ToString();
             txtCodigo.Enabled = false;
-            comboBoxCiudad.Text = dgvCabanias.CurrentRow.Cells[1].Value.ToString();
-            comboBoxBarrio.Text = dgvCabanias.CurrentRow.Cells[2].Value.ToString();
+            txtCiudad.Text = dgvCabanias.CurrentRow.Cells[1].Value.ToString();
+            txtBarrio.Text = dgvCabanias.CurrentRow.Cells[2].Value.ToString();
             comboBoxEstrellas.Text = dgvCabanias.CurrentRow.Cells[3].Value.ToString();
             comboBoxCantPersonas.Text = dgvCabanias.CurrentRow.Cells[4].Value.ToString();
             checkBoxTV.Checked = bool.Parse(dgvCabanias.CurrentRow.Cells[5].Value.ToString());
-            txtPrecioPorDia.Text = dgvCabanias.CurrentRow.Cells[6].Value.ToString();
+            txtPrecio.Text = dgvCabanias.CurrentRow.Cells[6].Value.ToString();
             comboBoxHabitaciones.Text = dgvCabanias.CurrentRow.Cells[7].Value.ToString();
             comboBoxBanios.Text = dgvCabanias.CurrentRow.Cells[8].Value.ToString();
         }
@@ -177,12 +177,12 @@ namespace TP2_Grupo4.Views
         private void btnTopAgregar_Click(object sender, EventArgs e)
         {
             int codigo = Int32.Parse(txtCodigo.Text);
-            string ciudad = comboBoxCiudad.Text;
-            string barrio = comboBoxBarrio.Text;
+            string ciudad = txtCiudad.Text;
+            string barrio = txtBarrio.Text;
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
             bool tv = checkBoxTV.Checked;
-            double precioPorDia = double.Parse(txtPrecioPorDia.Text);
+            double precioPorDia = double.Parse(txtPrecio.Text);
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
 
@@ -198,19 +198,21 @@ namespace TP2_Grupo4.Views
             btnTopModificar.Visible = false;
 
             int codigo = Int32.Parse(txtCodigo.Text);
-            string ciudad = comboBoxCiudad.Text;
-            string barrio = comboBoxBarrio.Text;
+            string ciudad = txtCiudad.Text;
+            string barrio = txtBarrio.Text;
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
             bool tv = checkBoxTV.Checked;
-            double precioPorDia = double.Parse(txtPrecioPorDia.Text);
+            double precioPorDia = double.Parse(txtPrecio.Text);
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
 
             this.agencia.GetAgencia().ModificarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
+
             this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
             clearAllControls();
             getCabaniasFromTextFile();
         }
+
     }
 }

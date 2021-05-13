@@ -1,7 +1,7 @@
 ﻿
 namespace TP2_Grupo4.Views
 {
-    partial class VistaUsuario
+    partial class VistaAdminUsuario
     {
         /// <summary>
         /// Required designer variable.
@@ -29,33 +29,21 @@ namespace TP2_Grupo4.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblUsuarios = new System.Windows.Forms.Label();
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBoxHoteles = new System.Windows.Forms.GroupBox();
             this.checkBoxBloqueado = new System.Windows.Forms.CheckBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnTopModificar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.lblPrecioPorPersona = new System.Windows.Forms.Label();
             this.lblBarrio = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblDni = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
             this.checkBoxAdmin = new System.Windows.Forms.CheckBox();
             this.txtDni = new System.Windows.Forms.TextBox();
+            this.lblUsuarios = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.groupBoxHoteles.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblUsuarios
-            // 
-            this.lblUsuarios.AutoSize = true;
-            this.lblUsuarios.Location = new System.Drawing.Point(476, 21);
-            this.lblUsuarios.Name = "lblUsuarios";
-            this.lblUsuarios.Size = new System.Drawing.Size(62, 15);
-            this.lblUsuarios.TabIndex = 0;
-            this.lblUsuarios.Text = "USUARIOS";
             // 
             // dgvUsuarios
             // 
@@ -74,18 +62,15 @@ namespace TP2_Grupo4.Views
             this.groupBoxHoteles.Controls.Add(this.txtEmail);
             this.groupBoxHoteles.Controls.Add(this.txtNombre);
             this.groupBoxHoteles.Controls.Add(this.btnTopModificar);
-            this.groupBoxHoteles.Controls.Add(this.btnAgregar);
-            this.groupBoxHoteles.Controls.Add(this.lblPrecioPorPersona);
             this.groupBoxHoteles.Controls.Add(this.lblBarrio);
             this.groupBoxHoteles.Controls.Add(this.lblNombre);
             this.groupBoxHoteles.Controls.Add(this.lblDni);
-            this.groupBoxHoteles.Controls.Add(this.txtPassword);
             this.groupBoxHoteles.Controls.Add(this.checkBoxAdmin);
             this.groupBoxHoteles.Controls.Add(this.txtDni);
             this.groupBoxHoteles.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxHoteles.Location = new System.Drawing.Point(193, 51);
+            this.groupBoxHoteles.Location = new System.Drawing.Point(94, 90);
             this.groupBoxHoteles.Name = "groupBoxHoteles";
-            this.groupBoxHoteles.Size = new System.Drawing.Size(627, 172);
+            this.groupBoxHoteles.Size = new System.Drawing.Size(809, 125);
             this.groupBoxHoteles.TabIndex = 3;
             this.groupBoxHoteles.TabStop = false;
             this.groupBoxHoteles.Text = "Agregar";
@@ -119,35 +104,13 @@ namespace TP2_Grupo4.Views
             this.btnTopModificar.BackColor = System.Drawing.Color.White;
             this.btnTopModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTopModificar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnTopModificar.Location = new System.Drawing.Point(495, 126);
+            this.btnTopModificar.Location = new System.Drawing.Point(676, 39);
             this.btnTopModificar.Name = "btnTopModificar";
-            this.btnTopModificar.Size = new System.Drawing.Size(114, 25);
+            this.btnTopModificar.Size = new System.Drawing.Size(114, 61);
             this.btnTopModificar.TabIndex = 14;
             this.btnTopModificar.Text = "Modificar";
             this.btnTopModificar.UseVisualStyleBackColor = false;
             this.btnTopModificar.Click += new System.EventHandler(this.btnTopModificar_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.White;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(495, 126);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(114, 25);
-            this.btnAgregar.TabIndex = 13;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // lblPrecioPorPersona
-            // 
-            this.lblPrecioPorPersona.AutoSize = true;
-            this.lblPrecioPorPersona.Location = new System.Drawing.Point(210, 80);
-            this.lblPrecioPorPersona.Name = "lblPrecioPorPersona";
-            this.lblPrecioPorPersona.Size = new System.Drawing.Size(57, 15);
-            this.lblPrecioPorPersona.TabIndex = 12;
-            this.lblPrecioPorPersona.Text = "Password";
             // 
             // lblBarrio
             // 
@@ -176,13 +139,6 @@ namespace TP2_Grupo4.Views
             this.lblDni.TabIndex = 7;
             this.lblDni.Text = "DNI";
             // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(273, 77);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(175, 23);
-            this.txtPassword.TabIndex = 6;
-            // 
             // checkBoxAdmin
             // 
             this.checkBoxAdmin.AutoSize = true;
@@ -200,17 +156,27 @@ namespace TP2_Grupo4.Views
             this.txtDni.Size = new System.Drawing.Size(129, 23);
             this.txtDni.TabIndex = 0;
             // 
-            // VistaUsuario
+            // lblUsuarios
+            // 
+            this.lblUsuarios.AutoSize = true;
+            this.lblUsuarios.Font = new System.Drawing.Font("Arial", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblUsuarios.Location = new System.Drawing.Point(410, 24);
+            this.lblUsuarios.Name = "lblUsuarios";
+            this.lblUsuarios.Size = new System.Drawing.Size(182, 45);
+            this.lblUsuarios.TabIndex = 4;
+            this.lblUsuarios.Text = "Usuarios";
+            // 
+            // VistaAdminUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(1000, 562);
+            this.Controls.Add(this.lblUsuarios);
             this.Controls.Add(this.groupBoxHoteles);
             this.Controls.Add(this.dgvUsuarios);
-            this.Controls.Add(this.lblUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "VistaUsuario";
+            this.Name = "VistaAdminUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormUsuario";
             this.Load += new System.EventHandler(this.VistaUsuario_Load);
@@ -223,21 +189,17 @@ namespace TP2_Grupo4.Views
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblUsuarios;
         private System.Windows.Forms.DataGridView dgvUsuarios;
         private System.Windows.Forms.GroupBox groupBoxHoteles;
         private System.Windows.Forms.Button btnTopModificar;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Label lblPrecioPorPersona;
         private System.Windows.Forms.Label lblBarrio;
         private System.Windows.Forms.Label lblNombre;
         private System.Windows.Forms.Label lblDni;
-        private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.CheckBox checkBoxAdmin;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.CheckBox checkBoxBloqueado;
+        private System.Windows.Forms.Label lblUsuarios;
     }
 }

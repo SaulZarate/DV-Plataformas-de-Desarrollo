@@ -35,8 +35,7 @@ namespace TP2_Grupo4.Views
 
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
-            
-            if (txtUsuario.Text == "USUARIO")
+            if (txtUsuario.Text == "DNI")
             {
                 txtUsuario.Text = "";
                 txtUsuario.ForeColor = Color.LightGray;
@@ -56,7 +55,6 @@ namespace TP2_Grupo4.Views
             if (txtContrasena.Text == "CONTRASEÑA")
             {
                 txtContrasena.Text = "";
-                txtContrasena.UseSystemPasswordChar = true;
             }
         }
         private void txtContrasena_Leave(object sender, EventArgs e)
@@ -155,6 +153,10 @@ namespace TP2_Grupo4.Views
                 else
                 {
                     // USUARIO CLIENTE
+                    //VistaDashboardCliente admin = new VistaDashboardCliente(this.agencia);
+                    //admin.Show();
+                    //this.Hide();
+
                     // Crear un objeto de la vista del cliente
                     // Mostrar la con .show()
                     // Ocultar el login this.hide()
@@ -169,7 +171,8 @@ namespace TP2_Grupo4.Views
         // TODO: Mostrar VistaRegistrar
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            //this.vistaRegistrar.Show();
+            VistaRegistrar registrar = new VistaRegistrar();
+            registrar.Show();
             this.Hide();
         }
 
@@ -197,5 +200,17 @@ namespace TP2_Grupo4.Views
 
         #endregion
 
+
+        private void txtContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            txtContrasena.UseSystemPasswordChar = true;
+        }
+
+        private void lblRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            VistaRecuperar recuperar = new VistaRecuperar();
+            recuperar.Show();
+            this.Hide();
+        }
     }
 }
