@@ -14,9 +14,13 @@ namespace TP2_Grupo4.Views
     public partial class VistaAlojamientosCliente : Form
     {
         AgenciaManager agencia = new AgenciaManager();
-        public VistaAlojamientosCliente()
+        int num1;
+        public VistaAlojamientosCliente(AgenciaManager userLogged)
         {
             InitializeComponent();
+            this.agencia = userLogged;
+            int dni = userLogged.GetUsuarioLogeado().GetDni();
+            num1 = dni;
         }
 
         private void VistaAlojamientosCliente_Load(object sender, EventArgs e)
@@ -177,8 +181,15 @@ namespace TP2_Grupo4.Views
         }
         private void dgvAlojamiento_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            var date1 = new DateTime(2008, 3, 1, 7, 0, 0);
-            var date2 = new DateTime(2008, 5, 2, 8, 1, 1);
+            //var date1 = new DateTime(2008, 3, 1, 7, 0, 0);
+            DateTime date1 = DateTime.Now;
+
+            //var date2 = new DateTime(2008, 5, 2, 8, 1, 1);
+            //DateTime date2 = Convert.ToDateTime("2017-12-24 13:30:15");
+            DateTime date2 = DateTime.Now;
+            // Utilizamos el método AddDays para sumar 10 días:
+            date2 = date2.AddDays(7);
+
             // Si hacemos click en Button RESERVAR
             if (dgvAlojamiento.Columns[e.ColumnIndex].Name == "RESERVAR")
             {
@@ -190,9 +201,9 @@ namespace TP2_Grupo4.Views
                     int codigo = Int32.Parse(dgvAlojamiento.Rows[rowIndex].Cells["Codigo"].Value.ToString());
 
                     // Guardar Datos
-                    int dni = this.agencia.GetUsuarioLogeado().GetDni();
+                    //int dni = agencia.GetUsuarioLogeado().GetDni();
                     // FALTA PONER LA FECHA Y EL USUARIO DE MANERA CORRECTA
-                    this.agencia.AgregarReserva(date1, date2, codigo, dni);//agencia.GetUsuarioLogeado().GetDni()40393222
+                    this.agencia.AgregarReserva(date1, date2, codigo, num1);//agencia.GetUsuarioLogeado().GetDni() //40393222
                     this.agencia.GuardarCambiosDeLasReservas();
 
                     // Actualizar GridView
