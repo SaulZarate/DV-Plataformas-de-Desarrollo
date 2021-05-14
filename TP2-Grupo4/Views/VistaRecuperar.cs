@@ -121,6 +121,7 @@ namespace TP2_Grupo4.Views
                 txtUsuario.Text = "";
                 txtNombre.Text = "";
                 txtMail.Text = "";
+                asdd.Text = "";
                 txtContrasena.Text = "";
                 MessageBox.Show("Se ha modificado el usuario de manera exitosa.");
             }
