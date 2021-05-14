@@ -42,7 +42,7 @@ namespace TP2_Grupo4.Views
 
         private void getTextAlojamientos()
         {
-            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetAllAlojamientos();
+            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetAlojamientos();
             foreach (Alojamiento alojamiento in alojamientos)
             {
                 this.table.Rows.Add(

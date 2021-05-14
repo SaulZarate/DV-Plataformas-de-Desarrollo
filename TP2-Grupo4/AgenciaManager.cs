@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 using TP2_Grupo4.Models;
 using TP2_Grupo4.Helpers;
+using System.Linq;
 
 namespace TP2_Grupo4
 {
@@ -24,6 +25,13 @@ namespace TP2_Grupo4
             this.cargarDatosDeLosUsuarios();
             this.cargarDatosDeLasReservas();
         }
+        
+        #region METODOS PARA LOS ALOJAMIENTOS
+        public bool GuardarCambiosDeLosAlojamientos()
+        {
+            return this.agencia.GuardarCambiosEnElArchivo();
+        }
+        #endregion
 
         #region METODOS PARA LAS RESERVAS
         public bool AgregarReserva(DateTime fechaDesde, DateTime fechaHasta, int codigoAlojamiento, int dniUsuario)
@@ -186,6 +194,36 @@ namespace TP2_Grupo4
             Usuario user = this.usuarios.Find(user => user.GetDni() == dni && user.GetBloqueado() == true);
             return user == null ? false : true;
         }
+        
+        /* OPCIONES DE LOS SELECTS EN LAS VISTAS */
+        public List<int> OpcionesDelSelectDePersonas()
+        {
+            List<int> opciones = new List<int>();
+            for (int i = 1; i <= Agencia.MAXIMA_CANTIDAD_DE_PERSONAS_POR_ALOJAMIENTO; i++)
+                opciones.Add(i);
+            return opciones;
+        }
+        public List<int> OpcionesDelSelectDeEstrellas()
+        {
+            List<int> opciones = new List<int>();
+            for (int i = Agencia.MINIMA_CANTIDAD_DE_ESTRELLAS; i <= Agencia.MAXIMA_CANTIDAD_DE_ESTRELLAS; i++)
+                opciones.Add(i);
+            return opciones;
+        }
+        public List<String> OpcionesDelSelectDeBarrios()
+        {
+            List<String> tipos = new List<string>();
+            foreach (Alojamiento al in this.agencia.GetAlojamientos())
+                tipos.Add(al.GetBarrio());
+            return tipos.Distinct().ToList();
+        }
+        public List<String> OpcionesDelSelectDeCiudades()
+        {
+            List<String> tipos = new List<string>();
+            foreach (Alojamiento al in this.agencia.GetAlojamientos())
+                tipos.Add(al.GetCiudad());
+            return tipos.Distinct().ToList();
+        }
         #endregion
 
 
@@ -194,7 +232,10 @@ namespace TP2_Grupo4
         public List<Reserva> GetReservas() { return this.reservas; }
         public Agencia GetAgencia() { return this.agencia; }
         public Usuario GetUsuarioLogeado() { return this.usuarioLogeado; }
-        private void setAgencia(Agencia agencia) { this.agencia = agencia; }
+        private void setAgencia(Agencia agencia) { 
+            this.agencia = agencia;
+            this.agencia.CargarDatosDeLosAlojamientos();
+        }
 
     }
 }

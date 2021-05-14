@@ -75,7 +75,7 @@ namespace TP2_Grupo4.Views
             // Limpiamos el GridView
             dgvCabanias.Rows.Clear();
 
-            List<Alojamiento> cabanias = this.agencia.GetAgencia().GetCabanias();
+            List<Alojamiento> cabanias = this.agencia.GetAgencia().GetCabanias().GetAlojamientos();
 
             foreach (Cabania cabania in cabanias)
             {

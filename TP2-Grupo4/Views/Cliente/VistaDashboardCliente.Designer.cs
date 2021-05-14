@@ -241,7 +241,7 @@ namespace TP2_Grupo4.Views
             this.btnExit.IconSize = 20;
             this.btnExit.Location = new System.Drawing.Point(3, 3);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(39, 23);
+            this.btnExit.Size = new System.Drawing.Size(27, 61);
             this.btnExit.TabIndex = 0;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);

@@ -14,14 +14,36 @@ namespace TP2_Grupo4.Views
     public partial class VistaAlojamientosCliente : Form
     {
         AgenciaManager agencia = new AgenciaManager();
-        int num1;
-        public VistaAlojamientosCliente(AgenciaManager userLogged)
+        
+        public VistaAlojamientosCliente(AgenciaManager agenciaManager)
         {
             InitializeComponent();
-            this.agencia = userLogged;
-            int dni = userLogged.GetUsuarioLogeado().GetDni();
-            num1 = dni;
+            this.agencia = agenciaManager;
+
+            this.llenarSelects();
         }
+
+        #region METODOS COMPLEMENTARIOS
+        private void llenarSelects()
+        {
+            // Personas
+            foreach(int numero in this.agencia.OpcionesDelSelectDePersonas())
+                this.selectCantPersonas.Items.Add(numero);
+
+            // Estrellas
+            foreach (int numero in this.agencia.OpcionesDelSelectDeEstrellas())
+                this.selectCantPersonas.Items.Add(numero);
+
+            //// Barrios
+            //foreach (String item in this.agencia.OpcionesDelSelectDeBarrios())
+            //    System.Diagnostics.Debug.WriteLine(item);
+            
+            //// Ciudades
+            //foreach (String item in this.agencia.OpcionesDelSelectDeCiudades())
+            //    System.Diagnostics.Debug.WriteLine(item);
+            
+        }
+        #endregion
 
         private void VistaAlojamientosCliente_Load(object sender, EventArgs e)
         {
@@ -59,7 +81,7 @@ namespace TP2_Grupo4.Views
         #region Filtros
         private void getTextAlojamientos()
         {
-            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetAllAlojamientos();
+            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetAlojamientos();
             foreach (Alojamiento alojamiento in alojamientos)
             {
                 this.dgvAlojamiento.Rows.Add(
@@ -73,10 +95,9 @@ namespace TP2_Grupo4.Views
                 );
             }
         }
-
         private void getTextHoteles()
         {
-            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetHoteles();
+            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetHoteles().GetAlojamientos();
             foreach (Alojamiento alojamiento in alojamientos)
             {
                 this.dgvAlojamiento.Rows.Add(
@@ -90,10 +111,9 @@ namespace TP2_Grupo4.Views
                 );
             }
         }
-
         private void getTextCabanias()
         {
-            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetCabanias();
+            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetCabanias().GetAlojamientos();
             foreach (Alojamiento alojamiento in alojamientos)
             {
                 this.dgvAlojamiento.Rows.Add(
@@ -107,10 +127,9 @@ namespace TP2_Grupo4.Views
                 );
             }
         }
-
         private void getEstrellas()
         {
-            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetAlojamientoPorEstrellas();
+            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetAlojamientoPorEstrellas().GetAlojamientos();
             foreach (Alojamiento alojamiento in alojamientos)
             {
                 this.dgvAlojamiento.Rows.Add(
@@ -125,19 +144,16 @@ namespace TP2_Grupo4.Views
             }
         }
         #endregion
-        string cantpers;
+
+
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             this.dgvAlojamiento.Rows.Clear();
 
-            if ((comboBoxEstrellas.SelectedItem).ToString() == "1")
+            if ((selectEstrellas.SelectedItem).ToString() == "1")
             {
                 getEstrellas();
             }
-
-
-
-
 
             if ((comboBoxTipoAloj.SelectedItem).ToString() == "Hotel")
             {
@@ -156,11 +172,10 @@ namespace TP2_Grupo4.Views
         private void comboBoxCantPersonas_SelectedIndexChanged(object sender, EventArgs e)
         {
             //int estrellas = comboBoxEstre;
-            cantpers = comboBoxCantPersonas.Text;
+            String cantpers = selectCantPersonas.Text;
             this.dgvAlojamiento.Rows.Clear();
             getEstrellas();
         }
-
         private void comboBoxTipoAloj_SelectedIndexChanged(object sender, EventArgs e)
         {
             if ((comboBoxTipoAloj.SelectedItem).ToString() == "Hotel")
@@ -203,7 +218,7 @@ namespace TP2_Grupo4.Views
                     // Guardar Datos
                     //int dni = agencia.GetUsuarioLogeado().GetDni();
                     // FALTA PONER LA FECHA Y EL USUARIO DE MANERA CORRECTA
-                    this.agencia.AgregarReserva(date1, date2, codigo, num1);//agencia.GetUsuarioLogeado().GetDni() //40393222
+                    this.agencia.AgregarReserva(date1, date2, codigo, this.agencia.GetUsuarioLogeado().GetDni());
                     this.agencia.GuardarCambiosDeLasReservas();
 
                     // Actualizar GridView

@@ -16,17 +16,18 @@ namespace TP2_Grupo4.Views
         private IconButton currentBtn;
         private Panel leftBorderBtn;
         private Form currentChildForm;
+
         private AgenciaManager agencia;
 
-        public VistaDashboardCliente(AgenciaManager userLogged)
+        public VistaDashboardCliente(AgenciaManager agenciaManager)
         {
             InitializeComponent();
             this.leftBorderBtn = new Panel();
             this.leftBorderBtn.Size = new Size(7, 60);
-            this.agencia = userLogged;
+            this.agencia = agenciaManager;
             panelMenu.Controls.Add(leftBorderBtn);
 
-            lblRoleUser.Text = userLogged.GetUsuarioLogeado().GetNombre();
+            lblRoleUser.Text = agenciaManager.GetUsuarioLogeado().GetNombre();
 
             //FORM
             this.Text = string.Empty;
@@ -34,7 +35,7 @@ namespace TP2_Grupo4.Views
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
 
-            OpenChildForm(new VistaHome());
+            this.OpenChildForm(new VistaHome());
         }
 
         private void OpenChildForm(Form childForm)
@@ -83,7 +84,6 @@ namespace TP2_Grupo4.Views
         #endregion
 
         #region Helpers
-
         private void ActivateButton(object sender, Color color)
         {
             if (sender != null)

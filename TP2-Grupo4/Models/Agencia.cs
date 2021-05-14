@@ -9,6 +9,10 @@ namespace TP2_Grupo4.Models
 {
     public class Agencia
     {
+        public const int MAXIMA_CANTIDAD_DE_PERSONAS_POR_ALOJAMIENTO = 10;
+        public const int MINIMA_CANTIDAD_DE_ESTRELLAS = 1;
+        public const int MAXIMA_CANTIDAD_DE_ESTRELLAS = 5;
+
         private List<Alojamiento> alojamientos;
         private int cantidadDeAlojamientos;
 
@@ -16,7 +20,6 @@ namespace TP2_Grupo4.Models
         {
             this.alojamientos = new List<Alojamiento>();
             this.cantidadDeAlojamientos = 0;
-            this.cargarDatosDeLosAlojamientos();
         }
 
         #region ABM de Alojamientos
@@ -46,55 +49,72 @@ namespace TP2_Grupo4.Models
         }
         #endregion
 
-        /* METODOS PARA FILTRAR ALOJAMIENTOS */
-        public List<Alojamiento> GetHoteles()
+        #region METODOS PARA FILTRAR ALOJAMIENTOS
+        public Agencia GetHoteles()
         {
-            return this.alojamientos.FindAll( alojamiento => alojamiento is Hotel);
+            List<Alojamiento> alojamientos = this.alojamientos.FindAll(alojamiento => alojamiento is Hotel);
+            return this.alojamientosToAgencia(alojamientos);
         }
-        public List<Alojamiento> GetHoteles(double precioMinimo, double precioMaximo)
+        public Agencia GetCabanias()
         {
-            return this.alojamientos.FindAll( al => al is Hotel && al.PrecioTotalDelAlojamiento() >= precioMinimo && al.PrecioTotalDelAlojamiento() <= precioMaximo);
+            List<Alojamiento> alojamientos = this.alojamientos.FindAll( alojamiento => alojamiento is Cabania);
+            return this.alojamientosToAgencia(alojamientos);
         }
-        public List<Alojamiento> GetCabanias()
+        public Agencia GetAlojamientosPorCiudad(String ciudad)
         {
-            return this.alojamientos.FindAll( alojamiento => alojamiento is Cabania);
+            return this.alojamientosToAgencia(this.alojamientos.FindAll(al => al.GetCiudad() == ciudad));
         }
-        public List<Alojamiento> GetCabanias(double precioMinimo, double precioMaximo)
+        public Agencia GetAlojamientosPorBarrio(String barrio)
         {
-            return this.alojamientos.FindAll(al => al is Cabania && al.PrecioTotalDelAlojamiento() >= precioMinimo && al.PrecioTotalDelAlojamiento() <= precioMaximo);
+            return this.alojamientosToAgencia(this.alojamientos.FindAll(al => al.GetBarrio() == barrio));
         }
-        public List<Alojamiento> GetAllAlojamientos()
+        public Agencia GetAllAlojamientos()
         {
-            return this.getAlojamientos();
+            return this.alojamientosToAgencia(this.GetAlojamientos());
         }
-        public List<Alojamiento> GetAllAlojamientos(int minimoEstrellas)
+        public Agencia GetAllAlojamientos(int minimoEstrellas)
         {
-            return this.alojamientos.FindAll(alojamiento => alojamiento.GetEstrellas() >= minimoEstrellas);
+            List<Alojamiento> alojamientos = this.alojamientos.FindAll(alojamiento => alojamiento.GetEstrellas() >= minimoEstrellas);
+            return this.alojamientosToAgencia(alojamientos);
         }
-        public List<Alojamiento> GetAllAlojamientos(double precioMinimo, double precioMaximo)
+        public Agencia GetAllAlojamientos(double precioMinimo, double precioMaximo)
         {
-            return this.alojamientos.FindAll(al => al.PrecioTotalDelAlojamiento() >= precioMinimo && al.PrecioTotalDelAlojamiento() <= precioMaximo);
+            List<Alojamiento> alojamientos = this.alojamientos.FindAll(al => al.PrecioTotalDelAlojamiento() >= precioMinimo && al.PrecioTotalDelAlojamiento() <= precioMaximo);
+            return this.alojamientosToAgencia(alojamientos);
         }
+        #endregion
 
-        /* METODOS DE ORDENAMIENTO */
-        public List<Alojamiento> GetAlojamientoPorEstrellas(List<Alojamiento> alojamientos = null)
+        #region METODOS DE ORDENAMIENTO
+        public Agencia GetAlojamientoPorEstrellas()
         {
-            List<Alojamiento> alojamientosAOrdenar = alojamientos == null ? this.alojamientos : alojamientos;
-            return alojamientosAOrdenar.OrderBy(alojamiento => alojamiento.GetEstrellas()).ToList();
+            List<Alojamiento> alojamientos = this.alojamientos.OrderBy(alojamiento => alojamiento.GetEstrellas()).ToList();
+            return this.alojamientosToAgencia(alojamientos);
         }
-        public List<Alojamiento> GetAlojamientoPorPersonas(List<Alojamiento> alojamientos = null)
+        public Agencia GetAlojamientoPorPersonas()
         {
-            List<Alojamiento> alojamientosAOrdenar = alojamientos == null ? this.alojamientos : alojamientos;
-            return alojamientosAOrdenar.OrderBy(alojamiento => alojamiento.GetCantidadDePersonas()).ToList();
+            List<Alojamiento> alojamientos = this.alojamientos.OrderBy(alojamiento => alojamiento.GetCantidadDePersonas()).ToList();
+            return this.alojamientosToAgencia(alojamientos);
         }
-        public List<Alojamiento> GetAlojamientoPorCodigo(List<Alojamiento> alojamientos = null)
+        public Agencia GetAlojamientoPorCodigo()
         {
-            List<Alojamiento> alojamientosAOrdenar = alojamientos == null ? this.alojamientos : alojamientos;
-            return alojamientosAOrdenar.OrderBy(alojamiento => alojamiento.GetCodigo()).ToList();
+            List<Alojamiento> alojamientos = this.alojamientos.OrderBy(alojamiento => alojamiento.GetCodigo()).ToList();
+            return this.alojamientosToAgencia(alojamientos);
         }
+        #endregion
 
 
-        /* METODOS COMPLEMENTARIOS */
+        #region METODOS COMPLEMENTARIOS
+        private Agencia alojamientosToAgencia(List<Alojamiento> alojamientos)
+        {
+            if (alojamientos.Count == 0) return null;
+
+            Agencia alojamientosFiltrados = new Agencia();
+            foreach (Alojamiento al in alojamientos)
+            {
+                alojamientosFiltrados.AgregarAlojamiento(al);
+            }
+            return alojamientosFiltrados;
+        }
         public Alojamiento FindAlojamientoForCodigo(int codigoAlojamiento)
         {
             return this.alojamientos.Find( al => al.GetCodigo() == codigoAlojamiento );
@@ -103,7 +123,7 @@ namespace TP2_Grupo4.Models
         {
             return this.alojamientos.Exists(al => al.IgualCodigo(alojamiento));
         }
-        private void cargarDatosDeLosAlojamientos()
+        public void CargarDatosDeLosAlojamientos()
         {
             List<string> contenidoDelArchivo = Utils.GetDataFile(Config.PATH_FILE_ALOJAMIENTOS);
             if (contenidoDelArchivo.Count == 0) return;
@@ -130,10 +150,11 @@ namespace TP2_Grupo4.Models
             }
             return Utils.WriteInFile(Config.PATH_FILE_ALOJAMIENTOS, alojamientosInLista);
         }
+        #endregion
 
 
         /* GETTER */
         public int GetCantidadDeAlojamientos() { return this.cantidadDeAlojamientos; }
-        private List<Alojamiento> getAlojamientos() { return this.alojamientos; }
+        public List<Alojamiento> GetAlojamientos() { return this.alojamientos; }
     }
 }

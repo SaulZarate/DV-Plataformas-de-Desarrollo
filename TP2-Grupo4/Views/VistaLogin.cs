@@ -66,7 +66,6 @@ namespace TP2_Grupo4.Views
             }
         }
 
-        // Validacion del dni  
         private void InputDNI_KeyUp(object sender, KeyEventArgs e)
         {
             String input = this.txtUsuario.Text;
@@ -111,7 +110,6 @@ namespace TP2_Grupo4.Views
                 if (this.agencia.BloquearUsuario(dni) && this.agencia.GuardarCambiosDeLosUsuarios())
                 {
                     MessageBox.Show("Has exedido el maximo de intentos. Tu usuario a sido bloqueado, contacte con un administrador");
-                    this.agencia = new AgenciaManager();
                     this.txtUsuario.Text = "";
                     this.txtContrasena.Text = "";
                     return true;
@@ -153,13 +151,9 @@ namespace TP2_Grupo4.Views
                 else
                 {
                     // USUARIO CLIENTE
-                    //VistaDashboardCliente admin = new VistaDashboardCliente(this.agencia);
-                    //admin.Show();
-                    //this.Hide();
-
-                    // Crear un objeto de la vista del cliente
-                    // Mostrar la con .show()
-                    // Ocultar el login this.hide()
+                    VistaDashboardCliente cliente = new VistaDashboardCliente(this.agencia);
+                    cliente.Show();
+                    this.Hide();
                 }
             }
             else

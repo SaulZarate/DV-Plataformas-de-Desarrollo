@@ -37,13 +37,13 @@ namespace TP2_Grupo4.Views
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtCiudad = new System.Windows.Forms.TextBox();
-            this.comboBoxCantPersonas = new System.Windows.Forms.ComboBox();
+            this.selectCantPersonas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.comboBoxEstrellas = new System.Windows.Forms.ComboBox();
+            this.selectEstrellas = new System.Windows.Forms.ComboBox();
             this.comboBoxTipoAloj = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlojamiento)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -76,22 +76,23 @@ namespace TP2_Grupo4.Views
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtCiudad);
-            this.groupBox1.Controls.Add(this.comboBoxCantPersonas);
+            this.groupBox1.Controls.Add(this.selectCantPersonas);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnFiltrar);
-            this.groupBox1.Controls.Add(this.comboBoxEstrellas);
+            this.groupBox1.Controls.Add(this.selectEstrellas);
             this.groupBox1.Controls.Add(this.comboBoxTipoAloj);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(84, 51);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(842, 113);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ordenamiento";
+            this.groupBox1.Text = "Filtrar por:";
             // 
             // txtBarrio
             // 
@@ -132,26 +133,15 @@ namespace TP2_Grupo4.Views
             this.txtCiudad.Size = new System.Drawing.Size(121, 23);
             this.txtCiudad.TabIndex = 2;
             // 
-            // comboBoxCantPersonas
+            // selectCantPersonas
             // 
-            this.comboBoxCantPersonas.FormattingEnabled = true;
-            this.comboBoxCantPersonas.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10"});
-            this.comboBoxCantPersonas.Location = new System.Drawing.Point(531, 69);
-            this.comboBoxCantPersonas.Name = "comboBoxCantPersonas";
-            this.comboBoxCantPersonas.Size = new System.Drawing.Size(65, 23);
-            this.comboBoxCantPersonas.TabIndex = 6;
-            this.comboBoxCantPersonas.Text = "1";
-            this.comboBoxCantPersonas.SelectedIndexChanged += new System.EventHandler(this.comboBoxCantPersonas_SelectedIndexChanged);
+            this.selectCantPersonas.FormattingEnabled = true;
+            this.selectCantPersonas.Location = new System.Drawing.Point(531, 69);
+            this.selectCantPersonas.Name = "selectCantPersonas";
+            this.selectCantPersonas.Size = new System.Drawing.Size(65, 23);
+            this.selectCantPersonas.TabIndex = 6;
+            this.selectCantPersonas.Text = "1";
+            this.selectCantPersonas.SelectedIndexChanged += new System.EventHandler(this.comboBoxCantPersonas_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -167,9 +157,9 @@ namespace TP2_Grupo4.Views
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(59, 72);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 15);
+            this.label5.Size = new System.Drawing.Size(47, 15);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Estrellas";
+            this.label5.Text = "Estrella:";
             // 
             // label4
             // 
@@ -183,7 +173,7 @@ namespace TP2_Grupo4.Views
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(72, 29);
+            this.label1.Location = new System.Drawing.Point(70, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 15);
             this.label1.TabIndex = 0;
@@ -202,28 +192,22 @@ namespace TP2_Grupo4.Views
             this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
-            // comboBoxEstrellas
+            // selectEstrellas
             // 
-            this.comboBoxEstrellas.FormattingEnabled = true;
-            this.comboBoxEstrellas.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5"});
-            this.comboBoxEstrellas.Location = new System.Drawing.Point(114, 69);
-            this.comboBoxEstrellas.Name = "comboBoxEstrellas";
-            this.comboBoxEstrellas.Size = new System.Drawing.Size(53, 23);
-            this.comboBoxEstrellas.TabIndex = 4;
-            this.comboBoxEstrellas.Text = "1";
+            this.selectEstrellas.FormattingEnabled = true;
+            this.selectEstrellas.Location = new System.Drawing.Point(114, 69);
+            this.selectEstrellas.Name = "selectEstrellas";
+            this.selectEstrellas.Size = new System.Drawing.Size(53, 23);
+            this.selectEstrellas.TabIndex = 4;
+            this.selectEstrellas.Text = "1";
             // 
             // comboBoxTipoAloj
             // 
             this.comboBoxTipoAloj.FormattingEnabled = true;
             this.comboBoxTipoAloj.Items.AddRange(new object[] {
-            "Todos",
-            "Hotel",
-            "Cabaña"});
+            "Todo",
+            "Hoteles",
+            "Cabañas"});
             this.comboBoxTipoAloj.Location = new System.Drawing.Point(114, 26);
             this.comboBoxTipoAloj.Name = "comboBoxTipoAloj";
             this.comboBoxTipoAloj.Size = new System.Drawing.Size(107, 23);
@@ -257,13 +241,13 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.DataGridView dgvAlojamiento;
         private System.Windows.Forms.Label lblAlojamientos;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBoxCantPersonas;
+        private System.Windows.Forms.ComboBox selectCantPersonas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.ComboBox comboBoxEstrellas;
+        private System.Windows.Forms.ComboBox selectEstrellas;
         private System.Windows.Forms.ComboBox comboBoxTipoAloj;
         private System.Windows.Forms.TextBox txtBarrio;
         private System.Windows.Forms.TextBox txtPrecio;
