@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using TP2_Grupo4.Models;
 
 namespace TP2_Grupo4.Views
 {
@@ -31,7 +32,7 @@ namespace TP2_Grupo4.Views
                 DataPropertyName = "CANCELAR",
                 FlatStyle = FlatStyle.Flat,
             };
-            btnCancelar.DefaultCellStyle.BackColor = Color.Green;
+            btnCancelar.DefaultCellStyle.BackColor = Color.IndianRed;
 
             dgvReservaciones.Columns.Add("Codigo", "Código");
             dgvReservaciones.Columns.Add("Fecha Inicio", "Fecha Inicio");
@@ -49,11 +50,11 @@ namespace TP2_Grupo4.Views
             foreach (Reserva reservacion in reservaciones)
             {
                 this.dgvReservaciones.Rows.Add(
-                    reservacion.GetCodigo(),
-                    reservacion.GetFechaInicio(),
-                    reservacion.GetFechaFin(),
+                    reservacion.GetId(),
+                    reservacion.GetFechaDesde(),
+                    reservacion.GetFechaHasta(),
                     //num1,
-                    reservacion.PrecioTotalDelAlojamiento()
+                    reservacion.GetPrecio()
                 );
             }
         }
@@ -69,9 +70,8 @@ namespace TP2_Grupo4.Views
                     int rowIndex = dgvReservaciones.CurrentCell.RowIndex;
                     // Codigo del Alojamiento
                     int codigo = Int32.Parse(dgvReservaciones.Rows[rowIndex].Cells["Codigo"].Value.ToString());
-                    string asd = dgvReservaciones.Rows[rowIndex].Cells["Codigo"].Value.ToString();
                     // Eliminar reserva
-                    this.reservas.EliminarReserva(reservas.FindReservaForId(asd).ToString());
+                    this.reservas.EliminarReserva((codigo).ToString());
                     // Guardar Datos
                     this.reservas.GuardarCambiosDeLasReservas();
 
