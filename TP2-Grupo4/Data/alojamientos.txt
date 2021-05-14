@@ -1,10 +1,11 @@
 412,Villa Carlos Paz,Sur,2,1,True,2100,1,1
-863,buenos aires,retiro,4,1,True,1000
+863,buenos aires,retiro,4,2,False,1000
 645,Buenos aires,puerto madero,1,2,False,2000
-123,La plata,Centro,3,2,True,3500
+123,La plata,Centro,3,1,True,3500
 752,Cordoba,villa carlos paz,2,3,True,1500
 543,La Plata,Centro,3,2,True,4000,1,1
 999893,La plata,Centro,3,2,True,3500
 999,Mamita,Mamita99,3,5,False,800
-33,ciudad33,barrio33,3,1,False,100
-44,ciudad44,barrio44,5,3,True,200,3,2
+33,ciudad33,barrio33,3,5,False,100
+44,ciudad444,barrio444,5,3,True,2000,2,1
+111,ciudad111,barrio111,4,2,True,1000,2,1

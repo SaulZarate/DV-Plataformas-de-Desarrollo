@@ -52,6 +52,10 @@ namespace TP2_Grupo4.Views
 
             dgvAlojamiento.Columns.Add(btnReservar);
             dgvAlojamiento.ReadOnly = false;
+            comboBoxTipoAloj.SelectedIndex = 0;
+            comboBoxEstrellas.SelectedIndex = 0;
+            comboBoxCantPersonas.SelectedIndex = 0;
+
             getTextAlojamientos();
         }
 

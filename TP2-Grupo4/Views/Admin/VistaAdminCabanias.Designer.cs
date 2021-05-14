@@ -41,7 +41,7 @@ namespace TP2_Grupo4.Views
             this.checkBoxTV = new System.Windows.Forms.CheckBox();
             this.txtCiudad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtPrecio = new System.Windows.Forms.TextBox();
+            this.txtPrecioDia = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtBarrio = new System.Windows.Forms.TextBox();
             this.comboBoxCantPersonas = new System.Windows.Forms.ComboBox();
@@ -77,7 +77,7 @@ namespace TP2_Grupo4.Views
             this.groupBoxCabanias.Controls.Add(this.checkBoxTV);
             this.groupBoxCabanias.Controls.Add(this.txtCiudad);
             this.groupBoxCabanias.Controls.Add(this.label7);
-            this.groupBoxCabanias.Controls.Add(this.txtPrecio);
+            this.groupBoxCabanias.Controls.Add(this.txtPrecioDia);
             this.groupBoxCabanias.Controls.Add(this.label3);
             this.groupBoxCabanias.Controls.Add(this.txtBarrio);
             this.groupBoxCabanias.Controls.Add(this.comboBoxCantPersonas);
@@ -93,12 +93,15 @@ namespace TP2_Grupo4.Views
             this.groupBoxCabanias.Size = new System.Drawing.Size(842, 117);
             this.groupBoxCabanias.TabIndex = 2;
             this.groupBoxCabanias.TabStop = false;
-            this.groupBoxCabanias.Text = "Ordenamiento";
             // 
             // comboBoxHabitaciones
             // 
+            this.comboBoxHabitaciones.BackColor = System.Drawing.Color.White;
+            this.comboBoxHabitaciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxHabitaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxHabitaciones.FormattingEnabled = true;
             this.comboBoxHabitaciones.Items.AddRange(new object[] {
+            "1",
             "2",
             "3",
             "4",
@@ -107,12 +110,15 @@ namespace TP2_Grupo4.Views
             this.comboBoxHabitaciones.Name = "comboBoxHabitaciones";
             this.comboBoxHabitaciones.Size = new System.Drawing.Size(86, 23);
             this.comboBoxHabitaciones.TabIndex = 18;
-            this.comboBoxHabitaciones.Text = "1";
             // 
             // comboBoxBanios
             // 
+            this.comboBoxBanios.BackColor = System.Drawing.Color.White;
+            this.comboBoxBanios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxBanios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxBanios.FormattingEnabled = true;
             this.comboBoxBanios.Items.AddRange(new object[] {
+            "1",
             "2",
             "3",
             "4",
@@ -121,7 +127,6 @@ namespace TP2_Grupo4.Views
             this.comboBoxBanios.Name = "comboBoxBanios";
             this.comboBoxBanios.Size = new System.Drawing.Size(86, 23);
             this.comboBoxBanios.TabIndex = 17;
-            this.comboBoxBanios.Text = "1";
             // 
             // label6
             // 
@@ -159,6 +164,7 @@ namespace TP2_Grupo4.Views
             this.btnTopModificar.TabIndex = 12;
             this.btnTopModificar.Text = "Modificar";
             this.btnTopModificar.UseVisualStyleBackColor = false;
+            this.btnTopModificar.Click += new System.EventHandler(this.btnTopModificar_Click);
             // 
             // label10
             // 
@@ -196,21 +202,21 @@ namespace TP2_Grupo4.Views
             this.label7.TabIndex = 9;
             this.label7.Text = "Ciudad:";
             // 
-            // txtPrecio
+            // txtPrecioDia
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(557, 19);
-            this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(86, 23);
-            this.txtPrecio.TabIndex = 3;
+            this.txtPrecioDia.Location = new System.Drawing.Point(557, 19);
+            this.txtPrecioDia.Name = "txtPrecioDia";
+            this.txtPrecioDia.Size = new System.Drawing.Size(86, 23);
+            this.txtPrecioDia.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(501, 22);
+            this.label3.Location = new System.Drawing.Point(471, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 15);
+            this.label3.Size = new System.Drawing.Size(69, 15);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Precio";
+            this.label3.Text = "Precio x Dia";
             // 
             // txtBarrio
             // 
@@ -221,8 +227,13 @@ namespace TP2_Grupo4.Views
             // 
             // comboBoxCantPersonas
             // 
+            this.comboBoxCantPersonas.BackColor = System.Drawing.Color.White;
+            this.comboBoxCantPersonas.Cursor = System.Windows.Forms.Cursors.Default;
+            this.comboBoxCantPersonas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCantPersonas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCantPersonas.FormattingEnabled = true;
             this.comboBoxCantPersonas.Items.AddRange(new object[] {
+            "1",
             "2",
             "3",
             "4",
@@ -236,7 +247,6 @@ namespace TP2_Grupo4.Views
             this.comboBoxCantPersonas.Name = "comboBoxCantPersonas";
             this.comboBoxCantPersonas.Size = new System.Drawing.Size(65, 23);
             this.comboBoxCantPersonas.TabIndex = 2;
-            this.comboBoxCantPersonas.Text = "1";
             // 
             // label2
             // 
@@ -280,8 +290,12 @@ namespace TP2_Grupo4.Views
             // 
             // comboBoxEstrellas
             // 
+            this.comboBoxEstrellas.BackColor = System.Drawing.Color.White;
+            this.comboBoxEstrellas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEstrellas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxEstrellas.FormattingEnabled = true;
             this.comboBoxEstrellas.Items.AddRange(new object[] {
+            "1",
             "2",
             "3",
             "4",
@@ -290,7 +304,6 @@ namespace TP2_Grupo4.Views
             this.comboBoxEstrellas.Name = "comboBoxEstrellas";
             this.comboBoxEstrellas.Size = new System.Drawing.Size(53, 23);
             this.comboBoxEstrellas.TabIndex = 5;
-            this.comboBoxEstrellas.Text = "1";
             // 
             // lblAlojamiento
             // 
@@ -334,7 +347,7 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.CheckBox checkBoxTV;
         private System.Windows.Forms.TextBox txtCiudad;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtPrecio;
+        private System.Windows.Forms.TextBox txtPrecioDia;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBarrio;
         private System.Windows.Forms.ComboBox comboBoxCantPersonas;

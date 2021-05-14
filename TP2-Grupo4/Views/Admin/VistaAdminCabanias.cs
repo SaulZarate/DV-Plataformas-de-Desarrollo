@@ -48,30 +48,29 @@ namespace TP2_Grupo4.Views
             };
 
             // Tabla
-            // TODO: Cambiar Ciudad, Barrio, Estrellas, Cant. personas, Habitaciones y Baños por COMBOBOX
             dgvCabanias.Columns.Add("CODIGO", "Codigo");
             dgvCabanias.Columns.Add("CIUDAD", "Ciudad");
             dgvCabanias.Columns.Add("BARRIO", "Barrio");
             dgvCabanias.Columns.Add("ESTRELLAS", "Estrellas");
             dgvCabanias.Columns.Add("CANT_PERSONAS", "Cant. Personas");
             dgvCabanias.Columns.Add(checkTV);
-            dgvCabanias.Columns.Add("PRECIO_X_DIA", "Precio x dia");
-            dgvCabanias.Columns.Add("HABITACIONES", "habitaciones");
-            dgvCabanias.Columns.Add("BAÑOS", "Baños");
-            dgvCabanias.Columns.Add("PRECIO", "Precio Total");
+            dgvCabanias.Columns.Add("PRECIO_X_DIA", "Precio X Dia");
+            dgvCabanias.Columns.Add("HABITACIONES", "Habitaciones");
+            dgvCabanias.Columns.Add("BANIOS", "Baños");
+            dgvCabanias.Columns.Add("PRECIO_TOTAL", "Total");
 
             dgvCabanias.Columns.Add(btnModificar);
             dgvCabanias.Columns.Add(btnBorrar);
 
             dgvCabanias.ReadOnly = true;
-
             btnTopModificar.Visible = false;
 
+            clearAllControls();
             getCabaniasFromTextFile();
         }
 
         private void getCabaniasFromTextFile()
-        {            
+        {
             // Limpiamos el GridView
             dgvCabanias.Rows.Clear();
 
@@ -86,7 +85,7 @@ namespace TP2_Grupo4.Views
                     cabania.GetEstrellas(),
                     cabania.GetCantidadDePersonas().ToString(),
                     cabania.GetTv(),
-                    cabania.GetPrecioPorDia().ToString(),
+                    cabania.GetPrecioPorDia(),
                     cabania.GetHabitaciones().ToString(),
                     cabania.GetBanios().ToString(),
                     cabania.PrecioTotalDelAlojamiento().ToString()
@@ -108,7 +107,7 @@ namespace TP2_Grupo4.Views
             comboBoxEstrellas.Text = dgvCabanias.CurrentRow.Cells[3].Value.ToString();
             comboBoxCantPersonas.Text = dgvCabanias.CurrentRow.Cells[4].Value.ToString();
             checkBoxTV.Checked = bool.Parse(dgvCabanias.CurrentRow.Cells[5].Value.ToString());
-            txtPrecio.Text = dgvCabanias.CurrentRow.Cells[6].Value.ToString();
+            txtPrecioDia.Text = dgvCabanias.CurrentRow.Cells[6].Value.ToString();
             comboBoxHabitaciones.Text = dgvCabanias.CurrentRow.Cells[7].Value.ToString();
             comboBoxBanios.Text = dgvCabanias.CurrentRow.Cells[8].Value.ToString();
         }
@@ -127,7 +126,7 @@ namespace TP2_Grupo4.Views
                 {
                     ComboBox comboBox = (ComboBox)control;
 
-                    comboBox.Text = "";
+                    comboBox.SelectedIndex = 0;
                 }
 
                 if (control is CheckBox)
@@ -182,7 +181,7 @@ namespace TP2_Grupo4.Views
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
             bool tv = checkBoxTV.Checked;
-            double precioPorDia = double.Parse(txtPrecio.Text);
+            double precioPorDia = double.Parse(txtPrecioDia.Text);
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
 
@@ -203,16 +202,16 @@ namespace TP2_Grupo4.Views
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
             bool tv = checkBoxTV.Checked;
-            double precioPorDia = double.Parse(txtPrecio.Text);
+            double precioDia = double.Parse(txtPrecioDia.Text);
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
 
-            this.agencia.GetAgencia().ModificarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
-
+            this.agencia.GetAgencia().ModificarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioDia, habitaciones, banios));
             this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+
             clearAllControls();
             getCabaniasFromTextFile();
+            txtCodigo.Enabled = true;
         }
-
     }
 }

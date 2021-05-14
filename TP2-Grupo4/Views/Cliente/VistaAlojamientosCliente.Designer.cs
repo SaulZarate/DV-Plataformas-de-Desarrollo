@@ -134,6 +134,9 @@ namespace TP2_Grupo4.Views
             // 
             // comboBoxCantPersonas
             // 
+            this.comboBoxCantPersonas.BackColor = System.Drawing.Color.White;
+            this.comboBoxCantPersonas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCantPersonas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxCantPersonas.FormattingEnabled = true;
             this.comboBoxCantPersonas.Items.AddRange(new object[] {
             "1",
@@ -150,7 +153,6 @@ namespace TP2_Grupo4.Views
             this.comboBoxCantPersonas.Name = "comboBoxCantPersonas";
             this.comboBoxCantPersonas.Size = new System.Drawing.Size(65, 23);
             this.comboBoxCantPersonas.TabIndex = 6;
-            this.comboBoxCantPersonas.Text = "1";
             this.comboBoxCantPersonas.SelectedIndexChanged += new System.EventHandler(this.comboBoxCantPersonas_SelectedIndexChanged);
             // 
             // label2
@@ -204,6 +206,9 @@ namespace TP2_Grupo4.Views
             // 
             // comboBoxEstrellas
             // 
+            this.comboBoxEstrellas.BackColor = System.Drawing.Color.White;
+            this.comboBoxEstrellas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxEstrellas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxEstrellas.FormattingEnabled = true;
             this.comboBoxEstrellas.Items.AddRange(new object[] {
             "1",
@@ -215,10 +220,12 @@ namespace TP2_Grupo4.Views
             this.comboBoxEstrellas.Name = "comboBoxEstrellas";
             this.comboBoxEstrellas.Size = new System.Drawing.Size(53, 23);
             this.comboBoxEstrellas.TabIndex = 4;
-            this.comboBoxEstrellas.Text = "1";
             // 
             // comboBoxTipoAloj
             // 
+            this.comboBoxTipoAloj.BackColor = System.Drawing.Color.White;
+            this.comboBoxTipoAloj.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTipoAloj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxTipoAloj.FormattingEnabled = true;
             this.comboBoxTipoAloj.Items.AddRange(new object[] {
             "Todos",
@@ -228,7 +235,6 @@ namespace TP2_Grupo4.Views
             this.comboBoxTipoAloj.Name = "comboBoxTipoAloj";
             this.comboBoxTipoAloj.Size = new System.Drawing.Size(107, 23);
             this.comboBoxTipoAloj.TabIndex = 1;
-            this.comboBoxTipoAloj.Text = "Todos";
             this.comboBoxTipoAloj.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoAloj_SelectedIndexChanged);
             // 
             // VistaAlojamientosCliente
