@@ -10,10 +10,14 @@ namespace TP2_Grupo4.Views
 {
     public partial class VistaReservasCliente : Form
     {
-        AgenciaManager agencia = new AgenciaManager();
+        AgenciaManager reservas = new AgenciaManager();
+        int num1;
         public VistaReservasCliente(AgenciaManager userLogged)
         {
             InitializeComponent();
+            this.reservas = userLogged;
+            int dni = userLogged.GetUsuarioLogeado().GetDni();
+            num1 = dni;
         }
 
         private void VistaReservasCliente_Load(object sender, EventArgs e)
@@ -32,25 +36,23 @@ namespace TP2_Grupo4.Views
             dgvReservaciones.Columns.Add("Codigo", "Código");
             dgvReservaciones.Columns.Add("Fecha Inicio", "Fecha Inicio");
             dgvReservaciones.Columns.Add("Fecha Fin", "Fecha Fin");
-            dgvReservaciones.Columns.Add("Usuario", "Usuario");
+            //dgvReservaciones.Columns.Add("Usuario", "Usuario");
             dgvReservaciones.Columns.Add("Precio", "Precio");
 
             dgvReservaciones.Columns.Add(btnCancelar);
             dgvReservaciones.ReadOnly = false;
-            getTextAlojamientos();
+            getTextReservaciones();
         }
-        private void getTextAlojamientos()
+        private void getTextReservaciones()
         {
-            List<Reserva> reservaciones = this.reservas
+            List<Reserva> reservaciones = this.reservas.GetAllReservasForUsuario(num1);
             foreach (Reserva reservacion in reservaciones)
             {
                 this.dgvReservaciones.Rows.Add(
                     reservacion.GetCodigo(),
-                    reservacion.GetCiudad(),
-                    reservacion.GetBarrio(),
-                    reservacion.GetEstrellas(),
-                    reservacion.GetCantidadDePersonas(),
-                    reservacion.GetTv(),
+                    reservacion.GetFechaInicio(),
+                    reservacion.GetFechaFin(),
+                    //num1,
                     reservacion.PrecioTotalDelAlojamiento()
                 );
             }
@@ -58,34 +60,24 @@ namespace TP2_Grupo4.Views
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //var date1 = new DateTime(2008, 3, 1, 7, 0, 0);
-            DateTime date1 = DateTime.Now;
-
-            //var date2 = new DateTime(2008, 5, 2, 8, 1, 1);
-            //DateTime date2 = Convert.ToDateTime("2017-12-24 13:30:15");
-            DateTime date2 = DateTime.Now;
-            // Utilizamos el método AddDays para sumar 10 días:
-            date2 = date2.AddDays(7);
-
-            // Si hacemos click en Button RESERVAR
-            if (dgvAlojamiento.Columns[e.ColumnIndex].Name == "RESERVAR")
+            // Si hacemos click en Button CANCELAR
+            if (dgvReservaciones.Columns[e.ColumnIndex].Name == "CANCELAR")
             {
-                if (MessageBox.Show("Estas seguro que quieres reservar este alojamiento?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Estas seguro que quieres cancelar este alojamiento?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // Index del Row
-                    int rowIndex = dgvAlojamiento.CurrentCell.RowIndex;
+                    int rowIndex = dgvReservaciones.CurrentCell.RowIndex;
                     // Codigo del Alojamiento
-                    int codigo = Int32.Parse(dgvAlojamiento.Rows[rowIndex].Cells["Codigo"].Value.ToString());
-
+                    int codigo = Int32.Parse(dgvReservaciones.Rows[rowIndex].Cells["Codigo"].Value.ToString());
+                    string asd = dgvReservaciones.Rows[rowIndex].Cells["Codigo"].Value.ToString();
+                    // Eliminar reserva
+                    this.reservas.EliminarReserva(reservas.FindReservaForId(asd).ToString());
                     // Guardar Datos
-                    //int dni = agencia.GetUsuarioLogeado().GetDni();
-                    // FALTA PONER LA FECHA Y EL USUARIO DE MANERA CORRECTA
-                    this.agencia.AgregarReserva(date1, date2, codigo, num1);//agencia.GetUsuarioLogeado().GetDni() //40393222
-                    this.agencia.GuardarCambiosDeLasReservas();
+                    this.reservas.GuardarCambiosDeLasReservas();
 
                     // Actualizar GridView
-                    this.dgvAlojamiento.Rows.Clear();
-                    getTextAlojamientos();
+                    this.dgvReservaciones.Rows.Clear();
+                    getTextReservaciones();
                 }
             }
         }
