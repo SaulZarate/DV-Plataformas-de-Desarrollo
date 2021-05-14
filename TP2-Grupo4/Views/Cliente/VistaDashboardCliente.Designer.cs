@@ -209,6 +209,7 @@ namespace TP2_Grupo4.Views
             this.panelRole.Name = "panelRole";
             this.panelRole.Size = new System.Drawing.Size(1220, 640);
             this.panelRole.TabIndex = 0;
+            this.panelRole.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             // 
             // panel2
             // 

@@ -33,13 +33,15 @@ namespace TP2_Grupo4.Views
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.btnRegistrarse = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.txtMail = new System.Windows.Forms.TextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
@@ -60,9 +62,10 @@ namespace TP2_Grupo4.Views
             this.btnRegistrar.Location = new System.Drawing.Point(459, 322);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(181, 60);
-            this.btnRegistrar.TabIndex = 4;
+            this.btnRegistrar.TabIndex = 5;
             this.btnRegistrar.Text = "Confirmar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnExit
             // 
@@ -97,68 +100,39 @@ namespace TP2_Grupo4.Views
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // btnLogin
+            // button1
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnLogin.Location = new System.Drawing.Point(287, 43);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(251, 40);
-            this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "Ingresar";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.Info;
+            this.button1.Location = new System.Drawing.Point(287, 43);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(251, 40);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Ingresar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnRegistrarse
+            // button2
             // 
-            this.btnRegistrarse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnRegistrarse.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnRegistrarse.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btnRegistrarse.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnRegistrarse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrarse.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnRegistrarse.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnRegistrarse.Location = new System.Drawing.Point(538, 43);
-            this.btnRegistrarse.Name = "btnRegistrarse";
-            this.btnRegistrarse.Size = new System.Drawing.Size(251, 40);
-            this.btnRegistrarse.TabIndex = 0;
-            this.btnRegistrarse.Text = "Registrarse";
-            this.btnRegistrarse.UseVisualStyleBackColor = false;
-            this.btnRegistrarse.Click += new System.EventHandler(this.btnRegistrarse_Click);
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel6.Location = new System.Drawing.Point(462, 295);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(175, 1);
-            this.panel6.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.textBox1.Location = new System.Drawing.Point(462, 277);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(175, 16);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "CONTRASEÑA NUEVA";
-            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
-            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.Location = new System.Drawing.Point(462, 183);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(175, 1);
-            this.panel2.TabIndex = 0;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.ForeColor = System.Drawing.SystemColors.Info;
+            this.button2.Location = new System.Drawing.Point(538, 43);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(251, 40);
+            this.button2.TabIndex = 0;
+            this.button2.Text = "Registrarse";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel4
             // 
@@ -182,24 +156,74 @@ namespace TP2_Grupo4.Views
             this.label2.TabIndex = 0;
             this.label2.Text = "Cambiar Contraseña";
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ControlText;
+            this.panel5.Location = new System.Drawing.Point(552, 198);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(175, 1);
+            this.panel5.TabIndex = 29;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.SystemColors.ControlText;
+            this.panel6.Location = new System.Drawing.Point(552, 261);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(175, 1);
+            this.panel6.TabIndex = 30;
+            // 
+            // txtMail
+            // 
+            this.txtMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMail.ForeColor = System.Drawing.Color.DimGray;
+            this.txtMail.Location = new System.Drawing.Point(552, 243);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(175, 16);
+            this.txtMail.TabIndex = 4;
+            this.txtMail.Text = "EMAIL";
+            this.txtMail.Enter += new System.EventHandler(this.txtMail_Enter);
+            this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNombre.ForeColor = System.Drawing.Color.DimGray;
+            this.txtNombre.Location = new System.Drawing.Point(552, 181);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(175, 16);
+            this.txtNombre.TabIndex = 3;
+            this.txtNombre.Text = "NOMBRE";
+            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
+            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ControlText;
+            this.panel2.Location = new System.Drawing.Point(360, 198);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(175, 1);
+            this.panel2.TabIndex = 27;
+            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel3.Location = new System.Drawing.Point(462, 237);
+            this.panel3.Location = new System.Drawing.Point(360, 261);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(175, 1);
-            this.panel3.TabIndex = 0;
+            this.panel3.TabIndex = 28;
             // 
             // txtContrasena
             // 
             this.txtContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContrasena.ForeColor = System.Drawing.Color.DimGray;
-            this.txtContrasena.Location = new System.Drawing.Point(462, 219);
+            this.txtContrasena.Location = new System.Drawing.Point(360, 243);
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(175, 16);
             this.txtContrasena.TabIndex = 2;
-            this.txtContrasena.Text = "CONTRASEÑA ANTERIOR";
+            this.txtContrasena.Text = "CONTRASEÑA NUEVA";
             this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
             this.txtContrasena.Leave += new System.EventHandler(this.txtContrasena_Leave);
             // 
@@ -208,7 +232,7 @@ namespace TP2_Grupo4.Views
             this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuario.Location = new System.Drawing.Point(462, 166);
+            this.txtUsuario.Location = new System.Drawing.Point(360, 181);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(175, 16);
             this.txtUsuario.TabIndex = 1;
@@ -222,18 +246,20 @@ namespace TP2_Grupo4.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.btnRegistrarse);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtMail);
+            this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.txtUsuario);
+            this.Controls.Add(this.btnRegistrar);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "VistaRecuperar";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -252,13 +278,15 @@ namespace TP2_Grupo4.Views
         private FontAwesome.Sharp.IconButton btnExit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.Button btnRegistrarse;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox txtMail;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.TextBox txtUsuario;
