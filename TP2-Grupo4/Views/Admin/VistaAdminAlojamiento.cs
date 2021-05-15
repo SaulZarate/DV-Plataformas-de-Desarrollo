@@ -19,24 +19,18 @@ namespace TP2_Grupo4.Views
             InitializeComponent();
         }
 
-        DataTable table = new DataTable();
-
-        // TODO: Añadir filtros
-
-        // TODO: Cambiar Ciudad, Barrio, Estrellas y Personas por COMBOBOX
-        // TODO: Cambiar TV por CHECKBOX
         private void FormAlojamiento_Load(object sender, EventArgs e)
         {
-            table.Columns.Add("Codigo", typeof(string));
-            table.Columns.Add("Ciudad", typeof(string));
-            table.Columns.Add("Barrio", typeof(string));
-            table.Columns.Add("Estrellas", typeof(int));
-            table.Columns.Add("Cant. Personas", typeof(string));
-            table.Columns.Add("TV", typeof(bool));
-            table.Columns.Add("Precio", typeof(string));
+            dgvAlojamiento.Columns.Add("CODIGO", "Codigo");
+            dgvAlojamiento.Columns.Add("CIUADAD", "Ciudad");
+            dgvAlojamiento.Columns.Add("BARRIO", "Barrio");
+            dgvAlojamiento.Columns.Add("ESTRELLAS", "Estrellas");
+            dgvAlojamiento.Columns.Add("CANTPERSONAS", "Cant. Personas");
+            dgvAlojamiento.Columns.Add("TV", "TV");
+            dgvAlojamiento.Columns.Add("PRECIO", "Precio");
 
-            dgvAlojamiento.DataSource = table;
-            dgvAlojamiento.ReadOnly = false;
+            dgvAlojamiento.ReadOnly = true;
+            comboBoxTipoAloj.SelectedIndex = 0;
             getTextAlojamientos();
         }
 
@@ -45,7 +39,7 @@ namespace TP2_Grupo4.Views
             List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetAlojamientos();
             foreach (Alojamiento alojamiento in alojamientos)
             {
-                this.table.Rows.Add(
+                this.dgvAlojamiento.Rows.Add(
                     alojamiento.GetCodigo().ToString(),
                     alojamiento.GetCiudad(),
                     alojamiento.GetBarrio(),
@@ -57,5 +51,57 @@ namespace TP2_Grupo4.Views
             }
 
         }
+
+        private void getTextHoteles()
+        {
+            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetHoteles();
+            foreach (Alojamiento alojamiento in alojamientos)
+            {
+                this.dgvAlojamiento.Rows.Add(
+                    alojamiento.GetCodigo(),
+                    alojamiento.GetCiudad(),
+                    alojamiento.GetBarrio(),
+                    alojamiento.GetEstrellas(),
+                    alojamiento.GetCantidadDePersonas(),
+                    alojamiento.GetTv(),
+                    alojamiento.PrecioTotalDelAlojamiento()
+                );
+            }
+        }
+
+        private void getTextCabanias()
+        {
+            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetCabanias();
+            foreach (Alojamiento alojamiento in alojamientos)
+            {
+                this.dgvAlojamiento.Rows.Add(
+                    alojamiento.GetCodigo(),
+                    alojamiento.GetCiudad(),
+                    alojamiento.GetBarrio(),
+                    alojamiento.GetEstrellas(),
+                    alojamiento.GetCantidadDePersonas(),
+                    alojamiento.GetTv(),
+                    alojamiento.PrecioTotalDelAlojamiento()
+                );
+            }
+        }
+
+        private void comboBoxTipoAloj_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.dgvAlojamiento.Rows.Clear();
+            if ((comboBoxTipoAloj.SelectedItem).ToString() == "Hotel")
+            {
+                getTextHoteles();
+            }
+            else if ((comboBoxTipoAloj.SelectedItem).ToString() == "Cabaña")
+            {
+                getTextCabanias();
+            }
+            else
+            {
+                getTextAlojamientos();
+            }
+        }
+
     }
 }

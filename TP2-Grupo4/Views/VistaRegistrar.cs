@@ -5,20 +5,23 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace TP2_Grupo4.Views
 {
     public partial class VistaRegistrar : Form
     {
+        private AgenciaManager agencia;
         public VistaRegistrar()
         {
             InitializeComponent();
+            this.agencia = new AgenciaManager();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            VistaLogin login = new VistaLogin();
-            login.Show();
+            VistaLogin cambiarFormulario = new VistaLogin();
+            cambiarFormulario.Show();
             this.Hide();
         }
 
@@ -63,7 +66,7 @@ namespace TP2_Grupo4.Views
             }
         }
 
-        private void txtNombre_Enter(object sender, EventArgs e)
+        private void textBox2_Enter(object sender, EventArgs e)
         {
             if (txtNombre.Text == "NOMBRE")
             {
@@ -72,7 +75,7 @@ namespace TP2_Grupo4.Views
             }
         }
 
-        private void txtNombre_Leave(object sender, EventArgs e)
+        private void textBox2_Leave(object sender, EventArgs e)
         {
             if (txtNombre.Text == "")
             {
@@ -81,23 +84,52 @@ namespace TP2_Grupo4.Views
             }
         }
 
-        private void txtEmail_Enter(object sender, EventArgs e)
+        private void textBox1_Enter(object sender, EventArgs e)
         {
-            if (txtEmail.Text == "EMAIL")
+            if (txtMail.Text == "EMAIL")
             {
-                txtEmail.Text = "";
-                txtEmail.ForeColor = Color.LightGray;
+                txtMail.Text = "";
+                txtMail.ForeColor = Color.LightGray;
             }
         }
 
-        private void txtEmail_Leave(object sender, EventArgs e)
+        private void textBox1_Leave(object sender, EventArgs e)
         {
-            if (txtEmail.Text == "")
+            if (txtMail.Text == "")
             {
-                txtEmail.Text = "EMAIL";
-                txtEmail.ForeColor = Color.DimGray;
+                txtMail.Text = "EMAIL";
+                txtMail.ForeColor = Color.DimGray;
             }
         }
 
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                agencia.AgregarUsuario(int.Parse(txtUsuario.Text), txtNombre.Text, txtMail.Text, txtContrasena.Text, checkAdmin.Checked, false);
+                agencia.GuardarCambiosDeLosUsuarios();
+                txtUsuario.Text = "";
+                txtNombre.Text = "";
+                txtMail.Text = "";
+                txtContrasena.Text = "";
+                checkAdmin.Checked = false;
+                MessageBox.Show("Se ha registrado de manera exitosa.");
+            }
+            catch
+            {
+                MessageBox.Show("Error en el registro, por favor intentelo nuevamente.");
+            }
+        }
+
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }

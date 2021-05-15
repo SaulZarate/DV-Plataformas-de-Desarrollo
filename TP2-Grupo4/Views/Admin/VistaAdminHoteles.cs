@@ -65,10 +65,12 @@ namespace TP2_Grupo4.Views
             dgvHoteles.Columns.Add(btnBorrar);
 
             dgvHoteles.ReadOnly = true;
-
             btnTopModificar.Visible = false;
+           // comboBoxCantPersonas.SelectedIndex = 0;
+           // comboBoxEstrellas.SelectedIndex = 0;
 
             // Get hoteles de alojamientos.txt
+            clearAllControls();
             getHotelesFromTextFile();
         }
 
@@ -121,13 +123,11 @@ namespace TP2_Grupo4.Views
                 {
                     TextBox textBox = (TextBox)control;
                     textBox.Text = null;
-
                 }
                 if (control is ComboBox)
                 {
                     ComboBox comboBox = (ComboBox)control;
-
-                    comboBox.Text = "";
+                    comboBox.SelectedIndex = 0;
                 }
 
                 if (control is CheckBox)
@@ -179,7 +179,7 @@ namespace TP2_Grupo4.Views
         #region Button Click Events
 
         // onClick Boton Modificar
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnTopModificar_Click(object sender, EventArgs e)
         {
             btnTopAgregar.Visible = true;
             btnTopModificar.Visible = false;
@@ -197,6 +197,7 @@ namespace TP2_Grupo4.Views
 
             clearAllControls();
             getHotelesFromTextFile();
+            txtCodigo.Enabled = true;
         }
 
         // onClick Boton Agregar
@@ -212,11 +213,12 @@ namespace TP2_Grupo4.Views
 
             this.agencia.GetAgencia().AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
             this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+
             clearAllControls();
             getHotelesFromTextFile();
         }
-        #endregion
 
+        #endregion
 
     }
 }

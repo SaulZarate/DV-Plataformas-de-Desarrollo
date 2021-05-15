@@ -11,22 +11,24 @@ namespace TP2_Grupo4.Views
 {
     public partial class VistaRecuperar : Form
     {
+        private AgenciaManager agencia;
         public VistaRecuperar()
         {
             InitializeComponent();
+            this.agencia = new AgenciaManager();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            VistaLogin login = new VistaLogin();
-            login.Show();
+            VistaLogin cambiarFormulario = new VistaLogin();
+            cambiarFormulario.Show();
             this.Hide();
         }
 
-        private void btnRegistrarse_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            VistaRegistrar registrar = new VistaRegistrar();
-            registrar.Show();
+            VistaRegistrar cambiarFormulario = new VistaRegistrar();
+            cambiarFormulario.Show();
             this.Hide();
         }
 
@@ -50,7 +52,7 @@ namespace TP2_Grupo4.Views
 
         private void txtContrasena_Enter(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == "CONTRASEÑA ANTERIOR")
+            if (txtContrasena.Text == "CONTRASEÑA NUEVA")
             {
                 txtContrasena.Text = "";
             }
@@ -60,32 +62,38 @@ namespace TP2_Grupo4.Views
         {
             if (txtContrasena.Text == "")
             {
-                txtContrasena.Text = "CONTRASEÑA ANTERIOR";
+                txtContrasena.Text = "CONTRASEÑA NUEVA";
             }
         }
-
-        private void textBox1_Enter(object sender, EventArgs e)
+        private void txtNombre_Enter(object sender, EventArgs e)
         {
-            if (textBox1.Text == "CONTRASEÑA NUEVA")
+            if (txtNombre.Text == "NOMBRE")
             {
-                textBox1.Text = "";
+                txtNombre.Text = "";
             }
         }
-
-        private void textBox1_Leave(object sender, EventArgs e)
+        private void txtNombre_Leave(object sender, EventArgs e)
         {
-            if (textBox1.Text == "")
+            if (txtNombre.Text == "")
             {
-                textBox1.Text = "CONTRASEÑA NUEVA";
+                txtNombre.Text = "NOMBRE";
             }
         }
-
-        private void btnExit_Click(object sender, EventArgs e)
+        private void txtMail_Enter(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (txtMail.Text == "EMAIL")
+            {
+                txtMail.Text = "";
+            }
         }
-
-
+        private void txtMail_Leave(object sender, EventArgs e)
+        {
+            if (txtMail.Text == "")
+            {
+                txtMail.Text = "EMAIL";
+                txtMail.Text = "EMAIL";
+            }
+        }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -96,6 +104,30 @@ namespace TP2_Grupo4.Views
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                agencia.ModificarUsuario(int.Parse(txtUsuario.Text), txtNombre.Text, txtMail.Text, txtContrasena.Text);
+                //agencia.AgregarUsuario(, txtNombre.Text, txtMail.Text, txtContrasena.Text);
+                agencia.GuardarCambiosDeLosUsuarios();
+                txtUsuario.Text = "";
+                txtNombre.Text = "";
+                txtMail.Text = "";
+                txtContrasena.Text = "";
+                MessageBox.Show("Se ha modificado el usuario de manera exitosa.");
+            }
+            catch
+            {
+                MessageBox.Show("Error en la modificación, por favor intentelo nuevamente.");
+            }
         }
     }
 }

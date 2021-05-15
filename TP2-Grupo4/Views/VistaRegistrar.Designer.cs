@@ -41,10 +41,10 @@ namespace TP2_Grupo4.Views
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtMail = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.checkBoxIsAdmin = new System.Windows.Forms.CheckBox();
-            this.btnLogin = new System.Windows.Forms.Button();
+            this.checkAdmin = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -100,6 +100,7 @@ namespace TP2_Grupo4.Views
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(800, 37);
             this.panel4.TabIndex = 0;
+            this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
             // 
             // btnRegistrar
             // 
@@ -116,6 +117,7 @@ namespace TP2_Grupo4.Views
             this.btnRegistrar.TabIndex = 6;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // label2
             // 
@@ -179,18 +181,18 @@ namespace TP2_Grupo4.Views
             this.panel6.Size = new System.Drawing.Size(175, 1);
             this.panel6.TabIndex = 22;
             // 
-            // txtEmail
+            // txtMail
             // 
-            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtEmail.ForeColor = System.Drawing.Color.DimGray;
-            this.txtEmail.Location = new System.Drawing.Point(552, 243);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(175, 16);
-            this.txtEmail.TabIndex = 4;
-            this.txtEmail.Text = "EMAIL";
-            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
+            this.txtMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMail.ForeColor = System.Drawing.Color.DimGray;
+            this.txtMail.Location = new System.Drawing.Point(552, 243);
+            this.txtMail.Name = "txtMail";
+            this.txtMail.Size = new System.Drawing.Size(175, 16);
+            this.txtMail.TabIndex = 4;
+            this.txtMail.Text = "EMAIL";
+            this.txtMail.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.txtMail.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // txtNombre
             // 
@@ -202,36 +204,36 @@ namespace TP2_Grupo4.Views
             this.txtNombre.Size = new System.Drawing.Size(175, 16);
             this.txtNombre.TabIndex = 3;
             this.txtNombre.Text = "NOMBRE";
-            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
-            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
+            this.txtNombre.Enter += new System.EventHandler(this.textBox2_Enter);
+            this.txtNombre.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
-            // checkBoxIsAdmin
+            // checkAdmin
             // 
-            this.checkBoxIsAdmin.AutoSize = true;
-            this.checkBoxIsAdmin.ForeColor = System.Drawing.Color.DimGray;
-            this.checkBoxIsAdmin.Location = new System.Drawing.Point(641, 296);
-            this.checkBoxIsAdmin.Name = "checkBoxIsAdmin";
-            this.checkBoxIsAdmin.Size = new System.Drawing.Size(86, 19);
-            this.checkBoxIsAdmin.TabIndex = 5;
-            this.checkBoxIsAdmin.Text = "¿Es Admin?";
-            this.checkBoxIsAdmin.UseVisualStyleBackColor = true;
+            this.checkAdmin.AutoSize = true;
+            this.checkAdmin.ForeColor = System.Drawing.Color.DimGray;
+            this.checkAdmin.Location = new System.Drawing.Point(641, 296);
+            this.checkAdmin.Name = "checkAdmin";
+            this.checkAdmin.Size = new System.Drawing.Size(86, 19);
+            this.checkAdmin.TabIndex = 5;
+            this.checkAdmin.Text = "¿Es Admin?";
+            this.checkAdmin.UseVisualStyleBackColor = true;
             // 
-            // btnLogin
+            // button1
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnLogin.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnLogin.ForeColor = System.Drawing.SystemColors.Info;
-            this.btnLogin.Location = new System.Drawing.Point(287, 43);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(251, 40);
-            this.btnLogin.TabIndex = 0;
-            this.btnLogin.Text = "Ingresar";
-            this.btnLogin.UseVisualStyleBackColor = false;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.ForeColor = System.Drawing.SystemColors.Info;
+            this.button1.Location = new System.Drawing.Point(287, 43);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(251, 40);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Ingresar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -256,12 +258,12 @@ namespace TP2_Grupo4.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.checkBoxIsAdmin);
+            this.Controls.Add(this.checkAdmin);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtMail);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -296,10 +298,10 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtMail;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.CheckBox checkBoxIsAdmin;
-        private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.CheckBox checkAdmin;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
     }
 }

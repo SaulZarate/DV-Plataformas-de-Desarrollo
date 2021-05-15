@@ -67,7 +67,7 @@ namespace TP2_Grupo4.Views
             dgvUsuarios.Columns.Add(btnBorrar);
 
             dgvUsuarios.ReadOnly = true;
-            btnTopModificar.Visible = false;
+            groupBoxHoteles.Enabled = false;
 
             // Get hoteles de usuarios.txt
             getUsuariosFromTextFile();
@@ -124,7 +124,7 @@ namespace TP2_Grupo4.Views
                 if (MessageBox.Show("Estas seguro que quieres modificar este usuario?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     btnTopModificar.Visible = true;
-
+                    groupBoxHoteles.Enabled = true;
                     rellenarDatos();
                 }
             }
@@ -155,6 +155,7 @@ namespace TP2_Grupo4.Views
             this.agencia.GuardarCambiosDeLosUsuarios();
 
             clearAllControls();
+            groupBoxHoteles.Enabled = false;
             getUsuariosFromTextFile();
         }
 

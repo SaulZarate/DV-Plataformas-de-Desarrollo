@@ -73,7 +73,6 @@ namespace TP2_Grupo4.Views
             this.groupBoxHoteles.Size = new System.Drawing.Size(809, 125);
             this.groupBoxHoteles.TabIndex = 3;
             this.groupBoxHoteles.TabStop = false;
-            this.groupBoxHoteles.Text = "Agregar";
             // 
             // checkBoxBloqueado
             // 

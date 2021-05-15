@@ -139,7 +139,6 @@ namespace TP2_Grupo4.Views
             this.ID.Size = new System.Drawing.Size(64, 15);
             this.ID.TabIndex = 0;
             this.ID.Text = "ID Reserva:";
-            this.ID.Click += new System.EventHandler(this.ID_Click);
             // 
             // Precio
             // 
@@ -193,7 +192,6 @@ namespace TP2_Grupo4.Views
             this.label1.Size = new System.Drawing.Size(89, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "ID Alojamiento:";
-            this.label1.Click += new System.EventHandler(this.TBTipo);
             // 
             // Modificar
             // 

@@ -49,6 +49,10 @@ namespace TP2_Grupo4.Views
             // 
             // comboBoxTipoAloj
             // 
+            this.comboBoxTipoAloj.AllowDrop = true;
+            this.comboBoxTipoAloj.BackColor = System.Drawing.Color.White;
+            this.comboBoxTipoAloj.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTipoAloj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxTipoAloj.FormattingEnabled = true;
             this.comboBoxTipoAloj.Items.AddRange(new object[] {
             "Todos",
@@ -58,6 +62,7 @@ namespace TP2_Grupo4.Views
             this.comboBoxTipoAloj.Name = "comboBoxTipoAloj";
             this.comboBoxTipoAloj.Size = new System.Drawing.Size(107, 23);
             this.comboBoxTipoAloj.TabIndex = 4;
+            this.comboBoxTipoAloj.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoAloj_SelectedIndexChanged);
             // 
             // label1
             // 
