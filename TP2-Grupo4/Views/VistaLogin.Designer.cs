@@ -37,6 +37,7 @@ namespace TP2_Grupo4.Views
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.txtContrasena = new System.Windows.Forms.TextBox();
+            txtContrasena.UseSystemPasswordChar = true;
             this.label2 = new System.Windows.Forms.Label();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -141,7 +142,7 @@ namespace TP2_Grupo4.Views
             this.txtContrasena.TabIndex = 2;
             this.txtContrasena.Text = "CONTRASEÑA";
             this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
-            this.txtContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContrasena_KeyDown);
+            //this.txtContrasena.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtContrasena_Selected);
             this.txtContrasena.Leave += new System.EventHandler(this.txtContrasena_Leave);
             // 
             // label2

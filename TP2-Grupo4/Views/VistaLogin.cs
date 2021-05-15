@@ -195,10 +195,10 @@ namespace TP2_Grupo4.Views
         #endregion
 
 
-        private void txtContrasena_KeyDown(object sender, KeyEventArgs e)
-        {
-            txtContrasena.UseSystemPasswordChar = true;
-        }
+         private void txtContrasena_Selected(object sender, KeyEventArgs e)
+         {
+             txtContrasena.UseSystemPasswordChar = true;
+         }
 
         private void lblRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
