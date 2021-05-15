@@ -123,6 +123,24 @@ namespace TP2_Grupo4.Models
             }
             return alojamientos;
         }
+        public List<List<String>> DatosDeHotelesParaLasVistas()
+        {
+            List<List<String>> alojamientos = new List<List<string>>();
+
+            foreach (Alojamiento alojamiento in this.GetHoteles().alojamientos)
+                alojamientos.Add(Utils.StringToArray(alojamiento.ToString()).ToList());
+
+            return alojamientos;
+        }
+        public List<List<String>> DatosDeCabaniasParaLasVistas()
+        {
+            List<List<String>> alojamientos = new List<List<string>>();
+
+            foreach (Alojamiento alojamiento in this.GetCabanias().alojamientos)
+                alojamientos.Add(Utils.StringToArray(alojamiento.ToString()).ToList());
+
+            return alojamientos;
+        }
         private Agencia alojamientosToAgencia(List<Alojamiento> alojamientos)
         {
             if (alojamientos.Count == 0) return null;

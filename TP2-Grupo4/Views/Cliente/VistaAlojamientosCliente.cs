@@ -166,6 +166,9 @@ namespace TP2_Grupo4.Views
                         this.agencia.GetUsuarioLogeado().GetDni(),
                         (precioDelAlojamiento * diasTotalesDeLaReserva));
 
+                    //foreach(Reserva reserva in this.agencia.GetReservas())
+                    //    System.Diagnostics.Debug.WriteLine(reserva.ToString());
+
                     // Guardar datos en el txt
                     if (!this.agencia.GuardarCambiosDeLasReservas())
                     {

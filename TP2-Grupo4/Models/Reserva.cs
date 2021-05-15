@@ -45,7 +45,7 @@ namespace TP2_Grupo4.Models
             objetoSerializado += this.GetFechaHasta().ToString() + ",";
             objetoSerializado += this.GetAlojamiento().GetCodigo().ToString() + ",";
             objetoSerializado += this.GetUsuario().GetDni().ToString() + ",";
-            objetoSerializado += this.GetAlojamiento().PrecioTotalDelAlojamiento().ToString();
+            objetoSerializado += this.GetPrecio().ToString();
             return objetoSerializado;
         }
 
