@@ -38,7 +38,6 @@ namespace TP2_Grupo4.Views
             dgvReservaciones.Columns.Add("TipoAlojamiento", "Tipo de alojamiento");
             dgvReservaciones.Columns.Add("Fecha Inicio", "Fecha de ida");
             dgvReservaciones.Columns.Add("Fecha Fin", "Fecha de vuelta");
-            //dgvReservaciones.Columns.Add("Usuario", "Usuario");
             dgvReservaciones.Columns.Add("Precio", "Precio");
 
             dgvReservaciones.Columns.Add(btnCancelar);

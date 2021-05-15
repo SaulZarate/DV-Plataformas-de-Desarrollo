@@ -58,6 +58,8 @@ namespace TP2_Grupo4.Views
             // 
             // dgvCabanias
             // 
+            this.dgvCabanias.AllowUserToResizeColumns = false;
+            this.dgvCabanias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCabanias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCabanias.Location = new System.Drawing.Point(12, 198);
             this.dgvCabanias.Name = "dgvCabanias";

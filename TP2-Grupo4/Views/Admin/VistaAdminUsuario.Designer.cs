@@ -48,6 +48,8 @@ namespace TP2_Grupo4.Views
             // 
             // dgvUsuarios
             // 
+            this.dgvUsuarios.AllowUserToResizeColumns = false;
+            this.dgvUsuarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Location = new System.Drawing.Point(12, 253);
             this.dgvUsuarios.Name = "dgvUsuarios";

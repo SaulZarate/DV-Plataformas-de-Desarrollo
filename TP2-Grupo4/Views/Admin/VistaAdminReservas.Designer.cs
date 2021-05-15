@@ -61,6 +61,8 @@ namespace TP2_Grupo4.Views
             // 
             // dgvReservas
             // 
+            this.dgvReservas.AllowUserToResizeColumns = false;
+            this.dgvReservas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvReservas.Location = new System.Drawing.Point(12, 174);
             this.dgvReservas.Name = "dgvReservas";
