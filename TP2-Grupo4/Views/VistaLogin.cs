@@ -84,7 +84,7 @@ namespace TP2_Grupo4.Views
                 else
                 {
                     this.btnLogin.Enabled = true;
-                    System.Diagnostics.Debug.WriteLine("Usuario correcto y no esta bloqueado");
+                    //System.Diagnostics.Debug.WriteLine("Usuario correcto y no esta bloqueado");
                 }
             }
             catch (Exception)

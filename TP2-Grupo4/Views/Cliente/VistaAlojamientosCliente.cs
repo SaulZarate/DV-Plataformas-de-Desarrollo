@@ -13,15 +13,19 @@ namespace TP2_Grupo4.Views
 {
     public partial class VistaAlojamientosCliente : Form
     {
-        AgenciaManager agencia = new AgenciaManager();
+        private AgenciaManager agencia = new AgenciaManager();
+
+        private Agencia alojamientosDelDataGridView;
         
         public VistaAlojamientosCliente(AgenciaManager agenciaManager)
         {
             InitializeComponent();
             this.agencia = agenciaManager;
+            this.alojamientosDelDataGridView = agenciaManager.GetAgencia();
 
             this.llenarSelects();
         }
+
 
         #region METODOS COMPLEMENTARIOS
         private void llenarSelects()
@@ -64,16 +68,23 @@ namespace TP2_Grupo4.Views
             this.selectBarrio.SelectedIndex = 0;
             this.selectEstrellas.SelectedIndex = 0;
             this.selectCantPersonas.SelectedIndex = 0;
-            this.selectOrdenamiento.SelectedIndex = 0;
+            //this.selectOrdenamiento.SelectedIndex = 0;
         }
         private void limpiarDataGridView()
         {
             this.dgvAlojamiento.Rows.Clear();
         }
-        private void llenarDataGridView(List<List<String>> data = null)
+        private void llenarDataGridView(Agencia datosParaElDGV = null, bool ordenar = false)
         {
-            List<List<String>> datosParaElDataGridView = data == null ? this.agencia.GetAgencia().DatosDeAlojamientosParaLasVistas() : data;
-            foreach (List<String> alojamiento in datosParaElDataGridView)
+
+            Agencia alojamientosFiltrados = datosParaElDGV ?? this.agencia.GetAgencia();
+
+            if (!ordenar)
+            {
+                this.alojamientosDelDataGridView = alojamientosFiltrados;
+            }
+
+            foreach (List<String> alojamiento in alojamientosFiltrados.DatosDeAlojamientosParaLasVistas())
                 this.dgvAlojamiento.Rows.Add(alojamiento.ToArray());
         }
         private void bloquearBotonFiltrar(bool flag)
@@ -82,7 +93,8 @@ namespace TP2_Grupo4.Views
         }
         #endregion
 
-        // Cargar datos por defecto en la DataGridView
+
+        /* DATOS POR DEFECTO DEL DATAGRIDVIEW */
         private void VistaAlojamientosCliente_Load(object sender, EventArgs e)
         {
             // Boton reservar
@@ -112,27 +124,64 @@ namespace TP2_Grupo4.Views
         }
 
 
-        // BOTON FILTRAR
+        /* BOTON FILTRAR */
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            //String inputTipoAlojamiento = this.selectTipoAlojamiento.SelectedItem.ToString();
-            //String inputCiudad = this.selectCiudad.SelectedItem.ToString();
-            //String inputBarrio = this.selectBarrio.SelectedItem.ToString();
-            //String inputPrecioMin = this.inputPrecioMin.Text;
-            //String inputPrecioMax = this.inputPrecioMax.Text;
-            //String inputEstrellas = this.selectEstrellas.SelectedItem.ToString();
-            //String inputPersonas = this.selectCantPersonas.SelectedItem.ToString();
+            String inputTipoAlojamiento = this.selectTipoAlojamiento.SelectedItem.ToString();
+            String inputCiudad = this.selectCiudad.SelectedItem.ToString();
+            String inputBarrio = this.selectBarrio.SelectedItem.ToString();
+            double inputPrecioMin = double.Parse(this.inputPrecioMin.Text);
+            double inputPrecioMax = double.Parse(this.inputPrecioMax.Text);
+            String inputEstrellas = this.selectEstrellas.SelectedItem.ToString();
+            String inputPersonas = this.selectCantPersonas.SelectedItem.ToString();
 
-            //System.Diagnostics.Debug.WriteLine(inputTipoAlojamiento);
-            //System.Diagnostics.Debug.WriteLine(inputCiudad);
-            //System.Diagnostics.Debug.WriteLine(inputBarrio);
-            //System.Diagnostics.Debug.WriteLine(inputPrecioMin);
-            //System.Diagnostics.Debug.WriteLine(inputPrecioMax);
-            //System.Diagnostics.Debug.WriteLine(inputEstrellas);
-            //System.Diagnostics.Debug.WriteLine(inputPersonas);
+            if ( inputPrecioMax < inputPrecioMin )
+            {
+                MessageBox.Show("El precio maximo no puede ser menor que el precio minimo!");
+                return;
+            }
+
+            Agencia alojamientosFiltrados = this.agencia.FiltrarAlojamientos(inputTipoAlojamiento, inputCiudad, inputBarrio, inputPrecioMin, inputPrecioMax, inputEstrellas, inputPersonas);
+            if (alojamientosFiltrados == null)
+            {
+                MessageBox.Show("No hay alojamientos disponibles para esa busqueda");
+                return;
+            }
+
+            this.limpiarDataGridView();
+            this.llenarDataGridView(alojamientosFiltrados);
+        }
+        
+
+        /* SELECT DE ORDENAMIENTO */
+        private void selectOrdenamiento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.limpiarDataGridView();
+            //System.Diagnostics.Debug.WriteLine(this.selectOrdenamiento.Text);
+
+            String tipoDeOrdenamiento = this.selectOrdenamiento.Text;
+            switch (tipoDeOrdenamiento)
+            {
+                case "por defecto":
+                    this.llenarDataGridView(this.alojamientosDelDataGridView, true);
+                    break;
+                case "codigo":
+                    this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorCodigo(), true);
+                    break;
+                case "estrellas":
+                    this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorEstrellas(), true);
+                    break;
+                case "personas":
+                    this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorPersonas(), true);
+                    break;
+                default:
+                    //this.llenarDataGridView();
+                    break;
+            }
         }
 
-        // BOTON PARA RESERVAR
+
+        /* BOTON PARA RESERVAR */
         private void dgvAlojamiento_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Validacion de las fechas
@@ -178,8 +227,6 @@ namespace TP2_Grupo4.Views
                     
                     MessageBox.Show("Reserva realizada correctamente");
 
-                    // Actualizar GridView
-                    this.limpiarDataGridView();
                     // llenar DataGridView
                     this.llenarDataGridView();
                 }
@@ -187,7 +234,7 @@ namespace TP2_Grupo4.Views
         }
 
 
-        // Validacion de los inputs de precios
+        /* VALIDAR LOS INPUTS DE PRECIOS */
         private void inputPrecioMin_TextChanged(object sender, EventArgs e)
         {
             String inputPrecioMin = this.inputPrecioMin.Text;
@@ -218,9 +265,9 @@ namespace TP2_Grupo4.Views
             if (inputPrecioMax == "") return;
             try
             {
-                double precio = double.Parse(inputPrecioMax);
+                double precioMax = double.Parse(inputPrecioMax);
 
-                if (precio < 0)
+                if (precioMax < 0)
                 {
                     MessageBox.Show("No puede ingresar valores negativos");
                     this.bloquearBotonFiltrar(true);
@@ -236,8 +283,9 @@ namespace TP2_Grupo4.Views
                 this.bloquearBotonFiltrar(false);
             }
         }
+        
 
-        // Mostrar los dias en "tiempo real"
+        /* MOSTRAR EL TOTAL DE DIAS DE LA RESERVA */
         private void inputDateFechaVuelta_ValueChanged(object sender, EventArgs e)
         {
             this.mostrarDiferenciasDeFechas();
@@ -263,5 +311,6 @@ namespace TP2_Grupo4.Views
             System.Diagnostics.Debug.WriteLine("Diferencia de dias: " + diasDeDiferencia);
         }
 
+        
     }
 }

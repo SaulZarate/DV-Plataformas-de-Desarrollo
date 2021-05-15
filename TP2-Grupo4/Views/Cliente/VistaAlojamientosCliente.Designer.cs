@@ -257,6 +257,7 @@ namespace TP2_Grupo4.Views
             this.selectOrdenamiento.Name = "selectOrdenamiento";
             this.selectOrdenamiento.Size = new System.Drawing.Size(150, 23);
             this.selectOrdenamiento.TabIndex = 1;
+            this.selectOrdenamiento.SelectedIndexChanged += new System.EventHandler(this.selectOrdenamiento_SelectedIndexChanged);
             // 
             // label8
             // 

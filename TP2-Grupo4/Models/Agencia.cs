@@ -60,6 +60,11 @@ namespace TP2_Grupo4.Models
             List<Alojamiento> alojamientos = this.alojamientos.FindAll( alojamiento => alojamiento is Cabania);
             return this.alojamientosToAgencia(alojamientos);
         }
+        public Agencia GetAlojamientosPorCantidadDePersonas(int cantidadDePersonas)
+        {
+            List<Alojamiento> alojamientos = this.alojamientos.FindAll( al => al.GetCantidadDePersonas() == cantidadDePersonas);
+            return this.alojamientosToAgencia(alojamientos);
+        }
         public Agencia GetAlojamientosPorCiudad(String ciudad)
         {
             return this.alojamientosToAgencia(this.alojamientos.FindAll(al => al.GetCiudad() == ciudad));
@@ -118,7 +123,6 @@ namespace TP2_Grupo4.Models
                     alojamiento.GetCantidadDePersonas().ToString(),
                     alojamiento.GetTv() ? "si" : "no",
                     alojamiento.PrecioTotalDelAlojamiento().ToString(),
-
                 });
             }
             return alojamientos;

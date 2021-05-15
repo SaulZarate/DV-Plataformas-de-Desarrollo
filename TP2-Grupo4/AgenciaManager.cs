@@ -196,11 +196,60 @@ namespace TP2_Grupo4
             Usuario user = this.usuarios.Find(user => user.GetDni() == dni && user.GetBloqueado() == true);
             return user == null ? false : true;
         }
+        public Agencia FiltrarAlojamientos(String tipoAlojamiento, String ciudad, String barrio, double precioMin, double precioMax, String estrellas, String personas)
+        {
+            Agencia alojamientosFiltrados = null;
+            switch (tipoAlojamiento)
+            {
+                case "todos":
+                    alojamientosFiltrados = this.agencia.GetAllAlojamientos();
+                    break;
+                case "hotel":
+                    alojamientosFiltrados = this.agencia.GetHoteles();
+                    break;
+                case "cabaña":
+                    alojamientosFiltrados = this.agencia.GetCabanias();
+                    break;
+            }
+            if (alojamientosFiltrados == null) return null;
+
+            if(ciudad != "todas")
+            {
+                alojamientosFiltrados = alojamientosFiltrados.GetAlojamientosPorCiudad(ciudad);
+                if (alojamientosFiltrados == null) return null;
+            }
+
+            if (barrio != "todos")
+            {
+                alojamientosFiltrados = alojamientosFiltrados.GetAlojamientosPorBarrio(barrio);
+                if (alojamientosFiltrados == null) return null;
+            }
+
+            if (precioMin - precioMax != 0)
+            {
+                alojamientosFiltrados = alojamientosFiltrados.GetAllAlojamientos(precioMin, precioMax);
+                if (alojamientosFiltrados == null) return null;
+            }
+
+            if(estrellas != "todas")
+            {
+                alojamientosFiltrados = alojamientosFiltrados.GetAllAlojamientos(int.Parse(estrellas));
+                if (alojamientosFiltrados == null) return null;
+            }
+
+            if(personas != "todas")
+            {
+                alojamientosFiltrados = alojamientosFiltrados.GetAlojamientosPorCantidadDePersonas(int.Parse(personas));
+                if (alojamientosFiltrados == null) return null;
+            }
+
+            return alojamientosFiltrados;
+        }
 
         /* OPCIONES DE LOS SELECTS EN LAS VISTAS */
         public List<String> OpcionesDelSelectDeTiposDeAlojamientos()
         {
-            return new List<String>() { "Todos", "Hotel", "Cabaña" };
+            return new List<String>() { "todos", "hotel", "cabaña" };
         }
         public List<String> OpcionesDelSelectDePersonas()
         {
@@ -232,7 +281,7 @@ namespace TP2_Grupo4
         }
         public List<String> OpcionesDelSelectParaElOrdenamiento()
         {
-            return new List<String>() {"Codigo","Personas","Estrellas" };
+            return new List<String>() { "por defecto","codigo","personas","estrellas" };
         }
 
         #endregion
