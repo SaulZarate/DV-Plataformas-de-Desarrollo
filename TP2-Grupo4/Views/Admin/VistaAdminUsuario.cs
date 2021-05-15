@@ -133,8 +133,15 @@ namespace TP2_Grupo4.Views
         private void btnTopModificar_Click(object sender, EventArgs e)
         {
             btnTopModificar.Visible = false;
-
-            var dni = Int32.Parse(txtDni.Text);
+            int dni = 0;
+            try
+            {
+              dni = Int32.Parse(txtDni.Text);
+            } catch (FormatException)
+            {
+                labelError.Text = "Ingresaste un valor alfabetico en el DNI";
+            }
+            
             string nombre = txtNombre.Text;
             string email = txtEmail.Text;
             bool bloqueado = checkBoxBloqueado.Checked;
