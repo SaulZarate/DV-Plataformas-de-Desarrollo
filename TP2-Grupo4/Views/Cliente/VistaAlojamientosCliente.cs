@@ -26,25 +26,63 @@ namespace TP2_Grupo4.Views
         #region METODOS COMPLEMENTARIOS
         private void llenarSelects()
         {
-            // Personas
-            foreach(int numero in this.agencia.OpcionesDelSelectDePersonas())
-                this.selectCantPersonas.Items.Add(numero);
+            // Deshabilitar escritura en los select
+            this.selectTipoAlojamiento.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.selectCiudad.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.selectBarrio.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.selectEstrellas.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.selectCantPersonas.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.selectOrdenamiento.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            //Tipos de alojamientos
+            foreach (String item in this.agencia.OpcionesDelSelectDeTiposDeAlojamientos())
+                this.selectTipoAlojamiento.Items.Add(item);
+
+            // Ciudades
+            foreach (String item in this.agencia.OpcionesDelSelectDeCiudades())
+                this.selectCiudad.Items.Add(item);
+
+            // Barrios
+            foreach (String item in this.agencia.OpcionesDelSelectDeBarrios())
+                this.selectBarrio.Items.Add(item);
 
             // Estrellas
-            foreach (int numero in this.agencia.OpcionesDelSelectDeEstrellas())
-                this.selectCantPersonas.Items.Add(numero);
+            foreach (String item in this.agencia.OpcionesDelSelectDeEstrellas())
+                this.selectEstrellas.Items.Add(item);
 
-            //// Barrios
-            //foreach (String item in this.agencia.OpcionesDelSelectDeBarrios())
-            //    System.Diagnostics.Debug.WriteLine(item);
-            
-            //// Ciudades
-            //foreach (String item in this.agencia.OpcionesDelSelectDeCiudades())
-            //    System.Diagnostics.Debug.WriteLine(item);
-            
+            // Personas
+            foreach (String item in this.agencia.OpcionesDelSelectDePersonas())
+                this.selectCantPersonas.Items.Add(item);
+
+            // Opciones de ordenamiento
+            foreach (String opcion in this.agencia.OpcionesDelSelectParaElOrdenamiento())
+                this.selectOrdenamiento.Items.Add(opcion);
+
+            // Item por defectos de los select
+            this.selectTipoAlojamiento.SelectedIndex = 0;
+            this.selectCiudad.SelectedIndex = 0;
+            this.selectBarrio.SelectedIndex = 0;
+            this.selectEstrellas.SelectedIndex = 0;
+            this.selectCantPersonas.SelectedIndex = 0;
+            this.selectOrdenamiento.SelectedIndex = 0;
+        }
+        private void limpiarDataGridView()
+        {
+            this.dgvAlojamiento.Rows.Clear();
+        }
+        private void llenarDataGridView(List<List<String>> data = null)
+        {
+            List<List<String>> datosParaElDataGridView = data == null ? this.agencia.GetAgencia().DatosDeAlojamientosParaLasVistas() : data;
+            foreach (List<String> alojamiento in datosParaElDataGridView)
+                this.dgvAlojamiento.Rows.Add(alojamiento.ToArray());
+        }
+        private void bloquearBotonFiltrar(bool flag)
+        {
+            this.btnFiltrar.Enabled = !flag;
         }
         #endregion
 
+        // Cargar datos por defecto en la DataGridView
         private void VistaAlojamientosCliente_Load(object sender, EventArgs e)
         {
             // Boton reservar
@@ -58,152 +96,55 @@ namespace TP2_Grupo4.Views
             };
             btnReservar.DefaultCellStyle.BackColor = Color.Green;
 
-            var checkTv = new DataGridViewCheckBoxColumn
-            {
-                HeaderText = "Tv",
-                Name = "Tv"
-            };
-
             dgvAlojamiento.Columns.Add("Codigo", "Código");
             dgvAlojamiento.Columns.Add("Ciudad", "Ciudad");
             dgvAlojamiento.Columns.Add("Barrio", "Barrio");
             dgvAlojamiento.Columns.Add("Estrellas", "Estrellas");
-            dgvAlojamiento.Columns.Add("Cant. Personas", "Cantidad de Personas");
-            dgvAlojamiento.Columns.Add(checkTv);
+            dgvAlojamiento.Columns.Add("CantidadDePersonas", "Cantidad de Personas");
+            dgvAlojamiento.Columns.Add("Tv", "TV");
             dgvAlojamiento.Columns.Add("Precio", "Precio");
 
             dgvAlojamiento.Columns.Add(btnReservar);
             dgvAlojamiento.ReadOnly = false;
-            getTextAlojamientos();
+
+            // Cargar DataGridView
+            this.llenarDataGridView();
         }
 
 
-        #region Filtros
-        private void getTextAlojamientos()
-        {
-            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetAlojamientos();
-            foreach (Alojamiento alojamiento in alojamientos)
-            {
-                this.dgvAlojamiento.Rows.Add(
-                    alojamiento.GetCodigo(),
-                    alojamiento.GetCiudad(),
-                    alojamiento.GetBarrio(),
-                    alojamiento.GetEstrellas(),
-                    alojamiento.GetCantidadDePersonas(),
-                    alojamiento.GetTv(),
-                    alojamiento.PrecioTotalDelAlojamiento()
-                );
-            }
-        }
-        private void getTextHoteles()
-        {
-            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetHoteles().GetAlojamientos();
-            foreach (Alojamiento alojamiento in alojamientos)
-            {
-                this.dgvAlojamiento.Rows.Add(
-                    alojamiento.GetCodigo(),
-                    alojamiento.GetCiudad(),
-                    alojamiento.GetBarrio(),
-                    alojamiento.GetEstrellas(),
-                    alojamiento.GetCantidadDePersonas(),
-                    alojamiento.GetTv(),
-                    alojamiento.PrecioTotalDelAlojamiento()
-                );
-            }
-        }
-        private void getTextCabanias()
-        {
-            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetCabanias().GetAlojamientos();
-            foreach (Alojamiento alojamiento in alojamientos)
-            {
-                this.dgvAlojamiento.Rows.Add(
-                    alojamiento.GetCodigo(),
-                    alojamiento.GetCiudad(),
-                    alojamiento.GetBarrio(),
-                    alojamiento.GetEstrellas(),
-                    alojamiento.GetCantidadDePersonas(),
-                    alojamiento.GetTv(),
-                    alojamiento.PrecioTotalDelAlojamiento()
-                );
-            }
-        }
-        private void getEstrellas()
-        {
-            List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetAlojamientoPorEstrellas().GetAlojamientos();
-            foreach (Alojamiento alojamiento in alojamientos)
-            {
-                this.dgvAlojamiento.Rows.Add(
-                    alojamiento.GetCodigo(),
-                    alojamiento.GetCiudad(),
-                    alojamiento.GetBarrio(),
-                    alojamiento.GetEstrellas(),
-                    alojamiento.GetCantidadDePersonas(),
-                    alojamiento.GetTv(),
-                    alojamiento.PrecioTotalDelAlojamiento()
-                );
-            }
-        }
-        #endregion
-
-
+        // BOTON FILTRAR
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            this.dgvAlojamiento.Rows.Clear();
+            //String inputTipoAlojamiento = this.selectTipoAlojamiento.SelectedItem.ToString();
+            //String inputCiudad = this.selectCiudad.SelectedItem.ToString();
+            //String inputBarrio = this.selectBarrio.SelectedItem.ToString();
+            //String inputPrecioMin = this.inputPrecioMin.Text;
+            //String inputPrecioMax = this.inputPrecioMax.Text;
+            //String inputEstrellas = this.selectEstrellas.SelectedItem.ToString();
+            //String inputPersonas = this.selectCantPersonas.SelectedItem.ToString();
 
-            if ((selectEstrellas.SelectedItem).ToString() == "1")
-            {
-                getEstrellas();
-            }
-
-            if ((comboBoxTipoAloj.SelectedItem).ToString() == "Hotel")
-            {
-                getTextHoteles();
-            }
-            else if ((comboBoxTipoAloj.SelectedItem).ToString() == "Cabaña")
-            {
-                getTextCabanias();
-            }
-            else
-            {
-                getTextAlojamientos();
-            }
+            //System.Diagnostics.Debug.WriteLine(inputTipoAlojamiento);
+            //System.Diagnostics.Debug.WriteLine(inputCiudad);
+            //System.Diagnostics.Debug.WriteLine(inputBarrio);
+            //System.Diagnostics.Debug.WriteLine(inputPrecioMin);
+            //System.Diagnostics.Debug.WriteLine(inputPrecioMax);
+            //System.Diagnostics.Debug.WriteLine(inputEstrellas);
+            //System.Diagnostics.Debug.WriteLine(inputPersonas);
         }
 
-        private void comboBoxCantPersonas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //int estrellas = comboBoxEstre;
-            String cantpers = selectCantPersonas.Text;
-            this.dgvAlojamiento.Rows.Clear();
-            getEstrellas();
-        }
-        private void comboBoxTipoAloj_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ((comboBoxTipoAloj.SelectedItem).ToString() == "Hotel")
-            {
-                this.dgvAlojamiento.Rows.Clear();
-                getTextHoteles();
-            }
-            else if ((comboBoxTipoAloj.SelectedItem).ToString() == "Cabaña")
-            {
-                this.dgvAlojamiento.Rows.Clear();
-                getTextCabanias();
-            }
-            else
-            {
-                this.dgvAlojamiento.Rows.Clear();
-                getTextAlojamientos();
-            }
-        }
+        // BOTON PARA RESERVAR
         private void dgvAlojamiento_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //var date1 = new DateTime(2008, 3, 1, 7, 0, 0);
-            DateTime date1 = DateTime.Now;
-
-            //var date2 = new DateTime(2008, 5, 2, 8, 1, 1);
-            //DateTime date2 = Convert.ToDateTime("2017-12-24 13:30:15");
-            DateTime date2 = DateTime.Now;
-            // Utilizamos el método AddDays para sumar 10 días:
-            date2 = date2.AddDays(7);
+            // Validacion de las fechas
+            int diasTotalesDeLaReserva;
+            try
+            {
+                diasTotalesDeLaReserva = int.Parse(this.lblTotalDeDias.Text);
+            }catch(Exception)
+            {
+                MessageBox.Show("Sus fechas de reservacion no son correctas. Por favor reviselas");
+                return;
+            }
 
             // Si hacemos click en Button RESERVAR
             if (dgvAlojamiento.Columns[e.ColumnIndex].Name == "RESERVAR")
@@ -213,19 +154,110 @@ namespace TP2_Grupo4.Views
                     // Index del Row
                     int rowIndex = dgvAlojamiento.CurrentCell.RowIndex;
                     // Codigo del Alojamiento
-                    int codigo = Int32.Parse(dgvAlojamiento.Rows[rowIndex].Cells["Codigo"].Value.ToString());
+                    int codigoDelAlojamiento = Int32.Parse(this.dgvAlojamiento.Rows[rowIndex].Cells["Codigo"].Value.ToString());
+                    // Precio del alojamiento
+                    int precioDelAlojamiento = int.Parse(this.dgvAlojamiento.Rows[rowIndex].Cells["Precio"].Value.ToString());
 
-                    // Guardar Datos
-                    //int dni = agencia.GetUsuarioLogeado().GetDni();
-                    // FALTA PONER LA FECHA Y EL USUARIO DE MANERA CORRECTA
-                    this.agencia.AgregarReserva(date1, date2, codigo, this.agencia.GetUsuarioLogeado().GetDni());
-                    this.agencia.GuardarCambiosDeLasReservas();
+                    // Agregar reserva
+                    this.agencia.AgregarReserva(
+                        this.inputDateFechaIda.Value,
+                        this.inputDateFechaVuelta.Value,
+                        codigoDelAlojamiento,
+                        this.agencia.GetUsuarioLogeado().GetDni(),
+                        (precioDelAlojamiento * diasTotalesDeLaReserva));
+
+                    // Guardar datos en el txt
+                    if (!this.agencia.GuardarCambiosDeLasReservas())
+                    {
+                        MessageBox.Show("Disculpe. No se pudo guardar la reserva intente de nuevo.");
+                        return;
+                    }
+                    
+                    MessageBox.Show("Reserva realizada correctamente");
 
                     // Actualizar GridView
-                    this.dgvAlojamiento.Rows.Clear();
-                    getTextAlojamientos();
+                    this.limpiarDataGridView();
+                    // llenar DataGridView
+                    this.llenarDataGridView();
                 }
             }
+        }
+
+
+        // Validacion de los inputs de precios
+        private void inputPrecioMin_TextChanged(object sender, EventArgs e)
+        {
+            String inputPrecioMin = this.inputPrecioMin.Text;
+            if (inputPrecioMin == "") return;
+            try
+            {
+                double precio = double.Parse(inputPrecioMin);
+
+                if (precio < 0)
+                {
+                    MessageBox.Show("No puede ingresar valores negativos");
+                    this.bloquearBotonFiltrar(true);
+                    return;
+                }
+                this.bloquearBotonFiltrar(false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Solo se permiten numeros");
+                //System.Diagnostics.Debug.WriteLine("Tipo: " + ex.GetType().ToString());
+                //System.Diagnostics.Debug.WriteLine("Mensaje: " + ex.Message);
+                this.bloquearBotonFiltrar(true);
+            }
+        }
+        private void inputPrecioMax_TextChanged(object sender, EventArgs e)
+        {
+            String inputPrecioMax = this.inputPrecioMax.Text;
+            if (inputPrecioMax == "") return;
+            try
+            {
+                double precio = double.Parse(inputPrecioMax);
+
+                if (precio < 0)
+                {
+                    MessageBox.Show("No puede ingresar valores negativos");
+                    this.bloquearBotonFiltrar(true);
+                    return;
+                }
+                this.bloquearBotonFiltrar(false);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Solo se permiten numeros");
+                //System.Diagnostics.Debug.WriteLine("Tipo: " + ex.GetType().ToString());
+                //System.Diagnostics.Debug.WriteLine("Mensaje: " + ex.Message);
+                this.bloquearBotonFiltrar(false);
+            }
+        }
+
+        // Mostrar los dias en "tiempo real"
+        private void inputDateFechaVuelta_ValueChanged(object sender, EventArgs e)
+        {
+            this.mostrarDiferenciasDeFechas();
+        }
+        private void inputDateFechaIda_ValueChanged(object sender, EventArgs e)
+        {
+            this.mostrarDiferenciasDeFechas();
+        }
+        private void mostrarDiferenciasDeFechas()
+        {
+            DateTime inputFechaIda = this.inputDateFechaIda.Value;
+            DateTime inputFechaVuelta = this.inputDateFechaVuelta.Value;
+
+            int diasDeDiferencia = (inputFechaVuelta - inputFechaIda).Days;
+
+            if (diasDeDiferencia <= 0)
+            {
+                this.lblTotalDeDias.Text = "-";
+                return;
+            }
+            this.lblTotalDeDias.Text = diasDeDiferencia.ToString();
+
+            System.Diagnostics.Debug.WriteLine("Diferencia de dias: " + diasDeDiferencia);
         }
 
     }

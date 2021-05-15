@@ -34,14 +34,15 @@ namespace TP2_Grupo4
         #endregion
 
         #region METODOS PARA LAS RESERVAS
-        public bool AgregarReserva(DateTime fechaDesde, DateTime fechaHasta, int codigoAlojamiento, int dniUsuario)
+        public bool AgregarReserva(DateTime fechaDesde, DateTime fechaHasta, int codigoAlojamiento, int dniUsuario, double precio)
         {
             Alojamiento alojamiento = this.GetAgencia().FindAlojamientoForCodigo(codigoAlojamiento);
             Usuario usuario = this.FindUserForDNI(dniUsuario);
             if (alojamiento == null || usuario == null) return false;
 
+            // Timestamp = Id
             String timestamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
-            this.reservas.Add(new Reserva(timestamp, fechaDesde,fechaHasta,alojamiento,usuario,alojamiento.PrecioTotalDelAlojamiento()));
+            this.reservas.Add(new Reserva(timestamp, fechaDesde,fechaHasta,alojamiento,usuario, precio));
             return true;
         }
         public bool ModificarReserva(String id, DateTime fechaDesde, DateTime fechaHasta, int codigoAlojamiento, int dniUsuario)
@@ -188,42 +189,52 @@ namespace TP2_Grupo4
         }
         #endregion
 
+
         #region METODOS PARA LAS VISTAS
         public bool IsUsuarioBloqueado(int dni)
         {
             Usuario user = this.usuarios.Find(user => user.GetDni() == dni && user.GetBloqueado() == true);
             return user == null ? false : true;
         }
-        
+
         /* OPCIONES DE LOS SELECTS EN LAS VISTAS */
-        public List<int> OpcionesDelSelectDePersonas()
+        public List<String> OpcionesDelSelectDeTiposDeAlojamientos()
         {
-            List<int> opciones = new List<int>();
+            return new List<String>() { "Todos", "Hotel", "Cabaña" };
+        }
+        public List<String> OpcionesDelSelectDePersonas()
+        {
+            List<String> opciones = new List<String>() {"todas" };
             for (int i = 1; i <= Agencia.MAXIMA_CANTIDAD_DE_PERSONAS_POR_ALOJAMIENTO; i++)
-                opciones.Add(i);
+                opciones.Add(i.ToString());
             return opciones;
         }
-        public List<int> OpcionesDelSelectDeEstrellas()
+        public List<String> OpcionesDelSelectDeEstrellas()
         {
-            List<int> opciones = new List<int>();
+            List<String> opciones = new List<String>() { "todas" };
             for (int i = Agencia.MINIMA_CANTIDAD_DE_ESTRELLAS; i <= Agencia.MAXIMA_CANTIDAD_DE_ESTRELLAS; i++)
-                opciones.Add(i);
+                opciones.Add(i.ToString());
             return opciones;
         }
         public List<String> OpcionesDelSelectDeBarrios()
         {
-            List<String> tipos = new List<string>();
+            List<String> tipos = new List<string>() { "todos"};
             foreach (Alojamiento al in this.agencia.GetAlojamientos())
                 tipos.Add(al.GetBarrio());
             return tipos.Distinct().ToList();
         }
         public List<String> OpcionesDelSelectDeCiudades()
         {
-            List<String> tipos = new List<string>();
+            List<String> tipos = new List<string>() { "todas" };
             foreach (Alojamiento al in this.agencia.GetAlojamientos())
                 tipos.Add(al.GetCiudad());
             return tipos.Distinct().ToList();
         }
+        public List<String> OpcionesDelSelectParaElOrdenamiento()
+        {
+            return new List<String>() {"Codigo","Personas","Estrellas" };
+        }
+
         #endregion
 
 

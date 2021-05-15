@@ -104,6 +104,25 @@ namespace TP2_Grupo4.Models
 
 
         #region METODOS COMPLEMENTARIOS
+        public List<List<String>> DatosDeAlojamientosParaLasVistas()
+        {
+            List<List<String>> alojamientos = new List<List<string>>();
+            foreach(Alojamiento alojamiento in this.alojamientos)
+            {
+                alojamientos.Add(new List<String>()
+                {
+                    alojamiento.GetCodigo().ToString(),
+                    alojamiento.GetCiudad(),
+                    alojamiento.GetBarrio(),
+                    alojamiento.GetEstrellas().ToString(),
+                    alojamiento.GetCantidadDePersonas().ToString(),
+                    alojamiento.GetTv() ? "si" : "no",
+                    alojamiento.PrecioTotalDelAlojamiento().ToString(),
+
+                });
+            }
+            return alojamientos;
+        }
         private Agencia alojamientosToAgencia(List<Alojamiento> alojamientos)
         {
             if (alojamientos.Count == 0) return null;
