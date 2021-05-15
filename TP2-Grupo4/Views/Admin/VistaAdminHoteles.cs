@@ -181,6 +181,8 @@ namespace TP2_Grupo4.Views
         // onClick Boton Modificar
         private void btnTopModificar_Click(object sender, EventArgs e)
         {
+
+            
             btnTopAgregar.Visible = true;
             btnTopModificar.Visible = false;
             double precioPersonas = 0;
@@ -207,8 +209,11 @@ namespace TP2_Grupo4.Views
                 laberHerrorHoteles.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
             }
 
-            this.agencia.GetAgencia().ModificarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
-            this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+           
+                this.agencia.GetAgencia().ModificarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
+                this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+           
+            
 
             clearAllControls();
             getHotelesFromTextFile();
@@ -241,10 +246,17 @@ namespace TP2_Grupo4.Views
             {
                 laberHerrorHoteles.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
             }
-            
 
-            this.agencia.GetAgencia().AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
-            this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+
+            if (this.agencia.GetAgencia().FindAlojamientoForCodigo(codigo) == null)
+            {
+                this.agencia.GetAgencia().ModificarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
+                this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+            }
+            else
+            {
+                laberHerrorHoteles.Text = "Ya existe el código de alojamiento, ingresa un código inexistente";
+            }
 
             clearAllControls();
             getHotelesFromTextFile();

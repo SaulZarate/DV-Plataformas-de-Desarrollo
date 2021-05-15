@@ -31,6 +31,7 @@ namespace TP2_Grupo4.Views
         {
             this.dgvHoteles = new System.Windows.Forms.DataGridView();
             this.panelHoteles = new System.Windows.Forms.Panel();
+            this.laberHerrorHoteles = new System.Windows.Forms.Label();
             this.lblAlojamiento = new System.Windows.Forms.Label();
             this.groupBoxHoteles = new System.Windows.Forms.GroupBox();
             this.txtCodigo = new System.Windows.Forms.TextBox();
@@ -48,7 +49,6 @@ namespace TP2_Grupo4.Views
             this.label4 = new System.Windows.Forms.Label();
             this.btnTopAgregar = new System.Windows.Forms.Button();
             this.comboBoxEstrellas = new System.Windows.Forms.ComboBox();
-            this.laberHerrorHoteles = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoteles)).BeginInit();
             this.panelHoteles.SuspendLayout();
             this.groupBoxHoteles.SuspendLayout();
@@ -75,6 +75,15 @@ namespace TP2_Grupo4.Views
             this.panelHoteles.Name = "panelHoteles";
             this.panelHoteles.Size = new System.Drawing.Size(1000, 562);
             this.panelHoteles.TabIndex = 4;
+            // 
+            // laberHerrorHoteles
+            // 
+            this.laberHerrorHoteles.AutoSize = true;
+            this.laberHerrorHoteles.Location = new System.Drawing.Point(187, 242);
+            this.laberHerrorHoteles.Name = "laberHerrorHoteles";
+            this.laberHerrorHoteles.Size = new System.Drawing.Size(19, 15);
+            this.laberHerrorHoteles.TabIndex = 14;
+            this.laberHerrorHoteles.Text = "    ";
             // 
             // lblAlojamiento
             // 
@@ -269,15 +278,6 @@ namespace TP2_Grupo4.Views
             this.comboBoxEstrellas.Name = "comboBoxEstrellas";
             this.comboBoxEstrellas.Size = new System.Drawing.Size(53, 23);
             this.comboBoxEstrellas.TabIndex = 5;
-            // 
-            // laberHerrorHoteles
-            // 
-            this.laberHerrorHoteles.AutoSize = true;
-            this.laberHerrorHoteles.Location = new System.Drawing.Point(187, 242);
-            this.laberHerrorHoteles.Name = "laberHerrorHoteles";
-            this.laberHerrorHoteles.Size = new System.Drawing.Size(38, 15);
-            this.laberHerrorHoteles.TabIndex = 14;
-            this.laberHerrorHoteles.Text = "label1";
             // 
             // VistaAdminHoteles
             // 

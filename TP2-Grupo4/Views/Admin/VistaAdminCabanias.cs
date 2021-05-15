@@ -201,9 +201,16 @@ namespace TP2_Grupo4.Views
 
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
-
-            this.agencia.GetAgencia().AgregarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
-            this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+            if (this.agencia.GetAgencia().FindAlojamientoForCodigo(codigo) == null)
+            {
+                    this.agencia.GetAgencia().AgregarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
+                    this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+            }
+            else
+            {
+                lblErrorCabañas.Text = "Ya existe el código de alojamiento, ingresa un código inexistente";
+            }
+        
             clearAllControls();
             getCabaniasFromTextFile();
         }
@@ -213,7 +220,7 @@ namespace TP2_Grupo4.Views
             btnTopAgregar.Visible = true;
             btnTopModificar.Visible = false;
 
-            double precioPorDia = 0;
+            double precioDia = 0;
             int codigo = 0;
             try
             {
@@ -230,7 +237,7 @@ namespace TP2_Grupo4.Views
             bool tv = checkBoxTV.Checked;
             try
             {
-                precioPorDia = double.Parse(txtPrecioDia.Text);
+                precioDia = double.Parse(txtPrecioDia.Text);
             }
             catch (FormatException)
             {
@@ -239,7 +246,7 @@ namespace TP2_Grupo4.Views
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
 
-            this.agencia.GetAgencia().ModificarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
+            this.agencia.GetAgencia().ModificarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioDia, habitaciones, banios));
             this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
 
             clearAllControls();
