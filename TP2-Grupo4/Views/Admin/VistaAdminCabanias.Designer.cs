@@ -322,9 +322,9 @@ namespace TP2_Grupo4.Views
             this.lblErrorCabañas.AutoSize = true;
             this.lblErrorCabañas.Location = new System.Drawing.Point(181, 177);
             this.lblErrorCabañas.Name = "lblErrorCabañas";
-            this.lblErrorCabañas.Size = new System.Drawing.Size(38, 15);
+            this.lblErrorCabañas.Size = new System.Drawing.Size(19, 15);
             this.lblErrorCabañas.TabIndex = 15;
-            this.lblErrorCabañas.Text = "label8";
+            this.lblErrorCabañas.Text = "    ";
             // 
             // VistaAdminCabanias
             // 
