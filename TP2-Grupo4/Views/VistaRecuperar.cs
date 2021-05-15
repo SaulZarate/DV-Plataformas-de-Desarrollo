@@ -6,14 +6,12 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using TP2_Grupo4.Helpers;
 
 namespace TP2_Grupo4.Views
 {
     public partial class VistaRecuperar : Form
     {
         private AgenciaManager agencia;
-        private Utils utils;
         public VistaRecuperar()
         {
             InitializeComponent();
@@ -110,9 +108,10 @@ namespace TP2_Grupo4.Views
                         agencia.FindUserForDNI(int.Parse(txtUsuario.Text)).GetEmail(), txtContrasenaNueva.Text);
 
                     agencia.GuardarCambiosDeLosUsuarios();
-                    txtUsuario.Text = "";
-                    txtContrasena.Text = "";
-                    txtContrasenaNueva.Text = "";
+                    txtUsuario.Text = "DNI";
+                    txtUsuario.ForeColor = Color.DimGray;
+                    txtContrasena.Text = "CONTRASEÑA ANTERIOR";
+                    txtContrasenaNueva.Text = "CONTRASEÑA NUEVA";
                     MessageBox.Show("Se ha modificado el usuario de manera exitosa.");
                 }
                 else

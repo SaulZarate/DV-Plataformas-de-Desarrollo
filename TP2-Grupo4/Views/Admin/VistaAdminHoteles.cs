@@ -183,14 +183,29 @@ namespace TP2_Grupo4.Views
         {
             btnTopAgregar.Visible = true;
             btnTopModificar.Visible = false;
-
-            int codigo = Int32.Parse(txtCodigo.Text);
+            double precioPersonas = 0;
+            int codigo = 0;
+            try
+            {
+                codigo = Int32.Parse(txtCodigo.Text);
+            }
+            catch (FormatException)
+            {
+                laberHerrorHoteles.Text = "ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico \n";
+            }
             string ciudad = txtCiudad.Text;
             string barrio = txtBarrio.Text;
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
             bool tv = checkBoxTv.Checked;
-            double precioPersonas = double.Parse(txtPrecio.Text);
+            try
+            {
+                precioPersonas = double.Parse(txtPrecio.Text);
+            }
+            catch (FormatException)
+            {
+                laberHerrorHoteles.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
+            }
 
             this.agencia.GetAgencia().ModificarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
             this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
@@ -203,13 +218,30 @@ namespace TP2_Grupo4.Views
         // onClick Boton Agregar
         private void btnTopAgregar_Click(object sender, EventArgs e)
         {
-            int codigo = Int32.Parse(txtCodigo.Text);
+            int codigo = 0;
+            double precioPersonas = 0;
+            try
+            {
+                codigo = Int32.Parse(txtCodigo.Text);
+            } catch (FormatException)
+            {
+                laberHerrorHoteles.Text = "ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico \n";
+            }
+            
             string ciudad = txtCiudad.Text;
             string barrio = txtBarrio.Text;
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
             bool tv = checkBoxTv.Checked;
-            double precioPersonas = double.Parse(txtPrecio.Text);
+
+            try
+            {
+                precioPersonas = double.Parse(txtPrecio.Text);
+            } catch (FormatException)
+            {
+                laberHerrorHoteles.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
+            }
+            
 
             this.agencia.GetAgencia().AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
             this.agencia.GetAgencia().GuardarCambiosEnElArchivo();

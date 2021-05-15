@@ -41,6 +41,7 @@ namespace TP2_Grupo4.Views
             this.checkBoxAdmin = new System.Windows.Forms.CheckBox();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.lblUsuarios = new System.Windows.Forms.Label();
+            this.labelError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).BeginInit();
             this.groupBoxHoteles.SuspendLayout();
             this.SuspendLayout();
@@ -165,12 +166,21 @@ namespace TP2_Grupo4.Views
             this.lblUsuarios.TabIndex = 4;
             this.lblUsuarios.Text = "Usuarios";
             // 
+            // labelError
+            // 
+            this.labelError.AutoSize = true;
+            this.labelError.Location = new System.Drawing.Point(159, 226);
+            this.labelError.Name = "labelError";
+            this.labelError.Size = new System.Drawing.Size(0, 15);
+            this.labelError.TabIndex = 5;
+            // 
             // VistaAdminUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(1000, 562);
+            this.Controls.Add(this.labelError);
             this.Controls.Add(this.lblUsuarios);
             this.Controls.Add(this.groupBoxHoteles);
             this.Controls.Add(this.dgvUsuarios);
@@ -200,5 +210,6 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.CheckBox checkBoxBloqueado;
         private System.Windows.Forms.Label lblUsuarios;
+        private System.Windows.Forms.Label labelError;
     }
 }

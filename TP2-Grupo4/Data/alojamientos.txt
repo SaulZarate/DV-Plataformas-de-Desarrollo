@@ -9,3 +9,4 @@
 33,ciudad33,barrio33,3,5,False,100
 44,ciudad444,barrio444,5,3,True,2000,2,1
 111,ciudad111,barrio111,4,2,True,1000,2,1
+0,,,1,1,False,0

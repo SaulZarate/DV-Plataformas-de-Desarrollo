@@ -51,6 +51,7 @@ namespace TP2_Grupo4.Views
             this.btnTopAgregar = new System.Windows.Forms.Button();
             this.comboBoxEstrellas = new System.Windows.Forms.ComboBox();
             this.lblAlojamiento = new System.Windows.Forms.Label();
+            this.lblErrorCabañas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCabanias)).BeginInit();
             this.groupBoxCabanias.SuspendLayout();
             this.SuspendLayout();
@@ -88,9 +89,9 @@ namespace TP2_Grupo4.Views
             this.groupBoxCabanias.Controls.Add(this.comboBoxEstrellas);
             this.groupBoxCabanias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBoxCabanias.ForeColor = System.Drawing.Color.Black;
-            this.groupBoxCabanias.Location = new System.Drawing.Point(83, 66);
+            this.groupBoxCabanias.Location = new System.Drawing.Point(67, 57);
             this.groupBoxCabanias.Name = "groupBoxCabanias";
-            this.groupBoxCabanias.Size = new System.Drawing.Size(842, 117);
+            this.groupBoxCabanias.Size = new System.Drawing.Size(842, 111);
             this.groupBoxCabanias.TabIndex = 2;
             this.groupBoxCabanias.TabStop = false;
             // 
@@ -316,12 +317,22 @@ namespace TP2_Grupo4.Views
             this.lblAlojamiento.TabIndex = 14;
             this.lblAlojamiento.Text = "Cabañas";
             // 
+            // lblErrorCabañas
+            // 
+            this.lblErrorCabañas.AutoSize = true;
+            this.lblErrorCabañas.Location = new System.Drawing.Point(181, 177);
+            this.lblErrorCabañas.Name = "lblErrorCabañas";
+            this.lblErrorCabañas.Size = new System.Drawing.Size(38, 15);
+            this.lblErrorCabañas.TabIndex = 15;
+            this.lblErrorCabañas.Text = "label8";
+            // 
             // VistaAdminCabanias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(1000, 562);
+            this.Controls.Add(this.lblErrorCabañas);
             this.Controls.Add(this.lblAlojamiento);
             this.Controls.Add(this.groupBoxCabanias);
             this.Controls.Add(this.dgvCabanias);
@@ -361,5 +372,6 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxHabitaciones;
         private System.Windows.Forms.ComboBox comboBoxBanios;
+        private System.Windows.Forms.Label lblErrorCabañas;
     }
 }

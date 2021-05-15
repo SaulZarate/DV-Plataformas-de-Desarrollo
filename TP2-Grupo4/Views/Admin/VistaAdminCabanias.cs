@@ -175,13 +175,30 @@ namespace TP2_Grupo4.Views
 
         private void btnTopAgregar_Click(object sender, EventArgs e)
         {
-            int codigo = Int32.Parse(txtCodigo.Text);
+            double precioPorDia = 0;
+            int codigo = 0;
+            try
+            {
+                codigo = Int32.Parse(txtCodigo.Text);
+            }
+            catch (FormatException)
+            {
+                lblErrorCabañas.Text = "ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico \n";
+            }
             string ciudad = txtCiudad.Text;
             string barrio = txtBarrio.Text;
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
             bool tv = checkBoxTV.Checked;
-            double precioPorDia = double.Parse(txtPrecioDia.Text);
+            try
+            {
+                precioPorDia = double.Parse(txtPrecioDia.Text);
+            }
+            catch (FormatException)
+            {
+                lblErrorCabañas.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
+            }
+
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
 
@@ -196,13 +213,29 @@ namespace TP2_Grupo4.Views
             btnTopAgregar.Visible = true;
             btnTopModificar.Visible = false;
 
-            int codigo = Int32.Parse(txtCodigo.Text);
+            double precioPorDia = 0;
+            int codigo = 0;
+            try
+            {
+                codigo = Int32.Parse(txtCodigo.Text);
+            }
+            catch (FormatException)
+            {
+                lblErrorCabañas.Text = "ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico \n";
+            }
             string ciudad = txtCiudad.Text;
             string barrio = txtBarrio.Text;
             int estrellas = Int32.Parse(comboBoxEstrellas.Text);
             int cantPersonas = Int32.Parse(comboBoxCantPersonas.Text);
             bool tv = checkBoxTV.Checked;
-            double precioDia = double.Parse(txtPrecioDia.Text);
+            try
+            {
+                precioPorDia = double.Parse(txtPrecioDia.Text);
+            }
+            catch (FormatException)
+            {
+                lblErrorCabañas.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
+            }
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
 
