@@ -109,22 +109,41 @@ namespace TP2_Grupo4.Models
 
 
         #region METODOS COMPLEMENTARIOS
-        public List<List<String>> DatosDeAlojamientosParaLasVistas()
+        public List<List<String>> DatosDeAlojamientosParaLasVistas(String tipoDeUsuario = "admin")
         {
             List<List<String>> alojamientos = new List<List<string>>();
-            foreach(Alojamiento alojamiento in this.alojamientos)
+            
+            if (tipoDeUsuario == "admin")
             {
-                alojamientos.Add(new List<String>()
-                {
-                    alojamiento.GetCodigo().ToString(),
-                    alojamiento.GetCiudad(),
-                    alojamiento.GetBarrio(),
-                    alojamiento.GetEstrellas().ToString(),
-                    alojamiento.GetCantidadDePersonas().ToString(),
-                    alojamiento.GetTv() ? "si" : "no",
-                    alojamiento.PrecioTotalDelAlojamiento().ToString(),
-                });
+                foreach (Alojamiento alojamiento in this.alojamientos)
+                    alojamientos.Add(new List<String>(){
+                        alojamiento.GetCodigo().ToString(),
+                        alojamiento.GetCiudad(),
+                        alojamiento.GetBarrio(),
+                        alojamiento.GetEstrellas().ToString(),
+                        alojamiento.GetCantidadDePersonas().ToString(),
+                        alojamiento.GetTv() ? "si" : "no",
+                        alojamiento.PrecioTotalDelAlojamiento().ToString(),
+                    });
+
             }
+            else if(tipoDeUsuario == "user")
+            {
+                foreach (Alojamiento alojamiento in this.alojamientos)
+                {
+                    alojamientos.Add(new List<String>(){
+                        alojamiento is Hotel ? "hotel" : "cabaña", // Tipo de alojamiento
+                        alojamiento.GetCiudad(),
+                        alojamiento.GetBarrio(),
+                        alojamiento.GetEstrellas().ToString(),
+                        alojamiento.GetCantidadDePersonas().ToString(),
+                        alojamiento.GetTv() ? "si" : "no",
+                        alojamiento.PrecioTotalDelAlojamiento().ToString(),
+                    });
+                }
+            }
+
+            
             return alojamientos;
         }
         public List<List<String>> DatosDeHotelesParaLasVistas()

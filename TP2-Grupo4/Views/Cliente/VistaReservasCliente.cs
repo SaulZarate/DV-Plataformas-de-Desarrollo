@@ -11,16 +11,17 @@ namespace TP2_Grupo4.Views
 {
     public partial class VistaReservasCliente : Form
     {
-        AgenciaManager reservas = new AgenciaManager();
-        int num1;
-        public VistaReservasCliente(AgenciaManager userLogged)
+        AgenciaManager agencia = new AgenciaManager();
+        List<Reserva> reservasDelUsuario;
+
+        public VistaReservasCliente(AgenciaManager agenciaManager)
         {
             InitializeComponent();
-            this.reservas = userLogged;
-            int dni = userLogged.GetUsuarioLogeado().GetDni();
-            num1 = dni;
+            this.agencia = agenciaManager;
+            this.reservasDelUsuario = agenciaManager.GetAllReservasForUsuario(agenciaManager.GetUsuarioLogeado().GetDni());
         }
 
+        // CREACION DEL CONTENIDO DEL DATAGRIDVIEW
         private void VistaReservasCliente_Load(object sender, EventArgs e)
         {
             // Boton reservar
@@ -34,7 +35,7 @@ namespace TP2_Grupo4.Views
             };
             btnCancelar.DefaultCellStyle.BackColor = Color.IndianRed;
 
-            dgvReservaciones.Columns.Add("Codigo", "Código");
+            dgvReservaciones.Columns.Add("TipoAlojamiento", "Tipo de alojamiento");
             dgvReservaciones.Columns.Add("Fecha Inicio", "Fecha de ida");
             dgvReservaciones.Columns.Add("Fecha Fin", "Fecha de vuelta");
             //dgvReservaciones.Columns.Add("Usuario", "Usuario");
@@ -42,42 +43,43 @@ namespace TP2_Grupo4.Views
 
             dgvReservaciones.Columns.Add(btnCancelar);
             dgvReservaciones.ReadOnly = false;
-            getTextReservaciones();
+            llenarDataGridView();
         }
-        private void getTextReservaciones()
+        private void llenarDataGridView()
         {
-            List<Reserva> reservaciones = this.reservas.GetAllReservasForUsuario(num1);
-            foreach (Reserva reservacion in reservaciones)
-            {
-                this.dgvReservaciones.Rows.Add(
-                    reservacion.GetId(),
-                    reservacion.GetFechaDesde(),
-                    reservacion.GetFechaHasta(),
-                    //num1,
-                    reservacion.GetPrecio()
-                );
-            }
+            List<List<String>> reservas = this.agencia.DatosDeReservasParaLasVistas("user");
+            foreach (List<String> reserva in reservas)
+                this.dgvReservaciones.Rows.Add(reserva.ToArray());
         }
 
+        // BOTON CANCELAR DEL DATAGRIDVIEW
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // Si hacemos click en Button CANCELAR
+            if (dgvReservaciones.CurrentCell.RowIndex > (this.reservasDelUsuario.Count - 1))
+            {
+                MessageBox.Show("Celda incorrecta");
+                return;
+            }
+
             if (dgvReservaciones.Columns[e.ColumnIndex].Name == "CANCELAR")
             {
                 if (MessageBox.Show("Estas seguro que quieres cancelar este alojamiento?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // Index del Row
                     int rowIndex = dgvReservaciones.CurrentCell.RowIndex;
-                    // Codigo del Alojamiento
-                    int codigo = Int32.Parse(dgvReservaciones.Rows[rowIndex].Cells["Codigo"].Value.ToString());
+
+                    // Codigo de la reserva
+                    String codigoDeReserva = this.reservasDelUsuario[rowIndex].GetId();
+
                     // Eliminar reserva
-                    this.reservas.EliminarReserva((codigo).ToString());
+                    this.agencia.EliminarReserva(codigoDeReserva);
+
                     // Guardar Datos
-                    this.reservas.GuardarCambiosDeLasReservas();
+                    this.agencia.GuardarCambiosDeLasReservas();
 
                     // Actualizar GridView
                     this.dgvReservaciones.Rows.Clear();
-                    getTextReservaciones();
+                    llenarDataGridView();
                 }
             }
         }
