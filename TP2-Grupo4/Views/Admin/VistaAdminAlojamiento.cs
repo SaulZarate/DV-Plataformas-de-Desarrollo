@@ -31,7 +31,6 @@ namespace TP2_Grupo4.Views
 
             dgvAlojamiento.ReadOnly = true;
             comboBoxTipoAloj.SelectedIndex = 0;
-            getTextAlojamientos();
         }
 
         private void getTextAlojamientos()
