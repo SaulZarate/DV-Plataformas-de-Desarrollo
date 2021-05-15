@@ -28,6 +28,15 @@ namespace TP2_Grupo4.Views
 
 
         #region METODOS COMPLEMENTARIOS
+        private void indicarSelectPorDefecto()
+        {
+            this.selectTipoAlojamiento.SelectedIndex = 0;
+            this.selectCiudad.SelectedIndex = 0;
+            this.selectBarrio.SelectedIndex = 0;
+            this.selectEstrellas.SelectedIndex = 0;
+            this.selectCantPersonas.SelectedIndex = 0;
+            //this.selectOrdenamiento.SelectedIndex = 0;
+        }
         private void llenarSelects()
         {
             // Deshabilitar escritura en los select
@@ -63,33 +72,44 @@ namespace TP2_Grupo4.Views
                 this.selectOrdenamiento.Items.Add(opcion);
 
             // Item por defectos de los select
-            this.selectTipoAlojamiento.SelectedIndex = 0;
-            this.selectCiudad.SelectedIndex = 0;
-            this.selectBarrio.SelectedIndex = 0;
-            this.selectEstrellas.SelectedIndex = 0;
-            this.selectCantPersonas.SelectedIndex = 0;
-            //this.selectOrdenamiento.SelectedIndex = 0;
+            this.indicarSelectPorDefecto();
         }
         private void limpiarDataGridView()
         {
             this.dgvAlojamiento.Rows.Clear();
         }
-        private void llenarDataGridView(Agencia datosParaElDGV = null, bool ordenar = false)
+        private void llenarDataGridView(Agencia datosParaElDGV = null)
         {
+            this.alojamientosDelDataGridView = datosParaElDGV ?? this.agencia.GetAgencia();
 
-            Agencia alojamientosFiltrados = datosParaElDGV ?? this.agencia.GetAgencia();
-
-            if (!ordenar)
-            {
-                this.alojamientosDelDataGridView = alojamientosFiltrados;
-            }
-
-            foreach (List<String> alojamiento in alojamientosFiltrados.DatosDeAlojamientosParaLasVistas())
+            foreach (List<String> alojamiento in this.alojamientosDelDataGridView.DatosDeAlojamientosParaLasVistas())
                 this.dgvAlojamiento.Rows.Add(alojamiento.ToArray());
         }
         private void bloquearBotonFiltrar(bool flag)
         {
             this.btnFiltrar.Enabled = !flag;
+        }
+        private void ordenarAlojamientos()
+        {
+            this.limpiarDataGridView();
+            //System.Diagnostics.Debug.WriteLine(this.selectOrdenamiento.Text);
+
+            String tipoDeOrdenamiento = this.selectOrdenamiento.Text;
+            switch (tipoDeOrdenamiento)
+            {
+                case "codigo":
+                    this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorCodigo());
+                    break;
+                case "estrellas":
+                    this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorEstrellas());
+                    break;
+                case "personas":
+                    this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorPersonas());
+                    break;
+                default:
+                    this.llenarDataGridView(this.alojamientosDelDataGridView);
+                    break;
+            }
         }
         #endregion
 
@@ -114,7 +134,7 @@ namespace TP2_Grupo4.Views
             dgvAlojamiento.Columns.Add("Estrellas", "Estrellas");
             dgvAlojamiento.Columns.Add("CantidadDePersonas", "Cantidad de Personas");
             dgvAlojamiento.Columns.Add("Tv", "TV");
-            dgvAlojamiento.Columns.Add("Precio", "Precio");
+            dgvAlojamiento.Columns.Add("Precio", "Precio por día");
 
             dgvAlojamiento.Columns.Add(btnReservar);
             dgvAlojamiento.ReadOnly = false;
@@ -148,36 +168,17 @@ namespace TP2_Grupo4.Views
                 return;
             }
 
+            this.indicarSelectPorDefecto();
             this.limpiarDataGridView();
             this.llenarDataGridView(alojamientosFiltrados);
+            this.ordenarAlojamientos();
         }
         
 
         /* SELECT DE ORDENAMIENTO */
         private void selectOrdenamiento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.limpiarDataGridView();
-            //System.Diagnostics.Debug.WriteLine(this.selectOrdenamiento.Text);
-
-            String tipoDeOrdenamiento = this.selectOrdenamiento.Text;
-            switch (tipoDeOrdenamiento)
-            {
-                case "por defecto":
-                    this.llenarDataGridView(this.alojamientosDelDataGridView, true);
-                    break;
-                case "codigo":
-                    this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorCodigo(), true);
-                    break;
-                case "estrellas":
-                    this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorEstrellas(), true);
-                    break;
-                case "personas":
-                    this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorPersonas(), true);
-                    break;
-                default:
-                    //this.llenarDataGridView();
-                    break;
-            }
+            this.ordenarAlojamientos();
         }
 
 

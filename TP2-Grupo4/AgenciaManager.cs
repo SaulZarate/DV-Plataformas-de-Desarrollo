@@ -281,7 +281,7 @@ namespace TP2_Grupo4
         }
         public List<String> OpcionesDelSelectParaElOrdenamiento()
         {
-            return new List<String>() { "por defecto","codigo","personas","estrellas" };
+            return new List<String>() { "codigo","personas","estrellas" };
         }
 
         #endregion

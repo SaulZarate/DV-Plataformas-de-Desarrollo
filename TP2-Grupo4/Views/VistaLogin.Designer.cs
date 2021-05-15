@@ -54,6 +54,7 @@ namespace TP2_Grupo4.Views
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.pictureBox2.Image = global::TP2_Grupo4.Properties.Resources.icon_5359553_960_720;
             this.pictureBox2.Location = new System.Drawing.Point(359, 171);
             this.pictureBox2.Name = "pictureBox2";
@@ -64,6 +65,7 @@ namespace TP2_Grupo4.Views
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.pictureBox3.Image = global::TP2_Grupo4.Properties.Resources.istockphoto_1241551153_170667a;
             this.pictureBox3.Location = new System.Drawing.Point(353, 226);
             this.pictureBox3.Name = "pictureBox3";
@@ -114,7 +116,7 @@ namespace TP2_Grupo4.Views
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlText;
+            this.panel2.BackColor = System.Drawing.Color.Black;
             this.panel2.Location = new System.Drawing.Point(436, 206);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(290, 1);
@@ -122,7 +124,7 @@ namespace TP2_Grupo4.Views
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlText;
+            this.panel3.BackColor = System.Drawing.Color.Black;
             this.panel3.Location = new System.Drawing.Point(436, 269);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(290, 1);
@@ -270,7 +272,6 @@ namespace TP2_Grupo4.Views
             this.Name = "VistaLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.TransparencyKey = System.Drawing.Color.Black;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panel1.ResumeLayout(false);
