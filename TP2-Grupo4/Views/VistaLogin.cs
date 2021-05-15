@@ -55,6 +55,7 @@ namespace TP2_Grupo4.Views
             if (txtContrasena.Text == "CONTRASEÑA")
             {
                 txtContrasena.Text = "";
+                txtContrasena.UseSystemPasswordChar = true;
             }
         }
         private void txtContrasena_Leave(object sender, EventArgs e)
@@ -194,11 +195,6 @@ namespace TP2_Grupo4.Views
 
         #endregion
 
-
-         private void txtContrasena_Selected(object sender, KeyEventArgs e)
-         {
-             txtContrasena.UseSystemPasswordChar = true;
-         }
 
         private void lblRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
