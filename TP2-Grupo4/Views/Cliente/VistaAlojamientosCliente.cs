@@ -82,7 +82,7 @@ namespace TP2_Grupo4.Views
         {
             this.alojamientosDelDataGridView = datosParaElDGV ?? this.agencia.GetAgencia();
 
-            foreach (List<String> alojamiento in this.alojamientosDelDataGridView.DatosDeAlojamientosParaLasVistas())
+            foreach (List<String> alojamiento in this.alojamientosDelDataGridView.DatosDeAlojamientosParaLasVistas("user"))
                 this.dgvAlojamiento.Rows.Add(alojamiento.ToArray());
         }
         private void bloquearBotonFiltrar(bool flag)
@@ -97,7 +97,7 @@ namespace TP2_Grupo4.Views
             String tipoDeOrdenamiento = this.selectOrdenamiento.Text;
             switch (tipoDeOrdenamiento)
             {
-                case "codigo":
+                case "fecha de creacion":
                     this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorCodigo());
                     break;
                 case "estrellas":
@@ -128,13 +128,13 @@ namespace TP2_Grupo4.Views
             };
             btnReservar.DefaultCellStyle.BackColor = Color.Green;
 
-            dgvAlojamiento.Columns.Add("Codigo", "Código");
+            dgvAlojamiento.Columns.Add("Tipo", "Tipo");
             dgvAlojamiento.Columns.Add("Ciudad", "Ciudad");
             dgvAlojamiento.Columns.Add("Barrio", "Barrio");
             dgvAlojamiento.Columns.Add("Estrellas", "Estrellas");
             dgvAlojamiento.Columns.Add("CantidadDePersonas", "Cantidad de Personas");
             dgvAlojamiento.Columns.Add("Tv", "TV");
-            dgvAlojamiento.Columns.Add("Precio", "Precio por día");
+            dgvAlojamiento.Columns.Add("Precio", "Precio por dia");
 
             dgvAlojamiento.Columns.Add(btnReservar);
             dgvAlojamiento.ReadOnly = false;
@@ -185,6 +185,10 @@ namespace TP2_Grupo4.Views
         /* BOTON PARA RESERVAR */
         private void dgvAlojamiento_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            if (this.dgvAlojamiento.CurrentCell.RowIndex > (this.alojamientosDelDataGridView.GetCantidadDeAlojamientos() - 1))
+            {
+                return;
+            }
             // Validacion de las fechas
             int diasTotalesDeLaReserva;
             try
@@ -203,8 +207,10 @@ namespace TP2_Grupo4.Views
                 {
                     // Index del Row
                     int rowIndex = dgvAlojamiento.CurrentCell.RowIndex;
+
                     // Codigo del Alojamiento
-                    int codigoDelAlojamiento = Int32.Parse(this.dgvAlojamiento.Rows[rowIndex].Cells["Codigo"].Value.ToString());
+                    int codigoDelAlojamiento = this.alojamientosDelDataGridView.GetAlojamientos()[rowIndex].GetCodigo();
+                    
                     // Precio del alojamiento
                     int precioDelAlojamiento = int.Parse(this.dgvAlojamiento.Rows[rowIndex].Cells["Precio"].Value.ToString());
 
@@ -229,6 +235,7 @@ namespace TP2_Grupo4.Views
                     MessageBox.Show("Reserva realizada correctamente");
 
                     // llenar DataGridView
+                    this.limpiarDataGridView();
                     this.llenarDataGridView();
                 }
             }

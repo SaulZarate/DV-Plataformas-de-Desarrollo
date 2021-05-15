@@ -113,6 +113,40 @@ namespace TP2_Grupo4
                 reservas.Add(reserva.ToString());
             return Utils.WriteInFile(Config.PATH_FILE_RESERVAS, reservas);
         }
+        public List<List<String>> DatosDeReservasParaLasVistas(String tipoDeUsuario = "admin")
+        {
+            List<List<String>> reservas = new List<List<string>>();
+
+            if (tipoDeUsuario == "admin")
+            {
+                foreach (Reserva reserva in this.reservas)
+                {
+                    reservas.Add(new List<String>(){
+                        reserva.GetId().ToString(),
+                        reserva.GetFechaDesde().ToString(),
+                        reserva.GetFechaHasta().ToString(),
+                        reserva.GetPrecio().ToString(),
+                    });
+                }
+            }
+            else if (tipoDeUsuario == "user")
+            {
+                // Reservas del usuario
+                List<Reserva> reservasDelUsuario = this.GetAllReservasForUsuario(this.usuarioLogeado.GetDni());
+                
+                foreach (Reserva reserva in reservasDelUsuario)
+                {
+                    reservas.Add(new List<String>(){
+                        reserva.GetAlojamiento() is Hotel ? "hotel" : "cabaña",
+                        reserva.GetFechaDesde().ToString(),
+                        reserva.GetFechaHasta().ToString(),
+                        reserva.GetPrecio().ToString(),
+                    });
+                }
+            }
+            return reservas;
+        }
+
         #endregion
 
         #region METODOS PARA LOS USUARIOS
@@ -281,7 +315,7 @@ namespace TP2_Grupo4
         }
         public List<String> OpcionesDelSelectParaElOrdenamiento()
         {
-            return new List<String>() { "codigo","personas","estrellas" };
+            return new List<String>() { "fecha de creacion","personas","estrellas" };
         }
 
         #endregion
