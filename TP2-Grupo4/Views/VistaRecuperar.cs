@@ -6,12 +6,14 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using TP2_Grupo4.Helpers;
 
 namespace TP2_Grupo4.Views
 {
     public partial class VistaRecuperar : Form
     {
         private AgenciaManager agencia;
+        private Utils utils;
         public VistaRecuperar()
         {
             InitializeComponent();
@@ -49,49 +51,34 @@ namespace TP2_Grupo4.Views
                 txtUsuario.ForeColor = Color.DimGray;
             }
         }
-
         private void txtContrasena_Enter(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == "CONTRASEÑA NUEVA")
+            if (txtContrasena.Text == "CONTRASEÑA ANTERIOR")
             {
                 txtContrasena.Text = "";
             }
         }
-
         private void txtContrasena_Leave(object sender, EventArgs e)
         {
             if (txtContrasena.Text == "")
             {
-                txtContrasena.Text = "CONTRASEÑA NUEVA";
+                txtContrasena.Text = "CONTRASEÑA ANTERIOR";
             }
         }
-        private void txtNombre_Enter(object sender, EventArgs e)
+
+        private void txtContrasenaNueva_Enter(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "NOMBRE")
+            if (txtContrasenaNueva.Text == "CONTRASEÑA NUEVA")
             {
-                txtNombre.Text = "";
+                txtContrasenaNueva.Text = "";
             }
         }
-        private void txtNombre_Leave(object sender, EventArgs e)
+
+        private void txtContrasenaNueva_Leave(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "")
+            if (txtContrasenaNueva.Text == "")
             {
-                txtNombre.Text = "NOMBRE";
-            }
-        }
-        private void txtMail_Enter(object sender, EventArgs e)
-        {
-            if (txtMail.Text == "EMAIL")
-            {
-                txtMail.Text = "";
-            }
-        }
-        private void txtMail_Leave(object sender, EventArgs e)
-        {
-            if (txtMail.Text == "")
-            {
-                txtMail.Text = "EMAIL";
-                txtMail.Text = "EMAIL";
+                txtContrasenaNueva.Text = "CONTRASEÑA NUEVA";
             }
         }
 
@@ -115,18 +102,27 @@ namespace TP2_Grupo4.Views
         {
             try
             {
-                agencia.ModificarUsuario(int.Parse(txtUsuario.Text), txtNombre.Text, txtMail.Text, txtContrasena.Text);
-                //agencia.AgregarUsuario(, txtNombre.Text, txtMail.Text, txtContrasena.Text);
-                agencia.GuardarCambiosDeLosUsuarios();
-                txtUsuario.Text = "";
-                txtNombre.Text = "";
-                txtMail.Text = "";
-                txtContrasena.Text = "";
-                MessageBox.Show("Se ha modificado el usuario de manera exitosa.");
+                if (agencia.autenticarUsuario(int.Parse(txtUsuario.Text), txtContrasena.Text))
+                    //agencia.FindUserForDNI(int.Parse(txtUsuario.Text)).GetDni() == int.Parse(txtUsuario.Text)
+                    //&& agencia.FindUserForDNI(int.Parse(txtUsuario.Text)).GetPassword() == txtContrasena.Text)
+                {
+                    agencia.ModificarUsuario(int.Parse(txtUsuario.Text), agencia.FindUserForDNI(int.Parse(txtUsuario.Text)).GetNombre(),
+                        agencia.FindUserForDNI(int.Parse(txtUsuario.Text)).GetEmail(), txtContrasenaNueva.Text);
+
+                    agencia.GuardarCambiosDeLosUsuarios();
+                    txtUsuario.Text = "";
+                    txtContrasena.Text = "";
+                    txtContrasenaNueva.Text = "";
+                    MessageBox.Show("Se ha modificado el usuario de manera exitosa.");
+                }
+                else
+                {
+                    MessageBox.Show("Usuario o contraseña inválido, por favor intentelo nuevamente.");
+                }
             }
             catch
             {
-                MessageBox.Show("Error en la modificación, por favor intentelo nuevamente.");
+                MessageBox.Show("El usuario no existe, por favor intentelo nuevamente.");
             }
         }
     }

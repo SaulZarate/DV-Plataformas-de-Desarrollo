@@ -38,12 +38,10 @@ namespace TP2_Grupo4.Views
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.txtMail = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.txtContrasenaNueva = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -159,49 +157,28 @@ namespace TP2_Grupo4.Views
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel5.Location = new System.Drawing.Point(552, 198);
+            this.panel5.Location = new System.Drawing.Point(462, 236);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(175, 1);
             this.panel5.TabIndex = 29;
             // 
-            // panel6
+            // txtContrasena
             // 
-            this.panel6.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel6.Location = new System.Drawing.Point(552, 261);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(175, 1);
-            this.panel6.TabIndex = 30;
-            // 
-            // txtMail
-            // 
-            this.txtMail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtMail.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtMail.ForeColor = System.Drawing.Color.DimGray;
-            this.txtMail.Location = new System.Drawing.Point(552, 243);
-            this.txtMail.Name = "txtMail";
-            this.txtMail.Size = new System.Drawing.Size(175, 16);
-            this.txtMail.TabIndex = 4;
-            this.txtMail.Text = "EMAIL";
-            this.txtMail.Enter += new System.EventHandler(this.txtMail_Enter);
-            this.txtMail.Leave += new System.EventHandler(this.txtMail_Leave);
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNombre.ForeColor = System.Drawing.Color.DimGray;
-            this.txtNombre.Location = new System.Drawing.Point(552, 181);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(175, 16);
-            this.txtNombre.TabIndex = 3;
-            this.txtNombre.Text = "NOMBRE";
-            this.txtNombre.Enter += new System.EventHandler(this.txtNombre_Enter);
-            this.txtNombre.Leave += new System.EventHandler(this.txtNombre_Leave);
+            this.txtContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtContrasena.ForeColor = System.Drawing.Color.DimGray;
+            this.txtContrasena.Location = new System.Drawing.Point(462, 219);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.Size = new System.Drawing.Size(175, 16);
+            this.txtContrasena.TabIndex = 2;
+            this.txtContrasena.Text = "CONTRASEÑA ANTERIOR";
+            this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
+            this.txtContrasena.Leave += new System.EventHandler(this.txtContrasena_Leave);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel2.Location = new System.Drawing.Point(360, 198);
+            this.panel2.Location = new System.Drawing.Point(462, 181);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(175, 1);
             this.panel2.TabIndex = 27;
@@ -209,30 +186,30 @@ namespace TP2_Grupo4.Views
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ControlText;
-            this.panel3.Location = new System.Drawing.Point(360, 261);
+            this.panel3.Location = new System.Drawing.Point(462, 293);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(175, 1);
             this.panel3.TabIndex = 28;
             // 
-            // txtContrasena
+            // txtContrasenaNueva
             // 
-            this.txtContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtContrasena.ForeColor = System.Drawing.Color.DimGray;
-            this.txtContrasena.Location = new System.Drawing.Point(360, 243);
-            this.txtContrasena.Name = "txtContrasena";
-            this.txtContrasena.Size = new System.Drawing.Size(175, 16);
-            this.txtContrasena.TabIndex = 2;
-            this.txtContrasena.Text = "CONTRASEÑA NUEVA";
-            this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
-            this.txtContrasena.Leave += new System.EventHandler(this.txtContrasena_Leave);
+            this.txtContrasenaNueva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtContrasenaNueva.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtContrasenaNueva.ForeColor = System.Drawing.Color.DimGray;
+            this.txtContrasenaNueva.Location = new System.Drawing.Point(462, 275);
+            this.txtContrasenaNueva.Name = "txtContrasenaNueva";
+            this.txtContrasenaNueva.Size = new System.Drawing.Size(175, 16);
+            this.txtContrasenaNueva.TabIndex = 3;
+            this.txtContrasenaNueva.Text = "CONTRASEÑA NUEVA";
+            this.txtContrasenaNueva.Enter += new System.EventHandler(this.txtContrasenaNueva_Enter);
+            this.txtContrasenaNueva.Leave += new System.EventHandler(this.txtContrasenaNueva_Leave);
             // 
             // txtUsuario
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
-            this.txtUsuario.Location = new System.Drawing.Point(360, 181);
+            this.txtUsuario.Location = new System.Drawing.Point(462, 164);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(175, 16);
             this.txtUsuario.TabIndex = 1;
@@ -247,12 +224,10 @@ namespace TP2_Grupo4.Views
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.txtMail);
-            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.txtContrasena);
+            this.Controls.Add(this.txtContrasenaNueva);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.panel1);
@@ -283,12 +258,10 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox txtMail;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.TextBox txtContrasenaNueva;
         private System.Windows.Forms.TextBox txtUsuario;
     }
 }
