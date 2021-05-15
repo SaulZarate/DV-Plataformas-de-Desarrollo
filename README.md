@@ -45,7 +45,8 @@ En buscar Alojamientos dentro de esta opción podremos elegir los distintos tipo
    * Por codigo
    * Personas
    * Estrellas
-   Este ordenamiento se realiza de menor a mayor
+  
+  Este ordenamiento se realiza de menor a mayor
 
   Por ultimo tenemos el Grid View en donde se nos muestra todas las opciones que tenemos para reservar con la informacion de cada una de ellas:
    * Codigo

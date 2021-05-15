@@ -106,18 +106,30 @@ namespace TP2_Grupo4.Views
         {
             try
             {
-                agencia.AgregarUsuario(int.Parse(txtUsuario.Text), txtNombre.Text, txtMail.Text, txtContrasena.Text, checkAdmin.Checked, false);
-                agencia.GuardarCambiosDeLosUsuarios();
-                txtUsuario.Text = "DNI";
-                txtUsuario.ForeColor = Color.DimGray;
-                txtNombre.Text = "NOMBRE";
-                txtNombre.ForeColor = Color.DimGray;
-                txtMail.Text = "EMAIL";
-                txtMail.ForeColor = Color.DimGray;
-                txtContrasena.Text = "CONTRASEÑA";
-                txtContrasena.ForeColor = Color.DimGray;
-                checkAdmin.Checked = false;
-                MessageBox.Show("Se ha registrado de manera exitosa.");
+                if (this.agencia.FindUserForDNI(int.Parse(txtUsuario.Text)) == null)
+                {
+                    /*&& this.agencia.FindUserForDNI(int.Parse(txtUsuario.Text)).GetEmail() == null
+                    foreach (Usuario usuarios in Usuario)
+                    {
+
+                    }*/
+                    agencia.AgregarUsuario(int.Parse(txtUsuario.Text), txtNombre.Text, txtMail.Text, txtContrasena.Text, checkAdmin.Checked, false);
+                    agencia.GuardarCambiosDeLosUsuarios();
+                    txtUsuario.Text = "DNI";
+                    txtUsuario.ForeColor = Color.DimGray;
+                    txtNombre.Text = "NOMBRE";
+                    txtNombre.ForeColor = Color.DimGray;
+                    txtMail.Text = "EMAIL";
+                    txtMail.ForeColor = Color.DimGray;
+                    txtContrasena.Text = "CONTRASEÑA";
+                    txtContrasena.ForeColor = Color.DimGray;
+                    checkAdmin.Checked = false;
+                    MessageBox.Show("Se ha registrado de manera exitosa.");
+                }
+                else
+                {
+                    MessageBox.Show("El dni ya está registrado.");
+                }
             }
             catch
             {
