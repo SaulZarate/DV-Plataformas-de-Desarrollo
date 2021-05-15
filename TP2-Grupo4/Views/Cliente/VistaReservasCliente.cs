@@ -35,8 +35,8 @@ namespace TP2_Grupo4.Views
             btnCancelar.DefaultCellStyle.BackColor = Color.IndianRed;
 
             dgvReservaciones.Columns.Add("Codigo", "Código");
-            dgvReservaciones.Columns.Add("Fecha Inicio", "Fecha Inicio");
-            dgvReservaciones.Columns.Add("Fecha Fin", "Fecha Fin");
+            dgvReservaciones.Columns.Add("Fecha Inicio", "Fecha de ida");
+            dgvReservaciones.Columns.Add("Fecha Fin", "Fecha de vuelta");
             //dgvReservaciones.Columns.Add("Usuario", "Usuario");
             dgvReservaciones.Columns.Add("Precio", "Precio");
 
