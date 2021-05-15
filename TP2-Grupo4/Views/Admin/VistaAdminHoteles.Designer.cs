@@ -48,6 +48,7 @@ namespace TP2_Grupo4.Views
             this.label4 = new System.Windows.Forms.Label();
             this.btnTopAgregar = new System.Windows.Forms.Button();
             this.comboBoxEstrellas = new System.Windows.Forms.ComboBox();
+            this.laberHerrorHoteles = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoteles)).BeginInit();
             this.panelHoteles.SuspendLayout();
             this.groupBoxHoteles.SuspendLayout();
@@ -66,6 +67,7 @@ namespace TP2_Grupo4.Views
             // panelHoteles
             // 
             this.panelHoteles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.panelHoteles.Controls.Add(this.laberHerrorHoteles);
             this.panelHoteles.Controls.Add(this.lblAlojamiento);
             this.panelHoteles.Controls.Add(this.groupBoxHoteles);
             this.panelHoteles.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -268,6 +270,15 @@ namespace TP2_Grupo4.Views
             this.comboBoxEstrellas.Size = new System.Drawing.Size(53, 23);
             this.comboBoxEstrellas.TabIndex = 5;
             // 
+            // laberHerrorHoteles
+            // 
+            this.laberHerrorHoteles.AutoSize = true;
+            this.laberHerrorHoteles.Location = new System.Drawing.Point(187, 242);
+            this.laberHerrorHoteles.Name = "laberHerrorHoteles";
+            this.laberHerrorHoteles.Size = new System.Drawing.Size(38, 15);
+            this.laberHerrorHoteles.TabIndex = 14;
+            this.laberHerrorHoteles.Text = "label1";
+            // 
             // VistaAdminHoteles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -310,5 +321,6 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnTopAgregar;
         private System.Windows.Forms.ComboBox comboBoxEstrellas;
+        private System.Windows.Forms.Label laberHerrorHoteles;
     }
 }
