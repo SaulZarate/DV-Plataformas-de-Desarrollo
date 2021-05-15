@@ -84,8 +84,8 @@ namespace TP2_Grupo4.Views
         {
             Modificar.Enabled = false;
             String id = textBoxID.Text;
-            DateTime desde = DateTime.Parse(textBoxDesde.Text);
-            DateTime hasta = DateTime.Parse(textBoxHasta.Text);
+            DateTime desde = DateTime.Parse(dateTimeDesde.Text);
+            DateTime hasta = DateTime.Parse(dateTimeHasta.Text);
             int idAloja = Int32.Parse(textBoxAloja.Text);
             int dni = Int32.Parse(textBoxUsuario.Text);
             this.agencia.ModificarReserva(id, desde, hasta, idAloja, dni);
@@ -136,13 +136,14 @@ namespace TP2_Grupo4.Views
             }
 
         }
+        
 
         #region Helpers
         private void rellenarDatos()
         {
             textBoxID.Text = dgvReservas.CurrentRow.Cells[0].Value.ToString();
-            textBoxDesde.Text = dgvReservas.CurrentRow.Cells[1].Value.ToString();
-            textBoxHasta.Text = dgvReservas.CurrentRow.Cells[2].Value.ToString();
+            dateTimeDesde.Text = dgvReservas.CurrentRow.Cells[1].Value.ToString();
+            dateTimeHasta.Text = dgvReservas.CurrentRow.Cells[2].Value.ToString();
             textBoxAloja.Text = dgvReservas.CurrentRow.Cells[3].Value.ToString();
             textBoxUsuario.Text = dgvReservas.CurrentRow.Cells[4].Value.ToString();
             textBoxPrecio.Text = dgvReservas.CurrentRow.Cells[5].Value.ToString();

@@ -32,8 +32,8 @@ namespace TP2_Grupo4.Views
             this.lblReservas = new System.Windows.Forms.Label();
             this.dgvReservas = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBoxHasta = new System.Windows.Forms.TextBox();
-            this.textBoxDesde = new System.Windows.Forms.TextBox();
+            this.dateTimeHasta = new System.Windows.Forms.DateTimePicker();
+            this.dateTimeDesde = new System.Windows.Forms.DateTimePicker();
             this.textBoxAloja = new System.Windows.Forms.TextBox();
             this.textBoxPrecio = new System.Windows.Forms.TextBox();
             this.textBoxID = new System.Windows.Forms.TextBox();
@@ -71,8 +71,8 @@ namespace TP2_Grupo4.Views
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBoxHasta);
-            this.groupBox1.Controls.Add(this.textBoxDesde);
+            this.groupBox1.Controls.Add(this.dateTimeHasta);
+            this.groupBox1.Controls.Add(this.dateTimeDesde);
             this.groupBox1.Controls.Add(this.textBoxAloja);
             this.groupBox1.Controls.Add(this.textBoxPrecio);
             this.groupBox1.Controls.Add(this.textBoxID);
@@ -93,24 +93,24 @@ namespace TP2_Grupo4.Views
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ordenamiento";
             // 
-            // textBoxHasta
+            // dateTimeHasta
             // 
-            this.textBoxHasta.Location = new System.Drawing.Point(326, 74);
-            this.textBoxHasta.Name = "textBoxHasta";
-            this.textBoxHasta.Size = new System.Drawing.Size(100, 23);
-            this.textBoxHasta.TabIndex = 10;
+            this.dateTimeHasta.Location = new System.Drawing.Point(269, 74);
+            this.dateTimeHasta.Name = "dateTimeHasta";
+            this.dateTimeHasta.Size = new System.Drawing.Size(241, 23);
+            this.dateTimeHasta.TabIndex = 12;
             // 
-            // textBoxDesde
+            // dateTimeDesde
             // 
-            this.textBoxDesde.Location = new System.Drawing.Point(326, 26);
-            this.textBoxDesde.Name = "textBoxDesde";
-            this.textBoxDesde.Size = new System.Drawing.Size(100, 23);
-            this.textBoxDesde.TabIndex = 9;
+            this.dateTimeDesde.Location = new System.Drawing.Point(269, 29);
+            this.dateTimeDesde.Name = "dateTimeDesde";
+            this.dateTimeDesde.Size = new System.Drawing.Size(241, 23);
+            this.dateTimeDesde.TabIndex = 11;
             // 
             // textBoxAloja
             // 
             this.textBoxAloja.Enabled = false;
-            this.textBoxAloja.Location = new System.Drawing.Point(115, 29);
+            this.textBoxAloja.Location = new System.Drawing.Point(95, 29);
             this.textBoxAloja.Name = "textBoxAloja";
             this.textBoxAloja.Size = new System.Drawing.Size(120, 23);
             this.textBoxAloja.TabIndex = 8;
@@ -118,7 +118,7 @@ namespace TP2_Grupo4.Views
             // textBoxPrecio
             // 
             this.textBoxPrecio.Enabled = false;
-            this.textBoxPrecio.Location = new System.Drawing.Point(531, 29);
+            this.textBoxPrecio.Location = new System.Drawing.Point(605, 29);
             this.textBoxPrecio.Name = "textBoxPrecio";
             this.textBoxPrecio.Size = new System.Drawing.Size(100, 23);
             this.textBoxPrecio.TabIndex = 3;
@@ -126,7 +126,7 @@ namespace TP2_Grupo4.Views
             // textBoxID
             // 
             this.textBoxID.Enabled = false;
-            this.textBoxID.Location = new System.Drawing.Point(531, 74);
+            this.textBoxID.Location = new System.Drawing.Point(605, 77);
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(100, 23);
             this.textBoxID.TabIndex = 6;
@@ -134,7 +134,7 @@ namespace TP2_Grupo4.Views
             // ID
             // 
             this.ID.AutoSize = true;
-            this.ID.Location = new System.Drawing.Point(464, 77);
+            this.ID.Location = new System.Drawing.Point(535, 82);
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(64, 15);
             this.ID.TabIndex = 0;
@@ -143,7 +143,7 @@ namespace TP2_Grupo4.Views
             // Precio
             // 
             this.Precio.AutoSize = true;
-            this.Precio.Location = new System.Drawing.Point(482, 29);
+            this.Precio.Location = new System.Drawing.Point(556, 29);
             this.Precio.Name = "Precio";
             this.Precio.Size = new System.Drawing.Size(43, 15);
             this.Precio.TabIndex = 0;
@@ -152,7 +152,7 @@ namespace TP2_Grupo4.Views
             // textBoxUsuario
             // 
             this.textBoxUsuario.Enabled = false;
-            this.textBoxUsuario.Location = new System.Drawing.Point(114, 74);
+            this.textBoxUsuario.Location = new System.Drawing.Point(95, 74);
             this.textBoxUsuario.Name = "textBoxUsuario";
             this.textBoxUsuario.Size = new System.Drawing.Size(121, 23);
             this.textBoxUsuario.TabIndex = 4;
@@ -160,7 +160,7 @@ namespace TP2_Grupo4.Views
             // TBDesde
             // 
             this.TBDesde.AutoSize = true;
-            this.TBDesde.Location = new System.Drawing.Point(278, 29);
+            this.TBDesde.Location = new System.Drawing.Point(221, 32);
             this.TBDesde.Name = "TBDesde";
             this.TBDesde.Size = new System.Drawing.Size(42, 15);
             this.TBDesde.TabIndex = 0;
@@ -169,7 +169,7 @@ namespace TP2_Grupo4.Views
             // Estrellas
             // 
             this.Estrellas.AutoSize = true;
-            this.Estrellas.Location = new System.Drawing.Point(278, 77);
+            this.Estrellas.Location = new System.Drawing.Point(223, 77);
             this.Estrellas.Name = "Estrellas";
             this.Estrellas.Size = new System.Drawing.Size(40, 15);
             this.Estrellas.TabIndex = 0;
@@ -178,7 +178,7 @@ namespace TP2_Grupo4.Views
             // Localidad
             // 
             this.Localidad.AutoSize = true;
-            this.Localidad.Location = new System.Drawing.Point(78, 77);
+            this.Localidad.Location = new System.Drawing.Point(0, 77);
             this.Localidad.Name = "Localidad";
             this.Localidad.Size = new System.Drawing.Size(30, 15);
             this.Localidad.TabIndex = 0;
@@ -187,7 +187,7 @@ namespace TP2_Grupo4.Views
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 29);
+            this.label1.Location = new System.Drawing.Point(0, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(89, 15);
             this.label1.TabIndex = 0;
@@ -199,7 +199,7 @@ namespace TP2_Grupo4.Views
             this.Modificar.Enabled = false;
             this.Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Modificar.ForeColor = System.Drawing.Color.Black;
-            this.Modificar.Location = new System.Drawing.Point(691, 59);
+            this.Modificar.Location = new System.Drawing.Point(730, 59);
             this.Modificar.Name = "Modificar";
             this.Modificar.Size = new System.Drawing.Size(106, 51);
             this.Modificar.TabIndex = 7;
@@ -244,8 +244,9 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.Label Localidad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button Modificar;
-        private System.Windows.Forms.TextBox textBoxHasta;
-        private System.Windows.Forms.TextBox textBoxDesde;
         private System.Windows.Forms.TextBox textBoxAloja;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimeDesde;
+        private System.Windows.Forms.DateTimePicker dateTimeHasta;
     }
 }
