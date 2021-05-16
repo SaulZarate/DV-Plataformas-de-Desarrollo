@@ -113,7 +113,7 @@ namespace TP2_Grupo4.Views
                 this.currentBtn.ForeColor = color;
                 this.currentBtn.TextAlign = ContentAlignment.MiddleCenter;
                 this.currentBtn.IconColor = color;
-                this.currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                //this.currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 this.currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
                 leftBorderBtn.BackColor = color;
@@ -131,7 +131,7 @@ namespace TP2_Grupo4.Views
                 this.currentBtn.ForeColor = Color.Black;
                 this.currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 this.currentBtn.IconColor = Color.Black;
-                this.currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                //this.currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
                 this.currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
             }
         }
