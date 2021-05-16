@@ -177,13 +177,16 @@ namespace TP2_Grupo4.Views
         {
             double precioPorDia = 0;
             int codigo = 0;
+            bool huboError = false;
             try
             {
                 codigo = Int32.Parse(txtCodigo.Text);
             }
             catch (FormatException)
             {
-                lblErrorCabañas.Text = "ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico \n";
+               
+                MessageBox.Show("ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico");
+                huboError = true;
             }
             string ciudad = txtCiudad.Text;
             string barrio = txtBarrio.Text;
@@ -196,21 +199,23 @@ namespace TP2_Grupo4.Views
             }
             catch (FormatException)
             {
-                lblErrorCabañas.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
+                MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
+                huboError = true;
+
             }
 
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
             if (this.agencia.GetAgencia().FindAlojamientoForCodigo(codigo) == null)
             {
-                    this.agencia.GetAgencia().AgregarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
-                    this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+                this.agencia.GetAgencia().AgregarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
+                this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
             }
-            else
+            else if (!huboError)
             {
-                lblErrorCabañas.Text = "Ya existe el código de alojamiento, ingresa un código inexistente";
+                MessageBox.Show("Ya existe el código de alojamiento, ingresa un código inexistente");
             }
-        
+
             clearAllControls();
             getCabaniasFromTextFile();
         }
@@ -228,7 +233,7 @@ namespace TP2_Grupo4.Views
             }
             catch (FormatException)
             {
-                lblErrorCabañas.Text = "ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico \n";
+                MessageBox.Show("ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico");
             }
             string ciudad = txtCiudad.Text;
             string barrio = txtBarrio.Text;
@@ -241,7 +246,7 @@ namespace TP2_Grupo4.Views
             }
             catch (FormatException)
             {
-                lblErrorCabañas.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
+                MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
             }
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
