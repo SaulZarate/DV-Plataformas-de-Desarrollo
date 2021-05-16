@@ -138,6 +138,7 @@ namespace TP2_Grupo4.Views
         }
         #endregion
 
+        // BORRAR CABANIA
         private void dgvCabanias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -153,8 +154,10 @@ namespace TP2_Grupo4.Views
 
                     // Borrado
                     dgvCabanias.Rows.RemoveAt(rowIndex);
-                    this.agencia.GetAgencia().EliminarAlojamiento(codigo);
-                    this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+                    if(this.agencia.EliminarAlojamiento(codigo) && this.agencia.GuardarCambiosDeLosAlojamientos() && this.agencia.GuardarCambiosDeLasReservas())
+                    {
+                        MessageBox.Show("Cabaña elimina junto con todas sus reservas");
+                    }
 
                     // Actualizar GridView
                     getCabaniasFromTextFile();
