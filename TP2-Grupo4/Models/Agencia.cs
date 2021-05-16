@@ -149,8 +149,10 @@ namespace TP2_Grupo4.Models
         public List<List<String>> DatosDeHotelesParaLasVistas()
         {
             List<List<String>> alojamientos = new List<List<string>>();
+            List<Alojamiento> hoteles = this.GetHoteles().GetAlojamientos();
+            if (hoteles.Count == 0) return alojamientos;
 
-            foreach (Alojamiento alojamiento in this.GetHoteles().alojamientos)
+            foreach (Alojamiento alojamiento in hoteles)
                 alojamientos.Add(Utils.StringToArray(alojamiento.ToString()).ToList());
 
             return alojamientos;
@@ -158,8 +160,10 @@ namespace TP2_Grupo4.Models
         public List<List<String>> DatosDeCabaniasParaLasVistas()
         {
             List<List<String>> alojamientos = new List<List<string>>();
+            List<Alojamiento> cabanias = this.GetCabanias().GetAlojamientos();
+            if (cabanias.Count == 0) return alojamientos;
 
-            foreach (Alojamiento alojamiento in this.GetCabanias().alojamientos)
+            foreach (Alojamiento alojamiento in cabanias)
                 alojamientos.Add(Utils.StringToArray(alojamiento.ToString()).ToList());
 
             return alojamientos;

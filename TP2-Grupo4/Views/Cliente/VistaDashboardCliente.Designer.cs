@@ -36,11 +36,13 @@ namespace TP2_Grupo4.Views
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelDesktop = new System.Windows.Forms.Panel();
-            this.lblRoleUser = new System.Windows.Forms.Label();
+            this.lblDNIUser = new System.Windows.Forms.Label();
             this.pbUserRole = new FontAwesome.Sharp.IconPictureBox();
-            this.lblRole = new System.Windows.Forms.Label();
             this.panelRole = new System.Windows.Forms.Panel();
+            this.lblNameUser = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -166,41 +168,37 @@ namespace TP2_Grupo4.Views
             this.panelDesktop.Size = new System.Drawing.Size(613, 377);
             this.panelDesktop.TabIndex = 0;
             // 
-            // lblRoleUser
+            // lblDNIUser
             // 
-            this.lblRoleUser.AutoSize = true;
-            this.lblRoleUser.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblRoleUser.Location = new System.Drawing.Point(91, 27);
-            this.lblRoleUser.Name = "lblRoleUser";
-            this.lblRoleUser.Size = new System.Drawing.Size(50, 15);
-            this.lblRoleUser.TabIndex = 0;
-            this.lblRoleUser.Text = "roleUser";
+            this.lblDNIUser.AutoSize = true;
+            this.lblDNIUser.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDNIUser.ForeColor = System.Drawing.Color.LightGray;
+            this.lblDNIUser.Location = new System.Drawing.Point(114, 27);
+            this.lblDNIUser.Name = "lblDNIUser";
+            this.lblDNIUser.Size = new System.Drawing.Size(26, 18);
+            this.lblDNIUser.TabIndex = 0;
+            this.lblDNIUser.Text = "...";
+            this.lblDNIUser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pbUserRole
             // 
             this.pbUserRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(33)))), ((int)(((byte)(61)))));
+            this.pbUserRole.ForeColor = System.Drawing.Color.LightGray;
             this.pbUserRole.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
-            this.pbUserRole.IconColor = System.Drawing.Color.White;
+            this.pbUserRole.IconColor = System.Drawing.Color.LightGray;
             this.pbUserRole.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pbUserRole.Location = new System.Drawing.Point(17, 21);
+            this.pbUserRole.IconSize = 41;
+            this.pbUserRole.Location = new System.Drawing.Point(18, 17);
             this.pbUserRole.Name = "pbUserRole";
-            this.pbUserRole.Size = new System.Drawing.Size(32, 32);
+            this.pbUserRole.Size = new System.Drawing.Size(44, 41);
             this.pbUserRole.TabIndex = 1;
             this.pbUserRole.TabStop = false;
-            // 
-            // lblRole
-            // 
-            this.lblRole.AutoSize = true;
-            this.lblRole.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblRole.Location = new System.Drawing.Point(52, 27);
-            this.lblRole.Name = "lblRole";
-            this.lblRole.Size = new System.Drawing.Size(33, 15);
-            this.lblRole.TabIndex = 0;
-            this.lblRole.Text = "role: ";
             // 
             // panelRole
             // 
             this.panelRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(33)))), ((int)(((byte)(61)))));
+            this.panelRole.Controls.Add(this.lblNameUser);
+            this.panelRole.Controls.Add(this.label2);
             this.panelRole.Controls.Add(this.panel2);
             this.panelRole.Controls.Add(this.flowLayoutPanel1);
             this.panelRole.Controls.Add(this.panel1);
@@ -211,16 +209,50 @@ namespace TP2_Grupo4.Views
             this.panelRole.TabIndex = 0;
             this.panelRole.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             // 
+            // lblNameUser
+            // 
+            this.lblNameUser.AutoSize = true;
+            this.lblNameUser.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblNameUser.ForeColor = System.Drawing.Color.LightGray;
+            this.lblNameUser.Location = new System.Drawing.Point(520, 27);
+            this.lblNameUser.Name = "lblNameUser";
+            this.lblNameUser.Size = new System.Drawing.Size(26, 18);
+            this.lblNameUser.TabIndex = 7;
+            this.lblNameUser.Text = "...";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.LightGray;
+            this.label2.Location = new System.Drawing.Point(440, 27);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(84, 18);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Nombre: ";
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(33)))), ((int)(((byte)(61)))));
+            this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.pbUserRole);
-            this.panel2.Controls.Add(this.lblRole);
-            this.panel2.Controls.Add(this.lblRoleUser);
+            this.panel2.Controls.Add(this.lblDNIUser);
             this.panel2.Location = new System.Drawing.Point(220, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(218, 79);
             this.panel2.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.Location = new System.Drawing.Point(68, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 18);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "DNI:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // flowLayoutPanel1
             // 
@@ -280,6 +312,7 @@ namespace TP2_Grupo4.Views
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserRole)).EndInit();
             this.panelRole.ResumeLayout(false);
+            this.panelRole.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -296,14 +329,16 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panelDesktop;
-        private System.Windows.Forms.Label lblRoleUser;
+        private System.Windows.Forms.Label lblDNIUser;
         private FontAwesome.Sharp.IconPictureBox pbUserRole;
-        private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Panel panelRole;
         private FontAwesome.Sharp.IconButton btnExit;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblNameUser;
+        private System.Windows.Forms.Label label2;
     }
 }
