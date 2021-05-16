@@ -13,10 +13,12 @@ namespace TP2_Grupo4.Views
 {
     public partial class VistaAdminAlojamiento : Form
     {
-        AgenciaManager agencia = new AgenciaManager();
+        private AgenciaManager agencia;
+
         public VistaAdminAlojamiento()
         {
             InitializeComponent();
+            this.agencia = new AgenciaManager();
         }
 
         private void FormAlojamiento_Load(object sender, EventArgs e)
