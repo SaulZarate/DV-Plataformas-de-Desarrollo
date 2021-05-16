@@ -92,6 +92,8 @@ namespace TP2_Grupo4.Views
             int dni = Int32.Parse(textBoxUsuario.Text);
             this.agencia.ModificarReserva(id, desde, hasta, idAloja, dni);
             this.agencia.GuardarCambiosDeLasReservas();
+            dateTimeDesde.MinDate = DateTime.Now;
+            dateTimeHasta.MinDate = DateTime.Now;
 
             clearAllControls();
             getReservasFromTextFile();
@@ -133,6 +135,9 @@ namespace TP2_Grupo4.Views
                 if (MessageBox.Show("Estas seguro que quieres modificar esta reserva?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Modificar.Enabled = true;
+                   
+                    dateTimeDesde.MinDate = Convert.ToDateTime(dgvReservas.CurrentRow.Cells[1].Value);
+                    dateTimeHasta.MinDate = Convert.ToDateTime(dgvReservas.CurrentRow.Cells[2].Value);
                     rellenarDatos();
                 }
             }
