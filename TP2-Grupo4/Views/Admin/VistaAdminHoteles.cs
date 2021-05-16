@@ -193,7 +193,7 @@ namespace TP2_Grupo4.Views
             }
             catch (FormatException)
             {
-                laberHerrorHoteles.Text = "ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico \n";
+                MessageBox.Show("ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico");
             }
             string ciudad = txtCiudad.Text;
             string barrio = txtBarrio.Text;
@@ -206,7 +206,7 @@ namespace TP2_Grupo4.Views
             }
             catch (FormatException)
             {
-                laberHerrorHoteles.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
+                MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
             }
 
            
@@ -225,12 +225,14 @@ namespace TP2_Grupo4.Views
         {
             int codigo = 0;
             double precioPersonas = 0;
+            bool huboError = false;
             try
             {
                 codigo = Int32.Parse(txtCodigo.Text);
             } catch (FormatException)
             {
-                laberHerrorHoteles.Text = "ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico \n";
+                MessageBox.Show("ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico");
+                huboError = true;
             }
             
             string ciudad = txtCiudad.Text;
@@ -244,18 +246,19 @@ namespace TP2_Grupo4.Views
                 precioPersonas = double.Parse(txtPrecio.Text);
             } catch (FormatException)
             {
-                laberHerrorHoteles.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
+                MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
+                huboError = true;
             }
 
 
             if (this.agencia.GetAgencia().FindAlojamientoForCodigo(codigo) == null)
             {
-                this.agencia.GetAgencia().ModificarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
+                this.agencia.GetAgencia().AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
                 this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
             }
-            else
+            else if (!huboError)
             {
-                laberHerrorHoteles.Text = "Ya existe el código de alojamiento, ingresa un código inexistente";
+                MessageBox.Show("Ya existe el código de alojamiento, ingresa un código inexistente");
             }
 
             clearAllControls();
