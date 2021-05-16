@@ -27,6 +27,14 @@ namespace TP2_Grupo4
         }
         
         #region METODOS PARA LOS ALOJAMIENTOS
+        public bool AgregarHotel(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPersonas)
+        {
+            return this.agencia.AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
+        }
+        public bool AgregarCabania(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPorDia, int habitaciones, int banios)
+        {
+            return this.agencia.AgregarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
+        }
         public bool GuardarCambiosDeLosAlojamientos()
         {
             return this.agencia.GuardarCambiosEnElArchivo();

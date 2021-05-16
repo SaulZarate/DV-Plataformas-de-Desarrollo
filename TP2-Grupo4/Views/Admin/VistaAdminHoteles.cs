@@ -12,10 +12,12 @@ namespace TP2_Grupo4.Views
 {
     public partial class VistaAdminHoteles : Form
     {
-        AgenciaManager agencia = new AgenciaManager();
+        private AgenciaManager agencia;
+
         public VistaAdminHoteles()
         {
             InitializeComponent();
+            this.agencia = new AgenciaManager();
         }
 
         private void FormHoteles_Load(object sender, EventArgs e)
@@ -79,22 +81,9 @@ namespace TP2_Grupo4.Views
             // Limpiamos el GridView
             dgvHoteles.Rows.Clear();
 
-            List<Alojamiento> hoteles = this.agencia.GetAgencia().GetHoteles().GetAlojamientos();
-
-
-            foreach (Hotel hotel in hoteles)
-            {
-                this.dgvHoteles.Rows.Add(
-                    hotel.GetCodigo().ToString(),
-                    hotel.GetCiudad(),
-                    hotel.GetBarrio(),
-                    hotel.GetEstrellas(),
-                    hotel.GetCantidadDePersonas().ToString(),
-                    hotel.GetTv(),
-                    hotel.GetPrecioPorPersona(),
-                    "$" + hotel.PrecioTotalDelAlojamiento().ToString()
-                );
-            }
+            List<List<String>> hoteles = this.agencia.GetAgencia().DatosDeHotelesParaLasVistas();
+            foreach (List<String> hotel in hoteles)
+                this.dgvHoteles.Rows.Add(hotel.ToArray());
 
             // Update y Regresheo de Grid
             dgvHoteles.Update();
@@ -182,8 +171,6 @@ namespace TP2_Grupo4.Views
         // onClick Boton Modificar
         private void btnTopModificar_Click(object sender, EventArgs e)
         {
-
-            
             btnTopAgregar.Visible = true;
             btnTopModificar.Visible = false;
             double precioPersonas = 0;
@@ -210,11 +197,14 @@ namespace TP2_Grupo4.Views
                 MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
             }
 
-           
-                this.agencia.GetAgencia().ModificarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
-                this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
-           
-            
+            if (this.agencia.AgregarHotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas) && this.agencia.GuardarCambiosDeLosAlojamientos())
+            {
+                MessageBox.Show("Hotel agregado correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo agregar el hotel, vuelva a intentarlo");
+            }
 
             clearAllControls();
             getHotelesFromTextFile();

@@ -11,10 +11,12 @@ namespace TP2_Grupo4.Views
 {
     public partial class VistaAdminCabanias : Form
     {
-        AgenciaManager agencia = new AgenciaManager();
+        private AgenciaManager agencia;
+
         public VistaAdminCabanias()
         {
             InitializeComponent();
+            this.agencia = new AgenciaManager();
         }
 
         private void FormCabanias_Load(object sender, EventArgs e)
@@ -74,23 +76,9 @@ namespace TP2_Grupo4.Views
             // Limpiamos el GridView
             dgvCabanias.Rows.Clear();
 
-            List<Alojamiento> cabanias = this.agencia.GetAgencia().GetCabanias().GetAlojamientos();
-
-            foreach (Cabania cabania in cabanias)
-            {
-                this.dgvCabanias.Rows.Add(
-                    cabania.GetCodigo().ToString(),
-                    cabania.GetCiudad(),
-                    cabania.GetBarrio(),
-                    cabania.GetEstrellas(),
-                    cabania.GetCantidadDePersonas().ToString(),
-                    cabania.GetTv(),
-                    cabania.GetPrecioPorDia(),
-                    cabania.GetHabitaciones().ToString(),
-                    cabania.GetBanios().ToString(),
-                    cabania.PrecioTotalDelAlojamiento().ToString()
-                ); ;
-            }
+            List<List<String>> cabanias = this.agencia.GetAgencia().DatosDeCabaniasParaLasVistas();
+            foreach (List<String> cabania in cabanias)
+                this.dgvCabanias.Rows.Add(cabania.ToArray());
 
             // Update y Regresheo de Grid
             dgvCabanias.Update();
@@ -211,8 +199,14 @@ namespace TP2_Grupo4.Views
             int banios = Int32.Parse(comboBoxBanios.Text);
             if (this.agencia.GetAgencia().FindAlojamientoForCodigo(codigo) == null)
             {
-                this.agencia.GetAgencia().AgregarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
-                this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+                if (this.agencia.AgregarCabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios) && this.agencia.GuardarCambiosDeLosAlojamientos())
+                {
+                    MessageBox.Show("Cabaña agregada correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo agregar la cabaña, vuelva a intentarlo");
+                }
             }
             else if (!huboError)
             {
