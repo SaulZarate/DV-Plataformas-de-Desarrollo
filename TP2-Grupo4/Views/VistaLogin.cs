@@ -55,7 +55,6 @@ namespace TP2_Grupo4.Views
             if (txtContrasena.Text == "CONTRASEÑA")
             {
                 txtContrasena.Text = "";
-                txtContrasena.UseSystemPasswordChar = true;
             }
         }
         private void txtContrasena_Leave(object sender, EventArgs e)
@@ -63,7 +62,6 @@ namespace TP2_Grupo4.Views
             if (txtContrasena.Text == "")
             {
                 txtContrasena.Text = "CONTRASEÑA";
-                txtContrasena.UseSystemPasswordChar = false;
             }
         }
 
@@ -201,6 +199,20 @@ namespace TP2_Grupo4.Views
             VistaRecuperar recuperar = new VistaRecuperar();
             recuperar.Show();
             this.Hide();
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            pictureBox5.Visible = false;
+            pictureBox4.Visible = true;
+            txtContrasena.UseSystemPasswordChar = false;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            pictureBox5.Visible = true;
+            pictureBox4.Visible = false;
+            txtContrasena.UseSystemPasswordChar = true;
         }
     }
 }

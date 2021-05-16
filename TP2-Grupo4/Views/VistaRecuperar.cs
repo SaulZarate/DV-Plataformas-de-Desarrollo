@@ -124,5 +124,43 @@ namespace TP2_Grupo4.Views
                 MessageBox.Show("El usuario no existe, por favor intentelo nuevamente.");
             }
         }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = true;
+            txtContrasena.UseSystemPasswordChar = false;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Visible = true;
+            pictureBox3.Visible = false;
+            txtContrasena.UseSystemPasswordChar = true;
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            pictureBox5.Visible = false;
+            pictureBox4.Visible = true;
+            txtContrasenaNueva.UseSystemPasswordChar = false;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            pictureBox5.Visible = true;
+            pictureBox4.Visible = false;
+            txtContrasenaNueva.UseSystemPasswordChar = true;
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace TP2_Grupo4.Views
         public VistaAdminReservas()
         {
             InitializeComponent();
+            dateTimeHasta.MinDate = DateTime.Now;
+            dateTimeDesde.MinDate = DateTime.Now;
         }
 
         private void VistaAdminReservas_Load(object sender, EventArgs e)

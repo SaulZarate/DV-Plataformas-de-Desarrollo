@@ -6,15 +6,7 @@
 543,La Plata,Centro,3,2,True,4000,1,1
 999893,La plata,Centro,3,2,True,3500
 999,Mamita,Mamita99,3,5,False,800
-33,ciudad33,barrio33,3,5,False,100
-44,ciudad444,barrio444,5,3,True,2000,2,1
-111,ciudad111,barrio111,4,2,True,1000,2,1
-0,,,1,1,False,0
-100,sad,asd,1,1,False,4124,1,1
 2222,asd,sd,1,1,False,133,1,1
-1233,asd,asd,1,1,False,133,1,1
 12312,asd,asdd,1,1,False,123,1,1
-3214234,asdasd,asd,1,1,False,234234
-324234,dasdsa,asd,1,1,False,234234
 123123,asdasd,asdasd,1,1,False,12323,1,1
 2222222,qse,qwe,1,1,False,132,1,1

@@ -159,5 +159,19 @@ namespace TP2_Grupo4.Views
                 return;
             }
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Visible = false;
+            pictureBox3.Visible = true;
+            txtContrasena.UseSystemPasswordChar = false;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Visible = true;
+            pictureBox3.Visible = false;
+            txtContrasena.UseSystemPasswordChar = true;
+        }
     }
 }
