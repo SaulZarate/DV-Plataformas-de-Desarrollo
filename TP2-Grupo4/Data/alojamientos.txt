@@ -11,3 +11,4 @@
 123123,asdasd,asdasd,1,1,False,12323,1,1
 2222222,qse,qwe,1,1,False,132,1,1
 111,asd,asd,4,4,True,555
+967495,buenos aires,puerto madero,4,3,True,8000
