@@ -183,7 +183,8 @@ namespace TP2_Grupo4.Views
             }
             catch (FormatException)
             {
-                lblErrorCabañas.Text = "ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico \n";
+               
+                MessageBox.Show("ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico");
             }
             string ciudad = txtCiudad.Text;
             string barrio = txtBarrio.Text;
@@ -196,7 +197,8 @@ namespace TP2_Grupo4.Views
             }
             catch (FormatException)
             {
-                lblErrorCabañas.Text += "Ingresaste un valor alfabetico en el precio, ingresa un valor numérico \n";
+                MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
+                
             }
 
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
@@ -208,7 +210,7 @@ namespace TP2_Grupo4.Views
             }
             else
             {
-                lblErrorCabañas.Text = "Ya existe el código de alojamiento, ingresa un código inexistente";
+                MessageBox.Show("Ya existe el código de alojamiento, ingresa un código inexistente");
             }
         
             clearAllControls();
