@@ -250,6 +250,6 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.TextBox textBoxAloja;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimeDesde;
-        private System.Windows.Forms.DateTimePicker dateTimeHasta;
+        private System.Windows.Forms.DateTimePicker dateTimeHasta;      
     }
 }
