@@ -225,12 +225,14 @@ namespace TP2_Grupo4.Views
         {
             int codigo = 0;
             double precioPersonas = 0;
+            bool huboError = false;
             try
             {
                 codigo = Int32.Parse(txtCodigo.Text);
             } catch (FormatException)
             {
                 MessageBox.Show("ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico");
+                huboError = true;
             }
             
             string ciudad = txtCiudad.Text;
@@ -245,6 +247,7 @@ namespace TP2_Grupo4.Views
             } catch (FormatException)
             {
                 MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
+                huboError = true;
             }
 
 
@@ -253,7 +256,7 @@ namespace TP2_Grupo4.Views
                 this.agencia.GetAgencia().AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
                 this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
             }
-            else
+            else if (!huboError)
             {
                 MessageBox.Show("Ya existe el código de alojamiento, ingresa un código inexistente");
             }

@@ -177,6 +177,7 @@ namespace TP2_Grupo4.Views
         {
             double precioPorDia = 0;
             int codigo = 0;
+            bool huboError = false;
             try
             {
                 codigo = Int32.Parse(txtCodigo.Text);
@@ -185,6 +186,7 @@ namespace TP2_Grupo4.Views
             {
                
                 MessageBox.Show("ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico");
+                huboError = true;
             }
             string ciudad = txtCiudad.Text;
             string barrio = txtBarrio.Text;
@@ -198,7 +200,8 @@ namespace TP2_Grupo4.Views
             catch (FormatException)
             {
                 MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
-                
+                huboError = true;
+
             }
 
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
@@ -208,7 +211,7 @@ namespace TP2_Grupo4.Views
                     this.agencia.GetAgencia().AgregarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
                     this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
             }
-            else
+            else if (!huboError)
             {
                 MessageBox.Show("Ya existe el código de alojamiento, ingresa un código inexistente");
             }
