@@ -153,6 +153,7 @@ namespace TP2_Grupo4.Views
             this.txtContrasena.Size = new System.Drawing.Size(175, 16);
             this.txtContrasena.TabIndex = 2;
             this.txtContrasena.Text = "CONTRASEÑA";
+            this.txtContrasena.UseSystemPasswordChar = true;
             this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
             this.txtContrasena.Leave += new System.EventHandler(this.txtContrasena_Leave);
             // 

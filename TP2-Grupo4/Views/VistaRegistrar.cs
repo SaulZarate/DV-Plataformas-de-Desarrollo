@@ -54,7 +54,6 @@ namespace TP2_Grupo4.Views
             {
                 txtContrasena.Text = "";
                 txtContrasena.ForeColor = Color.LightGray;
-                txtContrasena.UseSystemPasswordChar = true;
             }
         }
 
@@ -64,7 +63,6 @@ namespace TP2_Grupo4.Views
             {
                 txtContrasena.Text = "CONTRASEÑA";
                 txtContrasena.ForeColor = Color.DimGray;
-                txtContrasena.UseSystemPasswordChar = false;
             }
         }
 
