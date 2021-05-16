@@ -128,6 +128,8 @@ namespace TP2_Grupo4.Views
                 {
                     btnTopModificar.Visible = true;
                     groupBoxHoteles.Enabled = true;
+                    txtDni.Enabled = false;
+                    checkBoxAdmin.Enabled = false;
                     rellenarDatos();
                 }
             }
