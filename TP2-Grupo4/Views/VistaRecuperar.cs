@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using TP2_Grupo4.Models;
 
 namespace TP2_Grupo4.Views
 {
@@ -51,7 +52,7 @@ namespace TP2_Grupo4.Views
         }
         private void txtContrasena_Enter(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == "CONTRASEÑA ANTERIOR")
+            if (txtContrasena.Text == "CONTRASEÑA NUEVA")
             {
                 txtContrasena.Text = "";
             }
@@ -60,23 +61,23 @@ namespace TP2_Grupo4.Views
         {
             if (txtContrasena.Text == "")
             {
-                txtContrasena.Text = "CONTRASEÑA ANTERIOR";
+                txtContrasena.Text = "CONTRASEÑA NUEVA";
             }
         }
 
         private void txtContrasenaNueva_Enter(object sender, EventArgs e)
         {
-            if (txtContrasenaNueva.Text == "CONTRASEÑA NUEVA")
+            if (txtRepetirContrasena.Text == "REPETIR CONTRASEÑA")
             {
-                txtContrasenaNueva.Text = "";
+                txtRepetirContrasena.Text = "";
             }
         }
 
         private void txtContrasenaNueva_Leave(object sender, EventArgs e)
         {
-            if (txtContrasenaNueva.Text == "")
+            if (txtRepetirContrasena.Text == "")
             {
-                txtContrasenaNueva.Text = "CONTRASEÑA NUEVA";
+                txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
             }
         }
 
@@ -85,6 +86,7 @@ namespace TP2_Grupo4.Views
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
         private void panel4_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -100,24 +102,37 @@ namespace TP2_Grupo4.Views
         {
             try
             {
-                if (agencia.autenticarUsuario(int.Parse(txtUsuario.Text), txtContrasena.Text))
-                    //agencia.FindUserForDNI(int.Parse(txtUsuario.Text)).GetDni() == int.Parse(txtUsuario.Text)
-                    //&& agencia.FindUserForDNI(int.Parse(txtUsuario.Text)).GetPassword() == txtContrasena.Text)
-                {
-                    agencia.ModificarUsuario(int.Parse(txtUsuario.Text), agencia.FindUserForDNI(int.Parse(txtUsuario.Text)).GetNombre(),
-                        agencia.FindUserForDNI(int.Parse(txtUsuario.Text)).GetEmail(), txtContrasenaNueva.Text);
+                int dni = Int32.Parse(txtUsuario.Text);
+                string contrasena = txtContrasena.Text;
+                string repetirContrasena = txtRepetirContrasena.Text;
+                Usuario usuario = this.agencia.FindUserForDNI(dni);
 
-                    agencia.GuardarCambiosDeLosUsuarios();
-                    txtUsuario.Text = "DNI";
-                    txtUsuario.ForeColor = Color.DimGray;
-                    txtContrasena.Text = "CONTRASEÑA ANTERIOR";
-                    txtContrasenaNueva.Text = "CONTRASEÑA NUEVA";
-                    MessageBox.Show("Se ha modificado el usuario de manera exitosa.");
+                if (usuario == null)
+                {
+                    MessageBox.Show("El usuario invalido, por favor intentelo nuevamente.");
                 }
                 else
                 {
-                    MessageBox.Show("Usuario o contraseña inválido, por favor intentelo nuevamente.");
+                    if (contrasena == repetirContrasena)
+                    {
+                        string nombre = usuario.GetNombre();
+                        string email = usuario.GetEmail();
+                        this.agencia.ModificarUsuario(dni, nombre, email, contrasena);
+                        this.agencia.GuardarCambiosDeLosUsuarios();
+                        MessageBox.Show("Se ha modificado el usuario de manera exitosa.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Usuario o contraseña incorrecto, por favor intentelo nuevamente.");
+                    }
+
                 }
+
+                txtUsuario.Text = "DNI";
+                txtUsuario.ForeColor = Color.DimGray;
+                txtContrasena.Text = "CONTRASEÑA NUEVA";
+                txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
+
             }
             catch
             {
