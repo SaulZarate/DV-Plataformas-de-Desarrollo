@@ -36,6 +36,7 @@ namespace TP2_Grupo4.Views
             // 
             // dgvReservaciones
             // 
+            this.dgvReservaciones.AllowUserToAddRows = false;
             this.dgvReservaciones.AllowUserToResizeColumns = false;
             this.dgvReservaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvReservaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

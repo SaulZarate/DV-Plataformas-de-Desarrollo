@@ -38,6 +38,7 @@ namespace TP2_Grupo4.Views
             // 
             // dgvAlojamiento
             // 
+            this.dgvAlojamiento.AllowUserToAddRows = false;
             this.dgvAlojamiento.AllowUserToResizeColumns = false;
             this.dgvAlojamiento.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvAlojamiento.BorderStyle = System.Windows.Forms.BorderStyle.None;

@@ -56,6 +56,7 @@ namespace TP2_Grupo4.Views
             // 
             // dgvHoteles
             // 
+            this.dgvHoteles.AllowUserToAddRows = false;
             this.dgvHoteles.AllowUserToResizeColumns = false;
             this.dgvHoteles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHoteles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
