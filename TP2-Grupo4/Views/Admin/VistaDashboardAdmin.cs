@@ -75,16 +75,16 @@ namespace TP2_Grupo4.Views
         // TODO: Mostrar Reservas
         private void btnReservas_Click(object sender, EventArgs e)
         {
+            hideSubMenu();
             ActivateButton(sender, RGBColors.secondary);
             OpenChildForm(new VistaAdminReservas());
-            hideSubMenu();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
+            hideSubMenu();
             ActivateButton(sender, RGBColors.secondary);
             OpenChildForm(new VistaAdminUsuario());
-            hideSubMenu();
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
