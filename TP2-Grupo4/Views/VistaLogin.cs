@@ -202,5 +202,19 @@ namespace TP2_Grupo4.Views
             recuperar.Show();
             this.Hide();
         }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            pictureBox5.Visible = false;
+            pictureBox4.Visible = true;
+            txtContrasena.UseSystemPasswordChar = false;
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            pictureBox5.Visible = true;
+            pictureBox4.Visible = false;
+            txtContrasena.UseSystemPasswordChar = true;
+        }
     }
 }
