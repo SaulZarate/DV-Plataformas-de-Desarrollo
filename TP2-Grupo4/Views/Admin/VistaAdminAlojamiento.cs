@@ -37,58 +37,18 @@ namespace TP2_Grupo4.Views
         {
             foreach (List<String> alojamiento in this.agencia.GetAgencia().DatosDeAlojamientosParaLasVistas())
                 this.dgvAlojamiento.Rows.Add(alojamiento.ToArray());
-
-            //List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetAlojamientos();
-            //foreach (Alojamiento alojamiento in alojamientos)
-            //{
-            //    this.dgvAlojamiento.Rows.Add(
-            //        alojamiento.GetCodigo().ToString(),
-            //        alojamiento.GetCiudad(),
-            //        alojamiento.GetBarrio(),
-            //        alojamiento.GetEstrellas(),
-            //        alojamiento.GetCantidadDePersonas().ToString(),
-            //        alojamiento.GetTv(),
-            //        "$" + alojamiento.PrecioTotalDelAlojamiento().ToString()
-            //    );
-            //}
         }
 
         private void getTextHoteles()
         {
             foreach (List<String> alojamiento in this.agencia.GetAgencia().DatosDeHotelesParaLasVistas())
                 this.dgvAlojamiento.Rows.Add(alojamiento.ToArray());
-            //List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetHoteles();
-            //foreach (Alojamiento alojamiento in alojamientos)
-            //{
-            //    this.dgvAlojamiento.Rows.Add(
-            //        alojamiento.GetCodigo(),
-            //        alojamiento.GetCiudad(),
-            //        alojamiento.GetBarrio(),
-            //        alojamiento.GetEstrellas(),
-            //        alojamiento.GetCantidadDePersonas(),
-            //        alojamiento.GetTv(),
-            //        alojamiento.PrecioTotalDelAlojamiento()
-            //    );
-            //}
         }
 
         private void getTextCabanias()
         {
             foreach (List<String> alojamiento in this.agencia.GetAgencia().DatosDeCabaniasParaLasVistas())
                 this.dgvAlojamiento.Rows.Add(alojamiento.ToArray());
-            //List<Alojamiento> alojamientos = this.agencia.GetAgencia().GetCabanias();
-            //foreach (Alojamiento alojamiento in alojamientos)
-            //{
-            //    this.dgvAlojamiento.Rows.Add(
-            //        alojamiento.GetCodigo(),
-            //        alojamiento.GetCiudad(),
-            //        alojamiento.GetBarrio(),
-            //        alojamiento.GetEstrellas(),
-            //        alojamiento.GetCantidadDePersonas(),
-            //        alojamiento.GetTv(),
-            //        alojamiento.PrecioTotalDelAlojamiento()
-            //    );
-            //}
         }
 
         private void comboBoxTipoAloj_SelectedIndexChanged(object sender, EventArgs e)

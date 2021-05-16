@@ -41,7 +41,7 @@ namespace TP2_Grupo4.Views
             this.txtContrasena = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.txtContrasenaNueva = new System.Windows.Forms.TextBox();
+            this.txtRepetirContrasena = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -179,7 +179,7 @@ namespace TP2_Grupo4.Views
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(175, 16);
             this.txtContrasena.TabIndex = 2;
-            this.txtContrasena.Text = "CONTRASEÑA ANTERIOR";
+            this.txtContrasena.Text = "CONTRASEÑA NUEVA";
             this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
             this.txtContrasena.Leave += new System.EventHandler(this.txtContrasena_Leave);
             // 
@@ -199,18 +199,18 @@ namespace TP2_Grupo4.Views
             this.panel3.Size = new System.Drawing.Size(175, 1);
             this.panel3.TabIndex = 28;
             // 
-            // txtContrasenaNueva
+            // txtRepetirContrasena
             // 
-            this.txtContrasenaNueva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
-            this.txtContrasenaNueva.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtContrasenaNueva.ForeColor = System.Drawing.Color.DimGray;
-            this.txtContrasenaNueva.Location = new System.Drawing.Point(462, 275);
-            this.txtContrasenaNueva.Name = "txtContrasenaNueva";
-            this.txtContrasenaNueva.Size = new System.Drawing.Size(175, 16);
-            this.txtContrasenaNueva.TabIndex = 3;
-            this.txtContrasenaNueva.Text = "CONTRASEÑA NUEVA";
-            this.txtContrasenaNueva.Enter += new System.EventHandler(this.txtContrasenaNueva_Enter);
-            this.txtContrasenaNueva.Leave += new System.EventHandler(this.txtContrasenaNueva_Leave);
+            this.txtRepetirContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.txtRepetirContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtRepetirContrasena.ForeColor = System.Drawing.Color.DimGray;
+            this.txtRepetirContrasena.Location = new System.Drawing.Point(462, 275);
+            this.txtRepetirContrasena.Name = "txtRepetirContrasena";
+            this.txtRepetirContrasena.Size = new System.Drawing.Size(175, 16);
+            this.txtRepetirContrasena.TabIndex = 3;
+            this.txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
+            this.txtRepetirContrasena.Enter += new System.EventHandler(this.txtContrasenaNueva_Enter);
+            this.txtRepetirContrasena.Leave += new System.EventHandler(this.txtContrasenaNueva_Leave);
             // 
             // txtUsuario
             // 
@@ -233,7 +233,7 @@ namespace TP2_Grupo4.Views
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(48, 27);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 31;
+            this.pictureBox3.TabIndex = 0;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
@@ -244,7 +244,7 @@ namespace TP2_Grupo4.Views
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(48, 27);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 30;
+            this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Visible = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
@@ -256,7 +256,7 @@ namespace TP2_Grupo4.Views
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(48, 27);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 33;
+            this.pictureBox4.TabIndex = 0;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
@@ -267,7 +267,7 @@ namespace TP2_Grupo4.Views
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(48, 27);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox5.TabIndex = 32;
+            this.pictureBox5.TabIndex = 0;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Visible = false;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
@@ -278,7 +278,6 @@ namespace TP2_Grupo4.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
@@ -286,7 +285,8 @@ namespace TP2_Grupo4.Views
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.txtContrasena);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.txtContrasenaNueva);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.txtRepetirContrasena);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.panel1);
@@ -324,7 +324,7 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.TextBox txtContrasena;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TextBox txtContrasenaNueva;
+        private System.Windows.Forms.TextBox txtRepetirContrasena;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
