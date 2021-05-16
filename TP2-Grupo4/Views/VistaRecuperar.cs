@@ -124,15 +124,14 @@ namespace TP2_Grupo4.Views
                     else
                     {
                         MessageBox.Show("Usuario o contraseña incorrecto, por favor intentelo nuevamente.");
+
                     }
 
+                    txtUsuario.Text = "DNI";
+                    txtUsuario.ForeColor = Color.DimGray;
+                    txtContrasena.Text = "CONTRASEÑA NUEVA";
+                    txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
                 }
-
-                txtUsuario.Text = "DNI";
-                txtUsuario.ForeColor = Color.DimGray;
-                txtContrasena.Text = "CONTRASEÑA NUEVA";
-                txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
-
             }
             catch
             {
