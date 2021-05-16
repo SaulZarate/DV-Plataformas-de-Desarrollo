@@ -96,6 +96,7 @@ namespace TP2_Grupo4.Views
             dgvUsuarios.Refresh();
         }
 
+        // BOTON DE BORRAR USUARIO
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Si hacemos click en Button BORRAR
@@ -111,8 +112,10 @@ namespace TP2_Grupo4.Views
                     // Borrado
                     dgvUsuarios.Rows.RemoveAt(rowIndex);
 
-                    this.agencia.EliminarUsuario(dni);
-                    this.agencia.GuardarCambiosDeLosUsuarios();
+                    if (this.agencia.EliminarUsuario(dni) && this.agencia.GuardarCambiosDeLosUsuarios() && this.agencia.GuardarCambiosDeLasReservas())
+                    {
+                        MessageBox.Show("Se ha eliminado el usuario y todas las reservas del mismo");
+                    }
 
                     // Actualizar GridView
                     getUsuariosFromTextFile();

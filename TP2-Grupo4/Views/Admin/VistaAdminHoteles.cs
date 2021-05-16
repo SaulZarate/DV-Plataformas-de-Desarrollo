@@ -155,9 +155,10 @@ namespace TP2_Grupo4.Views
 
                     // Borrado
                     dgvHoteles.Rows.RemoveAt(rowIndex);
-                    this.agencia.GetAgencia().EliminarAlojamiento(codigo);
-                    this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
-
+                    if (this.agencia.EliminarAlojamiento(codigo) && this.agencia.GuardarCambiosDeLosAlojamientos() && this.agencia.GuardarCambiosDeLasReservas())
+                    {
+                        MessageBox.Show("Hotel eliminado junto con todas sus reservas");
+                    }
                     // Actualizar GridView
                     getHotelesFromTextFile();
                 }

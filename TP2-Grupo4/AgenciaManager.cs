@@ -31,6 +31,16 @@ namespace TP2_Grupo4
         {
             return this.agencia.GuardarCambiosEnElArchivo();
         }
+        public bool EliminarAlojamiento(int codigo)
+        {
+            this.agencia.EliminarAlojamiento(codigo);
+
+            List<Reserva> reservas = this.GetAllReservasForAlojamiento(codigo);
+            foreach (Reserva reserva in reservas)
+                this.EliminarReserva(reserva.GetId());
+
+            return true;
+        }
         #endregion
 
         #region METODOS PARA LAS RESERVAS
@@ -69,10 +79,14 @@ namespace TP2_Grupo4
             this.reservas.RemoveAt(indexReserva);
             return true;
         }
-        
+
         public Reserva FindReservaForId(String id)
         {
             return this.GetReservas().Find(reserva => reserva.GetId() == id);
+        }
+        private List<Reserva> GetAllReservasForAlojamiento(int codigo)
+        {
+            return this.reservas.FindAll(reserva => reserva.GetAlojamiento().GetCodigo() == codigo);
         }
         public List<Reserva> GetAllReservasForUsuario(int dni)
         {
@@ -171,6 +185,13 @@ namespace TP2_Grupo4
         {
             int indexUser = this.findIndexUsuarioForDNIO(dni);
             if (indexUser == -1) return false;
+
+            // Reservas del usuario a eliminar
+            List<Reserva> reservasDelUsuario = this.GetAllReservasForUsuario(dni);
+
+            foreach (Reserva reserva in reservasDelUsuario)
+                this.EliminarReserva(reserva.GetId());
+
             this.usuarios.RemoveAt(indexUser);
             return true;
         }
