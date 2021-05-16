@@ -130,6 +130,7 @@ namespace TP2_Grupo4.Views
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(121, 23);
             this.txtCodigo.TabIndex = 12;
+            this.txtCodigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCodigo_KeyPress);
             // 
             // btnTopModificar
             // 
@@ -186,6 +187,7 @@ namespace TP2_Grupo4.Views
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(100, 23);
             this.txtPrecio.TabIndex = 3;
+            this.txtPrecio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPrecio_KeyPress);
             // 
             // label3
             // 
