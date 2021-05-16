@@ -168,6 +168,8 @@ namespace TP2_Grupo4.Views
                 return;
             }
 
+            this.inputPrecioMin.Text = "0";
+            this.inputPrecioMax.Text = "0";
             this.indicarSelectPorDefecto();
             this.limpiarDataGridView();
             this.llenarDataGridView(alojamientosFiltrados);
