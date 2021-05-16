@@ -44,10 +44,10 @@ namespace TP2_Grupo4.Views
             this.dgvAlojamiento.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvAlojamiento.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAlojamiento.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgvAlojamiento.Location = new System.Drawing.Point(12, 176);
+            this.dgvAlojamiento.Location = new System.Drawing.Point(12, 109);
             this.dgvAlojamiento.Name = "dgvAlojamiento";
             this.dgvAlojamiento.RowTemplate.Height = 25;
-            this.dgvAlojamiento.Size = new System.Drawing.Size(976, 374);
+            this.dgvAlojamiento.Size = new System.Drawing.Size(976, 441);
             this.dgvAlojamiento.TabIndex = 1;
             // 
             // comboBoxTipoAloj
@@ -61,16 +61,16 @@ namespace TP2_Grupo4.Views
             "Todos",
             "Hotel",
             "Cabaña"});
-            this.comboBoxTipoAloj.Location = new System.Drawing.Point(67, 98);
+            this.comboBoxTipoAloj.Location = new System.Drawing.Point(55, 70);
             this.comboBoxTipoAloj.Name = "comboBoxTipoAloj";
-            this.comboBoxTipoAloj.Size = new System.Drawing.Size(107, 23);
+            this.comboBoxTipoAloj.Size = new System.Drawing.Size(97, 23);
             this.comboBoxTipoAloj.TabIndex = 4;
             this.comboBoxTipoAloj.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoAloj_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 101);
+            this.label1.Location = new System.Drawing.Point(13, 73);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(36, 15);
             this.label1.TabIndex = 7;

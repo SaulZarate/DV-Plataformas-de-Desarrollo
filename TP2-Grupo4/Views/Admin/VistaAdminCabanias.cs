@@ -208,14 +208,14 @@ namespace TP2_Grupo4.Views
             int banios = Int32.Parse(comboBoxBanios.Text);
             if (this.agencia.GetAgencia().FindAlojamientoForCodigo(codigo) == null)
             {
-                    this.agencia.GetAgencia().AgregarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
-                    this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+                this.agencia.GetAgencia().AgregarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
+                this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
             }
             else if (!huboError)
             {
                 MessageBox.Show("Ya existe el código de alojamiento, ingresa un código inexistente");
             }
-        
+
             clearAllControls();
             getCabaniasFromTextFile();
         }
