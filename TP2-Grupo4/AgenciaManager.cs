@@ -106,27 +106,27 @@ namespace TP2_Grupo4
         }
         private void cargarDatosDeLasReservas()
         {
-            List<String> reservasEnLista = Utils.GetDataFile(Config.PATH_FILE_RESERVAS);
-            foreach(String reservaSerializada in reservasEnLista)
-            {
-                String[] reservaArray = Utils.StringToArray(reservaSerializada);
-                Alojamiento alojamiento = this.GetAgencia().FindAlojamientoForCodigo(int.Parse(reservaArray[3]));
-                Usuario usuario = this.FindUserForDNI(int.Parse(reservaArray[4]));
+            //List<String> reservasEnLista = Utils.GetDataFile(Config.PATH_FILE_RESERVAS);
+            //foreach(String reservaSerializada in reservasEnLista)
+            //{
+            //    String[] reservaArray = Utils.StringToArray(reservaSerializada);
+            //    Alojamiento alojamiento = this.GetAgencia().FindAlojamientoForCodigo(int.Parse(reservaArray[3]));
+            //    Usuario usuario = this.FindUserForDNI(int.Parse(reservaArray[4]));
                 
-                if (alojamiento == null || usuario == null) 
-                    continue;
+            //    if (alojamiento == null || usuario == null) 
+            //        continue;
 
-                this.reservas.Add(
-                    new Reserva(
-                        reservaArray[0],
-                        DateTime.Parse(reservaArray[1]),
-                        DateTime.Parse(reservaArray[2]),
-                        alojamiento,
-                        usuario,
-                        double.Parse(reservaArray[5])
-                        )
-                );
-            }
+            //    this.reservas.Add(
+            //        new Reserva(
+            //            reservaArray[0],
+            //            DateTime.Parse(reservaArray[1]),
+            //            DateTime.Parse(reservaArray[2]),
+            //            alojamiento,
+            //            usuario,
+            //            double.Parse(reservaArray[5])
+            //            )
+            //    );
+            //}
         }
         public bool GuardarCambiosDeLasReservas()
         {
@@ -208,7 +208,8 @@ namespace TP2_Grupo4
         {
             Usuario usuarioEncontrado = this.FindUserForDNI(dni);
             if (usuarioEncontrado == null) return false; // DNI no encontrado
-            if (usuarioEncontrado.GetPassword() != Utils.Encriptar(password)) return false; // Contraseña incorrecta
+            //if (usuarioEncontrado.GetPassword() != Utils.Encriptar(password)) return false; // Contraseña incorrecta
+            if (usuarioEncontrado.GetPassword() != password) return false; // Contraseña incorrecta
             
             this.usuarioLogeado = usuarioEncontrado;
             return true;
@@ -233,7 +234,7 @@ namespace TP2_Grupo4
         }
         public Usuario FindUserForDNI(int dni)
         {
-            return this.GetUsuarios().Find(user => user.GetDni() == dni);
+            return Usuario.FindUsuario(dni);
         }
         public bool ExisteEmail(string email)
         {

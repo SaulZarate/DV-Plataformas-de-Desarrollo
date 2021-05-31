@@ -17,13 +17,13 @@ namespace TP2_Grupo4
         [STAThread]
         static void Main()
         {
-            foreach (Usuario usuario in Usuario.GetAll())
-                System.Diagnostics.Debug.WriteLine(usuario.ToString());
-            
-            //Application.SetHighDpiMode(HighDpiMode.SystemAware);
-            //Application.EnableVisualStyles();
-            //Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new VistaLogin());
+            //foreach (Usuario usuario in Usuario.GetAll())
+            //    System.Diagnostics.Debug.WriteLine(usuario.ToString());
+
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new VistaLogin());
         }
     }
 }

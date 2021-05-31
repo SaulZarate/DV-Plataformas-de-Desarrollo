@@ -62,6 +62,40 @@ namespace TP2_Grupo4.Models
         }
 
         /* METODOS ESTATICOS */
+        public static Usuario FindUsuario(int dni)
+        {
+            //string DataBase = Properties.Resources.DataBase;
+            string credenciales = "server=localhost;user=root;database=dv-tp-plataformasdedesarrollo;port=3306;password=";
+
+            Usuario usuario = null;
+            using (MySqlConnection connection = new MySqlConnection(credenciales))
+            {
+                try
+                {
+                    MySqlCommand command = new MySqlCommand("SELECT dni,nombre,email,password,isAdmin,isBloqueado FROM usuarios where dni = "+ dni , connection);
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        return new Usuario(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetString(2),
+                                    reader.GetString(3),
+                                    reader.GetBoolean(4),
+                                    reader.GetBoolean(5)
+                                );
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return usuario;
+        }
         public static Usuario Deserializar(String UsuarioSerializado)
         {
             String[] usuarioArray = Utils.StringToArray(UsuarioSerializado);
