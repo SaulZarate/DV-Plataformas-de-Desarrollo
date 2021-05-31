@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MySql.Data.MySqlClient;
 
 using TP2_Grupo4.Helpers;
 
@@ -7,6 +8,7 @@ namespace TP2_Grupo4.Models
 {
     public class Usuario
     {
+        //private int id;
         private int dni;
         private String nombre;
         private String email;
@@ -24,7 +26,41 @@ namespace TP2_Grupo4.Models
             this.SetBloqueado(bloqueado);
         }
         
-        
+        public static List<Usuario> GetAll()
+        {
+            //string DataBase = Properties.Resources.DataBase;
+            string credenciales = "server=localhost;user=root;database=dv-tp-plataformasdedesarrollo;port=3306;password=";
+
+            List<Usuario> usuarios = new List<Usuario>();
+            using (MySqlConnection connection = new MySqlConnection(credenciales))
+            {
+                try
+                {
+                    MySqlCommand command = new MySqlCommand("SELECT dni,nombre,email,password,isAdmin,isBloqueado FROM usuarios", connection);
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+                    
+                    while (reader.Read())
+                    {
+                        usuarios.Add(new Usuario(
+                                    reader.GetInt32(0), 
+                                    reader.GetString(1), 
+                                    reader.GetString(2), 
+                                    reader.GetString(3),
+                                    reader.GetBoolean(4), 
+                                    reader.GetBoolean(5)
+                                ));
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return usuarios;
+        }
+
         /* METODOS ESTATICOS */
         public static Usuario Deserializar(String UsuarioSerializado)
         {
@@ -62,6 +98,7 @@ namespace TP2_Grupo4.Models
         }
 
         #region GETTERS Y SETTERS
+        //public int GetId(){ return this.id; }
         public int GetDni(){ return this.dni; }
         public String GetNombre() { return this.nombre; }
         public String GetEmail() { return this.email; }
@@ -69,7 +106,8 @@ namespace TP2_Grupo4.Models
         public bool GetIsAdmin() { return this.isAdmin; }
         public bool GetBloqueado() { return this.bloqueado; }
 
-        private void setDni(int dni) { this.dni = dni; }
+        //public void SetId(int id) { this.id = id; }
+        public void setDni(int dni) { this.dni = dni; }
         public void SetNombre(String nombre) { this.nombre = nombre; }
         public void SetEmail(String email) { this.email = email; }
         public void SetPassword(String password) { this.password = password; }

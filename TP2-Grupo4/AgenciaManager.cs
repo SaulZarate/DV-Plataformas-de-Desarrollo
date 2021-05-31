@@ -245,9 +245,11 @@ namespace TP2_Grupo4
         }
         private void cargarDatosDeLosUsuarios()
         {
-            List<String> usuariosSerializados = Utils.GetDataFile(Config.PATH_FILE_USUARIOS);
-            foreach (String usuario in usuariosSerializados)
-                this.usuarios.Add(Usuario.Deserializar(usuario));
+            foreach (Usuario usuario in Usuario.GetAll())
+                this.usuarios.Add(usuario);
+            //List<String> usuariosSerializados = Utils.GetDataFile(Config.PATH_FILE_USUARIOS);
+            //foreach (String usuario in usuariosSerializados)
+            //    this.usuarios.Add(Usuario.Deserializar(usuario));
         }
         public bool GuardarCambiosDeLosUsuarios()
         {
