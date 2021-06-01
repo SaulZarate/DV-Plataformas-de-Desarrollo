@@ -90,7 +90,7 @@ namespace TP2_Grupo4.Models
             }
             return usuarios;
         }
-        public static bool Save(Usuario usuario)
+        public bool Save()
         {
             using(MySqlConnection connection = Database.GetConnection())
             {
@@ -99,15 +99,16 @@ namespace TP2_Grupo4.Models
                 {
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
+
                     command.CommandText = "INSERT INTO usuarios VALUES(@dni,@nombre,@email,@password,@isAdmin,@isBloqueado)";
-                    command.Parameters.AddWithValue("@dni", usuario.GetDni());
-                    command.Parameters.AddWithValue("@nombre", usuario.GetNombre());
-                    command.Parameters.AddWithValue("@email", usuario.GetEmail());
-                    command.Parameters.AddWithValue("@password", usuario.GetPassword());
-                    command.Parameters.AddWithValue("@isAdmin", usuario.GetIsAdmin());
-                    command.Parameters.AddWithValue("@isBloqueado", usuario.GetBloqueado());
-                    command.ExecuteNonQuery();
-                    result = true;
+                    command.Parameters.AddWithValue("@dni", this.GetDni());
+                    command.Parameters.AddWithValue("@nombre", this.GetNombre());
+                    command.Parameters.AddWithValue("@email", this.GetEmail());
+                    command.Parameters.AddWithValue("@password", this.GetPassword());
+                    command.Parameters.AddWithValue("@isAdmin", this.GetIsAdmin());
+                    command.Parameters.AddWithValue("@isBloqueado", this.GetBloqueado());
+
+                    if (command.ExecuteNonQuery() == 1) return true;
                 }
                 catch (Exception)
                 {
@@ -116,14 +117,8 @@ namespace TP2_Grupo4.Models
                 connection.Close();
                 return result;
             }
-            //List<String> usuariosEnListaDeString = new List<string>();
-            //foreach (Usuario usuario in usuarios)
-            //{
-            //    usuariosEnListaDeString.Add(usuario.ToString());
-            //}
-            //return Utils.WriteInFile(Config.PATH_FILE_USUARIOS, usuariosEnListaDeString);
         }
-        public static bool Update(Usuario usuario)
+        public bool Update()
         {
             using (MySqlConnection connection = Database.GetConnection())
             {
@@ -133,12 +128,12 @@ namespace TP2_Grupo4.Models
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
                     command.CommandText = "UPDATE usuarios SET nombre = @nombre, email = @email, password = @password, isAdmin = @admin, isBloqueado = @bloqueado  WHERE dni = @dni; ";
-                    command.Parameters.AddWithValue("@dni", usuario.GetDni());
-                    command.Parameters.AddWithValue("@nombre", usuario.GetNombre());
-                    command.Parameters.AddWithValue("@email", usuario.GetEmail());
-                    command.Parameters.AddWithValue("@password", usuario.GetPassword());
-                    command.Parameters.AddWithValue("@admin", usuario.GetIsAdmin());
-                    command.Parameters.AddWithValue("@bloqueado", usuario.GetBloqueado());
+                    command.Parameters.AddWithValue("@dni", this.GetDni());
+                    command.Parameters.AddWithValue("@nombre", this.GetNombre());
+                    command.Parameters.AddWithValue("@email", this.GetEmail());
+                    command.Parameters.AddWithValue("@password", this.GetPassword());
+                    command.Parameters.AddWithValue("@admin", this.GetIsAdmin());
+                    command.Parameters.AddWithValue("@bloqueado", this.GetBloqueado());
                     command.ExecuteNonQuery();
                     result = true;
                 }
@@ -151,7 +146,7 @@ namespace TP2_Grupo4.Models
                 return result;
             }
         }
-        public static bool Delete(int dni)
+        public bool Delete()
         {
             using (MySqlConnection connection = Database.GetConnection())
             {
@@ -161,7 +156,7 @@ namespace TP2_Grupo4.Models
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
                     command.CommandText = "DELETE FROM usuarios WHERE dni = @dni;";
-                    command.Parameters.AddWithValue("@dni", dni);
+                    command.Parameters.AddWithValue("@dni", this.dni);
                     command.ExecuteNonQuery();
                     result = true;
                 }

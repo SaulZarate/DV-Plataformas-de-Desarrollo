@@ -175,7 +175,7 @@ namespace TP2_Grupo4
         {
             Usuario usuarioNuevo = new Usuario(dni, nombre, email, Utils.Encriptar(password), isAdmin, bloqueado);
             this.usuarios.Add(usuarioNuevo);
-            return Usuario.Save(usuarioNuevo);
+            return usuarioNuevo.Save();
         }
         public bool ModificarUsuario(int dni, String nombre, String email, String password, String isAdmin, String isBloqueado)
         {
@@ -187,7 +187,7 @@ namespace TP2_Grupo4
             this.usuarios[indexUser].SetPassword( password == "" ? this.usuarios[indexUser].GetPassword() : Utils.Encriptar(password));
             this.usuarios[indexUser].SetIsAdmin( isAdmin == "" ? this.usuarios[indexUser].GetIsAdmin() : bool.Parse(isAdmin));
             this.usuarios[indexUser].SetBloqueado( isBloqueado == "" ? this.usuarios[indexUser].GetBloqueado() : bool.Parse(isBloqueado));
-            return Usuario.Update(this.usuarios[indexUser]);
+            return this.usuarios[indexUser].Update();
         }
         public bool EliminarUsuario(int dni)
         {
@@ -200,8 +200,9 @@ namespace TP2_Grupo4
             foreach (Reserva reserva in reservasDelUsuario)
                 this.EliminarReserva(reserva.GetId());
 
+            this.usuarios[indexUser].Delete();
             this.usuarios.RemoveAt(indexUser);
-            return Usuario.Delete(dni);
+            return true;
         }
         
         public bool autenticarUsuario(int dni, String password)
@@ -246,9 +247,6 @@ namespace TP2_Grupo4
         {
             foreach (Usuario usuario in Usuario.GetAll())
                 this.usuarios.Add(usuario);
-            //List<String> usuariosSerializados = Utils.GetDataFile(Config.PATH_FILE_USUARIOS);
-            //foreach (String usuario in usuariosSerializados)
-            //    this.usuarios.Add(Usuario.Deserializar(usuario));
         }
 
         #endregion

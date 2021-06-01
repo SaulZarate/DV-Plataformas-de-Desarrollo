@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2021 a las 20:46:18
+-- Tiempo de generación: 01-06-2021 a las 23:49:47
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -97,7 +97,7 @@ CREATE TABLE `reservas` (
   `fechaDesde` datetime NOT NULL,
   `fechaHasta` datetime NOT NULL,
   `precio` double UNSIGNED NOT NULL,
-  `alojamiento_id` int(11) UNSIGNED NOT NULL,
+  `alojamiento_codigo` int(11) UNSIGNED NOT NULL,
   `usuario_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -123,7 +123,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`dni`, `nombre`, `email`, `password`, `isAdmin`, `isBloqueado`) VALUES
 (12312312, 'nuevoNombre', 'nuevoEmail@prueba.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 0),
 (40393222, 'admin', 'admin@admin.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, 0),
-(78978978, 'cliente1', 'cliente1@gmail.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 0);
+(43243243, 'cliente3', 'cliente3@gmail.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 1);
 
 -- --------------------------------------------------------
 
