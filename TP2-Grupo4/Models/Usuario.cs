@@ -34,8 +34,8 @@ namespace TP2_Grupo4.Models
             {
                 try
                 {
-                    MySqlCommand command = new MySqlCommand("SELECT dni,nombre,email,password,isAdmin,isBloqueado FROM usuarios where dni = "+ dni , connection);
                     connection.Open();
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM usuarios where dni = "+ dni , connection);
                     MySqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
@@ -65,8 +65,8 @@ namespace TP2_Grupo4.Models
             {
                 try
                 {
-                    MySqlCommand command = new MySqlCommand("SELECT dni,nombre,email,password,isAdmin,isBloqueado FROM usuarios", connection);
                     connection.Open();
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM usuarios", connection);
                     MySqlDataReader reader = command.ExecuteReader();
 
                     while (reader.Read())
@@ -80,6 +80,7 @@ namespace TP2_Grupo4.Models
                                     reader.GetBoolean(5)
                                 ));
                     }
+
                     reader.Close();
                 }
                 catch (Exception ex)

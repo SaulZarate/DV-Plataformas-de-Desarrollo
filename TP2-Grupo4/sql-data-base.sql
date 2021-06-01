@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2021 a las 04:21:22
+-- Tiempo de generación: 01-06-2021 a las 20:46:18
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -45,10 +45,46 @@ CREATE TABLE `alojamientos` (
 --
 
 INSERT INTO `alojamientos` (`codigo`, `ciudad`, `barrio`, `estrellas`, `cantidadDePersonas`, `tv`, `precioPorPersona`, `precioPorDia`, `habitaciones`, `banios`) VALUES
-(1, 'buenos aires', 'palermo', 2, 1, 1, 3000, 0, 0, 0),
-(2, 'buenos aires', 'puerto madero', 1, 1, 1, 3500, 0, 0, 0),
-(3, 'carlos paz', 'centro', 1, 6, 1, 0, 2400, 2, 1),
-(4, 'carlos paz', 'norte', 2, 3, 1, 0, 6000, 2, 1);
+(234432, 'buenos aires', 'sur', 2, 4, 1, 0, 4000, 2, 1),
+(315434, 'rosario', 'centro', 1, 2, 0, 1800, 0, 0, 0),
+(332131, 'carlos paz', 'norte', 2, 3, 1, 0, 6000, 2, 1),
+(523423, 'buenos aires', 'palermo', 2, 1, 1, 3000, 0, 0, 0),
+(843511, 'buenos aires', 'puerto madero', 1, 1, 1, 3500, 0, 0, 0),
+(856722, 'carlos paz', 'centro', 1, 6, 1, 0, 2400, 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `cabanias`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `cabanias` (
+`codigo` int(11)
+,`ciudad` varchar(100)
+,`barrio` varchar(100)
+,`estrellas` int(2)
+,`cantidadDePersonas` int(2)
+,`tv` tinyint(1)
+,`precioPorDia` float unsigned
+,`habitaciones` int(2)
+,`banios` int(2)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `hoteles`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `hoteles` (
+`codigo` int(11)
+,`ciudad` varchar(100)
+,`barrio` varchar(100)
+,`estrellas` int(2)
+,`cantidadDePersonas` int(2)
+,`tv` tinyint(1)
+,`precioPorPersona` float unsigned
+);
 
 -- --------------------------------------------------------
 
@@ -85,8 +121,27 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`dni`, `nombre`, `email`, `password`, `isAdmin`, `isBloqueado`) VALUES
-(12312312, 'prueba', 'prueba@prueba.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 0),
-(40393222, 'admin', 'admin@admin.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, 0);
+(12312312, 'nuevoNombre', 'nuevoEmail@prueba.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 0),
+(40393222, 'admin', 'admin@admin.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, 0),
+(78978978, 'cliente1', 'cliente1@gmail.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `cabanias`
+--
+DROP TABLE IF EXISTS `cabanias`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `cabanias`  AS SELECT `alojamientos`.`codigo` AS `codigo`, `alojamientos`.`ciudad` AS `ciudad`, `alojamientos`.`barrio` AS `barrio`, `alojamientos`.`estrellas` AS `estrellas`, `alojamientos`.`cantidadDePersonas` AS `cantidadDePersonas`, `alojamientos`.`tv` AS `tv`, `alojamientos`.`precioPorDia` AS `precioPorDia`, `alojamientos`.`habitaciones` AS `habitaciones`, `alojamientos`.`banios` AS `banios` FROM `alojamientos` WHERE `alojamientos`.`precioPorPersona` = 0 ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `hoteles`
+--
+DROP TABLE IF EXISTS `hoteles`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `hoteles`  AS SELECT `alojamientos`.`codigo` AS `codigo`, `alojamientos`.`ciudad` AS `ciudad`, `alojamientos`.`barrio` AS `barrio`, `alojamientos`.`estrellas` AS `estrellas`, `alojamientos`.`cantidadDePersonas` AS `cantidadDePersonas`, `alojamientos`.`tv` AS `tv`, `alojamientos`.`precioPorPersona` AS `precioPorPersona` FROM `alojamientos` WHERE `alojamientos`.`precioPorPersona` <> 0 ;
 
 --
 -- Índices para tablas volcadas
@@ -114,12 +169,6 @@ ALTER TABLE `usuarios`
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
-
---
--- AUTO_INCREMENT de la tabla `alojamientos`
---
-ALTER TABLE `alojamientos`
-  MODIFY `codigo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `reservas`
