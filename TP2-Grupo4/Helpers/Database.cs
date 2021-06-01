@@ -10,10 +10,11 @@ namespace TP2_Grupo4.Helpers
         private const String PORT = "3306";
         private const String USER = "root";
         private const String PASSWORD = "";
+
         public static MySqlConnection GetConnection()
         {
-            //"server=localhost;user=root;database=dv-tp-plataformasdedesarrollo;port=3306;password="
             return new MySqlConnection($"server={Database.SERVER};user={Database.USER};database={Database.DATABASE};port={Database.PORT};password={Database.PASSWORD}");
         }
+
     }
 }

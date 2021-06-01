@@ -105,28 +105,21 @@ namespace TP2_Grupo4.Views
                 int dni = Int32.Parse(txtUsuario.Text);
                 string contrasena = txtContrasena.Text;
                 string repetirContrasena = txtRepetirContrasena.Text;
-                Usuario usuario = this.agencia.FindUserForDNI(dni);
 
-                if (usuario == null)
+                if (this.agencia.FindUserForDNI(dni) == null)
                 {
                     MessageBox.Show("El usuario invalido, por favor intentelo nuevamente.");
                 }
                 else
                 {
-                    if (contrasena == repetirContrasena)
+                    if (contrasena == repetirContrasena && this.agencia.ModificarUsuario(dni, "", "", contrasena, "", "") )
                     {
-                        string nombre = usuario.GetNombre();
-                        string email = usuario.GetEmail();
-                        this.agencia.ModificarUsuario(dni, nombre, email, contrasena);
-                        this.agencia.GuardarCambiosDeLosUsuarios();
                         MessageBox.Show("Se ha modificado el usuario de manera exitosa.");
                     }
                     else
                     {
                         MessageBox.Show("Usuario o contraseña incorrecto, por favor intentelo nuevamente.");
-
                     }
-
                     txtUsuario.Text = "DNI";
                     txtUsuario.ForeColor = Color.DimGray;
                     txtContrasena.Text = "CONTRASEÑA NUEVA";

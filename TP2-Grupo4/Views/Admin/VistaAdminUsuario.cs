@@ -18,7 +18,6 @@ namespace TP2_Grupo4.Views
             InitializeComponent();
         }
 
-        // TODO: No mostrar Password
         private void VistaUsuario_Load(object sender, EventArgs e)
         {
             // Boton borrar
@@ -112,7 +111,7 @@ namespace TP2_Grupo4.Views
                     // Borrado
                     dgvUsuarios.Rows.RemoveAt(rowIndex);
 
-                    if (this.agencia.EliminarUsuario(dni) && this.agencia.GuardarCambiosDeLosUsuarios() && this.agencia.GuardarCambiosDeLasReservas())
+                    if (this.agencia.EliminarUsuario(dni) && this.agencia.GuardarCambiosDeLasReservas())
                     {
                         MessageBox.Show("Se ha eliminado el usuario y todas las reservas del mismo");
                     }
@@ -151,20 +150,8 @@ namespace TP2_Grupo4.Views
             string email = txtEmail.Text;
             bool bloqueado = checkBoxBloqueado.Checked;
 
-
-            this.agencia.ModificarUsuario(dni, nombre, email,"");
-
-            if (!bloqueado)
-            {
-                this.agencia.DesbloquearUsuario(dni);
-            }
-            else
-            {
-                this.agencia.BloquearUsuario(dni);
-            }
-
-
-            this.agencia.GuardarCambiosDeLosUsuarios();
+            if (this.agencia.ModificarUsuario(dni, nombre, email, "", "", bloqueado.ToString()))
+                MessageBox.Show("El usuario a sido modificado");
 
             clearAllControls();
             groupBoxHoteles.Enabled = false;

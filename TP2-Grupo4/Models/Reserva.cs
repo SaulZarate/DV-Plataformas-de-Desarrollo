@@ -16,7 +16,7 @@ namespace TP2_Grupo4.Models
 
         public Reserva(String id, DateTime fechaDesde, DateTime fechaHasta, Alojamiento alojamiento, Usuario usuario, double precio)
         {
-            this.setId(id);
+            this.SetId(id);
             this.SetFechaDesde(fechaDesde);
             this.SetFechaHasta(fechaHasta);
             this.SetAlojamiento(alojamiento);
@@ -56,7 +56,7 @@ namespace TP2_Grupo4.Models
         public Alojamiento GetAlojamiento() { return this.alojamiento; }
         public Usuario GetUsuario() { return this.usuario; }
         public double GetPrecio() { return this.precio; }
-        private void setId(String id) { this.id = id; }
+        public void SetId(String id) { this.id = id; }
         public void SetFechaDesde(DateTime fechaDesde) { this.fechaDesde = fechaDesde; }
         public void SetFechaHasta(DateTime fechaHasta) { this.fechaHasta = fechaHasta; }
         public void SetAlojamiento(Alojamiento alojamiento) { this.alojamiento = alojamiento; }

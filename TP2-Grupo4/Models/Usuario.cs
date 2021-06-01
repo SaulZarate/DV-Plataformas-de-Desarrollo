@@ -9,7 +9,6 @@ namespace TP2_Grupo4.Models
 {
     public class Usuario
     {
-        //private int id;
         private int dni;
         private String nombre;
         private String email;
@@ -23,44 +22,12 @@ namespace TP2_Grupo4.Models
             this.SetNombre(nombre);
             this.SetEmail(email);
             this.SetPassword(password);
-            this.setIsAdmin(isAdmin);
+            this.SetIsAdmin(isAdmin);
             this.SetBloqueado(bloqueado);
         }
         
-        public static List<Usuario> GetAll()
-        {
-            List<Usuario> usuarios = new List<Usuario>();
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                try
-                {
-                    MySqlCommand command = new MySqlCommand("SELECT dni,nombre,email,password,isAdmin,isBloqueado FROM usuarios", connection);
-                    connection.Open();
-                    MySqlDataReader reader = command.ExecuteReader();
-                    
-                    while (reader.Read())
-                    {
-                        usuarios.Add(new Usuario(
-                                    reader.GetInt32(0), 
-                                    reader.GetString(1), 
-                                    reader.GetString(2), 
-                                    reader.GetString(3),
-                                    reader.GetBoolean(4), 
-                                    reader.GetBoolean(5)
-                                ));
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            return usuarios;
-        }
-
         /* METODOS ESTATICOS */
-        public static Usuario FindUsuario(int dni)
+        public static Usuario Find(int dni)
         {
             Usuario usuario = null;
             using (MySqlConnection connection = Database.GetConnection())
@@ -91,17 +58,36 @@ namespace TP2_Grupo4.Models
             }
             return usuario;
         }
-        public static Usuario Deserializar(String UsuarioSerializado)
+        public static List<Usuario> GetAll()
         {
-            String[] usuarioArray = Utils.StringToArray(UsuarioSerializado);
-            return new Usuario(
-                int.Parse(usuarioArray[0]),
-                usuarioArray[1].ToString(),
-                usuarioArray[2].ToString(),
-                usuarioArray[3].ToString(),
-                bool.Parse(usuarioArray[4]),
-                bool.Parse(usuarioArray[5])
-                );
+            List<Usuario> usuarios = new List<Usuario>();
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                try
+                {
+                    MySqlCommand command = new MySqlCommand("SELECT dni,nombre,email,password,isAdmin,isBloqueado FROM usuarios", connection);
+                    connection.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        usuarios.Add(new Usuario(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetString(2),
+                                    reader.GetString(3),
+                                    reader.GetBoolean(4),
+                                    reader.GetBoolean(5)
+                                ));
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return usuarios;
         }
         public static bool Save(Usuario usuario)
         {
@@ -120,7 +106,6 @@ namespace TP2_Grupo4.Models
                     command.Parameters.AddWithValue("@isAdmin", usuario.GetIsAdmin());
                     command.Parameters.AddWithValue("@isBloqueado", usuario.GetBloqueado());
                     command.ExecuteNonQuery();
-
                     result = true;
                 }
                 catch (Exception)
@@ -137,6 +122,57 @@ namespace TP2_Grupo4.Models
             //}
             //return Utils.WriteInFile(Config.PATH_FILE_USUARIOS, usuariosEnListaDeString);
         }
+        public static bool Update(Usuario usuario)
+        {
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "UPDATE usuarios SET nombre = @nombre, email = @email, password = @password, isAdmin = @admin, isBloqueado = @bloqueado  WHERE dni = @dni; ";
+                    command.Parameters.AddWithValue("@dni", usuario.GetDni());
+                    command.Parameters.AddWithValue("@nombre", usuario.GetNombre());
+                    command.Parameters.AddWithValue("@email", usuario.GetEmail());
+                    command.Parameters.AddWithValue("@password", usuario.GetPassword());
+                    command.Parameters.AddWithValue("@admin", usuario.GetIsAdmin());
+                    command.Parameters.AddWithValue("@bloqueado", usuario.GetBloqueado());
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
+        }
+        public static bool Delete(int dni)
+        {
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "DELETE FROM usuarios WHERE dni = @dni;";
+                    command.Parameters.AddWithValue("@dni", dni);
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
+        }
 
         /* ToString */
         public override string ToString()
@@ -152,7 +188,6 @@ namespace TP2_Grupo4.Models
         }
 
         #region GETTERS Y SETTERS
-        //public int GetId(){ return this.id; }
         public int GetDni(){ return this.dni; }
         public String GetNombre() { return this.nombre; }
         public String GetEmail() { return this.email; }
@@ -160,12 +195,11 @@ namespace TP2_Grupo4.Models
         public bool GetIsAdmin() { return this.isAdmin; }
         public bool GetBloqueado() { return this.bloqueado; }
 
-        //public void SetId(int id) { this.id = id; }
         public void setDni(int dni) { this.dni = dni; }
         public void SetNombre(String nombre) { this.nombre = nombre; }
         public void SetEmail(String email) { this.email = email; }
         public void SetPassword(String password) { this.password = password; }
-        private void setIsAdmin(bool isAdmin) { this.isAdmin = isAdmin; }
+        public void SetIsAdmin(bool isAdmin) { this.isAdmin = isAdmin; }
         public void SetBloqueado(bool bloqueado) { this.bloqueado = bloqueado; }
         #endregion
     

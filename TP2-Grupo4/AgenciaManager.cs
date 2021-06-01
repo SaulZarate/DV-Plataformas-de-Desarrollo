@@ -177,18 +177,17 @@ namespace TP2_Grupo4
             this.usuarios.Add(usuarioNuevo);
             return Usuario.Save(usuarioNuevo);
         }
-        public bool ModificarUsuario(int dni, String nombre, String email, String password = "")
+        public bool ModificarUsuario(int dni, String nombre, String email, String password, String isAdmin, String isBloqueado)
         {
             int indexUser = this.findIndexUsuarioForDNIO(dni);
             if (indexUser == -1) return false; // Usuario no encontrado
 
-            this.usuarios[indexUser].SetNombre(nombre);
-            this.usuarios[indexUser].SetEmail(email);
-
-            if (password == "") return true;
-            this.usuarios[indexUser].SetPassword(Utils.Encriptar(password));
-            
-            return true;
+            this.usuarios[indexUser].SetNombre(nombre == "" ? this.usuarios[indexUser].GetNombre() : nombre );
+            this.usuarios[indexUser].SetEmail(email == "" ? this.usuarios[indexUser].GetEmail() : email);
+            this.usuarios[indexUser].SetPassword( password == "" ? this.usuarios[indexUser].GetPassword() : Utils.Encriptar(password));
+            this.usuarios[indexUser].SetIsAdmin( isAdmin == "" ? this.usuarios[indexUser].GetIsAdmin() : bool.Parse(isAdmin));
+            this.usuarios[indexUser].SetBloqueado( isBloqueado == "" ? this.usuarios[indexUser].GetBloqueado() : bool.Parse(isBloqueado));
+            return Usuario.Update(this.usuarios[indexUser]);
         }
         public bool EliminarUsuario(int dni)
         {
@@ -202,7 +201,7 @@ namespace TP2_Grupo4
                 this.EliminarReserva(reserva.GetId());
 
             this.usuarios.RemoveAt(indexUser);
-            return true;
+            return Usuario.Delete(dni);
         }
         
         public bool autenticarUsuario(int dni, String password)
@@ -233,7 +232,7 @@ namespace TP2_Grupo4
         }
         public Usuario FindUserForDNI(int dni)
         {
-            return Usuario.FindUsuario(dni);
+            return Usuario.Find(dni);
         }
         public bool ExisteEmail(string email)
         {
