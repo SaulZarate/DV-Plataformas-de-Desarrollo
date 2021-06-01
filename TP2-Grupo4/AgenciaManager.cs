@@ -23,7 +23,7 @@ namespace TP2_Grupo4
             this.usuarioLogeado = null;
 
             this.cargarDatosDeLosUsuarios();
-            this.cargarDatosDeLasReservas();
+            //this.cargarDatosDeLasReservas();
         }
         
         #region METODOS PARA LOS ALOJAMIENTOS
@@ -173,8 +173,9 @@ namespace TP2_Grupo4
         #region METODOS PARA LOS USUARIOS
         public bool AgregarUsuario(int dni, String nombre, String email, String password, bool isAdmin, bool bloqueado)
         {
-            this.usuarios.Add(new Usuario(dni,nombre,email,Utils.Encriptar(password), isAdmin,bloqueado));
-            return true;
+            Usuario usuarioNuevo = new Usuario(dni, nombre, email, Utils.Encriptar(password), isAdmin, bloqueado);
+            this.usuarios.Add(usuarioNuevo);
+            return Usuario.Save(usuarioNuevo);
         }
         public bool ModificarUsuario(int dni, String nombre, String email, String password = "")
         {
@@ -208,9 +209,7 @@ namespace TP2_Grupo4
         {
             Usuario usuarioEncontrado = this.FindUserForDNI(dni);
             if (usuarioEncontrado == null) return false; // DNI no encontrado
-            //if (usuarioEncontrado.GetPassword() != Utils.Encriptar(password)) return false; // Contraseña incorrecta
-            if (usuarioEncontrado.GetPassword() != password) return false; // Contraseña incorrecta
-            
+            if (usuarioEncontrado.GetPassword() != Utils.Encriptar(password)) return false; // Contraseña incorrecta            
             this.usuarioLogeado = usuarioEncontrado;
             return true;
         }
@@ -238,7 +237,7 @@ namespace TP2_Grupo4
         }
         public bool ExisteEmail(string email)
         {
-            return this.GetUsuarios().Exists(user => user.GetEmail() == email);
+            return this.usuarios.Exists(user => user.GetEmail() == email);
         }
         private int findIndexUsuarioForDNIO(int dni)
         {
@@ -252,10 +251,7 @@ namespace TP2_Grupo4
             //foreach (String usuario in usuariosSerializados)
             //    this.usuarios.Add(Usuario.Deserializar(usuario));
         }
-        public bool GuardarCambiosDeLosUsuarios()
-        {
-            return Usuario.GuardarCambiosEnElArchivo(this.GetUsuarios());
-        }
+
         #endregion
 
 
@@ -363,7 +359,7 @@ namespace TP2_Grupo4
         public Usuario GetUsuarioLogeado() { return this.usuarioLogeado; }
         private void setAgencia(Agencia agencia) { 
             this.agencia = agencia;
-            this.agencia.CargarDatosDeLosAlojamientos();
+            //this.agencia.CargarDatosDeLosAlojamientos();
         }
 
     }

@@ -189,21 +189,21 @@ namespace TP2_Grupo4.Models
         }
         public void CargarDatosDeLosAlojamientos()
         {
-            //List<string> contenidoDelArchivo = Utils.GetDataFile(Config.PATH_FILE_ALOJAMIENTOS);
-            //if (contenidoDelArchivo.Count == 0) return;
+            List<string> contenidoDelArchivo = Utils.GetDataFile(Config.PATH_FILE_ALOJAMIENTOS);
+            if (contenidoDelArchivo.Count == 0) return;
 
-            //foreach (String alojamiento in contenidoDelArchivo)
-            //{
-            //    int cantidadDeAtributosDelAlojamiento = Utils.StringToArray(alojamiento).Length;
-            //    if (cantidadDeAtributosDelAlojamiento == Hotel.CANTIDAD_DE_ATRIBUTOS)
-            //    {
-            //        this.AgregarAlojamiento(Hotel.Deserializar(alojamiento));
-            //    }
-            //    else if(cantidadDeAtributosDelAlojamiento == Cabania.CANTIDAD_DE_ATRIBUTOS)
-            //    {
-            //        this.AgregarAlojamiento(Cabania.Deserializar(alojamiento));
-            //    }
-            //}
+            foreach (String alojamiento in contenidoDelArchivo)
+            {
+                int cantidadDeAtributosDelAlojamiento = Utils.StringToArray(alojamiento).Length;
+                if (cantidadDeAtributosDelAlojamiento == Hotel.CANTIDAD_DE_ATRIBUTOS)
+                {
+                    this.AgregarAlojamiento(Hotel.Deserializar(alojamiento));
+                }
+                else if (cantidadDeAtributosDelAlojamiento == Cabania.CANTIDAD_DE_ATRIBUTOS)
+                {
+                    this.AgregarAlojamiento(Cabania.Deserializar(alojamiento));
+                }
+            }
         }
         public bool GuardarCambiosEnElArchivo()
         {

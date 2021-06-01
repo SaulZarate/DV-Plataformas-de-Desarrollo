@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
 using TP2_Grupo4.Helpers;
@@ -28,11 +29,8 @@ namespace TP2_Grupo4.Models
         
         public static List<Usuario> GetAll()
         {
-            //string DataBase = Properties.Resources.DataBase;
-            string credenciales = "server=localhost;user=root;database=dv-tp-plataformasdedesarrollo;port=3306;password=";
-
             List<Usuario> usuarios = new List<Usuario>();
-            using (MySqlConnection connection = new MySqlConnection(credenciales))
+            using (MySqlConnection connection = Database.GetConnection())
             {
                 try
                 {
@@ -64,11 +62,8 @@ namespace TP2_Grupo4.Models
         /* METODOS ESTATICOS */
         public static Usuario FindUsuario(int dni)
         {
-            //string DataBase = Properties.Resources.DataBase;
-            string credenciales = "server=localhost;user=root;database=dv-tp-plataformasdedesarrollo;port=3306;password=";
-
             Usuario usuario = null;
-            using (MySqlConnection connection = new MySqlConnection(credenciales))
+            using (MySqlConnection connection = Database.GetConnection())
             {
                 try
                 {
@@ -108,14 +103,39 @@ namespace TP2_Grupo4.Models
                 bool.Parse(usuarioArray[5])
                 );
         }
-        public static bool GuardarCambiosEnElArchivo(List<Usuario> usuarios)
+        public static bool Save(Usuario usuario)
         {
-            List<String> usuariosEnListaDeString = new List<string>();
-            foreach (Usuario usuario in usuarios)
+            using(MySqlConnection connection = Database.GetConnection())
             {
-                usuariosEnListaDeString.Add(usuario.ToString());
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "INSERT INTO usuarios VALUES(@dni,@nombre,@email,@password,@isAdmin,@isBloqueado)";
+                    command.Parameters.AddWithValue("@dni", usuario.GetDni());
+                    command.Parameters.AddWithValue("@nombre", usuario.GetNombre());
+                    command.Parameters.AddWithValue("@email", usuario.GetEmail());
+                    command.Parameters.AddWithValue("@password", usuario.GetPassword());
+                    command.Parameters.AddWithValue("@isAdmin", usuario.GetIsAdmin());
+                    command.Parameters.AddWithValue("@isBloqueado", usuario.GetBloqueado());
+                    command.ExecuteNonQuery();
+
+                    result = true;
+                }
+                catch (Exception)
+                {
+                    // No se pudo guardar
+                }
+                connection.Close();
+                return result;
             }
-            return Utils.WriteInFile(Config.PATH_FILE_USUARIOS, usuariosEnListaDeString);
+            //List<String> usuariosEnListaDeString = new List<string>();
+            //foreach (Usuario usuario in usuarios)
+            //{
+            //    usuariosEnListaDeString.Add(usuario.ToString());
+            //}
+            //return Utils.WriteInFile(Config.PATH_FILE_USUARIOS, usuariosEnListaDeString);
         }
 
         /* ToString */
