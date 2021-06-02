@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using MySql.Data.MySqlClient;
 
 using TP2_Grupo4.Helpers;
 
@@ -23,10 +24,42 @@ namespace TP2_Grupo4.Models
             this.SetUsuario(usuario);
             this.SetPrecio(precio);
         }
-        
+
 
         /* METODOS ESTATICOS */
-        public static bool GuardarCambiosEnElArchivo(List<Reserva> reservas)
+        public static List<Reserva> GetAll()
+        {
+            List<Reserva> reservas = new List<Reserva>();
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM reservas", connection);
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        reservas.Add(new Reserva(
+                                reader.GetString(0),
+                                reader.GetDateTime(1),
+                                reader.GetDateTime(2),
+                                reader.GetString(3),
+                                reader.GetString(4),
+                                reader.GetDouble(5)
+                                ));
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return reservas;
+        }
+        /*public static bool GuardarCambiosEnElArchivo(List<Reserva> reservas)
         {
             List<String> reservasSerializadas = new List<string>(){};
             foreach(Reserva reserva in reservas)
@@ -34,7 +67,7 @@ namespace TP2_Grupo4.Models
                 reservasSerializadas.Add(reserva.ToString());
             }
             return Utils.WriteInFile(Config.PATH_FILE_RESERVAS, reservasSerializadas);
-        }
+        }*/
 
         /* ToString */
         public override string ToString()

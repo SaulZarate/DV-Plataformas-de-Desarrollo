@@ -1,7 +1,7 @@
-﻿
-using System;
+﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using MySql.Data.MySqlClient;
 
 using TP2_Grupo4.Helpers;
 
@@ -25,6 +25,110 @@ namespace TP2_Grupo4.Models
         #region ABM de Alojamientos
         public bool AgregarAlojamiento(Alojamiento alojamiento)
         {
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+
+                    command.CommandText = "INSERT INTO alojamientos VALUES(@codigo, @ciudad, @barrio, @estrellas, @cantidadDePersonas, @tv, @precioPorPersona, @precioPorDia, @habitaciones, @banios)";
+                    command.Parameters.AddWithValue("@codigo", alojamiento.GetCodigo());
+                    command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
+                    command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
+                    command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
+                    command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
+                    command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
+                    //command.Parameters.AddWithValue("@precioPorPersona", alojamientos.());
+                    //command.Parameters.AddWithValue("@precioPorDia", this.GetBloqueado());
+                    //command.Parameters.AddWithValue("@habitaciones", this.GetBloqueado());
+                    //command.Parameters.AddWithValue("@banios", this.GetBloqueado());
+
+                    if (command.ExecuteNonQuery() == 1) return true;
+                }
+                catch (Exception)
+                {
+                    // No se pudo guardar
+                }
+                connection.Close();
+                return result;
+            }
+
+            //this.alojamientos.Add(alojamiento);
+            //this.cantidadDeAlojamientos++;
+            //return true;
+        }
+        public bool ModificarAlojamiento(Alojamiento alojamiento)
+        {
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "UPDATE alojamientos SET ciudad = @ciudad, estrellas = @estrellas, cantidadDePersonas = @cantidadDePersonas, tv = @tv, precioPorPersona = @precioPorPersona, precioPorDia = @precioPorDia, habitaciones = @habitaciones, banios = @banios  WHERE codigo = @codigo; ";
+                    command.Parameters.AddWithValue("@codigo", alojamiento.GetCodigo());
+                    command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
+                    command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
+                    command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
+                    command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
+                    command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
+                    //command.Parameters.AddWithValue("@precioPorPersona", alojamientos.());
+                    //command.Parameters.AddWithValue("@precioPorDia", this.GetBloqueado());
+                    //command.Parameters.AddWithValue("@habitaciones", this.GetBloqueado());
+                    //command.Parameters.AddWithValue("@banios", this.GetBloqueado());
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
+            //int indexAlojamiento = this.alojamientos.FindIndex(al => al.IgualCodigo(alojamiento));
+            //if (indexAlojamiento == -1) return false;
+
+            //this.alojamientos[indexAlojamiento] = alojamiento;
+            //return true;
+        }
+        public bool EliminarAlojamiento(int codigoDelAlojamiento)
+        {
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "DELETE FROM alojamientos WHERE codigo = @codigo;";
+                    command.Parameters.AddWithValue("@codigo", codigoDelAlojamiento);
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
+
+            //int indexAlojamiento = this.alojamientos.FindIndex(al => al.GetCodigo() == codigoDelAlojamiento);
+            //if (indexAlojamiento == -1) return false;
+
+            //this.alojamientos.RemoveAt(indexAlojamiento);
+            //this.cantidadDeAlojamientos--;
+            //return true;
+        }
+
+        /*public bool AgregarAlojamiento(Alojamiento alojamiento)
+        {
             this.alojamientos.Add(alojamiento);
             this.cantidadDeAlojamientos++;
             return true;
@@ -46,7 +150,7 @@ namespace TP2_Grupo4.Models
             this.alojamientos.RemoveAt(indexAlojamiento);
             this.cantidadDeAlojamientos--;
             return true;
-        }
+        }*/
         #endregion
 
         #region METODOS PARA FILTRAR ALOJAMIENTOS
@@ -189,7 +293,37 @@ namespace TP2_Grupo4.Models
         }
         public void CargarDatosDeLosAlojamientos()
         {
-            List<string> contenidoDelArchivo = Utils.GetDataFile(Config.PATH_FILE_ALOJAMIENTOS);
+            List<Alojamiento> alojamientos = new List<Alojamiento>();
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM alojamientos", connection);
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        alojamientos.Add(new Agencia(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetString(2),
+                                    reader.GetInt32(3),
+                                    reader.GetInt32(4),
+                                    reader.GetBoolean(5)
+                                ));
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            //return alojamientos;
+
+            /*List<string> contenidoDelArchivo = Utils.GetDataFile(Config.PATH_FILE_ALOJAMIENTOS);
             if (contenidoDelArchivo.Count == 0) return;
 
             foreach (String alojamiento in contenidoDelArchivo)
@@ -203,16 +337,46 @@ namespace TP2_Grupo4.Models
                 {
                     this.AgregarAlojamiento(Cabania.Deserializar(alojamiento));
                 }
-            }
+            }*/
         }
         public bool GuardarCambiosEnElArchivo()
         {
-            List<String> alojamientosInLista = new List<string>();
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+
+                    command.CommandText = "INSERT INTO alojamientos VALUES(@codigo, @ciudad, @barrio, @estrellas, @cantidadDePersonas, @tv, @precioPorPersona, @precioPorDia, @habitaciones, @banios)";
+                    command.Parameters.AddWithValue("@codigo", this.GetCodigo());
+                    command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
+                    command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
+                    command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
+                    command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
+                    command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
+                    //command.Parameters.AddWithValue("@precioPorPersona", alojamientos.());
+                    //command.Parameters.AddWithValue("@precioPorDia", this.GetBloqueado());
+                    //command.Parameters.AddWithValue("@habitaciones", this.GetBloqueado());
+                    //command.Parameters.AddWithValue("@banios", this.GetBloqueado());
+
+                    if (command.ExecuteNonQuery() == 1) return true;
+                }
+                catch (Exception)
+                {
+                    // No se pudo guardar
+                }
+                connection.Close();
+                return result;
+            }
+
+            /*List<String> alojamientosInLista = new List<string>();
             foreach( Alojamiento al in this.alojamientos)
             {
                 alojamientosInLista.Add(al.ToString());
             }
-            return Utils.WriteInFile(Config.PATH_FILE_ALOJAMIENTOS, alojamientosInLista);
+            return Utils.WriteInFile(Config.PATH_FILE_ALOJAMIENTOS, alojamientosInLista);*/
         }
         #endregion
 

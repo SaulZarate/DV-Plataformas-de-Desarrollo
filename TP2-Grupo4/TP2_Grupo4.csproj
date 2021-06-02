@@ -6,6 +6,7 @@
     <RootNamespace>TP2_Grupo4</RootNamespace>
     <UseWindowsForms>true</UseWindowsForms>
     <StartupObject>TP2_Grupo4.Program</StartupObject>
+    <ApplicationIcon>alojamientos.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
