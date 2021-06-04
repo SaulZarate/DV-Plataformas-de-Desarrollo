@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-06-2021 a las 23:49:47
+-- Tiempo de generación: 04-06-2021 a las 23:30:03
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -96,10 +96,18 @@ CREATE TABLE `reservas` (
   `id` int(50) UNSIGNED NOT NULL,
   `fechaDesde` datetime NOT NULL,
   `fechaHasta` datetime NOT NULL,
-  `precio` double UNSIGNED NOT NULL,
   `alojamiento_codigo` int(11) UNSIGNED NOT NULL,
-  `usuario_id` int(10) UNSIGNED NOT NULL
+  `usuario_id` int(10) UNSIGNED NOT NULL,
+  `precio` double UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `reservas`
+--
+
+INSERT INTO `reservas` (`id`, `fechaDesde`, `fechaHasta`, `alojamiento_codigo`, `usuario_id`, `precio`) VALUES
+(1, '2021-06-04 18:08:18', '2021-06-04 18:08:18', 234432, 12312312, 35500),
+(3, '2021-06-04 23:26:36', '2021-06-09 18:26:36', 332131, 12312312, 30000);
 
 -- --------------------------------------------------------
 
@@ -174,7 +182,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(50) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
