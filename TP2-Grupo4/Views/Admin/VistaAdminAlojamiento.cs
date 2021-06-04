@@ -37,19 +37,19 @@ namespace TP2_Grupo4.Views
 
         private void getTextAlojamientos()
         {
-            foreach (List<String> alojamiento in this.agencia.GetAgencia().DatosDeAlojamientosParaLasVistas())
+            foreach (List<String> alojamiento in this.agencia.GetAgencia().DatosDeAlojamientosParaLasVistas("admin"))
                 this.dgvAlojamiento.Rows.Add(alojamiento.ToArray());
         }
 
         private void getTextHoteles()
         {
-            foreach (List<String> alojamiento in this.agencia.GetAgencia().DatosDeHotelesParaLasVistas())
+            foreach (List<String> alojamiento in this.agencia.GetAgencia().DatosDeHotelesParaLasVistas("admin"))
                 this.dgvAlojamiento.Rows.Add(alojamiento.ToArray());
         }
 
         private void getTextCabanias()
         {
-            foreach (List<String> alojamiento in this.agencia.GetAgencia().DatosDeCabaniasParaLasVistas())
+            foreach (List<String> alojamiento in this.agencia.GetAgencia().DatosDeCabaniasParaLasVistas("admin"))
                 this.dgvAlojamiento.Rows.Add(alojamiento.ToArray());
         }
 

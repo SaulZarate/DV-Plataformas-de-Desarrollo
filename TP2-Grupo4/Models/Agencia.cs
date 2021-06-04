@@ -33,23 +33,42 @@ namespace TP2_Grupo4.Models
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
 
-                    command.CommandText = "INSERT INTO alojamientos VALUES(@codigo, @ciudad, @barrio, @estrellas, @cantidadDePersonas, @tv, @precioPorPersona, @precioPorDia, @habitaciones, @banios)";
-                    command.Parameters.AddWithValue("@codigo", alojamiento.GetCodigo());
-                    command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
-                    command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
-                    command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
-                    command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
-                    command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
-                    //command.Parameters.AddWithValue("@precioPorPersona", alojamientos.());
-                    //command.Parameters.AddWithValue("@precioPorDia", this.GetBloqueado());
-                    //command.Parameters.AddWithValue("@habitaciones", this.GetBloqueado());
-                    //command.Parameters.AddWithValue("@banios", this.GetBloqueado());
+                    if (alojamiento is Hotel)
+                    {
+                        Hotel hotel = (Hotel)alojamiento;
+                        command.CommandText = "INSERT INTO alojamientos VALUES(@codigo, @ciudad, @barrio, @estrellas, @cantidadDePersonas, @tv, @precioPorPersona, @precioPorDia, @habitaciones, @banios)";
+                        command.Parameters.AddWithValue("@codigo", alojamiento.GetCodigo());
+                        command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
+                        command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
+                        command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
+                        command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
+                        command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
+                        command.Parameters.AddWithValue("@precioPorPersona", hotel.GetPrecioPorPersona());
+                        command.Parameters.AddWithValue("@precioPorDia", null);
+                        command.Parameters.AddWithValue("@habitaciones", null);
+                        command.Parameters.AddWithValue("@banios", null);
+                    }
+                    else
+                    {
+                        Cabania cabania = (Cabania)alojamiento;
+                        command.CommandText = "INSERT INTO alojamientos VALUES(@codigo, @ciudad, @barrio, @estrellas, @cantidadDePersonas, @tv, @precioPorPersona, @precioPorDia, @habitaciones, @banios)";
+                        command.Parameters.AddWithValue("@codigo", alojamiento.GetCodigo());
+                        command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
+                        command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
+                        command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
+                        command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
+                        command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
+                        command.Parameters.AddWithValue("@precioPorPersona", null);
+                        command.Parameters.AddWithValue("@precioPorDia", cabania.GetPrecioPorDia());
+                        command.Parameters.AddWithValue("@habitaciones", cabania.GetHabitaciones());
+                        command.Parameters.AddWithValue("@banios", cabania.GetBanios());
+                    }
 
                     if (command.ExecuteNonQuery() == 1) return true;
                 }
-                catch (Exception)
+                catch (Exception err)
                 {
-                    // No se pudo guardar
+                    System.Diagnostics.Debug.WriteLine(err);
                 }
                 connection.Close();
                 return result;
@@ -161,12 +180,12 @@ namespace TP2_Grupo4.Models
         }
         public Agencia GetCabanias()
         {
-            List<Alojamiento> alojamientos = this.alojamientos.FindAll( alojamiento => alojamiento is Cabania);
+            List<Alojamiento> alojamientos = this.alojamientos.FindAll(alojamiento => alojamiento is Cabania);
             return this.alojamientosToAgencia(alojamientos);
         }
         public Agencia GetAlojamientosPorCantidadDePersonas(int cantidadDePersonas)
         {
-            List<Alojamiento> alojamientos = this.alojamientos.FindAll( al => al.GetCantidadDePersonas() == cantidadDePersonas);
+            List<Alojamiento> alojamientos = this.alojamientos.FindAll(al => al.GetCantidadDePersonas() == cantidadDePersonas);
             return this.alojamientosToAgencia(alojamientos);
         }
         public Agencia GetAlojamientosPorCiudad(String ciudad)
@@ -213,10 +232,10 @@ namespace TP2_Grupo4.Models
 
 
         #region METODOS COMPLEMENTARIOS
-        public List<List<String>> DatosDeAlojamientosParaLasVistas(String tipoDeUsuario = "admin")
+        public List<List<String>> DatosDeAlojamientosParaLasVistas(String tipoDeUsuario)
         {
             List<List<String>> alojamientos = new List<List<string>>();
-            
+
             if (tipoDeUsuario == "admin")
             {
                 foreach (Alojamiento alojamiento in this.alojamientos)
@@ -231,7 +250,7 @@ namespace TP2_Grupo4.Models
                     });
 
             }
-            else if(tipoDeUsuario == "user")
+            else if (tipoDeUsuario == "user")
             {
                 foreach (Alojamiento alojamiento in this.alojamientos)
                 {
@@ -247,28 +266,90 @@ namespace TP2_Grupo4.Models
                 }
             }
 
-            
-            return alojamientos;
-        }
-        public List<List<String>> DatosDeHotelesParaLasVistas()
-        {
-            List<List<String>> alojamientos = new List<List<string>>();
-            List<Alojamiento> hoteles = this.GetHoteles().GetAlojamientos();
-            if (hoteles.Count == 0) return alojamientos;
-
-            foreach (Alojamiento alojamiento in hoteles)
-                alojamientos.Add(Utils.StringToArray(alojamiento.ToString()).ToList());
 
             return alojamientos;
         }
-        public List<List<String>> DatosDeCabaniasParaLasVistas()
+        public List<List<String>> DatosDeHotelesParaLasVistas(String tipoDeUsuario)
         {
             List<List<String>> alojamientos = new List<List<string>>();
-            List<Alojamiento> cabanias = this.GetCabanias().GetAlojamientos();
-            if (cabanias.Count == 0) return alojamientos;
+            List<Hotel> hoteles = Hotel.GetAll();
 
-            foreach (Alojamiento alojamiento in cabanias)
-                alojamientos.Add(Utils.StringToArray(alojamiento.ToString()).ToList());
+            if (tipoDeUsuario == "admin")
+            {
+                foreach (Hotel hotel in hoteles)
+                    alojamientos.Add(new List<String>(){
+                        hotel.GetCodigo().ToString(),
+                        hotel.GetCiudad(),
+                        hotel.GetBarrio(),
+                        hotel.GetEstrellas().ToString(),
+                        hotel.GetCantidadDePersonas().ToString(),
+                        hotel.GetTv().ToString(),
+                        hotel.GetPrecioPorPersona().ToString(),
+                        hotel.PrecioTotalDelAlojamiento().ToString()
+                    });
+
+                System.Diagnostics.Debug.WriteLine(alojamientos);
+            }
+            else
+            {
+                foreach (Hotel alojamiento in hoteles)
+                {
+                    alojamientos.Add(new List<String>(){
+                        alojamiento is Hotel ? "hotel" : "cabaña", // Tipo de alojamiento
+                        alojamiento.GetCiudad(),
+                        alojamiento.GetBarrio(),
+                        alojamiento.GetEstrellas().ToString(),
+                        alojamiento.GetCantidadDePersonas().ToString(),
+                        alojamiento.GetTv().ToString(),
+                        alojamiento.GetPrecioPorPersona().ToString(),
+                        alojamiento.PrecioTotalDelAlojamiento().ToString(),
+                    });
+                }
+            }
+
+            return alojamientos;
+        }
+        public List<List<String>> DatosDeCabaniasParaLasVistas(String tipoDeUsuario)
+        {
+            List<List<String>> alojamientos = new List<List<string>>();
+            List<Cabania> cabanias = Cabania.GetAll();
+
+            if (tipoDeUsuario == "admin")
+            {
+                foreach (Cabania cabania in cabanias)
+                    alojamientos.Add(new List<String>(){
+                        cabania.GetCodigo().ToString(),
+                        cabania.GetCiudad(),
+                        cabania.GetBarrio(),
+                        cabania.GetEstrellas().ToString(),
+                        cabania.GetCantidadDePersonas().ToString(),
+                        cabania.GetTv().ToString(),
+                        cabania.GetPrecioPorDia().ToString(),
+                        cabania.GetHabitaciones().ToString(),
+                        cabania.GetBanios().ToString(),
+                        cabania.PrecioTotalDelAlojamiento().ToString(),
+                    });
+
+                System.Diagnostics.Debug.WriteLine(alojamientos);
+            }
+            else
+            {
+                foreach (Cabania cabania in cabanias)
+                {
+                    alojamientos.Add(new List<String>(){
+                        cabania is Cabania ? "hotel" : "cabaña", // Tipo de alojamiento
+                        cabania.GetCiudad(),
+                        cabania.GetBarrio(),
+                        cabania.GetEstrellas().ToString(),
+                        cabania.GetCantidadDePersonas().ToString(),
+                        cabania.GetTv().ToString(),
+                        cabania.GetPrecioPorDia().ToString(),
+                        cabania.GetHabitaciones().ToString(),
+                        cabania.GetBanios().ToString(),
+                        cabania.PrecioTotalDelAlojamiento().ToString(),
+                    });
+                }
+            }
 
             return alojamientos;
         }
@@ -285,7 +366,7 @@ namespace TP2_Grupo4.Models
         }
         public Alojamiento FindAlojamientoForCodigo(int codigoAlojamiento)
         {
-            return this.alojamientos.Find( al => al.GetCodigo() == codigoAlojamiento );
+            return this.alojamientos.Find(al => al.GetCodigo() == codigoAlojamiento);
         }
         public bool ExisteAlojamiento(Alojamiento alojamiento)
         {
