@@ -22,10 +22,16 @@ namespace TP2_Grupo4
             this.reservas = new List<Reserva>();
             this.usuarioLogeado = null;
 
-            this.cargarDatosDeLosUsuarios();
-            //this.cargarDatosDeLasReservas();
+            this.cargarDatosDeLaBaseDeDatos();
         }
-        
+
+        public void cargarDatosDeLaBaseDeDatos()
+        {
+            this.cargarDatosDeLosUsuarios();
+            this.agencia.CargarDatosDeLosAlojamientos();
+            this.cargarDatosDeLasReservas();
+        }
+
         #region METODOS PARA LOS ALOJAMIENTOS
         public bool AgregarHotel(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPersonas)
         {
@@ -106,27 +112,7 @@ namespace TP2_Grupo4
         }
         private void cargarDatosDeLasReservas()
         {
-            //List<String> reservasEnLista = Utils.GetDataFile(Config.PATH_FILE_RESERVAS);
-            //foreach(String reservaSerializada in reservasEnLista)
-            //{
-            //    String[] reservaArray = Utils.StringToArray(reservaSerializada);
-            //    Alojamiento alojamiento = this.GetAgencia().FindAlojamientoForCodigo(int.Parse(reservaArray[3]));
-            //    Usuario usuario = this.FindUserForDNI(int.Parse(reservaArray[4]));
-                
-            //    if (alojamiento == null || usuario == null) 
-            //        continue;
-
-            //    this.reservas.Add(
-            //        new Reserva(
-            //            reservaArray[0],
-            //            DateTime.Parse(reservaArray[1]),
-            //            DateTime.Parse(reservaArray[2]),
-            //            alojamiento,
-            //            usuario,
-            //            double.Parse(reservaArray[5])
-            //            )
-            //    );
-            //}
+            this.reservas = Reserva.GetAll(this.agencia);
         }
         public bool GuardarCambiosDeLasReservas()
         {
@@ -345,7 +331,6 @@ namespace TP2_Grupo4
         {
             return new List<String>() { "fecha de creacion","personas","estrellas" };
         }
-
         #endregion
 
 
@@ -354,10 +339,7 @@ namespace TP2_Grupo4
         public List<Reserva> GetReservas() { return this.reservas; }
         public Agencia GetAgencia() { return this.agencia; }
         public Usuario GetUsuarioLogeado() { return this.usuarioLogeado; }
-        private void setAgencia(Agencia agencia) { 
-            this.agencia = agencia;
-            //this.agencia.CargarDatosDeLosAlojamientos();
-        }
+        private void setAgencia(Agencia agencia) { this.agencia = agencia; }
 
     }
 }

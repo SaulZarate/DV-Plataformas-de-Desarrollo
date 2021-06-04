@@ -1,5 +1,6 @@
-﻿using System;
-
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 using TP2_Grupo4.Helpers;
 
 namespace TP2_Grupo4.Models
@@ -36,6 +37,40 @@ namespace TP2_Grupo4.Models
                 double.Parse(hotelArray[6])
                 );
         }
+        public static List<Hotel> GetAll()
+        {
+            List<Hotel> hoteles = new List<Hotel>();
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM hoteles", connection);
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        hoteles.Add(new Hotel(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetString(2),
+                                    reader.GetInt32(3),
+                                    reader.GetInt32(4),
+                                    reader.GetBoolean(5),
+                                    reader.GetDouble(6)
+                                ));
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return hoteles;
+        }
+
 
         /* ToString */
         public override string ToString()

@@ -1,5 +1,6 @@
-﻿using System;
-
+﻿using MySql.Data.MySqlClient;
+using System;
+using System.Collections.Generic;
 using TP2_Grupo4.Helpers;
 
 namespace TP2_Grupo4.Models
@@ -39,6 +40,43 @@ namespace TP2_Grupo4.Models
                 int.Parse(CabaniaArray[8])
                 );
         }
+        public static List<Cabania> GetAll()
+        {
+            List<Cabania> cabanias = new List<Cabania>();
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM cabanias", connection);
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        cabanias.Add(new Cabania(
+                                    reader.GetInt32(0),
+                                    reader.GetString(1),
+                                    reader.GetString(2),
+                                    reader.GetInt32(3),
+                                    reader.GetInt32(4),
+                                    reader.GetBoolean(5),
+                                    reader.GetDouble(6),
+                                    reader.GetInt32(7),
+                                    reader.GetInt32(8)
+                                ));
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+            return cabanias;
+        }
+
+
 
         /* ToString*/
         public override string ToString()

@@ -27,7 +27,7 @@ namespace TP2_Grupo4.Models
 
 
         /* METODOS ESTATICOS */
-        public static List<Reserva> GetAll()
+        public static List<Reserva> GetAll(Agencia agencia)
         {
             List<Reserva> reservas = new List<Reserva>();
             using (MySqlConnection connection = Database.GetConnection())
@@ -44,8 +44,8 @@ namespace TP2_Grupo4.Models
                                 reader.GetString(0),
                                 reader.GetDateTime(1),
                                 reader.GetDateTime(2),
-                                reader.GetString(3),
-                                reader.GetString(4),
+                                agencia.FindAlojamientoForCodigo(reader.GetInt32(3)),
+                                Usuario.Find(reader.GetInt32(4)),
                                 reader.GetDouble(5)
                                 ));
                     }
