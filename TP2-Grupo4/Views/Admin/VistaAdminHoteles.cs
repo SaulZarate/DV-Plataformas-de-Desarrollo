@@ -54,7 +54,6 @@ namespace TP2_Grupo4.Views
 
 
             // Tabla
-            // TODO: Cambiar Ciudad, Barrio, Estrellas y Cant. personas por ComboBox
             dgvHoteles.Columns.Add("CODIGO", "Codigo");
             dgvHoteles.Columns.Add("CIUDAD", "Ciudad");
             dgvHoteles.Columns.Add("BARRIO", "Barrio");
@@ -81,9 +80,8 @@ namespace TP2_Grupo4.Views
             // Limpiamos el GridView
             dgvHoteles.Rows.Clear();
 
-            List<List<String>> hoteles = this.agencia.GetAgencia().DatosDeHotelesParaLasVistas();
-            foreach (List<String> hotel in hoteles)
-                this.dgvHoteles.Rows.Add(hotel.ToArray());
+            foreach (List<String> alojamiento in this.agencia.GetAgencia().DatosDeHotelesParaLasVistas("admin"))
+                this.dgvHoteles.Rows.Add(alojamiento.ToArray());
 
             // Update y Regresheo de Grid
             dgvHoteles.Update();

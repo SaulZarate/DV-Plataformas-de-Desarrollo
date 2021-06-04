@@ -62,7 +62,6 @@ namespace TP2_Grupo4.Views
 
             List<Reserva> reservas = this.agencia.GetReservas();
 
-
             foreach (Reserva reserva in reservas)
             {
 
