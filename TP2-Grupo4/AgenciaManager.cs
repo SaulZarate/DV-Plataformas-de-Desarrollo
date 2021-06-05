@@ -73,32 +73,30 @@ namespace TP2_Grupo4
                 {
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
-
-                    command.CommandText = "INSERT INTO reservas VALUES(@fechaDesde, @fechaHasta, @precio, @alojamiento_id, @usuario_id)";
+                    // Agrego la reserva a la base de datos
+                    command.CommandText = "INSERT INTO reservas (id, fechaDesde, fechaHasta, alojamiento_codigo, usuario_id, precio) VALUES(null, @fechaDesde, @fechaHasta, @alojamiento_codigo, @usuario_dni, @precio)";
                     command.Parameters.AddWithValue("@fechaDesde", fechaDesde);
                     command.Parameters.AddWithValue("@fechaHasta", fechaHasta);
+                    command.Parameters.AddWithValue("@alojamiento_codigo", codigoAlojamiento);
+                    command.Parameters.AddWithValue("@usuario_dni", dniUsuario);
                     command.Parameters.AddWithValue("@precio", precio);
-                    command.Parameters.AddWithValue("@alojamiento_id", codigoAlojamiento);
-                    command.Parameters.AddWithValue("@usuario_id", dniUsuario);
-                    //                             hay que arreglar esto                          //
 
-                    if (command.ExecuteNonQuery() == 1) return true;
+                    if (command.ExecuteNonQuery() == 1)
+                    {
+                        // Agrego la reserva a la lista de reservas
+                        Alojamiento alojamiento = this.agencia.FindAlojamientoForCodigo(codigoAlojamiento);
+                        Usuario usuario = this.FindUserForDNI(dniUsuario);
+                        this.reservas.Add(new Reserva(Reserva.UltimoIdInsertado().ToString(), fechaDesde, fechaHasta, alojamiento, usuario, precio));
+                        result = true;
+                    }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    // No se pudo guardar
+                    System.Diagnostics.Debug.WriteLine(ex.ToString());
                 }
                 connection.Close();
                 return result;
             }
-            /*Alojamiento alojamiento = this.GetAgencia().FindAlojamientoForCodigo(codigoAlojamiento);
-            Usuario usuario = this.FindUserForDNI(dniUsuario);
-            if (alojamiento == null || usuario == null) return false;
-
-            // Timestamp = Id
-            String timestamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
-            this.reservas.Add(new Reserva(timestamp, fechaDesde,fechaHasta,alojamiento,usuario, precio));
-            return true;*/
         }
         public bool ModificarReserva(String id, DateTime fechaDesde, DateTime fechaHasta, int precio, int alojamiento_id, int usuario_id)
         {

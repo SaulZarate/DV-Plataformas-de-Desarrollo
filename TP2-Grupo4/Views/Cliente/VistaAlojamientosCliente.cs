@@ -132,7 +132,7 @@ namespace TP2_Grupo4.Views
             dgvAlojamiento.Columns.Add("Estrellas", "Estrellas");
             dgvAlojamiento.Columns.Add("CantidadDePersonas", "Cantidad de Personas");
             dgvAlojamiento.Columns.Add("Tv", "TV");
-            dgvAlojamiento.Columns.Add("Precio", "Precio por dia");
+            dgvAlojamiento.Columns.Add("Precio", "Precio");
 
             dgvAlojamiento.Columns.Add(btnReservar);
             dgvAlojamiento.ReadOnly = false;
@@ -182,18 +182,15 @@ namespace TP2_Grupo4.Views
         /* BOTON PARA RESERVAR */
         private void dgvAlojamiento_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (this.dgvAlojamiento.CurrentCell.RowIndex > (this.alojamientosDelDataGridView.GetCantidadDeAlojamientos() - 1))
-            {
-                return;
-            }
             // Validacion de las fechas
             int diasTotalesDeLaReserva;
             try
             {
                 diasTotalesDeLaReserva = int.Parse(this.lblTotalDeDias.Text);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine(ex.ToString());
                 MessageBox.Show("Sus fechas de reservacion no son correctas. Por favor reviselas");
                 return;
             }
@@ -201,31 +198,32 @@ namespace TP2_Grupo4.Views
             // Si hacemos click en Button RESERVAR
             if (dgvAlojamiento.Columns[e.ColumnIndex].Name == "RESERVAR")
             {
-                if (MessageBox.Show("Estas seguro que quieres reservar este alojamiento?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                // Index del Row
+                int rowIndex = dgvAlojamiento.CurrentCell.RowIndex;
+                // Codigo del Alojamiento
+                int codigoDelAlojamiento = this.alojamientosDelDataGridView.GetAlojamientos()[rowIndex].GetCodigo();
+                // Cantidad de personas
+                int cantidadDePersonas = int.Parse(this.dgvAlojamiento.Rows[rowIndex].Cells["CantidadDePersonas"].Value.ToString());
+                // Precio del alojamiento
+                int precioDelAlojamiento = int.Parse(this.dgvAlojamiento.Rows[rowIndex].Cells["Precio"].Value.ToString());
+                // Tipo de alojamiento
+                String tipoAlojamiento = this.dgvAlojamiento.Rows[rowIndex].Cells["Tipo"].Value.ToString();
+                // Calcular precio total
+                double precioDeLaReserva = tipoAlojamiento == "hotel" ? diasTotalesDeLaReserva * cantidadDePersonas * precioDelAlojamiento : diasTotalesDeLaReserva * precioDelAlojamiento;
+
+                String textMessage = $"El precio de la reserva que vas a realizar es de ${precioDeLaReserva}";
+                textMessage += "\nDesea realizar la reserva ?";
+
+                if (MessageBox.Show(textMessage , "Confirmacion de la reserva", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    // Index del Row
-                    int rowIndex = dgvAlojamiento.CurrentCell.RowIndex;
-
-                    // Codigo del Alojamiento
-                    int codigoDelAlojamiento = this.alojamientosDelDataGridView.GetAlojamientos()[rowIndex].GetCodigo();
-
-                    // Precio del alojamiento
-                    int precioDelAlojamiento = int.Parse(this.dgvAlojamiento.Rows[rowIndex].Cells["Precio"].Value.ToString());
-
                     // Agregar reserva
-
                     this.agencia.AgregarReserva(
                         this.inputDateFechaIda.Value,
                         this.inputDateFechaVuelta.Value,
                         codigoDelAlojamiento,
                         this.agencia.GetUsuarioLogeado().GetDni(),
-                        (precioDelAlojamiento * diasTotalesDeLaReserva));
-
-                    //if (!this.agencia.GuardarCambiosDeLasReservas())
-                    //{
-                    //    MessageBox.Show("Disculpe. No se pudo guardar la reserva intente de nuevo.");
-                    //    return;
-                    //}
+                        precioDeLaReserva
+                        );
                     MessageBox.Show("Reserva realizada correctamente");
 
                     // llenar DataGridView

@@ -249,7 +249,9 @@ namespace TP2_Grupo4.Models
                         alojamiento.GetEstrellas().ToString(),
                         alojamiento.GetCantidadDePersonas().ToString(),
                         alojamiento.GetTv() ? "si" : "no",
-                        alojamiento.PrecioTotalDelAlojamiento().ToString(),
+                        alojamiento is Hotel ? ((Hotel)alojamiento).GetPrecioPorPersona().ToString() : ((Cabania)alojamiento).GetPrecioPorDia().ToString()
+                        
+                        //alojamiento.PrecioTotalDelAlojamiento().ToString(),
                     });
                 }
             }

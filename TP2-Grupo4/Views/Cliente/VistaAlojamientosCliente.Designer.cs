@@ -89,6 +89,7 @@ namespace TP2_Grupo4.Views
             this.dgvAlojamiento.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvAlojamiento.Location = new System.Drawing.Point(58, 230);
             this.dgvAlojamiento.Name = "dgvAlojamiento";
+            this.dgvAlojamiento.RowHeadersVisible = false;
             this.dgvAlojamiento.RowTemplate.Height = 25;
             this.dgvAlojamiento.Size = new System.Drawing.Size(901, 320);
             this.dgvAlojamiento.TabIndex = 0;

@@ -27,6 +27,29 @@ namespace TP2_Grupo4.Models
 
 
         /* METODOS ESTATICOS */
+        public static int UltimoIdInsertado()
+        {
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM reservas ORDER BY id DESC LIMIT 1", connection);
+                    MySqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        return reader.GetInt32(0);
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    System.Diagnostics.Debug.WriteLine(ex.Message);
+                }
+            }
+            return 0;
+        }
         public static List<Reserva> GetAll(Agencia agencia)
         {
             List<Reserva> reservas = new List<Reserva>();
