@@ -59,15 +59,6 @@ namespace TP2_Grupo4.Models
             }
             return reservas;
         }
-        /*public static bool GuardarCambiosEnElArchivo(List<Reserva> reservas)
-        {
-            List<String> reservasSerializadas = new List<string>(){};
-            foreach(Reserva reserva in reservas)
-            {
-                reservasSerializadas.Add(reserva.ToString());
-            }
-            return Utils.WriteInFile(Config.PATH_FILE_RESERVAS, reservasSerializadas);
-        }*/
 
         /* ToString */
         public override string ToString()

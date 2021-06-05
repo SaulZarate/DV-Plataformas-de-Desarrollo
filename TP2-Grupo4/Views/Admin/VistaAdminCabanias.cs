@@ -175,7 +175,6 @@ namespace TP2_Grupo4.Views
             }
             catch (FormatException)
             {
-               
                 MessageBox.Show("ingresaste un valor alfabetico en el codigo de alojamiento, ingresa un valor numérico");
                 huboError = true;
             }
@@ -192,14 +191,13 @@ namespace TP2_Grupo4.Views
             {
                 MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
                 huboError = true;
-
             }
 
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
-            if (this.agencia.GetAgencia().FindAlojamientoForCodigo(codigo) == null)
+            if ( !this.agencia.ExisteAlojamiento(codigo) )
             {
-                if (this.agencia.AgregarCabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios) && this.agencia.GuardarCambiosDeLosAlojamientos())
+                if (this.agencia.AgregarCabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios))
                 {
                     MessageBox.Show("Cabaña agregada correctamente");
                 }

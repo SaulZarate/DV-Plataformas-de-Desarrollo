@@ -55,6 +55,11 @@ namespace TP2_Grupo4
 
             return true;
         }
+        
+        public bool ExisteAlojamiento(int codigo)
+        {
+            return this.agencia.FindAlojamientoForCodigo(codigo) != null ? true : false; 
+        }
         #endregion
 
         #region METODOS PARA LAS RESERVAS
