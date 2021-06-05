@@ -201,6 +201,8 @@ namespace TP2_Grupo4
                         reserva.GetId().ToString(),
                         reserva.GetFechaDesde().ToString(),
                         reserva.GetFechaHasta().ToString(),
+                        reserva.GetAlojamiento().GetCodigo().ToString(),
+                        reserva.GetUsuario().GetDni().ToString(),
                         reserva.GetPrecio().ToString(),
                     });
                 }

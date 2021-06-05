@@ -113,15 +113,19 @@ namespace TP2_Grupo4.Views
             dateTimeHasta.MinDate = DateTime.Now;
 
             clearAllControls();
+            dgvReservas.Rows.Clear();
             //getReservasFromTextFile();
             llenarDataGridView();
+          
         }
         private void ButtonBorrar_Click(object sender, EventArgs e)
         {
             String id = textBoxID.Text;
 
             this.agencia.EliminarReserva(id);
+            dgvReservas.Rows.Clear();
             clearAllControls();
+            llenarDataGridView();
         }
         #endregion
 
