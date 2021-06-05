@@ -243,9 +243,9 @@ namespace TP2_Grupo4.Views
             }
 
 
-            if (this.agencia.GetAgencia().FindAlojamientoForCodigo(codigo) == null)
+            if ( !this.agencia.ExisteAlojamiento(codigo) && this.agencia.AgregarHotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas) )
             {
-                this.agencia.GetAgencia().AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
+                MessageBox.Show("El Hotel fue agregado correctamente.");
             }
             else if (!huboError)
             {
@@ -277,5 +277,6 @@ namespace TP2_Grupo4.Views
                 return;
             }
         }
+
     }
 }

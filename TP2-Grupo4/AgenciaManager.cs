@@ -59,6 +59,11 @@ namespace TP2_Grupo4
 
             return true;
         }
+        
+        public bool ExisteAlojamiento(int codigo)
+        {
+            return this.agencia.FindAlojamientoForCodigo(codigo) != null ? true : false; 
+        }
         #endregion
 
         #region METODOS PARA LAS RESERVAS
@@ -221,6 +226,10 @@ namespace TP2_Grupo4
         public bool ExisteEmail(string email)
         {
             return this.usuarios.Exists(user => user.GetEmail() == email);
+        }
+        public bool ExisteUsuario(int dni)
+        {
+            return this.usuarios.Exists(user => user.GetDni() == dni);
         }
         private int findIndexUsuarioForDNIO(int dni)
         {
