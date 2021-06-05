@@ -76,7 +76,7 @@ namespace TP2_Grupo4.Views
 
                     // Actualizar GridView
                     this.dgvReservaciones.Rows.Clear();
-                    //llenarDataGridView();
+                    llenarDataGridView();
                 }
             }
         }
