@@ -59,6 +59,12 @@ namespace TP2_Grupo4.Views
 
 
         #region onClick Buttons
+
+        private void btnForm_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.secondary);
+            OpenChildForm(new VistaFormNuevaCliente(this.agencia));
+        }
         private void btnAlojamiento_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.secondary);
@@ -140,10 +146,6 @@ namespace TP2_Grupo4.Views
         }
         #endregion
 
-        private void btnForm_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender, RGBColors.secondary);
-            OpenChildForm(new VistaFormNuevaCliente(this.agencia));
-        }
+
     }
 }
