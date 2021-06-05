@@ -300,16 +300,14 @@ namespace TP2_Grupo4
         public bool BloquearUsuario(int dni)
         {
             int indexUser = this.usuarios.FindIndex(user => user.GetDni() == dni);
-            if (indexUser == -1) return false; // Usuario no encontrado
             this.usuarios[indexUser].SetBloqueado(true);
-            return true;
+            return this.usuarios[indexUser].Update();
         }
         public bool DesbloquearUsuario(int dni)
         {
             int indexUser = this.usuarios.FindIndex(user => user.GetDni() == dni);
-            if (indexUser == -1) return false; // Usuario no encontrado
             this.usuarios[indexUser].SetBloqueado(false);
-            return true;
+            return this.usuarios[indexUser].Update();
         }
         public Usuario FindUserForDNI(int dni)
         {
