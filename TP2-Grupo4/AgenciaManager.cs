@@ -192,7 +192,7 @@ namespace TP2_Grupo4
         public List<List<String>> DatosDeReservasParaLasVistas(String tipoDeUsuario = "admin")
         {
             List<List<String>> reservas = new List<List<string>>();
-
+            cargarDatosDeLasReservas();
             if (tipoDeUsuario == "admin")
             {
                 foreach (Reserva reserva in this.reservas)

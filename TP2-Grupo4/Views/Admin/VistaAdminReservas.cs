@@ -57,7 +57,7 @@ namespace TP2_Grupo4.Views
             llenarDataGridView();
         }
 
-        private void getReservasFromDb()
+        /*private void getReservasFromDb()
         {
             dgvReservas.Rows.Clear();
             List<Reserva> reservas = this.agencia.GetReservas();
@@ -66,15 +66,20 @@ namespace TP2_Grupo4.Views
 
             dgvReservas.Update();
             dgvReservas.Refresh();
-        }
+        }*/
         private void llenarDataGridView()
         {
+
+            dgvReservas.Rows.Clear();
             List<List<String>> reservas = this.agencia.DatosDeReservasParaLasVistas("admin");
             foreach (List<String> reserva in reservas)
                 this.dgvReservas.Rows.Add(reserva.ToArray());
+
+            dgvReservas.Update();
+            dgvReservas.Refresh();
         }
 
-        /*private void getReservasFromTextFile()
+        private void getReservasFromTextFile()
         {
             // Limpiamos el GridView
             dgvReservas.Rows.Clear();
@@ -96,7 +101,7 @@ namespace TP2_Grupo4.Views
             // Update y Regresheo de Grid
             dgvReservas.Update();
             dgvReservas.Refresh();
-        }*/
+        }
 
         #region Buttons Click
         private void Modificar_Click(object sender, EventArgs e)
@@ -114,20 +119,20 @@ namespace TP2_Grupo4.Views
             dateTimeHasta.MinDate = DateTime.Now;
 
             clearAllControls();
-            dgvReservas.Rows.Clear();
+            //dgvReservas.Rows.Clear();
             //getReservasFromTextFile();
             llenarDataGridView();
-          
-        }
-        private void ButtonBorrar_Click(object sender, EventArgs e)
-        {
-            String id = textBoxID.Text;
 
-            this.agencia.EliminarReserva(id);
-            clearAllControls();
-            //dgvReservas.Rows.Clear();
-            //llenarDataGridView();
         }
+        //private void ButtonBorrar_Click(object sender, EventArgs e)
+        //{
+        //    String id = textBoxID.Text;
+
+        //    this.agencia.EliminarReserva(id);
+        //    clearAllControls();
+        //    //dgvReservas.Rows.Clear();
+        //    //llenarDataGridView();
+        //}
         #endregion
 
         private void dgvReservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -170,6 +175,7 @@ namespace TP2_Grupo4.Views
                     dateTimeDesde.MinDate = Convert.ToDateTime(dgvReservas.CurrentRow.Cells[1].Value);
                     dateTimeHasta.MinDate = Convert.ToDateTime(dgvReservas.CurrentRow.Cells[2].Value);
                     rellenarDatos();
+                    //getReservasFromTextFile();
                 }
             }
 
