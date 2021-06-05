@@ -253,8 +253,8 @@ namespace TP2_Grupo4.Views
             catch (Exception ex)
             {
                 MessageBox.Show("Solo se permiten numeros");
-                //System.Diagnostics.Debug.WriteLine("Tipo: " + ex.GetType().ToString());
-                //System.Diagnostics.Debug.WriteLine("Mensaje: " + ex.Message);
+                System.Diagnostics.Debug.WriteLine("Tipo: " + ex.GetType().ToString());
+                System.Diagnostics.Debug.WriteLine("Mensaje: " + ex.Message);
                 this.bloquearBotonFiltrar(true);
             }
         }
@@ -277,8 +277,8 @@ namespace TP2_Grupo4.Views
             catch (Exception ex)
             {
                 MessageBox.Show("Solo se permiten numeros");
-                //System.Diagnostics.Debug.WriteLine("Tipo: " + ex.GetType().ToString());
-                //System.Diagnostics.Debug.WriteLine("Mensaje: " + ex.Message);
+                System.Diagnostics.Debug.WriteLine("Tipo: " + ex.GetType().ToString());
+                System.Diagnostics.Debug.WriteLine("Mensaje: " + ex.Message);
                 this.bloquearBotonFiltrar(false);
             }
         }
@@ -306,7 +306,7 @@ namespace TP2_Grupo4.Views
             }
             this.lblTotalDeDias.Text = diasDeDiferencia.ToString();
 
-            System.Diagnostics.Debug.WriteLine("Diferencia de dias: " + diasDeDiferencia);
+            //System.Diagnostics.Debug.WriteLine("Diferencia de dias: " + diasDeDiferencia);
         }
 
     }
