@@ -74,7 +74,7 @@ namespace TP2_Grupo4
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
                     // Agrego la reserva a la base de datos
-                    command.CommandText = "INSERT INTO reservas (id, fechaDesde, fechaHasta, alojamiento_codigo, usuario_id, precio) VALUES(null, @fechaDesde, @fechaHasta, @alojamiento_codigo, @usuario_dni, @precio)";
+                    command.CommandText = "INSERT INTO reservas (id, fechaDesde, fechaHasta, alojamiento_codigo, usuario_dni, precio) VALUES(null, @fechaDesde, @fechaHasta, @alojamiento_codigo, @usuario_dni, @precio)";
                     command.Parameters.AddWithValue("@fechaDesde", fechaDesde);
                     command.Parameters.AddWithValue("@fechaHasta", fechaHasta);
                     command.Parameters.AddWithValue("@alojamiento_codigo", codigoAlojamiento);

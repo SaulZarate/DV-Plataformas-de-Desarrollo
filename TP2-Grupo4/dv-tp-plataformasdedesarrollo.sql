@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-06-2021 a las 23:30:03
+-- Tiempo de generación: 05-06-2021 a las 21:12:10
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -45,12 +45,15 @@ CREATE TABLE `alojamientos` (
 --
 
 INSERT INTO `alojamientos` (`codigo`, `ciudad`, `barrio`, `estrellas`, `cantidadDePersonas`, `tv`, `precioPorPersona`, `precioPorDia`, `habitaciones`, `banios`) VALUES
+(103301, 'rosario', 'centro', 1, 3, 1, 0, 3500, 1, 1),
+(123111, 'carlos paz', 'centro', 1, 1, 1, 4500, 0, 0, 0),
 (234432, 'buenos aires', 'sur', 2, 4, 1, 0, 4000, 2, 1),
 (315434, 'rosario', 'centro', 1, 2, 0, 1800, 0, 0, 0),
 (332131, 'carlos paz', 'norte', 2, 3, 1, 0, 6000, 2, 1),
 (523423, 'buenos aires', 'palermo', 2, 1, 1, 3000, 0, 0, 0),
 (843511, 'buenos aires', 'puerto madero', 1, 1, 1, 3500, 0, 0, 0),
-(856722, 'carlos paz', 'centro', 1, 6, 1, 0, 2400, 2, 1);
+(856722, 'carlos paz', 'centro', 1, 6, 1, 0, 2400, 2, 1),
+(987789, 'carlos paz', 'sur', 1, 6, 1, 0, 2800, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -97,7 +100,7 @@ CREATE TABLE `reservas` (
   `fechaDesde` datetime NOT NULL,
   `fechaHasta` datetime NOT NULL,
   `alojamiento_codigo` int(11) UNSIGNED NOT NULL,
-  `usuario_id` int(10) UNSIGNED NOT NULL,
+  `usuario_dni` int(10) UNSIGNED NOT NULL,
   `precio` double UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -105,9 +108,22 @@ CREATE TABLE `reservas` (
 -- Volcado de datos para la tabla `reservas`
 --
 
-INSERT INTO `reservas` (`id`, `fechaDesde`, `fechaHasta`, `alojamiento_codigo`, `usuario_id`, `precio`) VALUES
+INSERT INTO `reservas` (`id`, `fechaDesde`, `fechaHasta`, `alojamiento_codigo`, `usuario_dni`, `precio`) VALUES
 (1, '2021-06-04 18:08:18', '2021-06-04 18:08:18', 234432, 12312312, 35500),
-(3, '2021-06-04 23:26:36', '2021-06-09 18:26:36', 332131, 12312312, 30000);
+(3, '2021-06-04 23:26:36', '2021-06-09 18:26:36', 332131, 12312312, 30000),
+(4, '2021-05-14 00:00:00', '2021-05-22 00:00:00', 523423, 12312312, 24000),
+(5, '2021-05-14 00:00:00', '2021-05-19 00:00:00', 234432, 12312312, 20000),
+(6, '2021-05-14 00:00:00', '2021-05-15 00:00:00', 123111, 12378956, 4500),
+(7, '2021-05-14 00:00:00', '2021-05-15 00:00:00', 103301, 12378956, 3500),
+(8, '2021-05-14 00:00:00', '2021-05-22 00:00:00', 987789, 12378956, 22400),
+(9, '2021-05-14 00:00:00', '2021-05-22 00:00:00', 843511, 43987789, 28000),
+(10, '2021-05-19 00:00:00', '2021-05-22 00:00:00', 856722, 43987789, 7200),
+(11, '2021-06-03 00:00:00', '2021-06-10 00:00:00', 856722, 43987789, 16800),
+(12, '2021-06-03 00:00:00', '2021-06-10 00:00:00', 332131, 43987789, 42000),
+(13, '2021-06-04 00:00:00', '2021-06-05 00:00:00', 315434, 23443243, 3600),
+(14, '2021-06-07 00:00:00', '2021-06-10 00:00:00', 315434, 23443243, 10800),
+(15, '2021-06-07 00:00:00', '2021-06-10 00:00:00', 103301, 23443243, 10500),
+(16, '2021-06-23 00:00:00', '2021-06-25 00:00:00', 856722, 23443243, 4800);
 
 -- --------------------------------------------------------
 
@@ -130,8 +146,11 @@ CREATE TABLE `usuarios` (
 
 INSERT INTO `usuarios` (`dni`, `nombre`, `email`, `password`, `isAdmin`, `isBloqueado`) VALUES
 (12312312, 'nuevoNombre', 'nuevoEmail@prueba.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 0),
+(12378956, 'cliente1', 'cliente1@gmail.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 0),
+(23443243, 'cliente2', 'cliente2@gmail.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 0),
 (40393222, 'admin', 'admin@admin.com', '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918', 1, 0),
-(43243243, 'cliente3', 'cliente3@gmail.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 1);
+(43243243, 'cliente3', 'cliente3@gmail.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 1),
+(43987789, 'cliente4', 'cliente4@gmail.com', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -182,7 +201,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `reservas`
 --
 ALTER TABLE `reservas`
-  MODIFY `id` int(50) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(50) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
