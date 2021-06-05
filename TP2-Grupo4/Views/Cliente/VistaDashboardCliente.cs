@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using FontAwesome.Sharp;
+using TP2_Grupo4.Views.Cliente;
 
 namespace TP2_Grupo4.Views
 {
@@ -138,5 +139,11 @@ namespace TP2_Grupo4.Views
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
+
+        private void btnForm_Click(object sender, EventArgs e)
+        {
+            ActivateButton(sender, RGBColors.secondary);
+            OpenChildForm(new VistaFormNuevaCliente(this.agencia));
+        }
     }
 }

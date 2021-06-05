@@ -103,7 +103,7 @@ namespace TP2_Grupo4.Views
             {
                 this.contadorDeIntentos++;
             }
-            
+
             if (this.contadorDeIntentos >= VistaLogin.MAXIMA_CANTIDAD_DE_INTENTOS_PARA_LOGEARSE)
             {
                 if (this.agencia.BloquearUsuario(dni))
@@ -128,17 +128,17 @@ namespace TP2_Grupo4.Views
             // pass: admin1234
             int dni = int.Parse(txtUsuario.Text); // Validado con el metodo InputDNI
             String password = txtContrasena.Text;
-            
+
             if (this.agencia.FindUserForDNI(dni) == null)
             {
                 MessageBox.Show("No existe ese usuario");
                 return;
             }
-            
+
             // Al bloquear al usuario salgo del metodo con el return
             if (this.bloquearUsuarioPorIntentos(dni)) return;
 
-            if(this.agencia.autenticarUsuario(dni, password))
+            if (this.agencia.autenticarUsuario(dni, password))
             {
                 if (this.agencia.GetUsuarioLogeado().GetIsAdmin())
                 {
@@ -174,7 +174,7 @@ namespace TP2_Grupo4.Views
             Application.Exit();
         }
 
-        
+
         #region Helpers
         // Nos permite utilizar librerias del sistema operativo, para poder mover la ventana
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]

@@ -30,8 +30,6 @@ namespace TP2_Grupo4.Views
         private void InitializeComponent()
         {
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.btnReservas = new FontAwesome.Sharp.IconButton();
-            this.btnAlojamiento = new FontAwesome.Sharp.IconButton();
             this.btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -47,6 +45,9 @@ namespace TP2_Grupo4.Views
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnAlojamiento = new FontAwesome.Sharp.IconButton();
+            this.btnReservas = new FontAwesome.Sharp.IconButton();
             this.panelMenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,58 +63,13 @@ namespace TP2_Grupo4.Views
             this.panelMenu.BackColor = System.Drawing.Color.White;
             this.panelMenu.Controls.Add(this.btnReservas);
             this.panelMenu.Controls.Add(this.btnAlojamiento);
+            this.panelMenu.Controls.Add(this.iconButton1);
             this.panelMenu.Controls.Add(this.btnCerrarSesion);
             this.panelMenu.Controls.Add(this.panelLogo);
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 640);
             this.panelMenu.TabIndex = 1;
-            // 
-            // btnReservas
-            // 
-            this.btnReservas.AutoSize = true;
-            this.btnReservas.BackColor = System.Drawing.Color.White;
-            this.btnReservas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReservas.FlatAppearance.BorderSize = 0;
-            this.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReservas.ForeColor = System.Drawing.Color.Black;
-            this.btnReservas.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
-            this.btnReservas.IconColor = System.Drawing.Color.Black;
-            this.btnReservas.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnReservas.IconSize = 32;
-            this.btnReservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReservas.Location = new System.Drawing.Point(0, 248);
-            this.btnReservas.Name = "btnReservas";
-            this.btnReservas.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.btnReservas.Size = new System.Drawing.Size(220, 60);
-            this.btnReservas.TabIndex = 2;
-            this.btnReservas.Text = "Mis Reservaciones";
-            this.btnReservas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReservas.UseVisualStyleBackColor = false;
-            this.btnReservas.Click += new System.EventHandler(this.btnReservas_Click);
-            // 
-            // btnAlojamiento
-            // 
-            this.btnAlojamiento.AutoSize = true;
-            this.btnAlojamiento.BackColor = System.Drawing.Color.White;
-            this.btnAlojamiento.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnAlojamiento.FlatAppearance.BorderSize = 0;
-            this.btnAlojamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlojamiento.ForeColor = System.Drawing.Color.Black;
-            this.btnAlojamiento.IconChar = FontAwesome.Sharp.IconChar.Hotel;
-            this.btnAlojamiento.IconColor = System.Drawing.Color.Black;
-            this.btnAlojamiento.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnAlojamiento.IconSize = 32;
-            this.btnAlojamiento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAlojamiento.Location = new System.Drawing.Point(0, 188);
-            this.btnAlojamiento.Name = "btnAlojamiento";
-            this.btnAlojamiento.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.btnAlojamiento.Size = new System.Drawing.Size(220, 60);
-            this.btnAlojamiento.TabIndex = 1;
-            this.btnAlojamiento.Text = "Buscar Alojamientos";
-            this.btnAlojamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAlojamiento.UseVisualStyleBackColor = false;
-            this.btnAlojamiento.Click += new System.EventHandler(this.btnAlojamiento_Click);
             // 
             // btnCerrarSesion
             // 
@@ -294,6 +250,73 @@ namespace TP2_Grupo4.Views
             this.panelMain.Size = new System.Drawing.Size(1000, 571);
             this.panelMain.TabIndex = 0;
             // 
+            // iconButton1
+            // 
+            this.iconButton1.AutoSize = true;
+            this.iconButton1.BackColor = System.Drawing.Color.White;
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.Black;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
+            this.iconButton1.IconColor = System.Drawing.Color.Black;
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton1.IconSize = 32;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 188);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.iconButton1.Size = new System.Drawing.Size(220, 60);
+            this.iconButton1.TabIndex = 4;
+            this.iconButton1.Text = "Form";
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.btnForm_Click);
+            // 
+            // btnAlojamiento
+            // 
+            this.btnAlojamiento.AutoSize = true;
+            this.btnAlojamiento.BackColor = System.Drawing.Color.White;
+            this.btnAlojamiento.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnAlojamiento.FlatAppearance.BorderSize = 0;
+            this.btnAlojamiento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAlojamiento.ForeColor = System.Drawing.Color.Black;
+            this.btnAlojamiento.IconChar = FontAwesome.Sharp.IconChar.Hotel;
+            this.btnAlojamiento.IconColor = System.Drawing.Color.Black;
+            this.btnAlojamiento.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnAlojamiento.IconSize = 32;
+            this.btnAlojamiento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAlojamiento.Location = new System.Drawing.Point(0, 248);
+            this.btnAlojamiento.Name = "btnAlojamiento";
+            this.btnAlojamiento.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnAlojamiento.Size = new System.Drawing.Size(220, 60);
+            this.btnAlojamiento.TabIndex = 5;
+            this.btnAlojamiento.Text = "Buscar Alojamientos";
+            this.btnAlojamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAlojamiento.UseVisualStyleBackColor = false;
+            // 
+            // btnReservas
+            // 
+            this.btnReservas.AutoSize = true;
+            this.btnReservas.BackColor = System.Drawing.Color.White;
+            this.btnReservas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReservas.FlatAppearance.BorderSize = 0;
+            this.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReservas.ForeColor = System.Drawing.Color.Black;
+            this.btnReservas.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
+            this.btnReservas.IconColor = System.Drawing.Color.Black;
+            this.btnReservas.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnReservas.IconSize = 32;
+            this.btnReservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReservas.Location = new System.Drawing.Point(0, 308);
+            this.btnReservas.Name = "btnReservas";
+            this.btnReservas.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnReservas.Size = new System.Drawing.Size(220, 60);
+            this.btnReservas.TabIndex = 6;
+            this.btnReservas.Text = "Mis Reservaciones";
+            this.btnReservas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReservas.UseVisualStyleBackColor = false;
+            // 
             // VistaDashboardCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -323,8 +346,6 @@ namespace TP2_Grupo4.Views
         #endregion
 
         private System.Windows.Forms.Panel panelMenu;
-        private FontAwesome.Sharp.IconButton btnReservas;
-        private FontAwesome.Sharp.IconButton btnAlojamiento;
         private FontAwesome.Sharp.IconButton btnCerrarSesion;
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -340,5 +361,8 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNameUser;
         private System.Windows.Forms.Label label2;
+        private FontAwesome.Sharp.IconButton btnReservas;
+        private FontAwesome.Sharp.IconButton btnAlojamiento;
+        private FontAwesome.Sharp.IconButton iconButton1;
     }
 }
