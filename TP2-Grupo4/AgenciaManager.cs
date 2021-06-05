@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TP2_Grupo4.Models;
 using TP2_Grupo4.Helpers;
 using System.Linq;
+using MySql.Data.MySqlClient;
 
 namespace TP2_Grupo4
 {
@@ -51,15 +52,35 @@ namespace TP2_Grupo4
         }
         public bool EliminarAlojamiento(int codigo)
         {
-            this.agencia.EliminarAlojamiento(codigo);
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "DELETE FROM alojamientos WHERE codigo = @codigo;";
+                    command.Parameters.AddWithValue("@codigo", codigo);
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
+            /*this.agencia.EliminarAlojamiento(codigo);
 
             List<Reserva> reservas = this.GetAllReservasForAlojamiento(codigo);
             foreach (Reserva reserva in reservas)
                 this.EliminarReserva(reserva.GetId());
 
-            return true;
+            return true;*/
         }
-        
+
         public bool ExisteAlojamiento(int codigo)
         {
             return this.agencia.FindAlojamientoForCodigo(codigo) != null ? true : false; 
@@ -69,18 +90,69 @@ namespace TP2_Grupo4
         #region METODOS PARA LAS RESERVAS
         public bool AgregarReserva(DateTime fechaDesde, DateTime fechaHasta, int codigoAlojamiento, int dniUsuario, double precio)
         {
-            Alojamiento alojamiento = this.GetAgencia().FindAlojamientoForCodigo(codigoAlojamiento);
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+
+                    command.CommandText = "INSERT INTO reservas VALUES(@fechaDesde, @fechaHasta, @precio, @alojamiento_id, @usuario_id)";
+                    command.Parameters.AddWithValue("@fechaDesde", fechaDesde);
+                    command.Parameters.AddWithValue("@fechaHasta", fechaHasta);
+                    command.Parameters.AddWithValue("@precio", precio);
+                    command.Parameters.AddWithValue("@alojamiento_id", codigoAlojamiento);
+                    command.Parameters.AddWithValue("@usuario_id", dniUsuario);
+                    //                             hay que arreglar esto                          //
+
+                    if (command.ExecuteNonQuery() == 1) return true;
+                }
+                catch (Exception)
+                {
+                    // No se pudo guardar
+                }
+                connection.Close();
+                return result;
+            }
+            /*Alojamiento alojamiento = this.GetAgencia().FindAlojamientoForCodigo(codigoAlojamiento);
             Usuario usuario = this.FindUserForDNI(dniUsuario);
             if (alojamiento == null || usuario == null) return false;
 
             // Timestamp = Id
             String timestamp = DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
             this.reservas.Add(new Reserva(timestamp, fechaDesde,fechaHasta,alojamiento,usuario, precio));
-            return true;
+            return true;*/
         }
-        public bool ModificarReserva(String id, DateTime fechaDesde, DateTime fechaHasta, int codigoAlojamiento, int dniUsuario)
+        public bool ModificarReserva(String id, DateTime fechaDesde, DateTime fechaHasta, int precio, int alojamiento_id, int usuario_id)
         {
-            int indexReserva = this.findIndexReservaPorId(id);
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "UPDATE reservas SET id = @id, fechaDesde = @fechaDesde, fechaHasta = @fechaHasta, precio = @precio, alojamiento_id = @alojamiento_id, usuario_id = @usuario_id WHERE id = @id; ";
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@fechaDesde", fechaDesde);
+                    command.Parameters.AddWithValue("@fechaHasta", fechaHasta);
+                    command.Parameters.AddWithValue("@precio", precio);
+                    command.Parameters.AddWithValue("@alojamiento_id", alojamiento_id);
+                    command.Parameters.AddWithValue("@usuario_id", usuario_id);
+                    //                             hay que arreglar esto                          //
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
+            /*int indexReserva = this.findIndexReservaPorId(id);
             if (indexReserva == -1) return false;
 
             Alojamiento alojamiento = this.agencia.FindAlojamientoForCodigo(codigoAlojamiento);
@@ -92,33 +164,53 @@ namespace TP2_Grupo4
             this.reservas[indexReserva].SetAlojamiento(alojamiento);
             this.reservas[indexReserva].SetUsuario(usuario);
             this.reservas[indexReserva].SetPrecio(alojamiento.PrecioTotalDelAlojamiento());
-            return true;
+            return true;*/
         }
         public bool EliminarReserva(String id)
         {
-            int indexReserva = this.findIndexReservaPorId(id);
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "DELETE FROM reservas WHERE id = @id;";
+                    command.Parameters.AddWithValue("@id", id);
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
+            /*int indexReserva = this.findIndexReservaPorId(id);
             if (indexReserva == -1) return false;
 
             this.reservas.RemoveAt(indexReserva);
-            return true;
+            return true;*/
         }
 
         public Reserva FindReservaForId(String id)
         {
             return this.GetReservas().Find(reserva => reserva.GetId() == id);
         }
-        private List<Reserva> GetAllReservasForAlojamiento(int codigo)
+        /*private List<Reserva> GetAllReservasForAlojamiento(int codigo)
         {
             return this.reservas.FindAll(reserva => reserva.GetAlojamiento().GetCodigo() == codigo);
-        }
+        }*/
         public List<Reserva> GetAllReservasForUsuario(int dni)
         {
             return this.reservas.FindAll(reserva => reserva.GetUsuario().GetDni() == dni);
         }
-        private int findIndexReservaPorId(String id)
+        /*private int findIndexReservaPorId(String id)
         {
             return this.reservas.FindIndex(reserva => reserva.GetId() == id);
-        }
+        }*/
         private void cargarDatosDeLasReservas()
         {
             this.reservas = Reserva.GetAll(this.agencia);

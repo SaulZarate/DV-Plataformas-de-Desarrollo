@@ -53,9 +53,9 @@ namespace TP2_Grupo4.Views
             dgvReservas.Columns.Add(btnModificar);
             dgvReservas.Columns.Add(btnBorrar);
             dgvReservas.ReadOnly = true;
-            getReservasFromTextFile();
+            //getReservasFromTextFile();
         }
-        private void getReservasFromTextFile()
+        /*private void getReservasFromTextFile()
         {
             // Limpiamos el GridView
             dgvReservas.Rows.Clear();
@@ -77,7 +77,7 @@ namespace TP2_Grupo4.Views
             // Update y Regresheo de Grid
             dgvReservas.Update();
             dgvReservas.Refresh();
-        }
+        }*/
 
         #region Buttons Click
         private void Modificar_Click(object sender, EventArgs e)
@@ -86,14 +86,15 @@ namespace TP2_Grupo4.Views
             String id = textBoxID.Text;
             DateTime desde = DateTime.Parse(dateTimeDesde.Text);
             DateTime hasta = DateTime.Parse(dateTimeHasta.Text);
+            int precio = Int32.Parse(textBoxPrecio.Text);
             int idAloja = Int32.Parse(textBoxAloja.Text);
             int dni = Int32.Parse(textBoxUsuario.Text);
-            this.agencia.ModificarReserva(id, desde, hasta, idAloja, dni);
+            this.agencia.ModificarReserva(id, desde, hasta, precio, idAloja, dni);
             dateTimeDesde.MinDate = DateTime.Now;
             dateTimeHasta.MinDate = DateTime.Now;
 
             clearAllControls();
-            getReservasFromTextFile();
+            //getReservasFromTextFile();
         }
         private void ButtonBorrar_Click(object sender, EventArgs e)
         {
@@ -129,7 +130,7 @@ namespace TP2_Grupo4.Views
                     }
 
                     // Actualizar GridView
-                    getReservasFromTextFile();
+                    //getReservasFromTextFile();
                 }
             }
 
