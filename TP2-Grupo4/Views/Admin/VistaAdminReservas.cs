@@ -64,7 +64,6 @@ namespace TP2_Grupo4.Views
 
             foreach (Reserva reserva in reservas)
             {
-
                 this.dgvReservas.Rows.Add(
                     reserva.GetId(),
                     reserva.GetFechaDesde(),
@@ -90,7 +89,6 @@ namespace TP2_Grupo4.Views
             int idAloja = Int32.Parse(textBoxAloja.Text);
             int dni = Int32.Parse(textBoxUsuario.Text);
             this.agencia.ModificarReserva(id, desde, hasta, idAloja, dni);
-            this.agencia.GuardarCambiosDeLasReservas();
             dateTimeDesde.MinDate = DateTime.Now;
             dateTimeHasta.MinDate = DateTime.Now;
 
@@ -121,8 +119,14 @@ namespace TP2_Grupo4.Views
                     // Borrado
                     dgvReservas.Rows.RemoveAt(rowIndex);
 
-                    this.agencia.EliminarReserva(codigo);
-                    this.agencia.GuardarCambiosDeLasReservas();
+
+                    if (this.agencia.EliminarReserva(codigo))
+                    {
+                        MessageBox.Show("Reserva eliminada con exito");
+                    } else
+                    {
+                        MessageBox.Show("No se pudo eliminar la Reserva. Intente nuevamente");
+                    }
 
                     // Actualizar GridView
                     getReservasFromTextFile();

@@ -142,9 +142,12 @@ namespace TP2_Grupo4.Views
 
                     // Borrado
                     dgvHoteles.Rows.RemoveAt(rowIndex);
-                    if (this.agencia.EliminarAlojamiento(codigo) && this.agencia.GuardarCambiosDeLosAlojamientos() && this.agencia.GuardarCambiosDeLasReservas())
+                    if (this.agencia.EliminarAlojamiento(codigo))
                     {
                         MessageBox.Show("Hotel eliminado junto con todas sus reservas");
+                    }else
+                    {
+                        MessageBox.Show("No se pudo eliminar el Hotel. Intente nuevamente");
                     }
                     // Actualizar GridView
                     getHotelesFromTextFile();
@@ -195,13 +198,13 @@ namespace TP2_Grupo4.Views
                 MessageBox.Show("Ingresaste un valor alfabetico en el precio, ingresa un valor numérico");
             }
 
-            if (this.agencia.AgregarHotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas) && this.agencia.GuardarCambiosDeLosAlojamientos())
+            if (this.agencia.ModificarHotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas))
             {
-                MessageBox.Show("Hotel agregado correctamente");
+                MessageBox.Show("Hotel modificado correctamente");
             }
             else
             {
-                MessageBox.Show("No se pudo agregar el hotel, vuelva a intentarlo");
+                MessageBox.Show("No se pudo modificar el hotel, vuelva a intentarlo");
             }
 
             clearAllControls();
@@ -243,7 +246,6 @@ namespace TP2_Grupo4.Views
             if (this.agencia.GetAgencia().FindAlojamientoForCodigo(codigo) == null)
             {
                 this.agencia.GetAgencia().AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
-                this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
             }
             else if (!huboError)
             {

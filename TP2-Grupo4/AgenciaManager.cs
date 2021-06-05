@@ -37,13 +37,17 @@ namespace TP2_Grupo4
         {
             return this.agencia.AgregarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
         }
+        public bool ModificarHotel(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPersonas)
+        {
+            return this.agencia.ModificarAlojamiento(new Hotel(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPersonas));
+        }
         public bool AgregarCabania(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPorDia, int habitaciones, int banios)
         {
             return this.agencia.AgregarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
         }
-        public bool GuardarCambiosDeLosAlojamientos()
+        public bool ModificarCabania(int codigo, String ciudad, String barrio, int estrellas, int cantPersonas, bool tv, double precioPorDia, int habitaciones, int banios)
         {
-            return this.agencia.GuardarCambiosEnElArchivo();
+            return this.agencia.ModificarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios));
         }
         public bool EliminarAlojamiento(int codigo)
         {
@@ -113,13 +117,6 @@ namespace TP2_Grupo4
         private void cargarDatosDeLasReservas()
         {
             this.reservas = Reserva.GetAll(this.agencia);
-        }
-        public bool GuardarCambiosDeLasReservas()
-        {
-            List<String> reservas = new List<string>();
-            foreach (Reserva reserva in this.GetReservas())
-                reservas.Add(reserva.ToString());
-            return Utils.WriteInFile(Config.PATH_FILE_RESERVAS, reservas);
         }
         public List<List<String>> DatosDeReservasParaLasVistas(String tipoDeUsuario = "admin")
         {

@@ -142,9 +142,12 @@ namespace TP2_Grupo4.Views
 
                     // Borrado
                     dgvCabanias.Rows.RemoveAt(rowIndex);
-                    if(this.agencia.EliminarAlojamiento(codigo) && this.agencia.GuardarCambiosDeLosAlojamientos() && this.agencia.GuardarCambiosDeLasReservas())
+                    if(this.agencia.EliminarAlojamiento(codigo))
                     {
                         MessageBox.Show("Cabaña elimina junto con todas sus reservas");
+                    } else
+                    {
+                        MessageBox.Show("No se pudo eliminar la Cabaña. Intente nuevamente");
                     }
 
                     // Actualizar GridView
@@ -199,7 +202,7 @@ namespace TP2_Grupo4.Views
             int banios = Int32.Parse(comboBoxBanios.Text);
             if (this.agencia.GetAgencia().FindAlojamientoForCodigo(codigo) == null)
             {
-                if (this.agencia.AgregarCabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios) && this.agencia.GuardarCambiosDeLosAlojamientos())
+                if (this.agencia.AgregarCabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioPorDia, habitaciones, banios))
                 {
                     MessageBox.Show("Cabaña agregada correctamente");
                 }
@@ -248,8 +251,14 @@ namespace TP2_Grupo4.Views
             int habitaciones = Int32.Parse(comboBoxHabitaciones.Text);
             int banios = Int32.Parse(comboBoxBanios.Text);
 
-            this.agencia.GetAgencia().ModificarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioDia, habitaciones, banios));
-            this.agencia.GetAgencia().GuardarCambiosEnElArchivo();
+            if(this.agencia.GetAgencia().ModificarAlojamiento(new Cabania(codigo, ciudad, barrio, estrellas, cantPersonas, tv, precioDia, habitaciones, banios)))
+            {
+                MessageBox.Show("Cabaña modificada correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar la cabaña, vuelva a intentarlo");
+            }
 
             clearAllControls();
             getCabaniasFromTextFile();

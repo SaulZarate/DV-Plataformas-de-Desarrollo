@@ -111,9 +111,12 @@ namespace TP2_Grupo4.Views
                     // Borrado
                     dgvUsuarios.Rows.RemoveAt(rowIndex);
 
-                    if (this.agencia.EliminarUsuario(dni) && this.agencia.GuardarCambiosDeLasReservas())
+                    if (this.agencia.EliminarUsuario(dni))
                     {
                         MessageBox.Show("Se ha eliminado el usuario y todas las reservas del mismo");
+                    } else
+                    {
+                        MessageBox.Show("No se pudo eliminar el Usuario. Intente nuevamente");
                     }
 
                     // Actualizar GridView

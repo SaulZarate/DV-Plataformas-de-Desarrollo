@@ -16,7 +16,7 @@ namespace TP2_Grupo4.Views
         private AgenciaManager agencia = new AgenciaManager();
 
         private Agencia alojamientosDelDataGridView;
-        
+
         public VistaAlojamientosCliente(AgenciaManager agenciaManager)
         {
             InitializeComponent();
@@ -155,7 +155,7 @@ namespace TP2_Grupo4.Views
             String inputEstrellas = this.selectEstrellas.SelectedItem.ToString();
             String inputPersonas = this.selectCantPersonas.SelectedItem.ToString();
 
-            if ( inputPrecioMax < inputPrecioMin )
+            if (inputPrecioMax < inputPrecioMin)
             {
                 MessageBox.Show("El precio maximo no puede ser menor que el precio minimo!");
                 return;
@@ -175,7 +175,7 @@ namespace TP2_Grupo4.Views
             this.llenarDataGridView(alojamientosFiltrados);
             this.ordenarAlojamientos();
         }
-        
+
 
         /* SELECT DE ORDENAMIENTO */
         private void selectOrdenamiento_SelectedIndexChanged(object sender, EventArgs e)
@@ -196,7 +196,8 @@ namespace TP2_Grupo4.Views
             try
             {
                 diasTotalesDeLaReserva = int.Parse(this.lblTotalDeDias.Text);
-            }catch(Exception)
+            }
+            catch (Exception)
             {
                 MessageBox.Show("Sus fechas de reservacion no son correctas. Por favor reviselas");
                 return;
@@ -212,11 +213,12 @@ namespace TP2_Grupo4.Views
 
                     // Codigo del Alojamiento
                     int codigoDelAlojamiento = this.alojamientosDelDataGridView.GetAlojamientos()[rowIndex].GetCodigo();
-                    
+
                     // Precio del alojamiento
                     int precioDelAlojamiento = int.Parse(this.dgvAlojamiento.Rows[rowIndex].Cells["Precio"].Value.ToString());
 
                     // Agregar reserva
+
                     this.agencia.AgregarReserva(
                         this.inputDateFechaIda.Value,
                         this.inputDateFechaVuelta.Value,
@@ -224,16 +226,11 @@ namespace TP2_Grupo4.Views
                         this.agencia.GetUsuarioLogeado().GetDni(),
                         (precioDelAlojamiento * diasTotalesDeLaReserva));
 
-                    //foreach(Reserva reserva in this.agencia.GetReservas())
-                    //    System.Diagnostics.Debug.WriteLine(reserva.ToString());
-
-                    // Guardar datos en el txt
-                    if (!this.agencia.GuardarCambiosDeLasReservas())
-                    {
-                        MessageBox.Show("Disculpe. No se pudo guardar la reserva intente de nuevo.");
-                        return;
-                    }
-                    
+                    //if (!this.agencia.GuardarCambiosDeLasReservas())
+                    //{
+                    //    MessageBox.Show("Disculpe. No se pudo guardar la reserva intente de nuevo.");
+                    //    return;
+                    //}
                     MessageBox.Show("Reserva realizada correctamente");
 
                     // llenar DataGridView
@@ -293,7 +290,7 @@ namespace TP2_Grupo4.Views
                 this.bloquearBotonFiltrar(false);
             }
         }
-        
+
 
         /* MOSTRAR EL TOTAL DE DIAS DE LA RESERVA */
         private void inputDateFechaVuelta_ValueChanged(object sender, EventArgs e)
@@ -321,6 +318,6 @@ namespace TP2_Grupo4.Views
             System.Diagnostics.Debug.WriteLine("Diferencia de dias: " + diasDeDiferencia);
         }
 
-        
+
     }
 }

@@ -73,9 +73,6 @@ namespace TP2_Grupo4.Views
                     // Eliminar reserva
                     this.agencia.EliminarReserva(codigoDeReserva);
 
-                    // Guardar Datos
-                    this.agencia.GuardarCambiosDeLasReservas();
-
                     // Actualizar GridView
                     this.dgvReservaciones.Rows.Clear();
                     llenarDataGridView();

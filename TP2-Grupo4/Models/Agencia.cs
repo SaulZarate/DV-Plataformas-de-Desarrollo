@@ -32,11 +32,11 @@ namespace TP2_Grupo4.Models
                 {
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "INSERT INTO alojamientos VALUES(@codigo, @ciudad, @barrio, @estrellas, @cantidadDePersonas, @tv, @precioPorPersona, @precioPorDia, @habitaciones, @banios)";
 
                     if (alojamiento is Hotel)
                     {
                         Hotel hotel = (Hotel)alojamiento;
-                        command.CommandText = "INSERT INTO alojamientos VALUES(@codigo, @ciudad, @barrio, @estrellas, @cantidadDePersonas, @tv, @precioPorPersona, @precioPorDia, @habitaciones, @banios)";
                         command.Parameters.AddWithValue("@codigo", alojamiento.GetCodigo());
                         command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
                         command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
@@ -44,21 +44,20 @@ namespace TP2_Grupo4.Models
                         command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
                         command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
                         command.Parameters.AddWithValue("@precioPorPersona", hotel.GetPrecioPorPersona());
-                        command.Parameters.AddWithValue("@precioPorDia", null);
-                        command.Parameters.AddWithValue("@habitaciones", null);
-                        command.Parameters.AddWithValue("@banios", null);
+                        command.Parameters.AddWithValue("@precioPorDia", 0);
+                        command.Parameters.AddWithValue("@habitaciones", 0);
+                        command.Parameters.AddWithValue("@banios", 0);
                     }
                     else
                     {
                         Cabania cabania = (Cabania)alojamiento;
-                        command.CommandText = "INSERT INTO alojamientos VALUES(@codigo, @ciudad, @barrio, @estrellas, @cantidadDePersonas, @tv, @precioPorPersona, @precioPorDia, @habitaciones, @banios)";
                         command.Parameters.AddWithValue("@codigo", alojamiento.GetCodigo());
                         command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
                         command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
                         command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
                         command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
                         command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
-                        command.Parameters.AddWithValue("@precioPorPersona", null);
+                        command.Parameters.AddWithValue("@precioPorPersona", 0);
                         command.Parameters.AddWithValue("@precioPorDia", cabania.GetPrecioPorDia());
                         command.Parameters.AddWithValue("@habitaciones", cabania.GetHabitaciones());
                         command.Parameters.AddWithValue("@banios", cabania.GetBanios());
@@ -87,17 +86,35 @@ namespace TP2_Grupo4.Models
                 {
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
-                    command.CommandText = "UPDATE alojamientos SET ciudad = @ciudad, estrellas = @estrellas, cantidadDePersonas = @cantidadDePersonas, tv = @tv, precioPorPersona = @precioPorPersona, precioPorDia = @precioPorDia, habitaciones = @habitaciones, banios = @banios  WHERE codigo = @codigo; ";
-                    command.Parameters.AddWithValue("@codigo", alojamiento.GetCodigo());
-                    command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
-                    command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
-                    command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
-                    command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
-                    command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
-                    //command.Parameters.AddWithValue("@precioPorPersona", alojamientos.());
-                    //command.Parameters.AddWithValue("@precioPorDia", this.GetBloqueado());
-                    //command.Parameters.AddWithValue("@habitaciones", this.GetBloqueado());
-                    //command.Parameters.AddWithValue("@banios", this.GetBloqueado());
+                    command.CommandText = "UPDATE alojamientos SET ciudad = @ciudad, barrio = @barrio, estrellas = @estrellas, cantidadDePersonas = @cantidadDePersonas, tv = @tv, precioPorPersona = @precioPorPersona, precioPorDia = @precioPorDia, habitaciones = @habitaciones, banios = @banios  WHERE codigo = @codigo; ";
+                    if (alojamiento is Hotel)
+                    {
+                        Hotel hotel = (Hotel)alojamiento;
+                        command.Parameters.AddWithValue("@codigo", alojamiento.GetCodigo());
+                        command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
+                        command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
+                        command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
+                        command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
+                        command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
+                        command.Parameters.AddWithValue("@precioPorPersona", hotel.GetPrecioPorPersona());
+                        command.Parameters.AddWithValue("@precioPorDia", 0);
+                        command.Parameters.AddWithValue("@habitaciones", 0);
+                        command.Parameters.AddWithValue("@banios", 0);
+                    }
+                    else
+                    {
+                        Cabania cabania = (Cabania)alojamiento;
+                        command.Parameters.AddWithValue("@codigo", alojamiento.GetCodigo());
+                        command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
+                        command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
+                        command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
+                        command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
+                        command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
+                        command.Parameters.AddWithValue("@precioPorPersona", 0);
+                        command.Parameters.AddWithValue("@precioPorDia", cabania.GetPrecioPorDia());
+                        command.Parameters.AddWithValue("@habitaciones", cabania.GetHabitaciones());
+                        command.Parameters.AddWithValue("@banios", cabania.GetBanios());
+                    }
                     command.ExecuteNonQuery();
                     result = true;
                 }
@@ -379,46 +396,7 @@ namespace TP2_Grupo4.Models
             this.alojamientos.AddRange(hoteles);
             this.alojamientos.AddRange(cabanias);
         }
-        public bool GuardarCambiosEnElArchivo()
-        {
-            return false;
-            //using (MySqlConnection connection = Database.GetConnection())
-            //{
-            //    bool result = false;
-            //    try
-            //    {
-            //        connection.Open();
-            //        MySqlCommand command = connection.CreateCommand();
 
-            //        command.CommandText = "INSERT INTO alojamientos VALUES(@codigo, @ciudad, @barrio, @estrellas, @cantidadDePersonas, @tv, @precioPorPersona, @precioPorDia, @habitaciones, @banios)";
-            //        command.Parameters.AddWithValue("@codigo", this.GetCodigo());
-            //        command.Parameters.AddWithValue("@ciudad", alojamiento.GetCiudad());
-            //        command.Parameters.AddWithValue("@barrio", alojamiento.GetBarrio());
-            //        command.Parameters.AddWithValue("@estrellas", alojamiento.GetEstrellas());
-            //        command.Parameters.AddWithValue("@cantidadDePersonas", alojamiento.GetCantidadDePersonas());
-            //        command.Parameters.AddWithValue("@tv", alojamiento.GetTv());
-            //        //command.Parameters.AddWithValue("@precioPorPersona", alojamientos.());
-            //        //command.Parameters.AddWithValue("@precioPorDia", this.GetBloqueado());
-            //        //command.Parameters.AddWithValue("@habitaciones", this.GetBloqueado());
-            //        //command.Parameters.AddWithValue("@banios", this.GetBloqueado());
-
-            //        if (command.ExecuteNonQuery() == 1) return true;
-            //    }
-            //    catch (Exception)
-            //    {
-            //        // No se pudo guardar
-            //    }
-            //    connection.Close();
-            //    return result;
-            //}
-
-            /*List<String> alojamientosInLista = new List<string>();
-            foreach( Alojamiento al in this.alojamientos)
-            {
-                alojamientosInLista.Add(al.ToString());
-            }
-            return Utils.WriteInFile(Config.PATH_FILE_ALOJAMIENTOS, alojamientosInLista);*/
-        }
         #endregion
 
 
