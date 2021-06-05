@@ -101,6 +101,7 @@ namespace TP2_Grupo4.Views
         #region Buttons Click
         private void Modificar_Click(object sender, EventArgs e)
         {
+           
             Modificar.Enabled = false;
             String id = textBoxID.Text;
             DateTime desde = DateTime.Parse(dateTimeDesde.Text);
@@ -108,7 +109,7 @@ namespace TP2_Grupo4.Views
             int precio = Int32.Parse(textBoxPrecio.Text);
             int idAloja = Int32.Parse(textBoxAloja.Text);
             int dni = Int32.Parse(textBoxUsuario.Text);
-            this.agencia.ModificarReserva(id, desde, hasta, precio, idAloja, dni);
+            agencia.ModificarReserva(id, desde, hasta, precio, idAloja, dni);
             dateTimeDesde.MinDate = DateTime.Now;
             dateTimeHasta.MinDate = DateTime.Now;
 

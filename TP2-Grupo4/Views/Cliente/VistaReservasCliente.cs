@@ -42,13 +42,14 @@ namespace TP2_Grupo4.Views
 
             dgvReservaciones.Columns.Add(btnCancelar);
             dgvReservaciones.ReadOnly = false;
+            dgvReservaciones.Rows.Clear();
             llenarDataGridView();
         }
         private void llenarDataGridView()
-        {
+        {       
             List<List<String>> reservas = this.agencia.DatosDeReservasParaLasVistas("user");
             foreach (List<String> reserva in reservas)
-                this.dgvReservaciones.Rows.Add(reserva.ToArray());
+                dgvReservaciones.Rows.Add(reserva.ToArray());
         }
 
         // BOTON CANCELAR DEL DATAGRIDVIEW
@@ -75,7 +76,7 @@ namespace TP2_Grupo4.Views
 
                     // Actualizar GridView
                     this.dgvReservaciones.Rows.Clear();
-                    llenarDataGridView();
+                    //llenarDataGridView();
                 }
             }
         }

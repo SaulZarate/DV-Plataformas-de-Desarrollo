@@ -107,7 +107,7 @@ namespace TP2_Grupo4
                 {
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
-                    command.CommandText = "UPDATE reservas SET id = @id, fechaDesde = @fechaDesde, fechaHasta = @fechaHasta, precio = @precio, alojamiento_id = @alojamiento_id, usuario_id = @usuario_id WHERE id = @id; ";
+                    command.CommandText = "UPDATE reservas SET id = @id, fechaDesde = @fechaDesde, fechaHasta = @fechaHasta, precio = @precio, alojamiento_codigo = @alojamiento_id, usuario_dni = @usuario_id WHERE id = @id; ";
                     command.Parameters.AddWithValue("@id", id);
                     command.Parameters.AddWithValue("@fechaDesde", fechaDesde);
                     command.Parameters.AddWithValue("@fechaHasta", fechaHasta);
