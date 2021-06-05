@@ -230,6 +230,10 @@ namespace TP2_Grupo4
         {
             return this.usuarios.Exists(user => user.GetEmail() == email);
         }
+        public bool ExisteUsuario(int dni)
+        {
+            return this.usuarios.Exists(user => user.GetDni() == dni);
+        }
         private int findIndexUsuarioForDNIO(int dni)
         {
             return this.usuarios.FindIndex(user => user.GetDni() == dni);
