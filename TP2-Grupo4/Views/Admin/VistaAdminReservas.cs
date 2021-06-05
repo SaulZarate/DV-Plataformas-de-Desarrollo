@@ -54,7 +54,26 @@ namespace TP2_Grupo4.Views
             dgvReservas.Columns.Add(btnBorrar);
             dgvReservas.ReadOnly = true;
             //getReservasFromTextFile();
+            llenarDataGridView();
         }
+
+        private void getReservasFromDb()
+        {
+            dgvReservas.Rows.Clear();
+            List<Reserva> reservas = this.agencia.GetReservas();
+
+            //Reserva.GetAll();
+
+            dgvReservas.Update();
+            dgvReservas.Refresh();
+        }
+        private void llenarDataGridView()
+        {
+            List<List<String>> reservas = this.agencia.DatosDeReservasParaLasVistas("admin");
+            foreach (List<String> reserva in reservas)
+                this.dgvReservas.Rows.Add(reserva.ToArray());
+        }
+
         /*private void getReservasFromTextFile()
         {
             // Limpiamos el GridView
@@ -95,6 +114,7 @@ namespace TP2_Grupo4.Views
 
             clearAllControls();
             //getReservasFromTextFile();
+            llenarDataGridView();
         }
         private void ButtonBorrar_Click(object sender, EventArgs e)
         {
@@ -131,6 +151,7 @@ namespace TP2_Grupo4.Views
 
                     // Actualizar GridView
                     //getReservasFromTextFile();
+                    llenarDataGridView();
                 }
             }
 
