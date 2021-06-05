@@ -151,8 +151,13 @@ namespace TP2_Grupo4
                     MySqlCommand command = connection.CreateCommand();
                     command.CommandText = "DELETE FROM reservas WHERE id = @id;";
                     command.Parameters.AddWithValue("@id", id);
-                    command.ExecuteNonQuery();
-                    result = true;
+
+                    if(command.ExecuteNonQuery() == 1)
+                    {
+                        int indexReserva = this.findIndexReservaPorId(id);
+                        this.reservas.RemoveAt(indexReserva);
+                        result = true;
+                    }
                 }
                 catch (Exception e)
                 {
@@ -162,11 +167,6 @@ namespace TP2_Grupo4
                 }
                 return result;
             }
-            /*int indexReserva = this.findIndexReservaPorId(id);
-            if (indexReserva == -1) return false;
-
-            this.reservas.RemoveAt(indexReserva);
-            return true;*/
         }
 
         public Reserva FindReservaForId(String id)
@@ -181,10 +181,10 @@ namespace TP2_Grupo4
         {
             return this.reservas.FindAll(reserva => reserva.GetUsuario().GetDni() == dni);
         }
-        /*private int findIndexReservaPorId(String id)
+        private int findIndexReservaPorId(String id)
         {
             return this.reservas.FindIndex(reserva => reserva.GetId() == id);
-        }*/
+        }
         private void cargarDatosDeLasReservas()
         {
             this.reservas = Reserva.GetAll(this.agencia);
