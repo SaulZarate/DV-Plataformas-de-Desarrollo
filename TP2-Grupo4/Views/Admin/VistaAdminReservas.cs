@@ -123,9 +123,9 @@ namespace TP2_Grupo4.Views
             String id = textBoxID.Text;
 
             this.agencia.EliminarReserva(id);
-            dgvReservas.Rows.Clear();
             clearAllControls();
-            llenarDataGridView();
+            //dgvReservas.Rows.Clear();
+            //llenarDataGridView();
         }
         #endregion
 
@@ -154,8 +154,9 @@ namespace TP2_Grupo4.Views
                     }
 
                     // Actualizar GridView
+                    //dgvReservas.Rows.Clear();
                     //getReservasFromTextFile();
-                    llenarDataGridView();
+                    //llenarDataGridView();
                 }
             }
 
