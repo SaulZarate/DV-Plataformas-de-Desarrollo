@@ -52,33 +52,9 @@ namespace TP2_Grupo4
         }
         public bool EliminarAlojamiento(int codigo)
         {
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                bool result = false;
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = connection.CreateCommand();
-                    command.CommandText = "DELETE FROM alojamientos WHERE codigo = @codigo;";
-                    command.Parameters.AddWithValue("@codigo", codigo);
-                    command.ExecuteNonQuery();
-                    result = true;
-                }
-                catch (Exception e)
-                {
-                    // No se pudo actualizar
-                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
-                    System.Diagnostics.Debug.WriteLine(e.Message);
-                }
-                return result;
-            }
-            /*this.agencia.EliminarAlojamiento(codigo);
+            return this.agencia.EliminarAlojamiento(codigo);
 
-            List<Reserva> reservas = this.GetAllReservasForAlojamiento(codigo);
-            foreach (Reserva reserva in reservas)
-                this.EliminarReserva(reserva.GetId());
-
-            return true;*/
+            // Falta eliminar las reservas relacionadas con el alojamiento
         }
 
         public bool ExisteAlojamiento(int codigo)

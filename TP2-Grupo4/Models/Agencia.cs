@@ -23,11 +23,17 @@ namespace TP2_Grupo4.Models
         }
 
         #region ABM de Alojamientos
+        public bool AgregarAlojamiento(List<Alojamiento> alojamientos)
+        {
+            this.alojamientos.AddRange(alojamientos);
+            this.cantidadDeAlojamientos += alojamientos.Count;
+            return true;
+        }
         public bool AgregarAlojamiento(Alojamiento alojamiento)
         {
+            bool result = false;
             using (MySqlConnection connection = Database.GetConnection())
             {
-                bool result = false;
                 try
                 {
                     connection.Open();
@@ -74,14 +80,14 @@ namespace TP2_Grupo4.Models
                 }
                 
                 connection.Close();
-                return result;
             }
+            return result;
         }
         public bool ModificarAlojamiento(Alojamiento alojamiento)
         {
+            bool result = false;
             using (MySqlConnection connection = Database.GetConnection())
             {
-                bool result = false;
                 try
                 {
                     connection.Open();
@@ -112,8 +118,10 @@ namespace TP2_Grupo4.Models
                         command.Parameters.AddWithValue("@habitaciones", cabania.GetHabitaciones());
                         command.Parameters.AddWithValue("@banios", cabania.GetBanios());
                     }
-                    command.ExecuteNonQuery();
-                    result = true;
+
+                    if(command.ExecuteNonQuery() == 1)
+                        result = true;
+
                 }
                 catch (Exception e)
                 {
@@ -121,22 +129,25 @@ namespace TP2_Grupo4.Models
                     System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
                     System.Diagnostics.Debug.WriteLine(e.Message);
                 }
-                return result;
             }
+            return result;
         }
         public bool EliminarAlojamiento(int codigoDelAlojamiento)
         {
+            bool result = false;
             using (MySqlConnection connection = Database.GetConnection())
             {
-                bool result = false;
                 try
                 {
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
                     command.CommandText = "DELETE FROM alojamientos WHERE codigo = @codigo;";
                     command.Parameters.AddWithValue("@codigo", codigoDelAlojamiento);
-                    command.ExecuteNonQuery();
-                    result = true;
+                    if(command.ExecuteNonQuery() == 1)
+                    {
+                        this.cantidadDeAlojamientos--;
+                        result = true;
+                    }
                 }
                 catch (Exception e)
                 {
@@ -144,15 +155,8 @@ namespace TP2_Grupo4.Models
                     System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
                     System.Diagnostics.Debug.WriteLine(e.Message);
                 }
-                return result;
             }
-
-            //int indexAlojamiento = this.alojamientos.FindIndex(al => al.GetCodigo() == codigoDelAlojamiento);
-            //if (indexAlojamiento == -1) return false;
-
-            //this.alojamientos.RemoveAt(indexAlojamiento);
-            //this.cantidadDeAlojamientos--;
-            //return true;
+            return result;
         }
         #endregion
 
@@ -342,10 +346,7 @@ namespace TP2_Grupo4.Models
             if (alojamientos.Count == 0) return null;
 
             Agencia alojamientosFiltrados = new Agencia();
-            foreach (Alojamiento al in alojamientos)
-            {
-                alojamientosFiltrados.AgregarAlojamiento(al);
-            }
+            alojamientosFiltrados.AgregarAlojamiento(alojamientos);
             return alojamientosFiltrados;
         }
         public Alojamiento FindAlojamientoForCodigo(int codigoAlojamiento)
@@ -362,6 +363,7 @@ namespace TP2_Grupo4.Models
             List<Cabania> cabanias = Cabania.GetAll();
             this.alojamientos.AddRange(hoteles);
             this.alojamientos.AddRange(cabanias);
+            this.cantidadDeAlojamientos = hoteles.Count + cabanias.Count;
         }
 
         #endregion

@@ -92,10 +92,8 @@ namespace TP2_Grupo4.Views
         private void ordenarAlojamientos()
         {
             this.limpiarDataGridView();
-            //System.Diagnostics.Debug.WriteLine(this.selectOrdenamiento.Text);
 
-            String tipoDeOrdenamiento = this.selectOrdenamiento.Text;
-            switch (tipoDeOrdenamiento)
+            switch (this.selectOrdenamiento.Text)
             {
                 case "fecha de creacion":
                     this.llenarDataGridView(this.alojamientosDelDataGridView.GetAlojamientoPorCodigo());
@@ -143,7 +141,6 @@ namespace TP2_Grupo4.Views
             this.llenarDataGridView();
         }
 
-
         /* BOTON FILTRAR */
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
@@ -176,13 +173,11 @@ namespace TP2_Grupo4.Views
             this.ordenarAlojamientos();
         }
 
-
         /* SELECT DE ORDENAMIENTO */
         private void selectOrdenamiento_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.ordenarAlojamientos();
         }
-
 
         /* BOTON PARA RESERVAR */
         private void dgvAlojamiento_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -240,7 +235,6 @@ namespace TP2_Grupo4.Views
             }
         }
 
-
         /* VALIDAR LOS INPUTS DE PRECIOS */
         private void inputPrecioMin_TextChanged(object sender, EventArgs e)
         {
@@ -291,7 +285,6 @@ namespace TP2_Grupo4.Views
             }
         }
 
-
         /* MOSTRAR EL TOTAL DE DIAS DE LA RESERVA */
         private void inputDateFechaVuelta_ValueChanged(object sender, EventArgs e)
         {
@@ -317,7 +310,6 @@ namespace TP2_Grupo4.Views
 
             System.Diagnostics.Debug.WriteLine("Diferencia de dias: " + diasDeDiferencia);
         }
-
 
     }
 }
