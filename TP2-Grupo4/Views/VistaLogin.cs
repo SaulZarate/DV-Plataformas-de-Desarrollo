@@ -229,6 +229,7 @@ namespace TP2_Grupo4.Views
                 btnRegistrar.Text = "Register";
                 lblRecuperar.Text = "Forgot password?";
                 txtContrasena.Text = "PASSWORD";
+                label2.Text = "Login";
             }
             else if (cambiarIdioma.Text == "Español")
             {
@@ -238,6 +239,7 @@ namespace TP2_Grupo4.Views
                 btnRegistrar.Text = "Registrarse";
                 lblRecuperar.Text = "¿Ha olvidado su contraseña?";
                 txtContrasena.Text = "CONTRASEÑA";
+                label2.Text = "Ingresar";
             }
         }
     }

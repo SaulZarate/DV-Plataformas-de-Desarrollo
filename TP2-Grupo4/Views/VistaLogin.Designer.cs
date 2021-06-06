@@ -84,6 +84,7 @@ namespace TP2_Grupo4.Views
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Info;
             this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Text = "Ingresar";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -132,6 +133,7 @@ namespace TP2_Grupo4.Views
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Name = "label2";
+            this.label2.Text = "Ingresar";
             // 
             // btnRegistrar
             // 
@@ -170,8 +172,15 @@ namespace TP2_Grupo4.Views
             resources.ApplyResources(this.cambiarIdioma, "cambiarIdioma");
             this.cambiarIdioma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.cambiarIdioma.FlatAppearance.BorderSize = 0;
+            this.cambiarIdioma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cambiarIdioma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cambiarIdioma.ForeColor = System.Drawing.SystemColors.Info;
+            this.cambiarIdioma.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cambiarIdioma.Location = new System.Drawing.Point(678, 380);
             this.cambiarIdioma.Name = "cambiarIdioma";
+            this.cambiarIdioma.Size = new System.Drawing.Size(111, 41);
+            this.cambiarIdioma.TabIndex = 0;
+            this.cambiarIdioma.Text = "English";
             this.cambiarIdioma.UseVisualStyleBackColor = false;
             this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
             // 
