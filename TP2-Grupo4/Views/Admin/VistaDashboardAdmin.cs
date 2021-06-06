@@ -177,10 +177,33 @@ namespace TP2_Grupo4.Views
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
+
+
+
         #endregion
 
-
-
-
+        private void cambiarIdioma_Click(object sender, EventArgs e)
+        {
+            if (cambiarIdioma.Text == "English")
+            {
+                cambiarIdioma.Text = "Español";
+                btnAlojamiento.Text = "Lodgings";
+                btnHoteles.Text = "Hotels";
+                btnCabanias.Text = "Cottage";
+                btnReservas.Text = "Bookings";
+                btnUsuarios.Text = "Users";
+                btnCerrarSesion.Text = "Sign Off";
+            }
+            else if (cambiarIdioma.Text == "Español")
+            {
+                cambiarIdioma.Text = "English";
+                btnAlojamiento.Text = "Alojamientos";
+                btnHoteles.Text = "Hoteles";
+                btnCabanias.Text = "Cabañas";
+                btnReservas.Text = "Reservas";
+                btnUsuarios.Text = "Usuarios";
+                btnCerrarSesion.Text = "Cerrar Sesión";
+            }
+        }
     }
 }

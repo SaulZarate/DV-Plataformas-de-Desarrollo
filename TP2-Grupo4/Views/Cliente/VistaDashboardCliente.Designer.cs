@@ -32,6 +32,7 @@ namespace TP2_Grupo4.Views
             this.lblDNIUser = new System.Windows.Forms.Label();
             this.pbUserRole = new FontAwesome.Sharp.IconPictureBox();
             this.panelRole = new System.Windows.Forms.Panel();
+            this.cambiarIdioma = new System.Windows.Forms.Button();
             this.lblNameUser = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -86,6 +87,7 @@ namespace TP2_Grupo4.Views
             // panelRole
             // 
             this.panelRole.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(33)))), ((int)(((byte)(61)))));
+            this.panelRole.Controls.Add(this.cambiarIdioma);
             this.panelRole.Controls.Add(this.lblNameUser);
             this.panelRole.Controls.Add(this.label2);
             this.panelRole.Controls.Add(this.panel2);
@@ -97,6 +99,22 @@ namespace TP2_Grupo4.Views
             this.panelRole.Size = new System.Drawing.Size(1220, 640);
             this.panelRole.TabIndex = 0;
             this.panelRole.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
+            // 
+            // cambiarIdioma
+            // 
+            this.cambiarIdioma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cambiarIdioma.FlatAppearance.BorderSize = 0;
+            this.cambiarIdioma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cambiarIdioma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cambiarIdioma.ForeColor = System.Drawing.SystemColors.Info;
+            this.cambiarIdioma.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cambiarIdioma.Location = new System.Drawing.Point(803, 17);
+            this.cambiarIdioma.Name = "cambiarIdioma";
+            this.cambiarIdioma.Size = new System.Drawing.Size(111, 41);
+            this.cambiarIdioma.TabIndex = 0;
+            this.cambiarIdioma.Text = "English";
+            this.cambiarIdioma.UseVisualStyleBackColor = false;
+            this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
             // 
             // lblNameUser
             // 
@@ -231,7 +249,7 @@ namespace TP2_Grupo4.Views
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnCerrarSesion.Size = new System.Drawing.Size(220, 60);
             this.btnCerrarSesion.TabIndex = 3;
-            this.btnCerrarSesion.Text = "Cerrar sesión";
+            this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
@@ -365,5 +383,6 @@ namespace TP2_Grupo4.Views
         private FontAwesome.Sharp.IconButton btnReservas;
         private FontAwesome.Sharp.IconButton btnAlojamiento;
         private FontAwesome.Sharp.IconButton Form;
+        private System.Windows.Forms.Button cambiarIdioma;
     }
 }

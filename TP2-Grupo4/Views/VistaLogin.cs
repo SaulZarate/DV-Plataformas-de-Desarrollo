@@ -223,7 +223,6 @@ namespace TP2_Grupo4.Views
         {
             if(cambiarIdioma.Text == "English")
             {
-                MessageBox.Show("hola");
                 cambiarIdioma.Text = "Español";
                 button1.Text = "Login";
                 btnLogin.Text = "Login";
@@ -233,7 +232,6 @@ namespace TP2_Grupo4.Views
             }
             else if (cambiarIdioma.Text == "Español")
             {
-                MessageBox.Show("chau");
                 cambiarIdioma.Text = "English";
                 button1.Text = "Ingresar";
                 btnLogin.Text = "Ingresar";
@@ -241,7 +239,6 @@ namespace TP2_Grupo4.Views
                 lblRecuperar.Text = "¿Ha olvidado su contraseña?";
                 txtContrasena.Text = "CONTRASEÑA";
             }
-
         }
     }
 }

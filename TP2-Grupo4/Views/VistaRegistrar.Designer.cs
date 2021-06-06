@@ -293,7 +293,7 @@ namespace TP2_Grupo4.Views
             this.cambiarIdioma.Location = new System.Drawing.Point(678, 380);
             this.cambiarIdioma.Name = "cambiarIdioma";
             this.cambiarIdioma.Size = new System.Drawing.Size(111, 41);
-            this.cambiarIdioma.TabIndex = 31;
+            this.cambiarIdioma.TabIndex = 0;
             this.cambiarIdioma.Text = "English";
             this.cambiarIdioma.UseVisualStyleBackColor = false;
             this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
