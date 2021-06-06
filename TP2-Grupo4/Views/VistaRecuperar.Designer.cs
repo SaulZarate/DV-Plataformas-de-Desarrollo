@@ -47,6 +47,7 @@ namespace TP2_Grupo4.Views
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.cambiarIdioma = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
@@ -272,12 +273,29 @@ namespace TP2_Grupo4.Views
             this.pictureBox5.Visible = false;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
+            // cambiarIdioma
+            // 
+            this.cambiarIdioma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cambiarIdioma.FlatAppearance.BorderSize = 0;
+            this.cambiarIdioma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cambiarIdioma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cambiarIdioma.ForeColor = System.Drawing.SystemColors.Info;
+            this.cambiarIdioma.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cambiarIdioma.Location = new System.Drawing.Point(678, 380);
+            this.cambiarIdioma.Name = "cambiarIdioma";
+            this.cambiarIdioma.Size = new System.Drawing.Size(111, 41);
+            this.cambiarIdioma.TabIndex = 30;
+            this.cambiarIdioma.Text = "English";
+            this.cambiarIdioma.UseVisualStyleBackColor = false;
+            this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
+            // 
             // VistaRecuperar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cambiarIdioma);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
@@ -330,5 +348,6 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.Button cambiarIdioma;
     }
 }

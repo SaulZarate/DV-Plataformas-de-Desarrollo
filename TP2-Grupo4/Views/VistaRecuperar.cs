@@ -52,22 +52,32 @@ namespace TP2_Grupo4.Views
         }
         private void txtContrasena_Enter(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == "CONTRASEÑA NUEVA")
+            if /*(txtContrasena.Text == "CONTRASEÑA NUEVA")*/ 
+                (txtContrasena.Text == "CONTRASEÑA NUEVA" || txtContrasena.Text == "NEW PASSWORD")
             {
                 txtContrasena.Text = "";
             }
         }
         private void txtContrasena_Leave(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == "")
+            /*if (txtContrasena.Text == "")
             {
                 txtContrasena.Text = "CONTRASEÑA NUEVA";
+            }*/
+            if (txtContrasena.Text == "" && cambiarIdioma.Text == "English")
+            {
+                txtContrasena.Text = "CONTRASEÑA NUEVA";
+            }
+            else if (txtContrasena.Text == "" && cambiarIdioma.Text == "Español")
+            {
+                txtContrasena.Text = "NEW PASSWORD";
             }
         }
 
         private void txtContrasenaNueva_Enter(object sender, EventArgs e)
         {
-            if (txtRepetirContrasena.Text == "REPETIR CONTRASEÑA")
+            if /*(txtRepetirContrasena.Text == "REPETIR CONTRASEÑA")*/
+                (txtRepetirContrasena.Text == "REPETIR CONTRASEÑA" || txtRepetirContrasena.Text == "REPEAT PASSWORD")
             {
                 txtRepetirContrasena.Text = "";
             }
@@ -75,9 +85,17 @@ namespace TP2_Grupo4.Views
 
         private void txtContrasenaNueva_Leave(object sender, EventArgs e)
         {
-            if (txtRepetirContrasena.Text == "")
+            /*if (txtRepetirContrasena.Text == "")
             {
                 txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
+            }*/
+            if (txtRepetirContrasena.Text == "" && cambiarIdioma.Text == "English")
+            {
+                txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
+            }
+            else if (txtRepetirContrasena.Text == "" && cambiarIdioma.Text == "Español")
+            {
+                txtRepetirContrasena.Text = "REPEAT PASSWORD";
             }
         }
 
@@ -123,7 +141,29 @@ namespace TP2_Grupo4.Views
                     txtUsuario.Text = "DNI";
                     txtUsuario.ForeColor = Color.DimGray;
                     txtContrasena.Text = "CONTRASEÑA NUEVA";
+
+
+                    if (txtContrasena.Text == "" && cambiarIdioma.Text == "English")
+                    {
+                        txtContrasena.Text = "CONTRASEÑA NUEVA";
+                    }
+                    else if (txtContrasena.Text == "" && cambiarIdioma.Text == "Español")
+                    {
+                        txtContrasena.Text = "NEW PASSWORD";
+                    }
+
+
+
                     txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
+
+                    if (txtRepetirContrasena.Text == "" && cambiarIdioma.Text == "English")
+                    {
+                        txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
+                    }
+                    else if (txtRepetirContrasena.Text == "" && cambiarIdioma.Text == "Español")
+                    {
+                        txtRepetirContrasena.Text = "REPEAT PASSWORD";
+                    }
                 }
             }
             catch
@@ -168,6 +208,30 @@ namespace TP2_Grupo4.Views
             pictureBox5.Visible = true;
             pictureBox4.Visible = false;
             txtRepetirContrasena.UseSystemPasswordChar = true;
+        }
+
+        private void cambiarIdioma_Click(object sender, EventArgs e)
+        {
+            if (cambiarIdioma.Text == "English")
+            {
+                cambiarIdioma.Text = "Español";
+                button1.Text = "Login";
+                btnRegistrar.Text = "Register";
+                txtContrasena.Text = "NEW PASSWORD";
+                txtRepetirContrasena.Text = "REPEAT PASSWORD";
+                button2.Text = "Register";
+                label2.Text = "Change Password";
+            }
+            else if (cambiarIdioma.Text == "Español")
+            {
+                cambiarIdioma.Text = "English";
+                button1.Text = "Ingresar";
+                btnRegistrar.Text = "Registrarse";
+                txtContrasena.Text = "CONTRASEÑA NUEVA";
+                txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
+                button2.Text = "Registrarse";
+                label2.Text = "Cambiar Contraseña";
+            }
         }
     }
 }

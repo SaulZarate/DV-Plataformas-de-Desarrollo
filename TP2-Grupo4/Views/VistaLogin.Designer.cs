@@ -43,6 +43,7 @@ namespace TP2_Grupo4.Views
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cambiarIdioma = new System.Windows.Forms.Button();
             this.lblRecuperar = new System.Windows.Forms.LinkLabel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnExit = new FontAwesome.Sharp.IconButton();
@@ -164,6 +165,16 @@ namespace TP2_Grupo4.Views
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
+            // cambiarIdioma
+            // 
+            resources.ApplyResources(this.cambiarIdioma, "cambiarIdioma");
+            this.cambiarIdioma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cambiarIdioma.FlatAppearance.BorderSize = 0;
+            this.cambiarIdioma.ForeColor = System.Drawing.SystemColors.Info;
+            this.cambiarIdioma.Name = "cambiarIdioma";
+            this.cambiarIdioma.UseVisualStyleBackColor = false;
+            this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
+            // 
             // lblRecuperar
             // 
             resources.ApplyResources(this.lblRecuperar, "lblRecuperar");
@@ -223,6 +234,7 @@ namespace TP2_Grupo4.Views
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
+            this.Controls.Add(this.cambiarIdioma);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox5);
@@ -276,6 +288,7 @@ namespace TP2_Grupo4.Views
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button cambiarIdioma;
     }
 }
 

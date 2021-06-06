@@ -52,16 +52,20 @@ namespace TP2_Grupo4.Views
         // TODO: Password *********
         private void txtContrasena_Enter(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == "CONTRASEÑA")
+            if (txtContrasena.Text == "CONTRASEÑA" || txtContrasena.Text == "PASSWORD")
             {
                 txtContrasena.Text = "";
             }
         }
         private void txtContrasena_Leave(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == "")
+            if (txtContrasena.Text == "" && cambiarIdioma.Text == "English")
             {
                 txtContrasena.Text = "CONTRASEÑA";
+            }
+            else if (txtContrasena.Text == "" && cambiarIdioma.Text == "Español")
+            {
+                txtContrasena.Text = "PASSWORD";
             }
         }
 
@@ -213,6 +217,31 @@ namespace TP2_Grupo4.Views
             pictureBox5.Visible = true;
             pictureBox4.Visible = false;
             txtContrasena.UseSystemPasswordChar = true;
+        }
+
+        private void cambiarIdioma_Click(object sender, EventArgs e)
+        {
+            if(cambiarIdioma.Text == "English")
+            {
+                MessageBox.Show("hola");
+                cambiarIdioma.Text = "Español";
+                button1.Text = "Login";
+                btnLogin.Text = "Login";
+                btnRegistrar.Text = "Register";
+                lblRecuperar.Text = "Forgot password?";
+                txtContrasena.Text = "PASSWORD";
+            }
+            else if (cambiarIdioma.Text == "Español")
+            {
+                MessageBox.Show("chau");
+                cambiarIdioma.Text = "English";
+                button1.Text = "Ingresar";
+                btnLogin.Text = "Ingresar";
+                btnRegistrar.Text = "Registrarse";
+                lblRecuperar.Text = "¿Ha olvidado su contraseña?";
+                txtContrasena.Text = "CONTRASEÑA";
+            }
+
         }
     }
 }

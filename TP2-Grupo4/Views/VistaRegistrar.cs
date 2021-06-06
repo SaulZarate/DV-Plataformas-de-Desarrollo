@@ -172,5 +172,35 @@ namespace TP2_Grupo4.Views
             pictureBox3.Visible = false;
             txtContrasena.UseSystemPasswordChar = true;
         }
+
+        private void cambiarIdioma_Click(object sender, EventArgs e)
+        {
+            if (cambiarIdioma.Text == "English")
+            {
+                cambiarIdioma.Text = "Español";
+                button1.Text = "Login";
+                btnRegistrar.Text = "Register";
+                txtUsuario.Text = "USER";
+                txtContrasena.Text = "PASSWORD";
+                txtNombre.Text = "NAME";
+                txtMail.Text = "EMAIL";
+                checkAdmin.Text = "Is Admin?";
+                button2.Text = "Register";
+                label2.Text = "Register";
+            }
+            else if (cambiarIdioma.Text == "Español")
+            {
+                cambiarIdioma.Text = "English";
+                button1.Text = "Ingresar";
+                btnRegistrar.Text = "Registrar";
+                txtUsuario.Text = "USUARIO";
+                txtContrasena.Text = "CONTRASEÑA";
+                txtNombre.Text = "NOMBRE";
+                txtMail.Text = "MAIL";
+                checkAdmin.Text = "¿Es Admin?";
+                button2.Text = "Registrarse";
+                label2.Text = "Registrarse";
+            }
+        }
     }
 }
