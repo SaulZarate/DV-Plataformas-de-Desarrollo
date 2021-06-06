@@ -200,12 +200,25 @@ namespace TP2_Grupo4.Views
 
         #endregion
 
-        /*lblUsuarios.Text = "Usuarios";
-        lblDni.Text = "DNI";
-        lblNombre.Text = "Nombre";
-        lblBarrio.Text = "Email";
-        checkBoxAdmin.Text = "Admin";
-        checkBoxBloqueado.Text = "Bloqueado";
-        btnTopModificar.Text = "Modificar";*/
+        /*if (variableGlobal == "Español")
+        {
+            lblUsuarios.Text = "Usuarios";
+            lblDni.Text = "DNI";
+            lblNombre.Text = "Nombre";
+            lblBarrio.Text = "Email";
+            checkBoxAdmin.Text = "Admin";
+            checkBoxBloqueado.Text = "Bloqueado";
+            btnTopModificar.Text = "Modificar";
+        }
+        else if (variableGlobal == "English")
+        {
+            lblUsuarios.Text = "User";
+            lblDni.Text = "DNI";
+            lblNombre.Text = "Name";
+            lblBarrio.Text = "Email";
+            checkBoxAdmin.Text = "Admin";
+            checkBoxBloqueado.Text = "Blocked";
+            btnTopModificar.Text = "Modify";
+        }*/
     }
 }

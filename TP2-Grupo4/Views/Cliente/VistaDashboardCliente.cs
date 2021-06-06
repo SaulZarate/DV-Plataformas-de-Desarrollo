@@ -150,7 +150,7 @@ namespace TP2_Grupo4.Views
 
         private void cambiarIdioma_Click(object sender, EventArgs e)
         {
-            if (cambiarIdioma.Text == "English")
+            if (cambiarIdioma.Text == "English") // (variableGlobal == "English")
             {
                 cambiarIdioma.Text = "Español";
                 label2.Text = "Name:";
@@ -158,8 +158,9 @@ namespace TP2_Grupo4.Views
                 btnAlojamiento.Text = "View Lodgings";
                 btnReservas.Text = "My Reservations";
                 btnCerrarSesion.Text = "Sign Off";
+                //variableGlobal = "Español";
             }
-            else if (cambiarIdioma.Text == "Español")
+            else if (cambiarIdioma.Text == "Español") // (variableGlobal == "Español")
             {
                 cambiarIdioma.Text = "English";
                 label2.Text = "Nombre:";
@@ -167,6 +168,7 @@ namespace TP2_Grupo4.Views
                 btnAlojamiento.Text = "Ver Alojamientos";
                 btnReservas.Text = "Mis Reservas";
                 btnCerrarSesion.Text = "Cerrar Sesión";
+                //variableGlobal = "English";
             }
         }
     }
