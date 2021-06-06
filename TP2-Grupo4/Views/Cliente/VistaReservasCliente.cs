@@ -80,5 +80,7 @@ namespace TP2_Grupo4.Views
                 }
             }
         }
+
+        //label1.Text = "Reservaciones";
     }
 }

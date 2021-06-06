@@ -29,9 +29,9 @@ namespace TP2_Grupo4.Views.Cliente
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewAlojamientos = new System.Windows.Forms.DataGridView();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -60,14 +60,14 @@ namespace TP2_Grupo4.Views.Cliente
             this.dataGridViewAlojamientos.AllowUserToResizeColumns = false;
             this.dataGridViewAlojamientos.AllowUserToResizeRows = false;
             this.dataGridViewAlojamientos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAlojamientos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAlojamientos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewAlojamientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAlojamientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,
@@ -81,17 +81,17 @@ namespace TP2_Grupo4.Views.Cliente
             this.dataGridViewAlojamientos.Location = new System.Drawing.Point(50, 140);
             this.dataGridViewAlojamientos.Name = "dataGridViewAlojamientos";
             this.dataGridViewAlojamientos.ReadOnly = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewAlojamientos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewAlojamientos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewAlojamientos.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.dataGridViewAlojamientos.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridViewAlojamientos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewAlojamientos.RowTemplate.Height = 25;
             this.dataGridViewAlojamientos.Size = new System.Drawing.Size(900, 380);
             this.dataGridViewAlojamientos.TabIndex = 0;
@@ -154,7 +154,7 @@ namespace TP2_Grupo4.Views.Cliente
             this.lblBuscador.Location = new System.Drawing.Point(24, 38);
             this.lblBuscador.Name = "lblBuscador";
             this.lblBuscador.Size = new System.Drawing.Size(102, 15);
-            this.lblBuscador.TabIndex = 1;
+            this.lblBuscador.TabIndex = 0;
             this.lblBuscador.Text = "Buscar por ciudad";
             // 
             // groupBoxBuscador
@@ -169,7 +169,7 @@ namespace TP2_Grupo4.Views.Cliente
             this.groupBoxBuscador.Location = new System.Drawing.Point(50, 12);
             this.groupBoxBuscador.Name = "groupBoxBuscador";
             this.groupBoxBuscador.Size = new System.Drawing.Size(900, 103);
-            this.groupBoxBuscador.TabIndex = 4;
+            this.groupBoxBuscador.TabIndex = 0;
             this.groupBoxBuscador.TabStop = false;
             // 
             // lblDateTimeHasta
@@ -178,7 +178,7 @@ namespace TP2_Grupo4.Views.Cliente
             this.lblDateTimeHasta.Location = new System.Drawing.Point(497, 38);
             this.lblDateTimeHasta.Name = "lblDateTimeHasta";
             this.lblDateTimeHasta.Size = new System.Drawing.Size(89, 15);
-            this.lblDateTimeHasta.TabIndex = 6;
+            this.lblDateTimeHasta.TabIndex = 0;
             this.lblDateTimeHasta.Text = "Fecha de vuelta";
             // 
             // lblDateTimeDesde
@@ -187,7 +187,7 @@ namespace TP2_Grupo4.Views.Cliente
             this.lblDateTimeDesde.Location = new System.Drawing.Point(223, 38);
             this.lblDateTimeDesde.Name = "lblDateTimeDesde";
             this.lblDateTimeDesde.Size = new System.Drawing.Size(73, 15);
-            this.lblDateTimeDesde.TabIndex = 5;
+            this.lblDateTimeDesde.TabIndex = 0;
             this.lblDateTimeDesde.Text = "Fecha de ida";
             // 
             // dateTimeHasta
@@ -195,7 +195,7 @@ namespace TP2_Grupo4.Views.Cliente
             this.dateTimeHasta.Location = new System.Drawing.Point(497, 56);
             this.dateTimeHasta.Name = "dateTimeHasta";
             this.dateTimeHasta.Size = new System.Drawing.Size(210, 23);
-            this.dateTimeHasta.TabIndex = 4;
+            this.dateTimeHasta.TabIndex = 3;
             this.dateTimeHasta.ValueChanged += new System.EventHandler(this.dateTimeHasta_ValueChanged);
             // 
             // dateTimeDesde
@@ -205,7 +205,7 @@ namespace TP2_Grupo4.Views.Cliente
             this.dateTimeDesde.MinDate = new System.DateTime(2021, 6, 5, 0, 0, 0, 0);
             this.dateTimeDesde.Name = "dateTimeDesde";
             this.dateTimeDesde.Size = new System.Drawing.Size(210, 23);
-            this.dateTimeDesde.TabIndex = 3;
+            this.dateTimeDesde.TabIndex = 2;
             this.dateTimeDesde.ValueChanged += new System.EventHandler(this.dateTimeDesde_ValueChanged);
             // 
             // btnBuscar
@@ -214,7 +214,7 @@ namespace TP2_Grupo4.Views.Cliente
             this.btnBuscar.Location = new System.Drawing.Point(742, 31);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(131, 49);
-            this.btnBuscar.TabIndex = 2;
+            this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -224,7 +224,7 @@ namespace TP2_Grupo4.Views.Cliente
             this.inputBuscador.Location = new System.Drawing.Point(24, 56);
             this.inputBuscador.Name = "inputBuscador";
             this.inputBuscador.Size = new System.Drawing.Size(132, 23);
-            this.inputBuscador.TabIndex = 0;
+            this.inputBuscador.TabIndex = 1;
             // 
             // VistaBuscadorCliente
             // 

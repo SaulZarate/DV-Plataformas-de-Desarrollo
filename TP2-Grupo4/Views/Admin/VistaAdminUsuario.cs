@@ -200,5 +200,12 @@ namespace TP2_Grupo4.Views
 
         #endregion
 
+        /*lblUsuarios.Text = "Usuarios";
+        lblDni.Text = "DNI";
+        lblNombre.Text = "Nombre";
+        lblBarrio.Text = "Email";
+        checkBoxAdmin.Text = "Admin";
+        checkBoxBloqueado.Text = "Bloqueado";
+        btnTopModificar.Text = "Modificar";*/
     }
 }

@@ -70,5 +70,7 @@ namespace TP2_Grupo4.Views
             }
         }
 
+        //lblAlojamiento.Text = "Alojamientos";
+        //label1.Text = "Tipo:";
     }
 }

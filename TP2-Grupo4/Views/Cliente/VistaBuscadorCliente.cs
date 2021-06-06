@@ -171,5 +171,9 @@ namespace TP2_Grupo4.Views.Cliente
 
         #endregion
 
+        /*lblBuscador.Text = "Buscar por ciudad";
+        lblDateTimeDesde.Text = "Fecha de ida";
+        lblDateTimeHasta.Text = "Fecha de vuelta";
+        btnBuscar.Text = "Buscar";*/
     }
 }

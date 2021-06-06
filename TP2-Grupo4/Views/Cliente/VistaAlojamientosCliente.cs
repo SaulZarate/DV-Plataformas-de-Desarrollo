@@ -318,5 +318,22 @@ namespace TP2_Grupo4.Views
             //System.Diagnostics.Debug.WriteLine("Diferencia de dias: " + diasDeDiferencia);
         }
 
+        /*groupBox1.Text = "Filtrar por:";
+        label1.Text = "Tipo:";
+        label4.Text = "Ciudad:";
+        label6.Text = "Barrio:";
+        lblPrecioMin.Text = "Precio Min:";
+        lblPrecioMax.Text = "Precio Max:";
+        label5.Text = "Estrella:";
+        label2.Text = "Personas:";
+        btnFiltrar.Text = "Filtrar";
+
+        groupBox3.Text = "Fechas:";
+        label3.Text = "Fecha de ida:";
+        label7.Text = "Fecha de vuelta:";
+        lblDiasDeReservas.Text = "Dias:";
+
+        groupBox2.Text = "Ordenar por:";
+        label8.Text = "Ordenar por:";*/
     }
 }

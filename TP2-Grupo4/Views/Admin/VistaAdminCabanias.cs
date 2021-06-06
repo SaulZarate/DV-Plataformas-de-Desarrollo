@@ -282,5 +282,18 @@ namespace TP2_Grupo4.Views
                 return;
             }
         }
+
+        //lblCabanias.Text = "Cabañas";
+        //label10.Text = "Código:";
+        //label7.Text = "Ciudad:";
+        //label4.Text = "Barrio:";
+        //label2.Text = "Cantidad de Personas";
+        //label5.Text = "Estrellas";
+        //checkBoxTV.Text = "¿Tiene Tv?";
+        //label3.Text = "Precio x Dia";
+        //label1.Text = "Habitaciones";
+        //label6.Text = "Baños";
+        //btnTopModificar.Text = "Modificar";
+
     }
 }

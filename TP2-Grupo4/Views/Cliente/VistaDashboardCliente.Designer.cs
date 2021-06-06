@@ -124,7 +124,7 @@ namespace TP2_Grupo4.Views
             this.lblNameUser.Location = new System.Drawing.Point(520, 27);
             this.lblNameUser.Name = "lblNameUser";
             this.lblNameUser.Size = new System.Drawing.Size(26, 18);
-            this.lblNameUser.TabIndex = 7;
+            this.lblNameUser.TabIndex = 0;
             this.lblNameUser.Text = "...";
             // 
             // label2
@@ -135,7 +135,7 @@ namespace TP2_Grupo4.Views
             this.label2.Location = new System.Drawing.Point(440, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(84, 18);
-            this.label2.TabIndex = 6;
+            this.label2.TabIndex = 0;
             this.label2.Text = "Nombre: ";
             // 
             // panel2
@@ -147,7 +147,7 @@ namespace TP2_Grupo4.Views
             this.panel2.Location = new System.Drawing.Point(220, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(218, 79);
-            this.panel2.TabIndex = 4;
+            this.panel2.TabIndex = 0;
             // 
             // label1
             // 
@@ -157,7 +157,7 @@ namespace TP2_Grupo4.Views
             this.label1.Location = new System.Drawing.Point(68, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 18);
-            this.label1.TabIndex = 6;
+            this.label1.TabIndex = 0;
             this.label1.Text = "DNI:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -169,7 +169,7 @@ namespace TP2_Grupo4.Views
             this.flowLayoutPanel1.Location = new System.Drawing.Point(1178, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(42, 640);
-            this.flowLayoutPanel1.TabIndex = 5;
+            this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btnExit
             // 
@@ -248,7 +248,7 @@ namespace TP2_Grupo4.Views
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnCerrarSesion.Size = new System.Drawing.Size(220, 60);
-            this.btnCerrarSesion.TabIndex = 3;
+            this.btnCerrarSesion.TabIndex = 4;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
@@ -266,7 +266,7 @@ namespace TP2_Grupo4.Views
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(220, 640);
-            this.panelMenu.TabIndex = 1;
+            this.panelMenu.TabIndex = 0;
             // 
             // btnReservas
             // 
@@ -285,7 +285,7 @@ namespace TP2_Grupo4.Views
             this.btnReservas.Name = "btnReservas";
             this.btnReservas.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnReservas.Size = new System.Drawing.Size(220, 60);
-            this.btnReservas.TabIndex = 9;
+            this.btnReservas.TabIndex = 3;
             this.btnReservas.Text = "Mis Reservas";
             this.btnReservas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReservas.UseVisualStyleBackColor = false;
@@ -308,7 +308,7 @@ namespace TP2_Grupo4.Views
             this.btnAlojamiento.Name = "btnAlojamiento";
             this.btnAlojamiento.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnAlojamiento.Size = new System.Drawing.Size(220, 60);
-            this.btnAlojamiento.TabIndex = 8;
+            this.btnAlojamiento.TabIndex = 2;
             this.btnAlojamiento.Text = "Ver Alojamientos";
             this.btnAlojamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAlojamiento.UseVisualStyleBackColor = false;
@@ -331,7 +331,7 @@ namespace TP2_Grupo4.Views
             this.Form.Name = "Form";
             this.Form.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.Form.Size = new System.Drawing.Size(220, 60);
-            this.Form.TabIndex = 7;
+            this.Form.TabIndex = 1;
             this.Form.Text = "Buscardor";
             this.Form.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Form.UseVisualStyleBackColor = false;

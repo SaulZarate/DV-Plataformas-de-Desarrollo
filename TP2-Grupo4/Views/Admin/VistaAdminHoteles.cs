@@ -278,5 +278,14 @@ namespace TP2_Grupo4.Views
             }
         }
 
+        /*lblHoteles.Text = "Cabañas";
+        label1.Text = "Código:";
+        label7.Text = "Ciudad:";
+        label4.Text = "Barrio:";
+        label2.Text = "Cantidad de Personas";
+        label5.Text = "Estrellas";
+        checkBoxTv.Text = "¿Tiene Tv?";
+        label3.Text = "Precio";
+        btnTopModificar.Text = "Modificar";*/
     }
 }

@@ -45,10 +45,10 @@ namespace TP2_Grupo4.Views
             this.pbUserRole = new FontAwesome.Sharp.IconPictureBox();
             this.lblRole = new System.Windows.Forms.Label();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.cambiarIdioma = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.panelMain = new System.Windows.Forms.Panel();
-            this.cambiarIdioma = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelAlojamientoSubmenu.SuspendLayout();
             this.panelLogo.SuspendLayout();
@@ -92,7 +92,7 @@ namespace TP2_Grupo4.Views
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnUsuarios.Size = new System.Drawing.Size(220, 60);
-            this.btnUsuarios.TabIndex = 19;
+            this.btnUsuarios.TabIndex = 5;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUsuarios.UseVisualStyleBackColor = false;
@@ -115,7 +115,7 @@ namespace TP2_Grupo4.Views
             this.btnReservas.Name = "btnReservas";
             this.btnReservas.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnReservas.Size = new System.Drawing.Size(220, 60);
-            this.btnReservas.TabIndex = 18;
+            this.btnReservas.TabIndex = 4;
             this.btnReservas.Text = "Reservas";
             this.btnReservas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReservas.UseVisualStyleBackColor = false;
@@ -149,7 +149,7 @@ namespace TP2_Grupo4.Views
             this.btnCabanias.Name = "btnCabanias";
             this.btnCabanias.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnCabanias.Size = new System.Drawing.Size(220, 40);
-            this.btnCabanias.TabIndex = 17;
+            this.btnCabanias.TabIndex = 3;
             this.btnCabanias.Text = "Cabañas";
             this.btnCabanias.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCabanias.UseVisualStyleBackColor = false;
@@ -172,7 +172,7 @@ namespace TP2_Grupo4.Views
             this.btnHoteles.Name = "btnHoteles";
             this.btnHoteles.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnHoteles.Size = new System.Drawing.Size(220, 40);
-            this.btnHoteles.TabIndex = 16;
+            this.btnHoteles.TabIndex = 2;
             this.btnHoteles.Text = "Hoteles";
             this.btnHoteles.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHoteles.UseVisualStyleBackColor = false;
@@ -195,7 +195,7 @@ namespace TP2_Grupo4.Views
             this.btnAlojamiento.Name = "btnAlojamiento";
             this.btnAlojamiento.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnAlojamiento.Size = new System.Drawing.Size(220, 60);
-            this.btnAlojamiento.TabIndex = 7;
+            this.btnAlojamiento.TabIndex = 1;
             this.btnAlojamiento.Text = "Alojamientos";
             this.btnAlojamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAlojamiento.UseVisualStyleBackColor = false;
@@ -218,7 +218,7 @@ namespace TP2_Grupo4.Views
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnCerrarSesion.Size = new System.Drawing.Size(220, 60);
-            this.btnCerrarSesion.TabIndex = 4;
+            this.btnCerrarSesion.TabIndex = 6;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
@@ -263,7 +263,7 @@ namespace TP2_Grupo4.Views
             this.panelRole.Location = new System.Drawing.Point(0, 0);
             this.panelRole.Name = "panelRole";
             this.panelRole.Size = new System.Drawing.Size(218, 79);
-            this.panelRole.TabIndex = 5;
+            this.panelRole.TabIndex = 0;
             // 
             // lblRoleUser
             // 
@@ -272,7 +272,7 @@ namespace TP2_Grupo4.Views
             this.lblRoleUser.Location = new System.Drawing.Point(92, 26);
             this.lblRoleUser.Name = "lblRoleUser";
             this.lblRoleUser.Size = new System.Drawing.Size(50, 15);
-            this.lblRoleUser.TabIndex = 2;
+            this.lblRoleUser.TabIndex = 0;
             this.lblRoleUser.Text = "roleUser";
             // 
             // pbUserRole
@@ -306,8 +306,24 @@ namespace TP2_Grupo4.Views
             this.panelTop.Location = new System.Drawing.Point(220, 0);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1000, 70);
-            this.panelTop.TabIndex = 1;
+            this.panelTop.TabIndex = 0;
             this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
+            // 
+            // cambiarIdioma
+            // 
+            this.cambiarIdioma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.cambiarIdioma.FlatAppearance.BorderSize = 0;
+            this.cambiarIdioma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cambiarIdioma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.cambiarIdioma.ForeColor = System.Drawing.SystemColors.Info;
+            this.cambiarIdioma.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cambiarIdioma.Location = new System.Drawing.Point(583, 16);
+            this.cambiarIdioma.Name = "cambiarIdioma";
+            this.cambiarIdioma.Size = new System.Drawing.Size(111, 41);
+            this.cambiarIdioma.TabIndex = 0;
+            this.cambiarIdioma.Text = "English";
+            this.cambiarIdioma.UseVisualStyleBackColor = false;
+            this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
             // 
             // flowLayoutPanel1
             // 
@@ -341,23 +357,7 @@ namespace TP2_Grupo4.Views
             this.panelMain.Location = new System.Drawing.Point(220, 70);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(1000, 571);
-            this.panelMain.TabIndex = 2;
-            // 
-            // cambiarIdioma
-            // 
-            this.cambiarIdioma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.cambiarIdioma.FlatAppearance.BorderSize = 0;
-            this.cambiarIdioma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cambiarIdioma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cambiarIdioma.ForeColor = System.Drawing.SystemColors.Info;
-            this.cambiarIdioma.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cambiarIdioma.Location = new System.Drawing.Point(583, 16);
-            this.cambiarIdioma.Name = "cambiarIdioma";
-            this.cambiarIdioma.Size = new System.Drawing.Size(111, 41);
-            this.cambiarIdioma.TabIndex = 2;
-            this.cambiarIdioma.Text = "English";
-            this.cambiarIdioma.UseVisualStyleBackColor = false;
-            this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
+            this.panelMain.TabIndex = 0;
             // 
             // VistaDashboardAdmin
             // 

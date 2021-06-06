@@ -219,6 +219,15 @@ namespace TP2_Grupo4.Views
         }
         #endregion
 
+        /*lblReservas.Text = "Reservas";
+        label1.Text = "ID Alojamiento:";
+        Localidad.Text = "DNI:";
+        TBDesde.Text = "Desde:";
+        Estrellas.Text = "Hasta:";
+        Precio.Text = "Precio:";
+        ID.Text = "ID Reserva:";
+        Modificar.Text = "Modificar";*/
+
     }
 
 }
