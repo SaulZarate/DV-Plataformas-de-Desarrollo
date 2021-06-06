@@ -211,9 +211,18 @@ namespace TP2_Grupo4.Views
                 // Calcular precio total
                 double precioDeLaReserva = tipoAlojamiento == "hotel" ? diasTotalesDeLaReserva * cantidadDePersonas * precioDelAlojamiento : diasTotalesDeLaReserva * precioDelAlojamiento;
 
+                // Validar que el alojamiento este disponible
+                if(!this.agencia.ElAlojamientoEstaDisponible(codigoDelAlojamiento, this.inputDateFechaIda.Value, this.inputDateFechaVuelta.Value))
+                {
+                    MessageBox.Show("El alojamiento no esta disponible en esas fechas, intente con otras fechas");
+                    return;
+                }
+
+                // Mensaje
                 String textMessage = $"El precio de la reserva que vas a realizar es de ${precioDeLaReserva}";
                 textMessage += "\nDesea realizar la reserva ?";
 
+                // Confirmacion del usuario
                 if (MessageBox.Show(textMessage , "Confirmacion de la reserva", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // Agregar reserva

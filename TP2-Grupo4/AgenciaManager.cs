@@ -56,7 +56,6 @@ namespace TP2_Grupo4
 
             // Falta eliminar las reservas relacionadas con el alojamiento
         }
-
         public bool ExisteAlojamiento(int codigo)
         {
             return this.agencia.FindAlojamientoForCodigo(codigo) != null ? true : false; 
@@ -173,10 +172,10 @@ namespace TP2_Grupo4
         {
             return this.GetReservas().Find(reserva => reserva.GetId() == id);
         }
-        /*private List<Reserva> GetAllReservasForAlojamiento(int codigo)
+        private List<Reserva> getAllReservasForAlojamiento(int codigo)
         {
-            return this.reservas.FindAll(reserva => reserva.GetAlojamiento().GetCodigo() == codigo);
-        }*/
+            return this.reservas.FindAll(reserva => reserva.GetAlojamiento().GetCodigo() == codigo );
+        }
         public List<Reserva> GetAllReservasForUsuario(int dni)
         {
             return this.reservas.FindAll(reserva => reserva.GetUsuario().GetDni() == dni);
@@ -189,40 +188,17 @@ namespace TP2_Grupo4
         {
             this.reservas = Reserva.GetAll(this.agencia);
         }
-        public List<List<String>> DatosDeReservasParaLasVistas(String tipoDeUsuario = "admin")
+        public bool ElAlojamientoEstaDisponible(int codigoDeAlojamiento, DateTime fechaDesde, DateTime fechaHasta)
         {
-            List<List<String>> reservas = new List<List<string>>();
-            cargarDatosDeLasReservas();
-            if (tipoDeUsuario == "admin")
+            bool alojamientoDisponible = true;
+            foreach (Reserva reserva in this.getAllReservasForAlojamiento(codigoDeAlojamiento))
             {
-                foreach (Reserva reserva in this.reservas)
-                {
-                    reservas.Add(new List<String>(){
-                        reserva.GetId().ToString(),
-                        reserva.GetFechaDesde().ToString(),
-                        reserva.GetFechaHasta().ToString(),
-                        reserva.GetAlojamiento().GetCodigo().ToString(),
-                        reserva.GetUsuario().GetDni().ToString(),
-                        reserva.GetPrecio().ToString(),
-                    });
-                }
+                bool validarFechaDesde = DateTime.Compare(reserva.GetFechaDesde(), fechaDesde) == 1 && DateTime.Compare(reserva.GetFechaDesde(), fechaHasta) == 1;
+                bool validarFechaHasta = DateTime.Compare(reserva.GetFechaHasta(), fechaDesde) == -1 && DateTime.Compare(reserva.GetFechaHasta(), fechaDesde) == -1;
+                if (!validarFechaDesde && !validarFechaHasta)
+                    alojamientoDisponible = false;
             }
-            else if (tipoDeUsuario == "user")
-            {
-                // Reservas del usuario
-                List<Reserva> reservasDelUsuario = this.GetAllReservasForUsuario(this.usuarioLogeado.GetDni());
-                
-                foreach (Reserva reserva in reservasDelUsuario)
-                {
-                    reservas.Add(new List<String>(){
-                        reserva.GetAlojamiento() is Hotel ? "hotel" : "cabaña",
-                        reserva.GetFechaDesde().ToString(),
-                        reserva.GetFechaHasta().ToString(),
-                        reserva.GetPrecio().ToString(),
-                    });
-                }
-            }
-            return reservas;
+            return alojamientoDisponible;
         }
         #endregion
 
@@ -365,28 +341,64 @@ namespace TP2_Grupo4
 
             return alojamientosFiltrados;
         }
+        public List<List<String>> DatosDeReservasParaLasVistas(String tipoDeUsuario = "admin")
+        {
+            List<List<String>> reservas = new List<List<string>>();
+            cargarDatosDeLasReservas();
+            if (tipoDeUsuario == "admin")
+            {
+                foreach (Reserva reserva in this.reservas)
+                {
+                    reservas.Add(new List<String>(){
+                        reserva.GetId().ToString(),
+                        reserva.GetFechaDesde().ToString(),
+                        reserva.GetFechaHasta().ToString(),
+                        reserva.GetAlojamiento().GetCodigo().ToString(),
+                        reserva.GetUsuario().GetDni().ToString(),
+                        reserva.GetPrecio().ToString(),
+                    });
+                }
+            }
+            else if (tipoDeUsuario == "user")
+            {
+                // Reservas del usuario
+                List<Reserva> reservasDelUsuario = this.GetAllReservasForUsuario(this.usuarioLogeado.GetDni());
+
+                foreach (Reserva reserva in reservasDelUsuario)
+                {
+                    reservas.Add(new List<String>(){
+                        reserva.GetAlojamiento() is Hotel ? "hotel" : "cabaña",
+                        reserva.GetFechaDesde().ToString(),
+                        reserva.GetFechaHasta().ToString(),
+                        reserva.GetPrecio().ToString(),
+                    });
+                }
+            }
+            return reservas;
+        }
         public List<List<String>> BuscarDeAlojamientosPorCiudadYFechas(String ciudad, DateTime fechaDesde, DateTime fechaHasta)
         {
             List<List<String>> alojamientos = new List<List<string>>();
-            
-            foreach(Alojamiento alojamiento in this.GetAgencia().GetAlojamientos())
-            {
-                String precio = "$";
-                if (alojamiento is Hotel)
-                    precio += ((Hotel)alojamiento).GetPrecioPorPersona().ToString();
-                else
-                    precio += ((Cabania)alojamiento).GetPrecioPorDia().ToString();
+            List<Alojamiento> alojamientosFiltrados = new List<Alojamiento>();
 
+            foreach(var alojamiento in this.GetAgencia().GetAlojamientos().FindAll(al => al.GetCiudad().Contains(ciudad)))
+            {
+                if (this.ElAlojamientoEstaDisponible(alojamiento.GetCodigo(), fechaDesde, fechaHasta))
+                    alojamientosFiltrados.Add(alojamiento);
+            }
+
+            foreach (Alojamiento alojamiento in alojamientosFiltrados)
+            {
                 alojamientos.Add(new List<string>()
                 {
-                    alojamiento.GetCodigo().ToString() ,
+                    alojamiento.GetCodigo().ToString(),
                     alojamiento is Hotel ? "hotel" : "cabaña",
                     alojamiento.GetCiudad(),
                     alojamiento.GetBarrio(),
                     alojamiento.GetEstrellas().ToString(),
                     alojamiento.GetCantidadDePersonas().ToString(),
                     alojamiento.GetTv().ToString(),
-                    precio
+                    alojamiento is Hotel ? ((Hotel)alojamiento).GetPrecioPorPersona().ToString() : ((Cabania)alojamiento).GetPrecioPorDia().ToString()
                 });
             }
 
