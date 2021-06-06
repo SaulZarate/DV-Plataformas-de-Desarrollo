@@ -105,6 +105,11 @@ Para realizar alguna de estas tres opciones se debe realizar lo siguiente:
  Aparecen todos los usuarios registrados en la aplicacion y tendremos las mismas opciones antes mencionadas, Modificar y Borrar.
   En la opción Modificar, en este caso, podremos cambiar todos los datos y a su vez se podra realizar el cambio de tipo de usuario de Usuario comun a Usuario administrador, ademas, desde esta opcion es donde se podra realizar el desbloqueo de los usuarios que hayan sido bloqueados por haberse logeado de manera incorrecta mas de 3 veces seguidas. 
 
+ ##Update:
+ - La aplicación ahora se conecta a una base de datos para obtener la información que antes se obtenia de archivos TXT.
+ - Se agrego un boton para cambiar de ingles a español
+ - Se agrego un buscador 
+
 
 ## Integrantes ✒️
 
