@@ -107,8 +107,8 @@ Para realizar alguna de estas tres opciones se debe realizar lo siguiente:
 
  ##Update:
  - La aplicación ahora se conecta a una base de datos para obtener la información que antes se obtenia de archivos TXT.
- - Se agrego un boton para cambiar de ingles a español
- - Se agrego un buscador 
+ - Se agrego un boton para cambiar de ingles a español.
+ - Se agrego un buscador.
 
 
 ## Integrantes ✒️
