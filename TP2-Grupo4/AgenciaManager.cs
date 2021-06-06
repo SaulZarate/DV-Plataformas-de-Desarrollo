@@ -365,8 +365,36 @@ namespace TP2_Grupo4
 
             return alojamientosFiltrados;
         }
+        public List<List<String>> BuscarDeAlojamientosPorCiudadYFechas(String ciudad, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            List<List<String>> alojamientos = new List<List<string>>();
+            
+            foreach(Alojamiento alojamiento in this.GetAgencia().GetAlojamientos())
+            {
+                String precio = "$";
+                if (alojamiento is Hotel)
+                    precio += ((Hotel)alojamiento).GetPrecioPorPersona().ToString();
+                else
+                    precio += ((Cabania)alojamiento).GetPrecioPorDia().ToString();
 
-        /* OPCIONES DE LOS SELECTS EN LAS VISTAS */
+                alojamientos.Add(new List<string>()
+                {
+                    alojamiento.GetCodigo().ToString() ,
+                    alojamiento is Hotel ? "hotel" : "cabaña",
+                    alojamiento.GetCiudad(),
+                    alojamiento.GetBarrio(),
+                    alojamiento.GetEstrellas().ToString(),
+                    alojamiento.GetCantidadDePersonas().ToString(),
+                    alojamiento.GetTv().ToString(),
+                    precio
+                });
+            }
+
+            return alojamientos;
+        }
+        #endregion
+
+        #region Selects de las vistas
         public List<String> OpcionesDelSelectDeTiposDeAlojamientos()
         {
             return new List<String>() { "todos", "hotel", "cabaña" };

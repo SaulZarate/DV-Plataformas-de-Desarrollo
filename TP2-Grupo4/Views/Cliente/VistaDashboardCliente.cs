@@ -59,24 +59,27 @@ namespace TP2_Grupo4.Views
 
 
         #region onClick Buttons
-
-        private void btnForm_Click(object sender, EventArgs e)
+        
+        // BUSCADOR
+        private void btnBuscador_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.secondary);
-            OpenChildForm(new VistaFormNuevaCliente(this.agencia));
+            OpenChildForm(new VistaBuscadorCliente(this.agencia));
         }
+        // VER ALOJAMIENTOS
         private void btnAlojamiento_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.secondary);
             OpenChildForm(new VistaAlojamientosCliente(this.agencia));
         }
 
-        // TODO: Mostrar Reservas
+        // MIS RESERVAS
         private void btnReservas_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.secondary);
             OpenChildForm(new VistaReservasCliente(this.agencia));
         }
+
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
@@ -85,7 +88,6 @@ namespace TP2_Grupo4.Views
             vistaLogin.Show();
             this.Hide();
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -101,10 +103,10 @@ namespace TP2_Grupo4.Views
                 this.currentBtn = (IconButton)sender;
                 this.currentBtn.BackColor = Color.FromArgb(20, 33, 61);
                 this.currentBtn.ForeColor = color;
-                this.currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                this.currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 this.currentBtn.IconColor = color;
                 //this.currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
-                this.currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                //this.currentBtn.ImageAlign = ContentAlignment.MiddleRight;
 
                 leftBorderBtn.BackColor = color;
                 leftBorderBtn.Location = new Point(0, this.currentBtn.Location.Y);
@@ -145,7 +147,6 @@ namespace TP2_Grupo4.Views
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
-
 
     }
 }

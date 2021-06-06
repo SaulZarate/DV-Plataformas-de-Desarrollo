@@ -45,9 +45,9 @@ namespace TP2_Grupo4.Views
             this.panelDesktop = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new FontAwesome.Sharp.IconButton();
             this.panelMenu = new System.Windows.Forms.Panel();
-            this.Form = new FontAwesome.Sharp.IconButton();
-            this.btnAlojamiento = new FontAwesome.Sharp.IconButton();
             this.btnReservas = new FontAwesome.Sharp.IconButton();
+            this.btnAlojamiento = new FontAwesome.Sharp.IconButton();
+            this.Form = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbUserRole)).BeginInit();
             this.panelRole.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -250,28 +250,28 @@ namespace TP2_Grupo4.Views
             this.panelMenu.Size = new System.Drawing.Size(220, 640);
             this.panelMenu.TabIndex = 1;
             // 
-            // Form
+            // btnReservas
             // 
-            this.Form.AutoSize = true;
-            this.Form.BackColor = System.Drawing.Color.White;
-            this.Form.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Form.FlatAppearance.BorderSize = 0;
-            this.Form.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Form.ForeColor = System.Drawing.Color.Black;
-            this.Form.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
-            this.Form.IconColor = System.Drawing.Color.Black;
-            this.Form.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.Form.IconSize = 32;
-            this.Form.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Form.Location = new System.Drawing.Point(0, 188);
-            this.Form.Name = "Form";
-            this.Form.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.Form.Size = new System.Drawing.Size(220, 60);
-            this.Form.TabIndex = 7;
-            this.Form.Text = "Form";
-            this.Form.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Form.UseVisualStyleBackColor = false;
-            this.Form.Click += new System.EventHandler(this.btnForm_Click);
+            this.btnReservas.AutoSize = true;
+            this.btnReservas.BackColor = System.Drawing.Color.White;
+            this.btnReservas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReservas.FlatAppearance.BorderSize = 0;
+            this.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReservas.ForeColor = System.Drawing.Color.Black;
+            this.btnReservas.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
+            this.btnReservas.IconColor = System.Drawing.Color.Black;
+            this.btnReservas.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnReservas.IconSize = 32;
+            this.btnReservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReservas.Location = new System.Drawing.Point(0, 308);
+            this.btnReservas.Name = "btnReservas";
+            this.btnReservas.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.btnReservas.Size = new System.Drawing.Size(220, 60);
+            this.btnReservas.TabIndex = 9;
+            this.btnReservas.Text = "Mis Reservas";
+            this.btnReservas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReservas.UseVisualStyleBackColor = false;
+            this.btnReservas.Click += new System.EventHandler(this.btnReservas_Click);
             // 
             // btnAlojamiento
             // 
@@ -291,33 +291,33 @@ namespace TP2_Grupo4.Views
             this.btnAlojamiento.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.btnAlojamiento.Size = new System.Drawing.Size(220, 60);
             this.btnAlojamiento.TabIndex = 8;
-            this.btnAlojamiento.Text = "Buscar Alojamientos";
+            this.btnAlojamiento.Text = "Ver Alojamientos";
             this.btnAlojamiento.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAlojamiento.UseVisualStyleBackColor = false;
             this.btnAlojamiento.Click += new System.EventHandler(this.btnAlojamiento_Click);
             // 
-            // btnReservas
+            // Form
             // 
-            this.btnReservas.AutoSize = true;
-            this.btnReservas.BackColor = System.Drawing.Color.White;
-            this.btnReservas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnReservas.FlatAppearance.BorderSize = 0;
-            this.btnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReservas.ForeColor = System.Drawing.Color.Black;
-            this.btnReservas.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
-            this.btnReservas.IconColor = System.Drawing.Color.Black;
-            this.btnReservas.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnReservas.IconSize = 32;
-            this.btnReservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReservas.Location = new System.Drawing.Point(0, 308);
-            this.btnReservas.Name = "btnReservas";
-            this.btnReservas.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.btnReservas.Size = new System.Drawing.Size(220, 60);
-            this.btnReservas.TabIndex = 9;
-            this.btnReservas.Text = "Mis Reservaciones";
-            this.btnReservas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReservas.UseVisualStyleBackColor = false;
-            this.btnReservas.Click += new System.EventHandler(this.btnReservas_Click);
+            this.Form.AutoSize = true;
+            this.Form.BackColor = System.Drawing.Color.White;
+            this.Form.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Form.FlatAppearance.BorderSize = 0;
+            this.Form.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Form.ForeColor = System.Drawing.Color.Black;
+            this.Form.IconChar = FontAwesome.Sharp.IconChar.Bookmark;
+            this.Form.IconColor = System.Drawing.Color.Black;
+            this.Form.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.Form.IconSize = 32;
+            this.Form.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Form.Location = new System.Drawing.Point(0, 188);
+            this.Form.Name = "Form";
+            this.Form.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
+            this.Form.Size = new System.Drawing.Size(220, 60);
+            this.Form.TabIndex = 7;
+            this.Form.Text = "Buscardor";
+            this.Form.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Form.UseVisualStyleBackColor = false;
+            this.Form.Click += new System.EventHandler(this.btnBuscador_Click);
             // 
             // VistaDashboardCliente
             // 
