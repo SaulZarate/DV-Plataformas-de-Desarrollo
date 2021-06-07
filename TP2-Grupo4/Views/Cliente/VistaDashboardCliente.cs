@@ -19,6 +19,8 @@ namespace TP2_Grupo4.Views
         private Form currentChildForm;
 
         private AgenciaManager agencia;
+        public static string idioma;
+        private int num;
 
         public VistaDashboardCliente(AgenciaManager agenciaManager)
         {
@@ -64,20 +66,23 @@ namespace TP2_Grupo4.Views
         private void btnBuscador_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.secondary);
-            OpenChildForm(new VistaBuscadorCliente(this.agencia));
+            OpenChildForm(new VistaBuscadorCliente(this.agencia, idioma));
+            num = 1;
         }
         // VER ALOJAMIENTOS
         private void btnAlojamiento_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.secondary);
-            OpenChildForm(new VistaAlojamientosCliente(this.agencia));
+            OpenChildForm(new VistaAlojamientosCliente(this.agencia, idioma));
+            num = 2;
         }
 
         // MIS RESERVAS
         private void btnReservas_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.secondary);
-            OpenChildForm(new VistaReservasCliente(this.agencia));
+            OpenChildForm(new VistaReservasCliente(this.agencia, idioma));
+            num = 3;
         }
 
 
@@ -150,7 +155,7 @@ namespace TP2_Grupo4.Views
 
         private void cambiarIdioma_Click(object sender, EventArgs e)
         {
-            if (cambiarIdioma.Text == "English") // (variableGlobal == "English")
+            if (cambiarIdioma.Text == "English")
             {
                 cambiarIdioma.Text = "Español";
                 label2.Text = "Name:";
@@ -158,9 +163,21 @@ namespace TP2_Grupo4.Views
                 btnAlojamiento.Text = "View Lodgings";
                 btnReservas.Text = "My Reservations";
                 btnCerrarSesion.Text = "Sign Off";
-                //variableGlobal = "Español";
+                idioma = "English";
+                if (num == 1)
+                {
+                    OpenChildForm(new VistaBuscadorCliente(this.agencia, idioma));
+                }
+                if (num == 2)
+                {
+                    OpenChildForm(new VistaAlojamientosCliente(this.agencia, idioma));
+                }
+                if (num == 3)
+                {
+                    OpenChildForm(new VistaReservasCliente(this.agencia, idioma));
+                }
             }
-            else if (cambiarIdioma.Text == "Español") // (variableGlobal == "Español")
+            else if (cambiarIdioma.Text == "Español")
             {
                 cambiarIdioma.Text = "English";
                 label2.Text = "Nombre:";
@@ -168,7 +185,19 @@ namespace TP2_Grupo4.Views
                 btnAlojamiento.Text = "Ver Alojamientos";
                 btnReservas.Text = "Mis Reservas";
                 btnCerrarSesion.Text = "Cerrar Sesión";
-                //variableGlobal = "English";
+                idioma = "Español";
+                if (num == 1)
+                {
+                    OpenChildForm(new VistaBuscadorCliente(this.agencia, idioma));
+                }
+                if (num == 2)
+                {
+                    OpenChildForm(new VistaAlojamientosCliente(this.agencia, idioma));
+                }
+                if (num == 3)
+                {
+                    OpenChildForm(new VistaReservasCliente(this.agencia, idioma));
+                }
             }
         }
     }

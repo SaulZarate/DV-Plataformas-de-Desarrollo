@@ -16,7 +16,7 @@ namespace TP2_Grupo4.Views.Cliente
         private DateTime fechaDesde;
         private DateTime fechaHasta;
 
-        public VistaBuscadorCliente(AgenciaManager agenciaManager)
+        public VistaBuscadorCliente(AgenciaManager agenciaManager, string idioma)
         {
             InitializeComponent();
             this.agencia = agenciaManager;
@@ -24,6 +24,21 @@ namespace TP2_Grupo4.Views.Cliente
             this.agregarBtnAlDataGridView();
             this.resetInputsDeFechas();
             this.configuracionDeLosInputsDeFechas();
+
+            if (idioma == "Español")
+            {
+                lblBuscador.Text = "Buscar por ciudad";
+                lblDateTimeDesde.Text = "Fecha de ida";
+                lblDateTimeHasta.Text = "Fecha de vuelta";
+                btnBuscar.Text = "Buscar";
+            }
+            else if (idioma == "English")
+            {
+                lblBuscador.Text = "Search by city";
+                lblDateTimeDesde.Text = "Departure date";
+                lblDateTimeHasta.Text = "Return date";
+                btnBuscar.Text = "Search";
+            }
         }
 
         // BOTTON BUSCAR
@@ -170,10 +185,5 @@ namespace TP2_Grupo4.Views.Cliente
         }
 
         #endregion
-
-        /*lblBuscador.Text = "Buscar por ciudad";
-        lblDateTimeDesde.Text = "Fecha de ida";
-        lblDateTimeHasta.Text = "Fecha de vuelta";
-        btnBuscar.Text = "Buscar";*/
     }
 }

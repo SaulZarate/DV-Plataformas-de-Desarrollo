@@ -17,6 +17,36 @@ namespace TP2_Grupo4.Views
         {
             InitializeComponent();
             this.agencia = new AgenciaManager();
+            if (idioma == "Español")
+            {
+                lblCabanias.Text = "Cabañas";
+                label10.Text = "Código:";
+                label7.Text = "Ciudad:";
+                label4.Text = "Barrio:";
+                label2.Text = "Cantidad de Personas";
+                label5.Text = "Estrellas";
+                checkBoxTV.Text = "¿Tiene Tv?";
+                label3.Text = "Precio x Dia";
+                label1.Text = "Habitaciones";
+                label6.Text = "Baños";
+                btnTopModificar.Text = "Modificar";
+                btnTopAgregar.Text = "Agregar";
+            }
+            else if (idioma == "English")
+            {
+                lblCabanias.Text = "Cottage";
+                label10.Text = "Code:";
+                label7.Text = "Town:";
+                label4.Text = "Neighborhood:";
+                label2.Text = "Amount of people";
+                label5.Text = "Stars";
+                checkBoxTV.Text = "Have a TV?";
+                label3.Text = "Price x Day";
+                label1.Text = "Bedrooms";
+                label6.Text = "Toilets";
+                btnTopModificar.Text = "Modify";
+                btnTopAgregar.Text = "Add";
+            }
         }
 
         private void FormCabanias_Load(object sender, EventArgs e)
@@ -282,18 +312,5 @@ namespace TP2_Grupo4.Views
                 return;
             }
         }
-
-        //lblCabanias.Text = "Cabañas";
-        //label10.Text = "Código:";
-        //label7.Text = "Ciudad:";
-        //label4.Text = "Barrio:";
-        //label2.Text = "Cantidad de Personas";
-        //label5.Text = "Estrellas";
-        //checkBoxTV.Text = "¿Tiene Tv?";
-        //label3.Text = "Precio x Dia";
-        //label1.Text = "Habitaciones";
-        //label6.Text = "Baños";
-        //btnTopModificar.Text = "Modificar";
-
     }
 }

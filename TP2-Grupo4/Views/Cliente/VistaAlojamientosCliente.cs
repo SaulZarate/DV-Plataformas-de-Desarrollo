@@ -17,13 +17,54 @@ namespace TP2_Grupo4.Views
 
         private Agencia alojamientosDelDataGridView;
 
-        public VistaAlojamientosCliente(AgenciaManager agenciaManager)
+        public VistaAlojamientosCliente(AgenciaManager agenciaManager, string idioma)
         {
             InitializeComponent();
             this.agencia = agenciaManager;
             this.alojamientosDelDataGridView = agenciaManager.GetAgencia();
 
             this.llenarSelects();
+
+            if (idioma == "Español")
+            {
+                groupBox1.Text = "Filtrar por:";
+                label1.Text = "Tipo:";
+                label4.Text = "Ciudad:";
+                label6.Text = "Barrio:";
+                lblPrecioMin.Text = "Precio Min:";
+                lblPrecioMax.Text = "Precio Max:";
+                label5.Text = "Estrella:";
+                label2.Text = "Personas:";
+                btnFiltrar.Text = "Filtrar";
+
+                groupBox3.Text = "Fechas:";
+                label3.Text = "Fecha de ida:";
+                label7.Text = "Fecha de vuelta:";
+                lblDiasDeReservas.Text = "Dias:";
+
+                groupBox2.Text = "Ordenar por:";
+                label8.Text = "Ordenar por:";
+            }
+            else if (idioma == "English")
+            {
+                groupBox1.Text = "Filter by:";
+                label1.Text = "Type:";
+                label4.Text = "City:";
+                label6.Text = "Neighborhood:";
+                lblPrecioMin.Text = "Min Price:";
+                lblPrecioMax.Text = "Max Price:";
+                label5.Text = "Stars:";
+                label2.Text = "People:";
+                btnFiltrar.Text = "Filter";
+
+                groupBox3.Text = "Dates:";
+                label3.Text = "Departure date:";
+                label7.Text = "Return date:";
+                lblDiasDeReservas.Text = "Days:";
+
+                groupBox2.Text = "Sort by:";
+                label8.Text = "Sort by:";
+            }
         }
 
 
@@ -317,23 +358,5 @@ namespace TP2_Grupo4.Views
 
             //System.Diagnostics.Debug.WriteLine("Diferencia de dias: " + diasDeDiferencia);
         }
-
-        /*groupBox1.Text = "Filtrar por:";
-        label1.Text = "Tipo:";
-        label4.Text = "Ciudad:";
-        label6.Text = "Barrio:";
-        lblPrecioMin.Text = "Precio Min:";
-        lblPrecioMax.Text = "Precio Max:";
-        label5.Text = "Estrella:";
-        label2.Text = "Personas:";
-        btnFiltrar.Text = "Filtrar";
-
-        groupBox3.Text = "Fechas:";
-        label3.Text = "Fecha de ida:";
-        label7.Text = "Fecha de vuelta:";
-        lblDiasDeReservas.Text = "Dias:";
-
-        groupBox2.Text = "Ordenar por:";
-        label8.Text = "Ordenar por:";*/
     }
 }
