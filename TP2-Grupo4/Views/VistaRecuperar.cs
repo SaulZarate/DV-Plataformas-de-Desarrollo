@@ -18,7 +18,7 @@ namespace TP2_Grupo4.Views
         {
             InitializeComponent();
             this.agencia = new AgenciaManager();
-            if (VistaLogin.idioma == 0)
+            if (VistaLogin.idioma == "English")
             {
                 cambiarIdioma.Text = "Español";
                 button1.Text = "Login";
@@ -28,7 +28,7 @@ namespace TP2_Grupo4.Views
                 button2.Text = "Register";
                 label2.Text = "Change Password";
             }
-            if (VistaLogin.idioma == 1)
+            if (VistaLogin.idioma == "Español")
             {
                 cambiarIdioma.Text = "English";
                 button1.Text = "Ingresar";
@@ -41,20 +41,7 @@ namespace TP2_Grupo4.Views
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            VistaLogin cambiarFormulario = new VistaLogin();
-            cambiarFormulario.Show();
-            this.Hide();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            VistaRegistrar cambiarFormulario = new VistaRegistrar();
-            cambiarFormulario.Show();
-            this.Hide();
-        }
-
+        #region Key Pressed
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
             if (txtUsuario.Text == "DNI")
@@ -121,6 +108,18 @@ namespace TP2_Grupo4.Views
             }
         }
 
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+        #endregion
+
+        #region Helpers
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
 
@@ -131,6 +130,22 @@ namespace TP2_Grupo4.Views
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
+
+        #region On Click
+        private void button1_Click(object sender, EventArgs e)
+        {
+            VistaLogin cambiarFormulario = new VistaLogin();
+            cambiarFormulario.Show();
+            this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            VistaRegistrar cambiarFormulario = new VistaRegistrar();
+            cambiarFormulario.Show();
+            this.Hide();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -194,16 +209,6 @@ namespace TP2_Grupo4.Views
             }
         }
 
-        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                e.Handled = true;
-                return;
-            }
-        }
-
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             pictureBox2.Visible = false;
@@ -234,28 +239,29 @@ namespace TP2_Grupo4.Views
 
         private void cambiarIdioma_Click(object sender, EventArgs e)
         {
-            if (VistaLogin.idioma == 0)
+            if (VistaLogin.idioma == "Español")
             {
-                VistaLogin.idioma = 1;
-                cambiarIdioma.Text = "Español";
+                cambiarIdioma.Text = "English";
                 button1.Text = "Login";
                 btnRegistrar.Text = "Register";
                 txtContrasena.Text = "NEW PASSWORD";
                 txtRepetirContrasena.Text = "REPEAT PASSWORD";
                 button2.Text = "Register";
                 label2.Text = "Change Password";
+                VistaLogin.idioma = "English";
             }
-            else if (VistaLogin.idioma == 1)
+            else if (VistaLogin.idioma == "English")
             {
-                VistaLogin.idioma = 0;
-                cambiarIdioma.Text = "English";
+                cambiarIdioma.Text = "Español";
                 button1.Text = "Ingresar";
                 btnRegistrar.Text = "Registrarse";
                 txtContrasena.Text = "CONTRASEÑA NUEVA";
                 txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
                 button2.Text = "Registrarse";
                 label2.Text = "Cambiar Contraseña";
+                VistaLogin.idioma = "Español";
             }
         }
+        #endregion
     }
 }

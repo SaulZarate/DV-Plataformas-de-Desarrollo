@@ -61,39 +61,38 @@ namespace TP2_Grupo4.Views
             // 
             // pictureBox2
             // 
-            resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.pictureBox2.Image = global::TP2_Grupo4.Properties.Resources.icon_5359553_960_720;
+            resources.ApplyResources(this.pictureBox2, "pictureBox2");
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
-            resources.ApplyResources(this.pictureBox3, "pictureBox3");
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.pictureBox3.Image = global::TP2_Grupo4.Properties.Resources.istockphoto_1241551153_170667a;
+            resources.ApplyResources(this.pictureBox3, "pictureBox3");
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.TabStop = false;
             // 
             // btnLogin
             // 
-            resources.ApplyResources(this.btnLogin, "btnLogin");
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            resources.ApplyResources(this.btnLogin, "btnLogin");
             this.btnLogin.ForeColor = System.Drawing.SystemColors.Info;
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            this.btnLogin.Text = "Ingresar";
             // 
             // txtUsuario
             // 
-            resources.ApplyResources(this.txtUsuario, "txtUsuario");
             this.txtUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsuario.ForeColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.txtUsuario, "txtUsuario");
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.KeyUp += new System.Windows.Forms.KeyEventHandler(this.InputDNI_KeyUp);
@@ -106,22 +105,22 @@ namespace TP2_Grupo4.Views
             // 
             // panel2
             // 
-            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.panel2, "panel2");
             this.panel2.Name = "panel2";
             // 
             // panel3
             // 
-            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.BackColor = System.Drawing.Color.Black;
+            resources.ApplyResources(this.panel3, "panel3");
             this.panel3.Name = "panel3";
             // 
             // txtContrasena
             // 
-            resources.ApplyResources(this.txtContrasena, "txtContrasena");
             this.txtContrasena.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(15)))), ((int)(((byte)(15)))), ((int)(((byte)(15)))));
             this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtContrasena.ForeColor = System.Drawing.Color.DimGray;
+            resources.ApplyResources(this.txtContrasena, "txtContrasena");
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.UseSystemPasswordChar = true;
             this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
@@ -133,27 +132,25 @@ namespace TP2_Grupo4.Views
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Name = "label2";
-            this.label2.Text = "Ingresar";
             // 
             // btnRegistrar
             // 
-            resources.ApplyResources(this.btnRegistrar, "btnRegistrar");
             this.btnRegistrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.btnRegistrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnRegistrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            resources.ApplyResources(this.btnRegistrar, "btnRegistrar");
             this.btnRegistrar.ForeColor = System.Drawing.SystemColors.Info;
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            this.btnRegistrar.Text = "Registrarse";
             // 
             // panel1
             // 
-            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.pictureBox1);
+            resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
             // label3
@@ -163,42 +160,34 @@ namespace TP2_Grupo4.Views
             // 
             // pictureBox1
             // 
-            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Image = global::TP2_Grupo4.Properties.Resources.alojamientos;
+            resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
             // 
             // cambiarIdioma
             // 
-            resources.ApplyResources(this.cambiarIdioma, "cambiarIdioma");
             this.cambiarIdioma.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.cambiarIdioma.FlatAppearance.BorderSize = 0;
-            this.cambiarIdioma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cambiarIdioma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            resources.ApplyResources(this.cambiarIdioma, "cambiarIdioma");
             this.cambiarIdioma.ForeColor = System.Drawing.SystemColors.Info;
-            this.cambiarIdioma.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cambiarIdioma.Location = new System.Drawing.Point(678, 380);
             this.cambiarIdioma.Name = "cambiarIdioma";
-            this.cambiarIdioma.Size = new System.Drawing.Size(111, 41);
-            this.cambiarIdioma.TabIndex = 0;
-            this.cambiarIdioma.Text = "English";
             this.cambiarIdioma.UseVisualStyleBackColor = false;
             this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
             // 
             // lblRecuperar
             // 
-            resources.ApplyResources(this.lblRecuperar, "lblRecuperar");
             this.lblRecuperar.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            resources.ApplyResources(this.lblRecuperar, "lblRecuperar");
             this.lblRecuperar.LinkColor = System.Drawing.Color.DimGray;
             this.lblRecuperar.Name = "lblRecuperar";
             this.lblRecuperar.TabStop = true;
             this.lblRecuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblRecuperar_LinkClicked);
-            this.lblRecuperar.Text = "";
             // 
             // panel4
             // 
-            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Controls.Add(this.btnExit);
+            resources.ApplyResources(this.panel4, "panel4");
             this.panel4.Name = "panel4";
             this.panel4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseDown);
             // 
@@ -215,28 +204,27 @@ namespace TP2_Grupo4.Views
             // 
             // button1
             // 
-            resources.ApplyResources(this.button1, "button1");
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            resources.ApplyResources(this.button1, "button1");
             this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.button1.ForeColor = System.Drawing.SystemColors.Info;
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Text = "";
             // 
             // pictureBox4
             // 
-            resources.ApplyResources(this.pictureBox4, "pictureBox4");
             this.pictureBox4.Image = global::TP2_Grupo4.Properties.Resources.nover;
+            resources.ApplyResources(this.pictureBox4, "pictureBox4");
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // pictureBox5
             // 
-            resources.ApplyResources(this.pictureBox5, "pictureBox5");
             this.pictureBox5.Image = global::TP2_Grupo4.Properties.Resources.ver;
+            resources.ApplyResources(this.pictureBox5, "pictureBox5");
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);

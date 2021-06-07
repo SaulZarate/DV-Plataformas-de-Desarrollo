@@ -24,14 +24,14 @@ namespace TP2_Grupo4.Views
 
         private AgenciaManager agencia;
 
-        public static int idioma = 0;
+        public static string idioma = "Español";
         public VistaLogin()
         {
             InitializeComponent();
             this.agencia = new AgenciaManager();
             this.contadorDeIntentos = 0;
             this.dniIngresado = 0;
-            if (idioma == 0)
+            if (idioma == "English")
             {
                 cambiarIdioma.Text = "Español";
                 button1.Text = "Login";
@@ -41,7 +41,7 @@ namespace TP2_Grupo4.Views
                 txtContrasena.Text = "PASSWORD";
                 label2.Text = "Login";
             }
-            else if (idioma == 1)
+            else if (idioma == "Español")
             {
                 cambiarIdioma.Text = "English";
                 button1.Text = "Ingresar";
@@ -53,6 +53,7 @@ namespace TP2_Grupo4.Views
             }
         }
 
+        #region Key Pressed
         private void txtUsuario_Enter(object sender, EventArgs e)
         {
             if (txtUsuario.Text == "DNI")
@@ -69,7 +70,7 @@ namespace TP2_Grupo4.Views
                 txtUsuario.ForeColor = Color.DimGray;
             }
         }
-        // TODO: Password *********
+
         private void txtContrasena_Enter(object sender, EventArgs e)
         {
             if (txtContrasena.Text == "CONTRASEÑA" || txtContrasena.Text == "PASSWORD")
@@ -116,6 +117,8 @@ namespace TP2_Grupo4.Views
                 this.btnLogin.Enabled = false;
             }
         }
+        #endregion
+
         private bool bloquearUsuarioPorIntentos(int dni)
         {
             if (this.dniIngresado != dni)
@@ -141,10 +144,10 @@ namespace TP2_Grupo4.Views
             return false;
         }
 
+        #region On Click
         /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
         /* ~~~~~~~~~~~~~~~~~~~~~~~~ BOTONES ~~~~~~~~~~~~~~~~~~~~~~~~ */
         /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-        // TODO: Chequear intentos
         private void btnLogin_Click(object sender, EventArgs e)
         {
             // admin
@@ -185,7 +188,6 @@ namespace TP2_Grupo4.Views
             }
         }
 
-        // TODO: Mostrar VistaRegistrar
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
             VistaRegistrar registrar = new VistaRegistrar();
@@ -197,27 +199,6 @@ namespace TP2_Grupo4.Views
         {
             Application.Exit();
         }
-
-
-        #region Helpers
-        // Nos permite utilizar librerias del sistema operativo, para poder mover la ventana
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        private void panel4_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-
-
-        #endregion
-
-
         private void lblRecuperar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             VistaRecuperar recuperar = new VistaRecuperar();
@@ -241,28 +222,44 @@ namespace TP2_Grupo4.Views
 
         private void cambiarIdioma_Click(object sender, EventArgs e)
         {
-            if(idioma == 0)
+            if (idioma == "Español")
             {
-                idioma = 1;
-                cambiarIdioma.Text = "Español";
+                cambiarIdioma.Text = "English";
                 button1.Text = "Login";
                 btnLogin.Text = "Login";
                 btnRegistrar.Text = "Register";
                 lblRecuperar.Text = "Forgot password?";
                 txtContrasena.Text = "PASSWORD";
                 label2.Text = "Login";
+                idioma = "English";
             }
-            else if (idioma == 1)
+            else if (idioma == "English")
             {
-                idioma = 0;
-                cambiarIdioma.Text = "English";
+                cambiarIdioma.Text = "Español";
                 button1.Text = "Ingresar";
                 btnLogin.Text = "Ingresar";
                 btnRegistrar.Text = "Registrarse";
                 lblRecuperar.Text = "¿Ha olvidado su contraseña?";
                 txtContrasena.Text = "CONTRASEÑA";
                 label2.Text = "Ingresar";
+                idioma = "Español";
             }
         }
+        #endregion
+
+        #region Helpers
+        // Nos permite utilizar librerias del sistema operativo, para poder mover la ventana
+        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+
+        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+        #endregion
     }
 }

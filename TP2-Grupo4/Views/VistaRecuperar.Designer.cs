@@ -70,7 +70,7 @@ namespace TP2_Grupo4.Views
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(181, 60);
             this.btnRegistrar.TabIndex = 5;
-            this.btnRegistrar.Text = "";
+            this.btnRegistrar.Text = "Registrarse";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -120,7 +120,7 @@ namespace TP2_Grupo4.Views
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(251, 40);
             this.button1.TabIndex = 0;
-            this.button1.Text = "";
+            this.button1.Text = "Ingresar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -137,7 +137,7 @@ namespace TP2_Grupo4.Views
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(251, 40);
             this.button2.TabIndex = 0;
-            this.button2.Text = "";
+            this.button2.Text = "Registrarse";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -159,9 +159,9 @@ namespace TP2_Grupo4.Views
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(354, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(384, 44);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "";
+            this.label2.Size = new System.Drawing.Size(0, 44);
+            this.label2.TabIndex = 0; 
+            this.txtContrasena.Text = "Cambiar Contraseña";
             // 
             // panel5
             // 
@@ -169,7 +169,7 @@ namespace TP2_Grupo4.Views
             this.panel5.Location = new System.Drawing.Point(462, 236);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(175, 1);
-            this.panel5.TabIndex = 29;
+            this.panel5.TabIndex = 0;
             // 
             // txtContrasena
             // 
@@ -180,7 +180,7 @@ namespace TP2_Grupo4.Views
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(175, 16);
             this.txtContrasena.TabIndex = 2;
-            this.txtContrasena.Text = "";
+            this.txtContrasena.Text = "CONTRASEÑA NUEVA";
             this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
             this.txtContrasena.Leave += new System.EventHandler(this.txtContrasena_Leave);
             // 
@@ -190,7 +190,7 @@ namespace TP2_Grupo4.Views
             this.panel2.Location = new System.Drawing.Point(462, 181);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(175, 1);
-            this.panel2.TabIndex = 27;
+            this.panel2.TabIndex = 0;
             // 
             // panel3
             // 
@@ -198,7 +198,7 @@ namespace TP2_Grupo4.Views
             this.panel3.Location = new System.Drawing.Point(462, 293);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(175, 1);
-            this.panel3.TabIndex = 28;
+            this.panel3.TabIndex = 0;
             // 
             // txtRepetirContrasena
             // 
@@ -209,7 +209,7 @@ namespace TP2_Grupo4.Views
             this.txtRepetirContrasena.Name = "txtRepetirContrasena";
             this.txtRepetirContrasena.Size = new System.Drawing.Size(175, 16);
             this.txtRepetirContrasena.TabIndex = 3;
-            this.txtRepetirContrasena.Text = "";
+            this.txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
             this.txtRepetirContrasena.Enter += new System.EventHandler(this.txtContrasenaNueva_Enter);
             this.txtRepetirContrasena.Leave += new System.EventHandler(this.txtContrasenaNueva_Leave);
             // 
@@ -280,12 +280,11 @@ namespace TP2_Grupo4.Views
             this.cambiarIdioma.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cambiarIdioma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cambiarIdioma.ForeColor = System.Drawing.SystemColors.Info;
-            this.cambiarIdioma.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.cambiarIdioma.Location = new System.Drawing.Point(678, 380);
             this.cambiarIdioma.Name = "cambiarIdioma";
             this.cambiarIdioma.Size = new System.Drawing.Size(111, 41);
             this.cambiarIdioma.TabIndex = 0;
-            this.cambiarIdioma.Text = "";
+            this.cambiarIdioma.Text = "English";
             this.cambiarIdioma.UseVisualStyleBackColor = false;
             this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
             // 
