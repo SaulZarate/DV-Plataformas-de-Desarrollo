@@ -12,10 +12,50 @@ namespace TP2_Grupo4.Views
     public partial class VistaRegistrar : Form
     {
         private AgenciaManager agencia;
+
+
+          private string  cambiarIdiomaText = "Español";
+          private string  button1Text = "Login";
+          private string  btnRegistrarText = "Register";
+          private string  txtUsuarioText = "USER";
+          private string  txtContrasenaText = "PASSWORD";
+          private string  txtNombreText = "NAME";
+          private string  txtMailText = "EMAIL";
+          private string  checkAdminText = "Is Admin?";
+          private string  button2Text = "Register";
+          private string  label2Text = "Register";
         public VistaRegistrar()
         {
             InitializeComponent();
             this.agencia = new AgenciaManager();
+            if (VistaLogin.idioma == 1)
+            {
+                VistaLogin.idioma = 0;
+                cambiarIdioma.Text = "Español";
+                button1.Text = "Login";
+                btnRegistrar.Text = "Register";
+                txtUsuario.Text = "USER";
+                txtContrasena.Text = "PASSWORD";
+                txtNombre.Text = "NAME";
+                txtMail.Text = "EMAIL";
+                checkAdmin.Text = "Is Admin?";
+                button2.Text = "Register";
+                label2.Text = "Register";
+            }
+            else if (VistaLogin.idioma == 0)
+            {
+                VistaLogin.idioma = 1;
+                cambiarIdioma.Text = "English";
+                button1.Text = "Ingresar";
+                btnRegistrar.Text = "Registrar";
+                txtUsuario.Text = "USUARIO";
+                txtContrasena.Text = "CONTRASEÑA";
+                txtNombre.Text = "NOMBRE";
+                txtMail.Text = "MAIL";
+                checkAdmin.Text = "¿Es Admin?";
+                button2.Text = "Registrarse";
+                label2.Text = "Registrarse";
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -175,8 +215,9 @@ namespace TP2_Grupo4.Views
 
         private void cambiarIdioma_Click(object sender, EventArgs e)
         {
-            if (cambiarIdioma.Text == "English")
+            if (VistaLogin.idioma == 1)
             {
+                VistaLogin.idioma = 0;
                 cambiarIdioma.Text = "Español";
                 button1.Text = "Login";
                 btnRegistrar.Text = "Register";
@@ -188,8 +229,9 @@ namespace TP2_Grupo4.Views
                 button2.Text = "Register";
                 label2.Text = "Register";
             }
-            else if (cambiarIdioma.Text == "Español")
+            else if (VistaLogin.idioma == 0)
             {
+                VistaLogin.idioma = 1;
                 cambiarIdioma.Text = "English";
                 button1.Text = "Ingresar";
                 btnRegistrar.Text = "Registrar";
@@ -202,5 +244,7 @@ namespace TP2_Grupo4.Views
                 label2.Text = "Registrarse";
             }
         }
+
+       
     }
 }

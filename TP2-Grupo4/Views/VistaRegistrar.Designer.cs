@@ -120,7 +120,7 @@ namespace TP2_Grupo4.Views
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(181, 60);
             this.btnRegistrar.TabIndex = 6;
-            this.btnRegistrar.Text = "Registrar";
+            this.btnRegistrar.Text = btnRegistrarText;
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
@@ -134,7 +134,7 @@ namespace TP2_Grupo4.Views
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(333, 68);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Registrarse";
+            this.label2.Text = label2Text;
             // 
             // panel3
             // 
@@ -153,7 +153,7 @@ namespace TP2_Grupo4.Views
             this.txtContrasena.Name = "txtContrasena";
             this.txtContrasena.Size = new System.Drawing.Size(175, 16);
             this.txtContrasena.TabIndex = 2;
-            this.txtContrasena.Text = "CONTRASEÑA";
+            this.txtContrasena.Text = txtContrasenaText;
             this.txtContrasena.UseSystemPasswordChar = true;
             this.txtContrasena.Enter += new System.EventHandler(this.txtContrasena_Enter);
             this.txtContrasena.Leave += new System.EventHandler(this.txtContrasena_Leave);
@@ -167,7 +167,7 @@ namespace TP2_Grupo4.Views
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(175, 16);
             this.txtUsuario.TabIndex = 1;
-            this.txtUsuario.Text = "DNI";
+            this.txtUsuario.Text = txtUsuarioText;
             this.txtUsuario.Enter += new System.EventHandler(this.txtUsuario_Enter);
             this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             this.txtUsuario.Leave += new System.EventHandler(this.txtUsuario_Leave);
@@ -197,7 +197,7 @@ namespace TP2_Grupo4.Views
             this.txtMail.Name = "txtMail";
             this.txtMail.Size = new System.Drawing.Size(175, 16);
             this.txtMail.TabIndex = 4;
-            this.txtMail.Text = "EMAIL";
+            this.txtMail.Text = txtMailText;
             this.txtMail.Enter += new System.EventHandler(this.textBox1_Enter);
             this.txtMail.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
@@ -210,7 +210,7 @@ namespace TP2_Grupo4.Views
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(175, 16);
             this.txtNombre.TabIndex = 3;
-            this.txtNombre.Text = "NOMBRE";
+            this.txtNombre.Text = txtNombreText;
             this.txtNombre.Enter += new System.EventHandler(this.textBox2_Enter);
             this.txtNombre.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
@@ -222,7 +222,7 @@ namespace TP2_Grupo4.Views
             this.checkAdmin.Name = "checkAdmin";
             this.checkAdmin.Size = new System.Drawing.Size(86, 19);
             this.checkAdmin.TabIndex = 5;
-            this.checkAdmin.Text = "¿Es Admin?";
+            this.checkAdmin.Text = checkAdminText;
             this.checkAdmin.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -238,7 +238,7 @@ namespace TP2_Grupo4.Views
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(251, 40);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Ingresar";
+            this.button1.Text = button1Text;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -256,7 +256,7 @@ namespace TP2_Grupo4.Views
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(251, 40);
             this.button2.TabIndex = 0;
-            this.button2.Text = "Registrarse";
+            this.button2.Text = button2Text;
             this.button2.UseVisualStyleBackColor = false;
             // 
             // pictureBox2
@@ -294,7 +294,7 @@ namespace TP2_Grupo4.Views
             this.cambiarIdioma.Name = "cambiarIdioma";
             this.cambiarIdioma.Size = new System.Drawing.Size(111, 41);
             this.cambiarIdioma.TabIndex = 0;
-            this.cambiarIdioma.Text = "English";
+            this.cambiarIdioma.Text = cambiarIdiomaText;
             this.cambiarIdioma.UseVisualStyleBackColor = false;
             this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
             // 

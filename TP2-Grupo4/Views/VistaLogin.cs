@@ -22,14 +22,44 @@ namespace TP2_Grupo4.Views
         private int contadorDeIntentos;
         private int dniIngresado;
 
+        private string cambiarIdiomaText = "Español";
+        private string button1Text = "Login";
+        private string btnLoginText = "Login";
+        private string btnRegistrarText = "Register";
+        private string lblRecuperarText = "Forgot password?";
+        private string txtContrasenaText = "PASSWORD";
+        private string label2Text = "Login";
+
         private AgenciaManager agencia;
 
+        public static int idioma = 0;
         public VistaLogin()
         {
             this.agencia = new AgenciaManager();
             this.contadorDeIntentos = 0;
             this.dniIngresado = 0;
-
+            if (idioma == 0)
+            {
+                idioma = 1;
+                cambiarIdiomaText = "Español";
+                button1Text = "Login";
+                btnLoginText = "Login";
+                btnRegistrarText = "Register";
+                lblRecuperarText = "Forgot password?";
+                txtContrasenaText = "PASSWORD";
+                label2Text = "Login";
+            }
+            else if (idioma == 1)
+            {
+                idioma = 0;
+                cambiarIdiomaText = "English";
+                button1Text = "Ingresar";
+                btnLoginText = "Ingresar";
+                btnRegistrarText = "Registrarse";
+                lblRecuperarText = "¿Ha olvidado su contraseña?";
+                txtContrasenaText = "CONTRASEÑA";
+                label2Text = "Ingresar";
+            }
             InitializeComponent();
         }
 
@@ -221,8 +251,9 @@ namespace TP2_Grupo4.Views
 
         private void cambiarIdioma_Click(object sender, EventArgs e)
         {
-            if(cambiarIdioma.Text == "English")
+            if(idioma == 0)
             {
+                idioma = 1;
                 cambiarIdioma.Text = "Español";
                 button1.Text = "Login";
                 btnLogin.Text = "Login";
@@ -231,8 +262,9 @@ namespace TP2_Grupo4.Views
                 txtContrasena.Text = "PASSWORD";
                 label2.Text = "Login";
             }
-            else if (cambiarIdioma.Text == "Español")
+            else if (idioma == 1)
             {
+                idioma = 0;
                 cambiarIdioma.Text = "English";
                 button1.Text = "Ingresar";
                 btnLogin.Text = "Ingresar";
