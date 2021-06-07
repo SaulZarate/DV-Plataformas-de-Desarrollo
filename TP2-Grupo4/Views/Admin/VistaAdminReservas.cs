@@ -12,11 +12,36 @@ namespace TP2_Grupo4.Views
     public partial class VistaAdminReservas : Form
     {
         AgenciaManager agencia = new AgenciaManager();
-        public VistaAdminReservas()
+        public VistaAdminReservas(string idioma)
         {
             InitializeComponent();
             dateTimeHasta.MinDate = DateTime.Now;
             dateTimeDesde.MinDate = DateTime.Now;
+
+            if (idioma == "Español")
+            {
+                lblReservas.Text = "Reservas";
+                label1.Text = "ID Alojamiento:";
+                Localidad.Text = "DNI:";
+                TBDesde.Text = "Desde:";
+                Estrellas.Text = "Hasta:";
+                Precio.Text = "Precio:";
+                ID.Text = "ID Reserva:";
+                Modificar.Text = "Modificar";
+                groupBox1.Text = "Ordenamiento";
+            }
+            else if (idioma == "English")
+            {
+                lblReservas.Text = "Reservations";
+                label1.Text = "Accommodation ID:";
+                Localidad.Text = "DNI:";
+                TBDesde.Text = "Since:";
+                Estrellas.Text = "Until:";
+                Precio.Text = "Price:";
+                ID.Text = "Reservation ID:";
+                Modificar.Text = "Modify";
+                groupBox1.Text = "Ordering";
+            }
         }
 
         private void VistaAdminReservas_Load(object sender, EventArgs e)
@@ -79,7 +104,7 @@ namespace TP2_Grupo4.Views
             dgvReservas.Refresh();
         }
 
-        private void getReservasFromTextFile()
+        /*private void getReservasFromTextFile()
         {
             // Limpiamos el GridView
             dgvReservas.Rows.Clear();
@@ -101,7 +126,7 @@ namespace TP2_Grupo4.Views
             // Update y Regresheo de Grid
             dgvReservas.Update();
             dgvReservas.Refresh();
-        }
+        }*/
 
         #region Buttons Click
         private void Modificar_Click(object sender, EventArgs e)

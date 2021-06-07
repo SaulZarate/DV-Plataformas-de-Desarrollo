@@ -15,10 +15,20 @@ namespace TP2_Grupo4.Views
     {
         private AgenciaManager agencia;
 
-        public VistaAdminAlojamiento()
+        public VistaAdminAlojamiento(string idioma)
         {
             InitializeComponent();
             this.agencia = new AgenciaManager();
+            if (idioma == "Español")
+            {
+                lblAlojamiento.Text = "Alojamientos";
+                label1.Text = "Tipo:";
+            }
+            else if (idioma == "English")
+            {
+                lblAlojamiento.Text = "Lodgings";
+                label1.Text = "Type:";
+            }
         }
 
         private void FormAlojamiento_Load(object sender, EventArgs e)
@@ -69,8 +79,5 @@ namespace TP2_Grupo4.Views
                 getTextAlojamientos();
             }
         }
-
-        //lblAlojamiento.Text = "Alojamientos";
-        //label1.Text = "Tipo:";
     }
 }

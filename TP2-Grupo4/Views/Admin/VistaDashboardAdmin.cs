@@ -15,6 +15,8 @@ namespace TP2_Grupo4.Views
         private Panel leftBorderBtn;
         private Form currentChildForm;
         private AgenciaManager agencia;
+        public static string idioma;
+        private int num;
 
         public VistaDashboardAdmin(AgenciaManager userLogged)
         {
@@ -58,18 +60,21 @@ namespace TP2_Grupo4.Views
         private void btnAlojamiento_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.secondary);
-            OpenChildForm(new VistaAdminAlojamiento());
+            OpenChildForm(new VistaAdminAlojamiento(idioma));
             showSubMenu(panelAlojamientoSubmenu);
+            num = 1;
         }
 
         private void btnHoteles_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new VistaAdminHoteles());
+            OpenChildForm(new VistaAdminHoteles(idioma));
+            num = 2;
         }
 
         private void btnCabanias_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new VistaAdminCabanias());
+            OpenChildForm(new VistaAdminCabanias(idioma));
+            num = 3;
         }
 
         // TODO: Mostrar Reservas
@@ -77,14 +82,16 @@ namespace TP2_Grupo4.Views
         {
             hideSubMenu();
             ActivateButton(sender, RGBColors.secondary);
-            OpenChildForm(new VistaAdminReservas());
+            OpenChildForm(new VistaAdminReservas(idioma));
+            num = 4;
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             hideSubMenu();
             ActivateButton(sender, RGBColors.secondary);
-            OpenChildForm(new VistaAdminUsuario());
+            OpenChildForm(new VistaAdminUsuario(idioma));
+            num = 5;
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -193,6 +200,27 @@ namespace TP2_Grupo4.Views
                 btnReservas.Text = "Bookings";
                 btnUsuarios.Text = "Users";
                 btnCerrarSesion.Text = "Sign Off";
+                idioma = "English";
+                if (num == 1)
+                {
+                    OpenChildForm(new VistaAdminAlojamiento(idioma));
+                }
+                if (num == 2)
+                {
+                    OpenChildForm(new VistaAdminHoteles(idioma));
+                }
+                if (num == 3)
+                {
+                    OpenChildForm(new VistaAdminCabanias(idioma));
+                }
+                if (num == 4)
+                {
+                    OpenChildForm(new VistaAdminReservas(idioma));
+                }
+                if(num == 5)
+                {
+                    OpenChildForm(new VistaAdminUsuario(idioma));
+                }
             }
             else if (cambiarIdioma.Text == "Español")
             {
@@ -203,6 +231,27 @@ namespace TP2_Grupo4.Views
                 btnReservas.Text = "Reservas";
                 btnUsuarios.Text = "Usuarios";
                 btnCerrarSesion.Text = "Cerrar Sesión";
+                idioma = "Español";
+                if (num == 1)
+                {
+                    OpenChildForm(new VistaAdminAlojamiento(idioma));
+                }
+                if (num == 2)
+                {
+                    OpenChildForm(new VistaAdminHoteles(idioma));
+                }
+                if (num == 3)
+                {
+                    OpenChildForm(new VistaAdminCabanias(idioma));
+                }
+                if (num == 4)
+                {
+                    OpenChildForm(new VistaAdminReservas(idioma));
+                }
+                if (num == 5)
+                {
+                    OpenChildForm(new VistaAdminUsuario(idioma));
+                }
             }
         }
     }

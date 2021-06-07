@@ -14,10 +14,37 @@ namespace TP2_Grupo4.Views
     {
         private AgenciaManager agencia;
 
-        public VistaAdminHoteles()
+        public VistaAdminHoteles(string idioma)
         {
             InitializeComponent();
             this.agencia = new AgenciaManager();
+
+            if (idioma == "Español")
+            {
+                lblHoteles.Text = "Hoteles";
+                label10.Text = "Código:";
+                label7.Text = "Ciudad:";
+                label4.Text = "Barrio:";
+                label2.Text = "Cantidad de Personas";
+                label5.Text = "Estrellas";
+                checkBoxTv.Text = "¿Tiene Tv?";
+                label3.Text = "Precio";
+                btnTopModificar.Text = "Modificar";
+                btnTopAgregar.Text = "Agregar";
+            }
+            else if (idioma == "English")
+            {
+                lblHoteles.Text = "Hotels";
+                label10.Text = "Code:";
+                label7.Text = "Town:";
+                label4.Text = "Neighborhood:";
+                label2.Text = "Amount of people";
+                label5.Text = "Stars";
+                checkBoxTv.Text = "Have a TV?";
+                label3.Text = "Price";
+                btnTopModificar.Text = "Modify";
+                btnTopAgregar.Text = "Add";
+            }
         }
 
         private void FormHoteles_Load(object sender, EventArgs e)
@@ -277,15 +304,5 @@ namespace TP2_Grupo4.Views
                 return;
             }
         }
-
-        /*lblHoteles.Text = "Cabañas";
-        label1.Text = "Código:";
-        label7.Text = "Ciudad:";
-        label4.Text = "Barrio:";
-        label2.Text = "Cantidad de Personas";
-        label5.Text = "Estrellas";
-        checkBoxTv.Text = "¿Tiene Tv?";
-        label3.Text = "Precio";
-        btnTopModificar.Text = "Modificar";*/
     }
 }

@@ -14,11 +14,20 @@ namespace TP2_Grupo4.Views
         AgenciaManager agencia = new AgenciaManager();
         List<Reserva> reservasDelUsuario;
 
-        public VistaReservasCliente(AgenciaManager agenciaManager)
+        public VistaReservasCliente(AgenciaManager agenciaManager, string idioma)
         {
             InitializeComponent();
             this.agencia = agenciaManager;
             this.reservasDelUsuario = agenciaManager.GetAllReservasForUsuario(agenciaManager.GetUsuarioLogeado().GetDni());
+
+            if (idioma == "Español")
+            {
+                label1.Text = "Reservaciones";
+            }
+            else if (idioma == "English")
+            {
+                label1.Text = "Reservations";
+            }
         }
 
         // CREACION DEL CONTENIDO DEL DATAGRIDVIEW
@@ -80,7 +89,5 @@ namespace TP2_Grupo4.Views
                 }
             }
         }
-
-        //label1.Text = "Reservaciones";
     }
 }
