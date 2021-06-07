@@ -14,38 +14,29 @@ namespace TP2_Grupo4.Views
     {
         private AgenciaManager agencia;
 
-
-        private string cambiarIdiomaText = "Español";
-        private string button1Text = "Login";
-        private string btnRegistrarText = "Register";
-        private string txtContrasenaText = "NEW PASSWORD";
-        private string txtRepetirContrasenaText = "REPEAT PASSWORD";
-        private string button2Text = "Register";
-        private string label2Text = "Change Password";
         public VistaRecuperar()
         {
-         
             InitializeComponent();
             this.agencia = new AgenciaManager();
-            if (VistaLogin.idioma == 1)
-            {
-                cambiarIdiomaText = "Español";
-                button1Text = "Login";
-                btnRegistrarText = "Register";
-                txtContrasenaText = "NEW PASSWORD";
-                txtRepetirContrasenaText = "REPEAT PASSWORD";
-                button2Text = "Register";
-                label2Text = "Change Password";
-            }
             if (VistaLogin.idioma == 0)
             {
-                cambiarIdiomaText = "English";
-                button1Text = "Ingresar";
-                btnRegistrarText = "Registrarse";
-                txtContrasenaText = "CONTRASEÑA NUEVA";
-                txtRepetirContrasenaText = "REPETIR CONTRASEÑA";
-                button2Text = "Registrarse";
-                label2Text = "Cambiar Contraseña";
+                cambiarIdioma.Text = "Español";
+                button1.Text = "Login";
+                btnRegistrar.Text = "Register";
+                txtContrasena.Text = "NEW PASSWORD";
+                txtRepetirContrasena.Text = "REPEAT PASSWORD";
+                button2.Text = "Register";
+                label2.Text = "Change Password";
+            }
+            if (VistaLogin.idioma == 1)
+            {
+                cambiarIdioma.Text = "English";
+                button1.Text = "Ingresar";
+                btnRegistrar.Text = "Registrarse";
+                txtContrasena.Text = "CONTRASEÑA NUEVA";
+                txtRepetirContrasena.Text = "REPETIR CONTRASEÑA";
+                button2.Text = "Registrarse";
+                label2.Text = "Cambiar Contraseña";
             }
 
         }
@@ -243,9 +234,9 @@ namespace TP2_Grupo4.Views
 
         private void cambiarIdioma_Click(object sender, EventArgs e)
         {
-            if (VistaLogin.idioma == 1)
+            if (VistaLogin.idioma == 0)
             {
-                VistaLogin.idioma = 0;
+                VistaLogin.idioma = 1;
                 cambiarIdioma.Text = "Español";
                 button1.Text = "Login";
                 btnRegistrar.Text = "Register";
@@ -254,9 +245,9 @@ namespace TP2_Grupo4.Views
                 button2.Text = "Register";
                 label2.Text = "Change Password";
             }
-            else if (VistaLogin.idioma == 0)
+            else if (VistaLogin.idioma == 1)
             {
-                VistaLogin.idioma = 1;
+                VistaLogin.idioma = 0;
                 cambiarIdioma.Text = "English";
                 button1.Text = "Ingresar";
                 btnRegistrar.Text = "Registrarse";

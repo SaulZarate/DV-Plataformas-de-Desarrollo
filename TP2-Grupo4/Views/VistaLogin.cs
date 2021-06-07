@@ -22,45 +22,35 @@ namespace TP2_Grupo4.Views
         private int contadorDeIntentos;
         private int dniIngresado;
 
-        private string cambiarIdiomaText = "Español";
-        private string button1Text = "Login";
-        private string btnLoginText = "Login";
-        private string btnRegistrarText = "Register";
-        private string lblRecuperarText = "Forgot password?";
-        private string txtContrasenaText = "PASSWORD";
-        private string label2Text = "Login";
-
         private AgenciaManager agencia;
 
         public static int idioma = 0;
         public VistaLogin()
         {
+            InitializeComponent();
             this.agencia = new AgenciaManager();
             this.contadorDeIntentos = 0;
             this.dniIngresado = 0;
             if (idioma == 0)
             {
-                idioma = 1;
-                cambiarIdiomaText = "Español";
-                button1Text = "Login";
-                btnLoginText = "Login";
-                btnRegistrarText = "Register";
-                lblRecuperarText = "Forgot password?";
-                txtContrasenaText = "PASSWORD";
-                label2Text = "Login";
+                cambiarIdioma.Text = "Español";
+                button1.Text = "Login";
+                btnLogin.Text = "Login";
+                btnRegistrar.Text = "Register";
+                lblRecuperar.Text = "Forgot password?";
+                txtContrasena.Text = "PASSWORD";
+                label2.Text = "Login";
             }
             else if (idioma == 1)
             {
-                idioma = 0;
-                cambiarIdiomaText = "English";
-                button1Text = "Ingresar";
-                btnLoginText = "Ingresar";
-                btnRegistrarText = "Registrarse";
-                lblRecuperarText = "¿Ha olvidado su contraseña?";
-                txtContrasenaText = "CONTRASEÑA";
-                label2Text = "Ingresar";
+                cambiarIdioma.Text = "English";
+                button1.Text = "Ingresar";
+                btnLogin.Text = "Ingresar";
+                btnRegistrar.Text = "Registrarse";
+                lblRecuperar.Text = "¿Ha olvidado su contraseña?";
+                txtContrasena.Text = "CONTRASEÑA";
+                label2.Text = "Ingresar";
             }
-            InitializeComponent();
         }
 
         private void txtUsuario_Enter(object sender, EventArgs e)

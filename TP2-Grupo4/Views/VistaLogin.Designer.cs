@@ -86,7 +86,7 @@ namespace TP2_Grupo4.Views
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            this.btnLogin.Text = btnLoginText;
+            this.btnLogin.Text = "Ingresar";
             // 
             // txtUsuario
             // 
@@ -133,7 +133,7 @@ namespace TP2_Grupo4.Views
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Name = "label2";
-            this.label2.Text = label2Text;
+            this.label2.Text = "Ingresar";
             // 
             // btnRegistrar
             // 
@@ -146,7 +146,7 @@ namespace TP2_Grupo4.Views
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
-            this.btnRegistrar.Text = btnRegistrarText;
+            this.btnRegistrar.Text = "Registrarse";
             // 
             // panel1
             // 
@@ -181,7 +181,7 @@ namespace TP2_Grupo4.Views
             this.cambiarIdioma.Name = "cambiarIdioma";
             this.cambiarIdioma.Size = new System.Drawing.Size(111, 41);
             this.cambiarIdioma.TabIndex = 0;
-            this.cambiarIdioma.Text = cambiarIdiomaText;
+            this.cambiarIdioma.Text = "English";
             this.cambiarIdioma.UseVisualStyleBackColor = false;
             this.cambiarIdioma.Click += new System.EventHandler(this.cambiarIdioma_Click);
             // 
@@ -193,7 +193,7 @@ namespace TP2_Grupo4.Views
             this.lblRecuperar.Name = "lblRecuperar";
             this.lblRecuperar.TabStop = true;
             this.lblRecuperar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblRecuperar_LinkClicked);
-            this.lblRecuperar.Text = lblRecuperarText;
+            this.lblRecuperar.Text = "";
             // 
             // panel4
             // 
@@ -223,7 +223,7 @@ namespace TP2_Grupo4.Views
             this.button1.ForeColor = System.Drawing.SystemColors.Info;
             this.button1.Name = "button1";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Text = button1Text;
+            this.button1.Text = "";
             // 
             // pictureBox4
             // 
