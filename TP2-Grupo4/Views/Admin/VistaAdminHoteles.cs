@@ -14,7 +14,7 @@ namespace TP2_Grupo4.Views
     {
         private AgenciaManager agencia;
 
-        public VistaAdminHoteles()
+        public VistaAdminHoteles(string idioma)
         {
             InitializeComponent();
             this.agencia = new AgenciaManager();

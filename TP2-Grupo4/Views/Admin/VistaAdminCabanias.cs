@@ -13,7 +13,7 @@ namespace TP2_Grupo4.Views
     {
         private AgenciaManager agencia;
 
-        public VistaAdminCabanias()
+        public VistaAdminCabanias(string idioma)
         {
             InitializeComponent();
             this.agencia = new AgenciaManager();

@@ -13,9 +13,29 @@ namespace TP2_Grupo4.Views
     public partial class VistaAdminUsuario : Form
     {
         AgenciaManager agencia = new AgenciaManager();
-        public VistaAdminUsuario()
+        public VistaAdminUsuario(string idioma)
         {
             InitializeComponent();
+            if (idioma == "Español")
+            {
+                lblUsuarios.Text = "Usuarios";
+                lblDni.Text = "DNI";
+                lblNombre.Text = "Nombre";
+                lblBarrio.Text = "Email";
+                checkBoxAdmin.Text = "Admin";
+                checkBoxBloqueado.Text = "Bloqueado";
+                btnTopModificar.Text = "Modificar";
+            }
+            else if (idioma == "English")
+            {
+                lblUsuarios.Text = "User";
+                lblDni.Text = "DNI";
+                lblNombre.Text = "Name";
+                lblBarrio.Text = "Email";
+                checkBoxAdmin.Text = "Admin";
+                checkBoxBloqueado.Text = "Blocked";
+                btnTopModificar.Text = "Modify";
+            }
         }
 
         private void VistaUsuario_Load(object sender, EventArgs e)
@@ -200,25 +220,5 @@ namespace TP2_Grupo4.Views
 
         #endregion
 
-        /*if (variableGlobal == "Español")
-        {
-            lblUsuarios.Text = "Usuarios";
-            lblDni.Text = "DNI";
-            lblNombre.Text = "Nombre";
-            lblBarrio.Text = "Email";
-            checkBoxAdmin.Text = "Admin";
-            checkBoxBloqueado.Text = "Bloqueado";
-            btnTopModificar.Text = "Modificar";
-        }
-        else if (variableGlobal == "English")
-        {
-            lblUsuarios.Text = "User";
-            lblDni.Text = "DNI";
-            lblNombre.Text = "Name";
-            lblBarrio.Text = "Email";
-            checkBoxAdmin.Text = "Admin";
-            checkBoxBloqueado.Text = "Blocked";
-            btnTopModificar.Text = "Modify";
-        }*/
     }
 }
