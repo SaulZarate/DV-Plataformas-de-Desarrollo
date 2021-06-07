@@ -78,20 +78,9 @@ namespace TP2_Grupo4.Views
             dgvReservas.Columns.Add(btnModificar);
             dgvReservas.Columns.Add(btnBorrar);
             dgvReservas.ReadOnly = true;
-            //getReservasFromTextFile();
             llenarDataGridView();
         }
 
-        /*private void getReservasFromDb()
-        {
-            dgvReservas.Rows.Clear();
-            List<Reserva> reservas = this.agencia.GetReservas();
-
-            //Reserva.GetAll();
-
-            dgvReservas.Update();
-            dgvReservas.Refresh();
-        }*/
         private void llenarDataGridView()
         {
 
@@ -104,31 +93,7 @@ namespace TP2_Grupo4.Views
             dgvReservas.Refresh();
         }
 
-        /*private void getReservasFromTextFile()
-        {
-            // Limpiamos el GridView
-            dgvReservas.Rows.Clear();
-
-            List<Reserva> reservas = this.agencia.GetReservas();
-
-            foreach (Reserva reserva in reservas)
-            {
-                this.dgvReservas.Rows.Add(
-                    reserva.GetId(),
-                    reserva.GetFechaDesde(),
-                    reserva.GetFechaHasta(),
-                    reserva.GetAlojamiento().GetCodigo(),
-                    reserva.GetUsuario().GetDni(),
-                    reserva.GetPrecio()
-                );
-            }
-
-            // Update y Regresheo de Grid
-            dgvReservas.Update();
-            dgvReservas.Refresh();
-        }*/
-
-        #region Buttons Click
+        #region On Click
         private void Modificar_Click(object sender, EventArgs e)
         {
            
@@ -144,22 +109,9 @@ namespace TP2_Grupo4.Views
             dateTimeHasta.MinDate = DateTime.Now;
 
             clearAllControls();
-            //dgvReservas.Rows.Clear();
-            //getReservasFromTextFile();
             llenarDataGridView();
 
         }
-        //private void ButtonBorrar_Click(object sender, EventArgs e)
-        //{
-        //    String id = textBoxID.Text;
-
-        //    this.agencia.EliminarReserva(id);
-        //    clearAllControls();
-        //    //dgvReservas.Rows.Clear();
-        //    //llenarDataGridView();
-        //}
-        #endregion
-
         private void dgvReservas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             // Si hacemos click en Button BORRAR
@@ -179,15 +131,11 @@ namespace TP2_Grupo4.Views
                     if (this.agencia.EliminarReserva(codigo))
                     {
                         MessageBox.Show("Reserva eliminada con exito");
-                    } else
+                    }
+                    else
                     {
                         MessageBox.Show("No se pudo eliminar la Reserva. Intente nuevamente");
                     }
-
-                    // Actualizar GridView
-                    //dgvReservas.Rows.Clear();
-                    //getReservasFromTextFile();
-                    //llenarDataGridView();
                 }
             }
 
@@ -196,16 +144,15 @@ namespace TP2_Grupo4.Views
                 if (MessageBox.Show("Estas seguro que quieres modificar esta reserva?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     Modificar.Enabled = true;
-                   
+
                     dateTimeDesde.MinDate = Convert.ToDateTime(dgvReservas.CurrentRow.Cells[1].Value);
                     dateTimeHasta.MinDate = Convert.ToDateTime(dgvReservas.CurrentRow.Cells[2].Value);
                     rellenarDatos();
-                    //getReservasFromTextFile();
                 }
             }
 
         }
-        
+        #endregion
 
         #region Helpers
         private void rellenarDatos()
@@ -243,16 +190,6 @@ namespace TP2_Grupo4.Views
             }
         }
         #endregion
-
-        /*lblReservas.Text = "Reservas";
-        label1.Text = "ID Alojamiento:";
-        Localidad.Text = "DNI:";
-        TBDesde.Text = "Desde:";
-        Estrellas.Text = "Hasta:";
-        Precio.Text = "Precio:";
-        ID.Text = "ID Reserva:";
-        Modificar.Text = "Modificar";*/
-
     }
 
 }

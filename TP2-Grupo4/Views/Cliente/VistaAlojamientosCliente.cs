@@ -182,6 +182,7 @@ namespace TP2_Grupo4.Views
             this.llenarDataGridView();
         }
 
+        #region On Click
         /* BOTON FILTRAR */
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
@@ -282,6 +283,7 @@ namespace TP2_Grupo4.Views
                 }
             }
         }
+        #endregion
 
         /* VALIDAR LOS INPUTS DE PRECIOS */
         private void inputPrecioMin_TextChanged(object sender, EventArgs e)

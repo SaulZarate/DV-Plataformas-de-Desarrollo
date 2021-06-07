@@ -156,6 +156,8 @@ namespace TP2_Grupo4.Views
         }
         #endregion
 
+
+        #region On Click
         // BORRAR CABANIA
         private void dgvCabanias_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -292,7 +294,9 @@ namespace TP2_Grupo4.Views
             getCabaniasFromTextFile();
             txtCodigo.Enabled = true;
         }
+        #endregion
 
+        #region Key Pressed
         private void txtPrecioDia_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -312,5 +316,6 @@ namespace TP2_Grupo4.Views
                 return;
             }
         }
+        #endregion
     }
 }

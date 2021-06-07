@@ -154,6 +154,7 @@ namespace TP2_Grupo4.Views
 
         #endregion
 
+        #region On Click
         // Click en Contenido de la Celda
         private void dgvHoteles_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -172,7 +173,8 @@ namespace TP2_Grupo4.Views
                     if (this.agencia.EliminarAlojamiento(codigo))
                     {
                         MessageBox.Show("Hotel eliminado junto con todas sus reservas");
-                    }else
+                    }
+                    else
                     {
                         MessageBox.Show("No se pudo eliminar el Hotel. Intente nuevamente");
                     }
@@ -193,8 +195,6 @@ namespace TP2_Grupo4.Views
             }
 
         }
-
-        #region Button Click Events
 
         // onClick Boton Modificar
         private void btnTopModificar_Click(object sender, EventArgs e)
@@ -285,6 +285,7 @@ namespace TP2_Grupo4.Views
 
         #endregion
 
+        #region Key Pressed
         private void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -304,5 +305,6 @@ namespace TP2_Grupo4.Views
                 return;
             }
         }
+        #endregion
     }
 }

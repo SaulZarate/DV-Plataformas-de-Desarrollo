@@ -61,6 +61,7 @@ namespace TP2_Grupo4.Views
                 dgvReservaciones.Rows.Add(reserva.ToArray());
         }
 
+        #region On Click
         // BOTON CANCELAR DEL DATAGRIDVIEW
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -89,5 +90,6 @@ namespace TP2_Grupo4.Views
                 }
             }
         }
+        #endregion
     }
 }

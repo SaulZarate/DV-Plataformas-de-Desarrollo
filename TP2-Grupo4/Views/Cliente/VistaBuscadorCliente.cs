@@ -41,6 +41,7 @@ namespace TP2_Grupo4.Views.Cliente
             }
         }
 
+        #region On Click
         // BOTTON BUSCAR
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -58,9 +59,6 @@ namespace TP2_Grupo4.Views.Cliente
                 return;
             }
 
-
-            // Reseteo los inputs del formulario
-            //this.resetFormularioDeBusqueda();
             // Muestro los datos
             this.llenarDataGridView(this.agencia.BuscarDeAlojamientosPorCiudadYFechas(inputCiudad, this.fechaDesde, this.fechaHasta));
         }
@@ -100,13 +98,8 @@ namespace TP2_Grupo4.Views.Cliente
                 this.resetFormularioDeBusqueda();
                 this.limpiarDataGridView();
             }
-
-            //System.Diagnostics.Debug.WriteLine($"Codigo del alojamiento: {codigoDelAlojamiento}");
-            //System.Diagnostics.Debug.WriteLine($"Tipo del alojamiento: {tipoAlojamiento}");
-            //System.Diagnostics.Debug.WriteLine($"DNI del usuario: {dni}");
-            //System.Diagnostics.Debug.WriteLine($"Dias totales: {cantidadDeDias}");
-            //System.Diagnostics.Debug.WriteLine($"Precio Total: {precioDeLaReserva}");
         }
+        #endregion
 
         #region HELPERS
 

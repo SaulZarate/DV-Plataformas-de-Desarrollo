@@ -22,7 +22,7 @@ namespace TP2_Grupo4.Views
                 cambiarIdioma.Text = "Español";
                 button1.Text = "Login";
                 btnRegistrar.Text = "Register";
-                txtUsuario.Text = "USER";
+                txtUsuario.Text = "DNI";
                 txtContrasena.Text = "PASSWORD";
                 txtNombre.Text = "NAME";
                 txtMail.Text = "EMAIL";
@@ -35,7 +35,7 @@ namespace TP2_Grupo4.Views
                 cambiarIdioma.Text = "English";
                 button1.Text = "Ingresar";
                 btnRegistrar.Text = "Registrar";
-                txtUsuario.Text = "USUARIO";
+                txtUsuario.Text = "DNI";
                 txtContrasena.Text = "CONTRASEÑA";
                 txtNombre.Text = "NOMBRE";
                 txtMail.Text = "MAIL";
@@ -66,7 +66,7 @@ namespace TP2_Grupo4.Views
 
         private void txtContrasena_Enter(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == "CONTRASEÑA")
+            if (txtContrasena.Text == "CONTRASEÑA" || txtContrasena.Text == "PASSWORD")
             {
                 txtContrasena.Text = "";
                 txtContrasena.ForeColor = Color.LightGray;
@@ -75,16 +75,21 @@ namespace TP2_Grupo4.Views
 
         private void txtContrasena_Leave(object sender, EventArgs e)
         {
-            if (txtContrasena.Text == "")
+            if (txtContrasena.Text == "" && cambiarIdioma.Text == "English")
             {
                 txtContrasena.Text = "CONTRASEÑA";
+                txtContrasena.ForeColor = Color.DimGray;
+            }
+            else if (txtContrasena.Text == "" && cambiarIdioma.Text == "Español")
+            {
+                txtContrasena.Text = "PASSWORD";
                 txtContrasena.ForeColor = Color.DimGray;
             }
         }
 
         private void textBox2_Enter(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "NOMBRE")
+            if (txtNombre.Text == "NOMBRE" || txtNombre.Text == "NAME")
             {
                 txtNombre.Text = "";
                 txtNombre.ForeColor = Color.LightGray;
@@ -93,16 +98,21 @@ namespace TP2_Grupo4.Views
 
         private void textBox2_Leave(object sender, EventArgs e)
         {
-            if (txtNombre.Text == "")
+            if (txtNombre.Text == "" && cambiarIdioma.Text == "English")
             {
                 txtNombre.Text = "NOMBRE";
+                txtNombre.ForeColor = Color.DimGray;
+            }
+            else if (txtNombre.Text == "" && cambiarIdioma.Text == "Español")
+            {
+                txtNombre.Text = "NAME";
                 txtNombre.ForeColor = Color.DimGray;
             }
         }
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
-            if (txtMail.Text == "EMAIL")
+            if (txtMail.Text == "EMAIL" || txtMail.Text == "MAIL")
             {
                 txtMail.Text = "";
                 txtMail.ForeColor = Color.LightGray;
@@ -111,7 +121,12 @@ namespace TP2_Grupo4.Views
 
         private void textBox1_Leave(object sender, EventArgs e)
         {
-            if (txtMail.Text == "")
+            if (txtMail.Text == "" && cambiarIdioma.Text == "English")
+            {
+                txtMail.Text = "MAIL";
+                txtMail.ForeColor = Color.DimGray;
+            }
+            else if (txtMail.Text == "" && cambiarIdioma.Text == "Español")
             {
                 txtMail.Text = "EMAIL";
                 txtMail.ForeColor = Color.DimGray;
@@ -210,7 +225,7 @@ namespace TP2_Grupo4.Views
                 cambiarIdioma.Text = "English";
                 button1.Text = "Login";
                 btnRegistrar.Text = "Register";
-                txtUsuario.Text = "USER";
+                txtUsuario.Text = "DNI";
                 txtContrasena.Text = "PASSWORD";
                 txtNombre.Text = "NAME";
                 txtMail.Text = "EMAIL";
@@ -224,7 +239,7 @@ namespace TP2_Grupo4.Views
                 cambiarIdioma.Text = "Español";
                 button1.Text = "Ingresar";
                 btnRegistrar.Text = "Registrar";
-                txtUsuario.Text = "USUARIO";
+                txtUsuario.Text = "DNI";
                 txtContrasena.Text = "CONTRASEÑA";
                 txtNombre.Text = "NOMBRE";
                 txtMail.Text = "MAIL";

@@ -88,7 +88,6 @@ namespace TP2_Grupo4.Views
             dgvUsuarios.ReadOnly = true;
             groupBoxHoteles.Enabled = false;
 
-            // Get hoteles de usuarios.txt
             getUsuariosFromTextFile();
         }
 
@@ -115,6 +114,7 @@ namespace TP2_Grupo4.Views
             dgvUsuarios.Refresh();
         }
 
+        #region On Click
         // BOTON DE BORRAR USUARIO
         private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -180,6 +180,7 @@ namespace TP2_Grupo4.Views
             groupBoxHoteles.Enabled = false;
             getUsuariosFromTextFile();
         }
+        #endregion
 
         #region Helper
         private void rellenarDatos()

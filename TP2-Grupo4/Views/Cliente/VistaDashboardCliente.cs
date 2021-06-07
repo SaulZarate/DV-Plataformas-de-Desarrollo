@@ -59,9 +59,7 @@ namespace TP2_Grupo4.Views
             this.currentChildForm.Show();
         }
 
-
-        #region onClick Buttons
-        
+        #region On Click
         // BUSCADOR
         private void btnBuscador_Click(object sender, EventArgs e)
         {
@@ -85,7 +83,6 @@ namespace TP2_Grupo4.Views
             num = 3;
         }
 
-
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             VistaLogin vistaLogin = new VistaLogin();
@@ -93,9 +90,58 @@ namespace TP2_Grupo4.Views
             vistaLogin.Show();
             this.Hide();
         }
+
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cambiarIdioma_Click(object sender, EventArgs e)
+        {
+            if (cambiarIdioma.Text == "English")
+            {
+                cambiarIdioma.Text = "Español";
+                label2.Text = "Name:";
+                Form.Text = "Searcher";
+                btnAlojamiento.Text = "View Lodgings";
+                btnReservas.Text = "My Reservations";
+                btnCerrarSesion.Text = "Sign Off";
+                idioma = "English";
+                if (num == 1)
+                {
+                    OpenChildForm(new VistaBuscadorCliente(this.agencia, idioma));
+                }
+                if (num == 2)
+                {
+                    OpenChildForm(new VistaAlojamientosCliente(this.agencia, idioma));
+                }
+                if (num == 3)
+                {
+                    OpenChildForm(new VistaReservasCliente(this.agencia, idioma));
+                }
+            }
+            else if (cambiarIdioma.Text == "Español")
+            {
+                cambiarIdioma.Text = "English";
+                label2.Text = "Nombre:";
+                Form.Text = "Buscador";
+                btnAlojamiento.Text = "Ver Alojamientos";
+                btnReservas.Text = "Mis Reservas";
+                btnCerrarSesion.Text = "Cerrar Sesión";
+                idioma = "Español";
+                if (num == 1)
+                {
+                    OpenChildForm(new VistaBuscadorCliente(this.agencia, idioma));
+                }
+                if (num == 2)
+                {
+                    OpenChildForm(new VistaAlojamientosCliente(this.agencia, idioma));
+                }
+                if (num == 3)
+                {
+                    OpenChildForm(new VistaReservasCliente(this.agencia, idioma));
+                }
+            }
         }
         #endregion
 
@@ -152,53 +198,5 @@ namespace TP2_Grupo4.Views
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         #endregion
-
-        private void cambiarIdioma_Click(object sender, EventArgs e)
-        {
-            if (cambiarIdioma.Text == "English")
-            {
-                cambiarIdioma.Text = "Español";
-                label2.Text = "Name:";
-                Form.Text = "Searcher";
-                btnAlojamiento.Text = "View Lodgings";
-                btnReservas.Text = "My Reservations";
-                btnCerrarSesion.Text = "Sign Off";
-                idioma = "English";
-                if (num == 1)
-                {
-                    OpenChildForm(new VistaBuscadorCliente(this.agencia, idioma));
-                }
-                if (num == 2)
-                {
-                    OpenChildForm(new VistaAlojamientosCliente(this.agencia, idioma));
-                }
-                if (num == 3)
-                {
-                    OpenChildForm(new VistaReservasCliente(this.agencia, idioma));
-                }
-            }
-            else if (cambiarIdioma.Text == "Español")
-            {
-                cambiarIdioma.Text = "English";
-                label2.Text = "Nombre:";
-                Form.Text = "Buscador";
-                btnAlojamiento.Text = "Ver Alojamientos";
-                btnReservas.Text = "Mis Reservas";
-                btnCerrarSesion.Text = "Cerrar Sesión";
-                idioma = "Español";
-                if (num == 1)
-                {
-                    OpenChildForm(new VistaBuscadorCliente(this.agencia, idioma));
-                }
-                if (num == 2)
-                {
-                    OpenChildForm(new VistaAlojamientosCliente(this.agencia, idioma));
-                }
-                if (num == 3)
-                {
-                    OpenChildForm(new VistaReservasCliente(this.agencia, idioma));
-                }
-            }
-        }
     }
 }
