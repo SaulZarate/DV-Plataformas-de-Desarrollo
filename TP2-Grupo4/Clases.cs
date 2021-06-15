@@ -106,6 +106,23 @@ namespace TP2_Grupo4
 			return salida;
 		}
 
+//ESTO ES DE LA CLASE DE LINQ
+public List<List<string>> usuariosAdministradores()
+{
+	List<List<string>> salida = new List<List<string>>();
+
+	var query = from Usuario in contexto.usuarios
+			where Usuario.esAdmin == true
+			select Usuario;
+
+	foreach (Usuario u in query)
+		salida.Add(new List<string> {
+			u.dni.ToString(), u.nombre, u.mail, u.password,
+			u.esAdmin.ToString(), u.bloqueado.ToString() });
+
+	return salida;
+}
+
 		public bool agregarUsuario(int Dni, string Nombre, string Mail, string Password, bool EsAdmin, bool Bloqueado)
 		{
 			try
