@@ -11,6 +11,7 @@ namespace TP2_Grupo4.Models
 {
     public class Usuario
     {
+        private Context contexto;
         public int dni { get; set; }
         public String nombre { get; set; }
         public String email { get; set; }
@@ -27,150 +28,196 @@ namespace TP2_Grupo4.Models
             this.SetIsAdmin(isAdmin);
             this.SetBloqueado(bloqueado);
         }
+        public Usuario()
+        {
+            inicializarAtributos();
+        }
+
+        private void inicializarAtributos()
+        {
+            try
+            {
+                //creo un contexto
+                contexto = new Context();
+
+                //cargo los usuarios
+                contexto.usuarios.Load();
+                //misUsuarios = contexto.usuarios;
+            }
+            catch (Exception)
+            {
+            }
+        }
 
         /* METODOS ESTATICOS */
         public static Usuario Find(int dni)
         {
-            Usuario usuario = null;
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand("SELECT * FROM usuarios where dni = "+ dni , connection);
-                    MySqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        return new Usuario(
-                                    reader.GetInt32(0),
-                                    reader.GetString(1),
-                                    reader.GetString(2),
-                                    reader.GetString(3),
-                                    reader.GetBoolean(4),
-                                    reader.GetBoolean(5)
-                                );
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            return usuario;
+            //Falta agregar
         }
         public static List<Usuario> GetAll()
         {
-            List<Usuario> usuarios = new List<Usuario>();
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand("SELECT * FROM usuarios", connection);
-                    MySqlDataReader reader = command.ExecuteReader();
+            /*List<List<string>> salida = new List<List<string>>();
+            foreach (Usuario u in contexto.usuarios)
+                salida.Add(new List<string> { u.dni.ToString(), u.nombre, u.email, u.password, u.isAdmin.ToString(), u.bloqueado.ToString() });
 
-                    while (reader.Read())
-                    {
-                        usuarios.Add(new Usuario(
-                                    reader.GetInt32(0),
-                                    reader.GetString(1),
-                                    reader.GetString(2),
-                                    reader.GetString(3),
-                                    reader.GetBoolean(4),
-                                    reader.GetBoolean(5)
-                                ));
-                    }
-
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            return usuarios;
+            return salida;*/
         }
         public bool Save()
         {
-            using(MySqlConnection connection = Database.GetConnection())
+            try
             {
-                bool result = false;
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = connection.CreateCommand();
-
-                    command.CommandText = "INSERT INTO usuarios VALUES(@dni,@nombre,@email,@password,@isAdmin,@isBloqueado)";
-                    command.Parameters.AddWithValue("@dni", this.GetDni());
-                    command.Parameters.AddWithValue("@nombre", this.GetNombre());
-                    command.Parameters.AddWithValue("@email", this.GetEmail());
-                    command.Parameters.AddWithValue("@password", this.GetPassword());
-                    command.Parameters.AddWithValue("@isAdmin", this.GetIsAdmin());
-                    command.Parameters.AddWithValue("@isBloqueado", this.GetBloqueado());
-
-                    if (command.ExecuteNonQuery() == 1) return true;
-                }
-                catch (Exception)
-                {
-                    // No se pudo guardar
-                }
-                connection.Close();
-                return result;
+                Usuario nuevo = new Usuario(this.dni, this.nombre, this.email, this.password, this.isAdmin, this.bloqueado);
+                contexto.usuarios.Add(nuevo);
+                contexto.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
         public bool Update()
         {
-            using (MySqlConnection connection = Database.GetConnection())
+            try
             {
-                bool result = false;
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = connection.CreateCommand();
-                    command.CommandText = "UPDATE usuarios SET nombre = @nombre, email = @email, password = @password, isAdmin = @admin, isBloqueado = @bloqueado  WHERE dni = @dni; ";
-                    command.Parameters.AddWithValue("@dni", this.GetDni());
-                    command.Parameters.AddWithValue("@nombre", this.GetNombre());
-                    command.Parameters.AddWithValue("@email", this.GetEmail());
-                    command.Parameters.AddWithValue("@password", this.GetPassword());
-                    command.Parameters.AddWithValue("@admin", this.GetIsAdmin());
-                    command.Parameters.AddWithValue("@bloqueado", this.GetBloqueado());
-                    command.ExecuteNonQuery();
-                    result = true;
-                }
-                catch (Exception e)
-                {
-                    // No se pudo actualizar
-                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
-                    System.Diagnostics.Debug.WriteLine(e.Message);
-                }
-                return result;
+                bool salida = false;
+                foreach (Usuario u in contexto.usuarios)
+                    if (u.dni == this.dni)
+                    {
+                        u.nombre = this.nombre;
+                        u.email = this.email;
+                        u.password = this.password;
+                        u.isAdmin = this.isAdmin;
+                        u.bloqueado = this.bloqueado;
+                        salida = true;
+                    }
+                if (salida)
+                    contexto.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
         public bool Delete()
         {
-            using (MySqlConnection connection = Database.GetConnection())
+            try
             {
-                bool result = false;
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = connection.CreateCommand();
-                    command.CommandText = "DELETE FROM usuarios WHERE dni = @dni;";
-                    command.Parameters.AddWithValue("@dni", this.dni);
-                    command.ExecuteNonQuery();
-                    result = true;
-                }
-                catch (Exception e)
-                {
-                    // No se pudo actualizar
-                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
-                    System.Diagnostics.Debug.WriteLine(e.Message);
-                }
-                return result;
+                bool salida = false;
+                foreach (Usuario u in contexto.usuarios)
+                    if (u.dni == this.dni)
+                    {
+                        contexto.usuarios.Remove(u);
+                        salida = true;
+                    }
+                if (salida)
+                    contexto.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
+
+
+        public List<List<string>> obtenerUsuarios()
+        {
+            List<List<string>> salida = new List<List<string>>();
+            foreach (Usuario u in contexto.usuarios)
+                salida.Add(new List<string> { u.dni.ToString(), u.nombre, u.email, u.password, u.isAdmin.ToString(), u.bloqueado.ToString() });
+
+            return salida;
+        }
+
+
+
+        /*
+        //ESTO ES DE LA CLASE DE LINQ
+        public List<List<string>> usuariosAdministradores()
+        {
+            List<List<string>> salida = new List<List<string>>();
+
+            var query = from Usuario in contexto.usuarios
+                        where Usuario.isAdmin == true
+                        select Usuario;
+
+            foreach (Usuario u in query)
+                salida.Add(new List<string> {
+            u.dni.ToString(), u.nombre, u.email, u.password,
+            u.isAdmin.ToString(), u.bloqueado.ToString() });
+
+            return salida;
+        }
+
+        public bool agregarUsuario(int Dni, string Nombre, string Mail, string Password, bool EsAdmin, bool Bloqueado)
+        {
+            try
+            {
+                Usuario nuevo = new Usuario(Dni, Nombre, Mail, Password, EsAdmin, Bloqueado);
+                contexto.usuarios.Add(nuevo);
+                contexto.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool eliminarUsuario(int Dni, string Nombre, string Mail, string Password, bool EsAdmin, bool Bloqueado)
+        {
+            try
+            {
+                bool salida = false;
+                foreach (Usuario u in contexto.usuarios)
+                    if (u.dni == Dni)
+                    {
+                        contexto.usuarios.Remove(u);
+                        salida = true;
+                    }
+                if (salida)
+                    contexto.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool modificarUsuario(int Dni, string Nombre, string Mail, string Password, bool EsAdmin, bool Bloqueado)
+        {
+            try
+            {
+                bool salida = false;
+                foreach (Usuario u in contexto.usuarios)
+                    if (u.dni == Dni)
+                    {
+                        u.nombre = Nombre;
+                        u.email = Mail;
+                        u.password = Password;
+                        u.isAdmin = EsAdmin;
+                        u.bloqueado = Bloqueado;
+                        salida = true;
+                    }
+                if (salida)
+                    contexto.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }*/
+
+        public void cerrar()
+        {
+            contexto.Dispose();
+        }
+
+
 
         /* ToString */
         public override string ToString()

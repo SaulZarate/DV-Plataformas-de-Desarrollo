@@ -67,107 +67,15 @@ namespace TP2_Grupo4
         #region METODOS PARA LAS RESERVAS
         public bool AgregarReserva(DateTime fechaDesde, DateTime fechaHasta, int codigoAlojamiento, int dniUsuario, double precio)
         {
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                bool result = false;
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = connection.CreateCommand();
-                    // Agrego la reserva a la base de datos
-                    command.CommandText = "INSERT INTO reservas (id, fechaDesde, fechaHasta, alojamiento_codigo, usuario_dni, precio) VALUES(null, @fechaDesde, @fechaHasta, @alojamiento_codigo, @usuario_dni, @precio)";
-                    command.Parameters.AddWithValue("@fechaDesde", fechaDesde);
-                    command.Parameters.AddWithValue("@fechaHasta", fechaHasta);
-                    command.Parameters.AddWithValue("@alojamiento_codigo", codigoAlojamiento);
-                    command.Parameters.AddWithValue("@usuario_dni", dniUsuario);
-                    command.Parameters.AddWithValue("@precio", precio);
-
-                    if (command.ExecuteNonQuery() == 1)
-                    {
-                        // Agrego la reserva a la lista de reservas
-                        Alojamiento alojamiento = this.agencia.FindAlojamientoForCodigo(codigoAlojamiento);
-                        Usuario usuario = this.FindUserForDNI(dniUsuario);
-                        this.reservas.Add(new Reserva(Reserva.UltimoIdInsertado().ToString(), fechaDesde, fechaHasta, alojamiento, usuario, precio));
-                        result = true;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine(ex.ToString());
-                }
-                connection.Close();
-                return result;
-            }
+            //Falta agregar
         }
         public bool ModificarReserva(String id, DateTime fechaDesde, DateTime fechaHasta, int precio, int alojamiento_id, int usuario_id)
         {
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                bool result = false;
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = connection.CreateCommand();
-                    command.CommandText = "UPDATE reservas SET id = @id, fechaDesde = @fechaDesde, fechaHasta = @fechaHasta, precio = @precio, alojamiento_codigo = @alojamiento_id, usuario_dni = @usuario_id WHERE id = @id; ";
-                    command.Parameters.AddWithValue("@id", id);
-                    command.Parameters.AddWithValue("@fechaDesde", fechaDesde);
-                    command.Parameters.AddWithValue("@fechaHasta", fechaHasta);
-                    command.Parameters.AddWithValue("@precio", precio);
-                    command.Parameters.AddWithValue("@alojamiento_id", alojamiento_id);
-                    command.Parameters.AddWithValue("@usuario_id", usuario_id);
-                    //                             hay que arreglar esto                          //
-                    command.ExecuteNonQuery();
-                    result = true;
-                }
-                catch (Exception e)
-                {
-                    // No se pudo actualizar
-                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
-                    System.Diagnostics.Debug.WriteLine(e.Message);
-                }
-                return result;
-            }
-            /*int indexReserva = this.findIndexReservaPorId(id);
-            if (indexReserva == -1) return false;
-
-            Alojamiento alojamiento = this.agencia.FindAlojamientoForCodigo(codigoAlojamiento);
-            Usuario usuario = this.FindUserForDNI(dniUsuario);
-            if (alojamiento == null || usuario == null) return false;
-
-            this.reservas[indexReserva].SetFechaDesde(fechaDesde);
-            this.reservas[indexReserva].SetFechaHasta(fechaHasta);
-            this.reservas[indexReserva].SetAlojamiento(alojamiento);
-            this.reservas[indexReserva].SetUsuario(usuario);
-            this.reservas[indexReserva].SetPrecio(alojamiento.PrecioTotalDelAlojamiento());
-            return true;*/
+            //Falta agregar
         }
         public bool EliminarReserva(String id)
         {
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                bool result = false;
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = connection.CreateCommand();
-                    command.CommandText = "DELETE FROM reservas WHERE id = @id;";
-                    command.Parameters.AddWithValue("@id", id);
-
-                    if(command.ExecuteNonQuery() == 1)
-                    {
-                        int indexReserva = this.findIndexReservaPorId(id);
-                        this.reservas.RemoveAt(indexReserva);
-                        result = true;
-                    }
-                }
-                catch (Exception e)
-                {
-                    // No se pudo actualizar
-                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
-                    System.Diagnostics.Debug.WriteLine(e.Message);
-                }
-                return result;
-            }
+            //Falta agregar
         }
 
         public Reserva FindReservaForId(String id)
@@ -482,97 +390,6 @@ namespace TP2_Grupo4
         }
 
 
-        public List<List<string>> obtenerUsuarios()
-        {
-            List<List<string>> salida = new List<List<string>>();
-            foreach (Usuario u in contexto.usuarios)
-                salida.Add(new List<string> { u.dni.ToString(), u.nombre, u.email, u.password, u.isAdmin.ToString(), u.bloqueado.ToString() });
-
-            return salida;
-        }
-
-        //ESTO ES DE LA CLASE DE LINQ
-        public List<List<string>> usuariosAdministradores()
-        {
-            List<List<string>> salida = new List<List<string>>();
-
-            var query = from Usuario in contexto.usuarios
-                        where Usuario.isAdmin == true
-                        select Usuario;
-
-            foreach (Usuario u in query)
-                salida.Add(new List<string> {
-            u.dni.ToString(), u.nombre, u.email, u.password,
-            u.isAdmin.ToString(), u.bloqueado.ToString() });
-
-            return salida;
-        }
-
-        public bool agregarUsuario(int Dni, string Nombre, string Mail, string Password, bool EsAdmin, bool Bloqueado)
-        {
-            try
-            {
-                Usuario nuevo = new Usuario(Dni, Nombre, Mail, Password, EsAdmin, Bloqueado);
-                contexto.usuarios.Add(nuevo);
-                contexto.SaveChanges();
-                return true;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public bool eliminarUsuario(int Dni, string Nombre, string Mail, string Password, bool EsAdmin, bool Bloqueado)
-        {
-            try
-            {
-                bool salida = false;
-                foreach (Usuario u in contexto.usuarios)
-                    if (u.dni == Dni)
-                    {
-                        contexto.usuarios.Remove(u);
-                        salida = true;
-                    }
-                if (salida)
-                    contexto.SaveChanges();
-                return salida;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public bool modificarUsuario(int Dni, string Nombre, string Mail, string Password, bool EsAdmin, bool Bloqueado)
-        {
-            try
-            {
-                bool salida = false;
-                foreach (Usuario u in contexto.usuarios)
-                    if (u.dni == Dni)
-                    {
-                        u.nombre = Nombre;
-                        u.email = Mail;
-                        u.password = Password;
-                        u.isAdmin = EsAdmin;
-                        u.bloqueado = Bloqueado;
-                        salida = true;
-                    }
-                if (salida)
-                    contexto.SaveChanges();
-                return salida;
-            }
-            catch (Exception)
-            {
-                return false;
-            }
-        }
-
-        public void cerrar()
-        {
-            contexto.Dispose();
-        }
 		
     }
 }
