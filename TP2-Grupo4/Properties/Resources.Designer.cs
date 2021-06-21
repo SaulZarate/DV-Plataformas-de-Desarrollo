@@ -71,6 +71,15 @@ namespace TP2_Grupo4.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Server=localhost;Port=3306;Database=dv-tp-plataformasdedesarrollo;Uid=root;Pwd=;.
+        /// </summary>
+        internal static string BaseDeDatos {
+            get {
+                return ResourceManager.GetString("BaseDeDatos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap btn {

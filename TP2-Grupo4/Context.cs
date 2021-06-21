@@ -14,7 +14,7 @@ namespace TP2_Grupo4
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseMySql(Properties.Resources.ConnectionString["DBString"].ToString());
+			optionsBuilder.UseMySql(Properties.Resources.BaseDeDatos, new MySqlServerVersion(new Version(8, 0, 11)));
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
