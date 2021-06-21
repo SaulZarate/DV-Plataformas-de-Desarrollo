@@ -362,34 +362,5 @@ namespace TP2_Grupo4
         public Agencia GetAgencia() { return this.agencia; }
         public Usuario GetUsuarioLogeado() { return this.usuarioLogeado; }
         private void setAgencia(Agencia agencia) { this.agencia = agencia; }
-
-
-
-        private DbSet<Usuario> misUsuarios;
-        private Context contexto;
-
-        public AgenciaManager()
-        {
-            inicializarAtributos();
-        }
-
-        private void inicializarAtributos()
-        {
-            try
-            {
-                //creo un contexto
-                contexto = new Context();
-
-                //cargo los usuarios
-                contexto.usuarios.Load();
-                misUsuarios = contexto.usuarios;
-            }
-            catch (Exception)
-            {
-            }
-        }
-
-
-		
     }
 }
