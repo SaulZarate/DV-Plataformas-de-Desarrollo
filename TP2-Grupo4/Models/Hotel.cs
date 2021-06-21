@@ -1,7 +1,9 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using TP2_Grupo4.Helpers;
+//using MySql.Data.MySqlClient;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace TP2_Grupo4.Models
 {

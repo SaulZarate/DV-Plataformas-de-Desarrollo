@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using TP2_Grupo4.Models;
 using TP2_Grupo4.Helpers;
 using System.Linq;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
 
 namespace TP2_Grupo4
 {
@@ -453,5 +455,124 @@ namespace TP2_Grupo4
         public Usuario GetUsuarioLogeado() { return this.usuarioLogeado; }
         private void setAgencia(Agencia agencia) { this.agencia = agencia; }
 
+
+
+        private DbSet<Usuario> misUsuarios;
+        private Context contexto;
+
+        public AgenciaManager()
+        {
+            inicializarAtributos();
+        }
+
+        private void inicializarAtributos()
+        {
+            try
+            {
+                //creo un contexto
+                contexto = new Context();
+
+                //cargo los usuarios
+                contexto.usuarios.Load();
+                misUsuarios = contexto.usuarios;
+            }
+            catch (Exception)
+            {
+            }
+        }
+
+
+        public List<List<string>> obtenerUsuarios()
+        {
+            List<List<string>> salida = new List<List<string>>();
+            foreach (Usuario u in contexto.usuarios)
+                salida.Add(new List<string> { u.dni.ToString(), u.nombre, u.email, u.password, u.isAdmin.ToString(), u.bloqueado.ToString() });
+
+            return salida;
+        }
+
+        //ESTO ES DE LA CLASE DE LINQ
+        public List<List<string>> usuariosAdministradores()
+        {
+            List<List<string>> salida = new List<List<string>>();
+
+            var query = from Usuario in contexto.usuarios
+                        where Usuario.isAdmin == true
+                        select Usuario;
+
+            foreach (Usuario u in query)
+                salida.Add(new List<string> {
+            u.dni.ToString(), u.nombre, u.email, u.password,
+            u.isAdmin.ToString(), u.bloqueado.ToString() });
+
+            return salida;
+        }
+
+        public bool agregarUsuario(int Dni, string Nombre, string Mail, string Password, bool EsAdmin, bool Bloqueado)
+        {
+            try
+            {
+                Usuario nuevo = new Usuario(Dni, Nombre, Mail, Password, EsAdmin, Bloqueado);
+                contexto.usuarios.Add(nuevo);
+                contexto.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool eliminarUsuario(int Dni, string Nombre, string Mail, string Password, bool EsAdmin, bool Bloqueado)
+        {
+            try
+            {
+                bool salida = false;
+                foreach (Usuario u in contexto.usuarios)
+                    if (u.dni == Dni)
+                    {
+                        contexto.usuarios.Remove(u);
+                        salida = true;
+                    }
+                if (salida)
+                    contexto.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool modificarUsuario(int Dni, string Nombre, string Mail, string Password, bool EsAdmin, bool Bloqueado)
+        {
+            try
+            {
+                bool salida = false;
+                foreach (Usuario u in contexto.usuarios)
+                    if (u.dni == Dni)
+                    {
+                        u.nombre = Nombre;
+                        u.email = Mail;
+                        u.password = Password;
+                        u.isAdmin = EsAdmin;
+                        u.bloqueado = Bloqueado;
+                        salida = true;
+                    }
+                if (salida)
+                    contexto.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public void cerrar()
+        {
+            contexto.Dispose();
+        }
+		
     }
 }

@@ -1,11 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
+using TP2_Grupo4.Models;
 
 namespace TP2_Grupo4
 {
-    class Clases
-    {
+    class Context
+	{
+		public DbSet<Usuario> usuarios { get; set; }
+		public Context() { }
+
+		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+		{
+			optionsBuilder.UseMySql(Properties.Resources.ConnectionString);
+		}
+
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			//nombre de la tabla
+			modelBuilder.Entity<Usuario>()
+				.ToTable("Usuarios")
+				.HasKey(u => u.dni);
+			//propiedades de los datos
+			modelBuilder.Entity<Usuario>(
+				usr =>
+				{
+					usr.Property(u => u.dni).HasColumnType("int");
+					usr.Property(u => u.dni).IsRequired(true);
+					usr.Property(u => u.nombre).HasColumnType("varchar(50)");
+					usr.Property(u => u.email).HasColumnType("varchar(50)");
+					usr.Property(u => u.password).HasColumnType("varchar(50)");
+					usr.Property(u => u.isAdmin).HasColumnType("bit");
+					usr.Property(u => u.bloqueado).HasColumnType("bit");
+				});
+			//Ignoro, no agrego UsuarioManager a la base de datos
+			modelBuilder.Ignore<AgenciaManager>();
+		}
+
 		/*
 		/-******* CLASE MYCONTEXT *******-/
 

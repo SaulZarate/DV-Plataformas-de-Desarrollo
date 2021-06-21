@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+//using MySql.Data.MySqlClient;
+using Microsoft.EntityFrameworkCore;
+using Pomelo.EntityFrameworkCore.MySql;
 
 using TP2_Grupo4.Helpers;
 
@@ -9,12 +11,12 @@ namespace TP2_Grupo4.Models
 {
     public class Usuario
     {
-        private int dni;
-        private String nombre;
-        private String email;
-        private String password;
-        private bool isAdmin;
-        private bool bloqueado;
+        public int dni { get; set; }
+        public String nombre { get; set; }
+        public String email { get; set; }
+        public String password { get; set; }
+        public bool isAdmin { get; set; }
+        public bool bloqueado { get; set; }
 
         public Usuario(int dni, String nombre, String email,String password, bool isAdmin, bool bloqueado)
         {
@@ -25,7 +27,7 @@ namespace TP2_Grupo4.Models
             this.SetIsAdmin(isAdmin);
             this.SetBloqueado(bloqueado);
         }
-        
+
         /* METODOS ESTATICOS */
         public static Usuario Find(int dni)
         {
