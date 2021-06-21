@@ -7,14 +7,14 @@ using TP2_Grupo4.Models;
 
 namespace TP2_Grupo4
 {
-    class Context
+    class Context : DbContext
 	{
 		public DbSet<Usuario> usuarios { get; set; }
 		public Context() { }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseMySql(Properties.Resources.ConnectionString);
+			optionsBuilder.UseMySql(Properties.Resources.ConnectionString["DBString"].ToString());
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
