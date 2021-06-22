@@ -37,6 +37,26 @@ namespace TP2_Grupo4
 				});
 			//Ignoro, no agrego UsuarioManager a la base de datos
 			modelBuilder.Ignore<AgenciaManager>();
+
+
+			//nombre de la tabla
+			modelBuilder.Entity<Reserva>()
+				.ToTable("Reservas")
+				.HasKey(res => res.id);
+			//propiedades de los datos
+			modelBuilder.Entity<Reserva>(
+				res =>
+				{
+					res.Property(r => r.id).HasColumnType("int");
+					res.Property(r => r.id).IsRequired(true);
+					res.Property(r => r.fechaDesde).HasColumnType("date");
+					res.Property(r => r.fechaHasta).HasColumnType("date");
+					res.Property(r => r.alojamiento).HasColumnType("varchar(50)");
+					res.Property(r => r.usuario).HasColumnType("varchar(50)");
+					res.Property(r => r.precio).HasColumnType("int");
+				});
+			//Ignoro, no agrego UsuarioManager a la base de datos
+			modelBuilder.Ignore<AgenciaManager>();
 		}
 
 		/*

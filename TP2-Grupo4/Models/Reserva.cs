@@ -31,58 +31,11 @@ namespace TP2_Grupo4.Models
         /* METODOS ESTATICOS */
         public static int UltimoIdInsertado()
         {
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand("SELECT * FROM reservas ORDER BY id DESC LIMIT 1", connection);
-                    MySqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        return reader.GetInt32(0);
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    System.Diagnostics.Debug.WriteLine(ex.Message);
-                }
-            }
-            return 0;
+            //Falta agregar
         }
         public static List<Reserva> GetAll(Agencia agencia)
         {
-            List<Reserva> reservas = new List<Reserva>();
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = new MySqlCommand("SELECT * FROM reservas", connection);
-                    MySqlDataReader reader = command.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        reservas.Add(new Reserva(
-                                reader.GetString(0),
-                                reader.GetDateTime(1),
-                                reader.GetDateTime(2),
-                                agencia.FindAlojamientoForCodigo(reader.GetInt32(3)),
-                                Usuario.Find(reader.GetInt32(4)),
-                                reader.GetDouble(5)
-                                ));
-                    }
-
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }
-            return reservas;
+            //Falta agregar
         }
 
         /* ToString */
