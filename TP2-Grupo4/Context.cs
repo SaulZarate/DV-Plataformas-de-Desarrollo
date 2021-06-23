@@ -10,6 +10,8 @@ namespace TP2_Grupo4
     class Context : DbContext
 	{
 		public DbSet<Usuario> usuarios { get; set; }
+		public DbSet<Alojamiento> alojamientos { get; set; }
+		public DbSet<Reserva> reservas { get; set; }
 		public Context() { }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -35,7 +37,7 @@ namespace TP2_Grupo4
 					usr.Property(u => u.isAdmin).HasColumnType("bit");
 					usr.Property(u => u.bloqueado).HasColumnType("bit");
 				});
-			//Ignoro, no agrego UsuarioManager a la base de datos
+			//Ignoro, no agrego AgenciaManager a la base de datos
 			modelBuilder.Ignore<AgenciaManager>();
 
 
@@ -55,7 +57,7 @@ namespace TP2_Grupo4
 					res.Property(r => r.usuario).HasColumnType("varchar(50)");
 					res.Property(r => r.precio).HasColumnType("int");
 				});
-			//Ignoro, no agrego UsuarioManager a la base de datos
+			//Ignoro, no agrego AgenciaManager a la base de datos
 			modelBuilder.Ignore<AgenciaManager>();
 
 
@@ -75,7 +77,7 @@ namespace TP2_Grupo4
 					aloj.Property(a => a.cantidadDePersonas).HasColumnType("int");
 					aloj.Property(a => a.tv).HasColumnType("bit");
 				});
-			//Ignoro, no agrego UsuarioManager a la base de datos
+			//Ignoro, no agrego AgenciaManager a la base de datos
 			modelBuilder.Ignore<AgenciaManager>();
 		}
 

@@ -11,6 +11,7 @@ namespace TP2_Grupo4.Models
 {
     public class Agencia
     {
+        private Context contexto;
         public const int MAXIMA_CANTIDAD_DE_PERSONAS_POR_ALOJAMIENTO = 10;
         public const int MINIMA_CANTIDAD_DE_ESTRELLAS = 1;
         public const int MAXIMA_CANTIDAD_DE_ESTRELLAS = 5;
@@ -22,6 +23,11 @@ namespace TP2_Grupo4.Models
         {
             this.alojamientos = new List<Alojamiento>();
             this.cantidadDeAlojamientos = 0;
+            //creo un contexto
+            contexto = new Context();
+
+            //cargo los alojamientos
+            contexto.alojamientos.Load();
         }
 
         #region ABM de Alojamientos
@@ -33,15 +39,61 @@ namespace TP2_Grupo4.Models
         }
         public bool AgregarAlojamiento(Alojamiento alojamiento)
         {
-            //Falta agregar
+            try
+            {
+                //Alojamiento aloj = new Alojamiento(codigo, ciudad, barrio, estrellas, cantidadDePersonas, tv);
+                contexto.alojamientos.Add(alojamiento);
+                contexto.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
         public bool ModificarAlojamiento(Alojamiento alojamiento)
         {
-            //Falta agregar
+            try
+            {
+                bool salida = false;
+                foreach (Alojamiento a in contexto.alojamientos)
+                    if (a.codigo == alojamiento.codigo)
+                    {
+                        a.ciudad = alojamiento.ciudad;
+                        a.barrio = alojamiento.barrio;
+                        a.estrellas = alojamiento.estrellas;
+                        a.cantidadDePersonas = alojamiento.cantidadDePersonas;
+                        a.tv = alojamiento.tv;
+                        salida = true;
+                    }
+                if (salida)
+                    contexto.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
         public bool EliminarAlojamiento(int codigoDelAlojamiento)
         {
-            //Falta agregar
+            try
+            {
+                bool salida = false;
+                foreach (Alojamiento a in contexto.alojamientos)
+                    if (a.codigo == codigoDelAlojamiento)
+                    {
+                        contexto.alojamientos.Remove(a);
+                        salida = true;
+                    }
+                if (salida)
+                    contexto.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
         #endregion
 

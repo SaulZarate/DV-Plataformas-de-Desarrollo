@@ -17,6 +17,7 @@ namespace TP2_Grupo4
         private List<Reserva> reservas;
 
         private Usuario usuarioLogeado;
+        private Context contexto;
 
         public AgenciaManager()
         {
@@ -26,6 +27,12 @@ namespace TP2_Grupo4
             this.usuarioLogeado = null;
 
             this.cargarDatosDeLaBaseDeDatos();
+
+            //creo un contexto
+            contexto = new Context();
+
+            //cargo los reservas
+            contexto.reservas.Load();
         }
 
         public void cargarDatosDeLaBaseDeDatos()
@@ -67,15 +74,61 @@ namespace TP2_Grupo4
         #region METODOS PARA LAS RESERVAS
         public bool AgregarReserva(DateTime fechaDesde, DateTime fechaHasta, int codigoAlojamiento, int dniUsuario, double precio)
         {
-            //Falta agregar
+            try
+            {
+                Reserva reservas = new Reserva(id, fechaDesde, fechaHasta, codigoAlojamiento, dniUsuario, precio);
+                contexto.alojamientos.Add(reservas);
+                contexto.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
         public bool ModificarReserva(String id, DateTime fechaDesde, DateTime fechaHasta, int precio, int alojamiento_id, int usuario_id)
         {
-            //Falta agregar
+            try
+            {
+                bool salida = false;
+                foreach (Reserva r in contexto.reservas)
+                    if (r.id == id)
+                    {
+                        r.fechaDesde = fechaDesde;
+                        r.fechaHasta = fechaHasta;
+                        r.precio = precio;
+                        r.alojamiento_id = alojamiento_id;
+                        r.usuario_id = usuario_id;
+                        salida = true;
+                    }
+                if (salida)
+                    contexto.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
         public bool EliminarReserva(String id)
         {
-            //Falta agregar
+            try
+            {
+                bool salida = false;
+                foreach (Reserva r in contexto.reservas)
+                    if (r.id == id)
+                    {
+                        contexto.reservas.Remove(r);
+                        salida = true;
+                    }
+                if (salida)
+                    contexto.SaveChanges();
+                return salida;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
 
         public Reserva FindReservaForId(String id)
