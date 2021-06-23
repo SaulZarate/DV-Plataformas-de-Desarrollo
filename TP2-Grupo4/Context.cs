@@ -57,6 +57,26 @@ namespace TP2_Grupo4
 				});
 			//Ignoro, no agrego UsuarioManager a la base de datos
 			modelBuilder.Ignore<AgenciaManager>();
+
+
+			//nombre de la tabla
+			modelBuilder.Entity<Alojamiento>()
+				.ToTable("Alojamientos")
+				.HasKey(aloj => aloj.codigo);
+			//propiedades de los datos
+			modelBuilder.Entity<Alojamiento>(
+				aloj =>
+				{
+					aloj.Property(a => a.codigo).HasColumnType("int");
+					aloj.Property(a => a.codigo).IsRequired(true);
+					aloj.Property(a => a.ciudad).HasColumnType("varchar(50)");
+					aloj.Property(a => a.barrio).HasColumnType("varchar(50)");
+					aloj.Property(a => a.estrellas).HasColumnType("int");
+					aloj.Property(a => a.cantidadDePersonas).HasColumnType("int");
+					aloj.Property(a => a.tv).HasColumnType("bit");
+				});
+			//Ignoro, no agrego UsuarioManager a la base de datos
+			modelBuilder.Ignore<AgenciaManager>();
 		}
 
 		/*
