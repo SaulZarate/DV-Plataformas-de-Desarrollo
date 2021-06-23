@@ -42,7 +42,7 @@ namespace TP2_Grupo4
 			//nombre de la tabla
 			modelBuilder.Entity<Reserva>()
 				.ToTable("Reservas")
-				.HasKey(res => res.id);
+				.HasKey(r => r.id);
 			//propiedades de los datos
 			modelBuilder.Entity<Reserva>(
 				res =>
@@ -62,7 +62,7 @@ namespace TP2_Grupo4
 			//nombre de la tabla
 			modelBuilder.Entity<Alojamiento>()
 				.ToTable("Alojamientos")
-				.HasKey(aloj => aloj.codigo);
+				.HasKey(a => a.codigo);
 			//propiedades de los datos
 			modelBuilder.Entity<Alojamiento>(
 				aloj =>
