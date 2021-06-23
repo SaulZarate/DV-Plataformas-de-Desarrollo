@@ -76,8 +76,10 @@ namespace TP2_Grupo4
         {
             try
             {
+                //Reservas pide un id pero nosotros nunca lo asignamos, se pone solo, hay que ver como hacer eso
+                //codigoAlojamiento y dniUsuario dice que vienen de otras clases, hay que ver como arreglar eso
                 Reserva reservas = new Reserva(id, fechaDesde, fechaHasta, codigoAlojamiento, dniUsuario, precio);
-                contexto.alojamientos.Add(reservas);
+                contexto.reservas.Add(reservas);
                 contexto.SaveChanges();
                 return true;
             }
@@ -97,8 +99,9 @@ namespace TP2_Grupo4
                         r.fechaDesde = fechaDesde;
                         r.fechaHasta = fechaHasta;
                         r.precio = precio;
-                        r.alojamiento_id = alojamiento_id;
-                        r.usuario_id = usuario_id;
+                        //estos errores son iguales al de arriba
+                        r.alojamiento = alojamiento_id;
+                        r.usuario = usuario_id;
                         salida = true;
                     }
                 if (salida)
