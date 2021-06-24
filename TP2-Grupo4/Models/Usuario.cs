@@ -50,18 +50,37 @@ namespace TP2_Grupo4.Models
         }
 
         /* METODOS ESTATICOS */
-        public static Usuario Find(int dni)
+        public List<List<string>> Find(int dni)
         {
-            //Falta agregar
+            List<List<string>> salida = new List<List<string>>();
+            foreach (Usuario u in contexto.usuarios)
+            {
+                if(u.dni == dni)
+                    salida.Add(new List<string> { u.dni.ToString(), u.nombre, u.email, u.password, u.isAdmin.ToString(), u.bloqueado.ToString() });
+            }
+
+            return salida;
         }
-        public static List<Usuario> GetAll()
+        //public static Usuario Find(int dni)
+        //{
+            //Falta agregar
+        //}
+        public List<List<string>> GetAll()
         {
+            List<List<string>> salida = new List<List<string>>();
+            foreach (Usuario u in contexto.usuarios)
+                salida.Add(new List<string> { u.dni.ToString(), u.nombre, u.email, u.password, u.isAdmin.ToString(), u.bloqueado.ToString() });
+
+            return salida;
+        }
+        //public static List<Usuario> GetAll()
+        //{
             /*List<List<string>> salida = new List<List<string>>();
             foreach (Usuario u in contexto.usuarios)
                 salida.Add(new List<string> { u.dni.ToString(), u.nombre, u.email, u.password, u.isAdmin.ToString(), u.bloqueado.ToString() });
 
             return salida;*/
-        }
+        //}
         public bool Save()
         {
             try
