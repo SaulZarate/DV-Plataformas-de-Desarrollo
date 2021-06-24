@@ -12,11 +12,24 @@ namespace TP2_Grupo4.Models
         public const int CANTIDAD_DE_ATRIBUTOS = 7;
 
         public double precioPorPersona { get; set; }
+        private Context contexto;
 
         public Hotel(int codigo, string ciudad, string barrio, int estrellas, int cantidadDePersonas, bool tv, double precioPorPersona) : 
             base(codigo, ciudad, barrio, estrellas, cantidadDePersonas, tv)
         {
             this.SetPrecioPorPersona(precioPorPersona);
+            try
+            {
+                //creo un contexto
+                contexto = new Context();
+
+                //cargo los usuarios
+                contexto.alojamientos.Load();
+                //misUsuarios = contexto.usuarios;
+            }
+            catch (Exception)
+            {
+            }
         }
 
         public override double PrecioTotalDelAlojamiento()
@@ -39,10 +52,18 @@ namespace TP2_Grupo4.Models
                 double.Parse(hotelArray[6])
                 );
         }
-        public static List<Hotel> GetAll()
+        public List<List<string>> GetAll()
+        {
+            List<List<string>> salida = new List<List<string>>();
+            foreach (Alojamiento a in contexto.alojamientos)
+                salida.Add(new List<string> { a.codigo.ToString(), a.ciudad, a.barrio, a.estrellas.ToString(), a.cantidadDePersonas.ToString(), a.tv.ToString(), a.precioPorPersona.ToString() });
+
+            return salida;
+        }
+        /*public static List<Hotel> GetAll()
         {
             //Falta agregar
-        }
+        }*/
 
 
         /* ToString */

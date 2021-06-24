@@ -73,14 +73,14 @@ namespace TP2_Grupo4.Models
 
             return salida;
         }
-        //public static List<Usuario> GetAll()
-        //{
-            /*List<List<string>> salida = new List<List<string>>();
+        /*public static List<Usuario> GetAll()
+        {
+            List<string> salida = new List<string>();
             foreach (Usuario u in contexto.usuarios)
                 salida.Add(new List<string> { u.dni.ToString(), u.nombre, u.email, u.password, u.isAdmin.ToString(), u.bloqueado.ToString() });
 
-            return salida;*/
-        //}
+            return salida;
+        }*/
         public bool Save()
         {
             try
