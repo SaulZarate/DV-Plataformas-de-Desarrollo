@@ -72,7 +72,7 @@ namespace TP2_Grupo4
         #endregion
 
         #region METODOS PARA LAS RESERVAS
-        public bool AgregarReserva(DateTime fechaDesde, DateTime fechaHasta, int codigoAlojamiento, int dniUsuario, double precio)
+        public bool AgregarReserva(DateTime fechaDesde, DateTime fechaHasta, Alojamiento codigoAlojamiento, Usuario dniUsuario, double precio)
         {
             try
             {
@@ -88,7 +88,7 @@ namespace TP2_Grupo4
                 return false;
             }
         }
-        public bool ModificarReserva(String id, DateTime fechaDesde, DateTime fechaHasta, int precio, int alojamiento_id, int usuario_id)
+        public bool ModificarReserva(String id, DateTime fechaDesde, DateTime fechaHasta, int precio, Alojamiento alojamiento_id, Usuario usuario_id)
         {
             try
             {

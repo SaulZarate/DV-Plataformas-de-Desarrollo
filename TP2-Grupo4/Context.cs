@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql;
 using TP2_Grupo4.Models;
+using TP2_Grupo4.Helpers;
 
 namespace TP2_Grupo4
 {
@@ -16,7 +17,7 @@ namespace TP2_Grupo4
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseMySql(Properties.Resources.BaseDeDatos, new MySqlServerVersion(new Version(8, 0, 11)));
+			optionsBuilder.UseMySql(Database.GetConnectionString(), new MySqlServerVersion(new Version(8, 0, 11)));
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -29,16 +30,15 @@ namespace TP2_Grupo4
 			modelBuilder.Entity<Usuario>(
 				usr =>
 				{
-					usr.Property(u => u.dni).HasColumnType("int");
-					usr.Property(u => u.dni).IsRequired(true);
+					usr.Property(u => u.dni).HasColumnType("int").IsRequired(true);
+					usr.HasIndex(u => u.dni).IsUnique();
+
 					usr.Property(u => u.nombre).HasColumnType("varchar(50)");
 					usr.Property(u => u.email).HasColumnType("varchar(50)");
 					usr.Property(u => u.password).HasColumnType("varchar(50)");
 					usr.Property(u => u.isAdmin).HasColumnType("bit");
 					usr.Property(u => u.bloqueado).HasColumnType("bit");
 				});
-			//Ignoro, no agrego AgenciaManager a la base de datos
-			modelBuilder.Ignore<AgenciaManager>();
 
 
 			//nombre de la tabla
@@ -49,16 +49,15 @@ namespace TP2_Grupo4
 			modelBuilder.Entity<Reserva>(
 				res =>
 				{
-					res.Property(r => r.id).HasColumnType("int");
-					res.Property(r => r.id).IsRequired(true);
+					res.Property(r => r.id).HasColumnType("int").IsRequired(true);
+					res.HasIndex(r => r.id).IsUnique();
+
 					res.Property(r => r.fechaDesde).HasColumnType("date");
 					res.Property(r => r.fechaHasta).HasColumnType("date");
 					res.Property(r => r.alojamiento).HasColumnType("varchar(50)");
 					res.Property(r => r.usuario).HasColumnType("varchar(50)");
 					res.Property(r => r.precio).HasColumnType("int");
 				});
-			//Ignoro, no agrego AgenciaManager a la base de datos
-			modelBuilder.Ignore<AgenciaManager>();
 
 
 			//nombre de la tabla
@@ -69,16 +68,15 @@ namespace TP2_Grupo4
 			modelBuilder.Entity<Alojamiento>(
 				aloj =>
 				{
-					aloj.Property(a => a.codigo).HasColumnType("int");
-					aloj.Property(a => a.codigo).IsRequired(true);
+					aloj.Property(a => a.codigo).HasColumnType("int").IsRequired(true);
+					aloj.HasIndex(a => a.codigo).IsUnique();
+
 					aloj.Property(a => a.ciudad).HasColumnType("varchar(50)");
 					aloj.Property(a => a.barrio).HasColumnType("varchar(50)");
 					aloj.Property(a => a.estrellas).HasColumnType("int");
 					aloj.Property(a => a.cantidadDePersonas).HasColumnType("int");
 					aloj.Property(a => a.tv).HasColumnType("bit");
 				});
-			//Ignoro, no agrego AgenciaManager a la base de datos
-			modelBuilder.Ignore<AgenciaManager>();
 		}
 
 		/*
