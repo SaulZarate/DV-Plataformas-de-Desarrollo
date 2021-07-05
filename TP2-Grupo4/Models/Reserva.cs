@@ -64,13 +64,13 @@ namespace TP2_Grupo4.Models
                     while (reader.Read())
                     {
                         reservas.Add(new Reserva(
-                                reader.GetString(0),
-                                reader.GetDateTime(1),
-                                reader.GetDateTime(2),
-                                agencia.FindAlojamientoForCodigo(reader.GetInt32(3)),
-                                Usuario.Find(reader.GetInt32(4)),
-                                reader.GetDouble(5)
-                                ));
+                            reader.GetString(0),
+                            reader.GetDateTime(1),
+                            reader.GetDateTime(2),
+                            agencia.FindAlojamientoForCodigo(reader.GetInt32(3)),
+                            Usuario.Find(reader.GetInt32(4)),
+                            reader.GetDouble(5)
+                        ));
                     }
 
                     reader.Close();

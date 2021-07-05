@@ -35,7 +35,7 @@ namespace TP2_Grupo4.Models
                 int.Parse(hotelArray[4]),
                 bool.Parse(hotelArray[5]),
                 double.Parse(hotelArray[6])
-                );
+            );
         }
         public static List<Hotel> GetAll()
         {
@@ -51,14 +51,14 @@ namespace TP2_Grupo4.Models
                     while (reader.Read())
                     {
                         hoteles.Add(new Hotel(
-                                    reader.GetInt32(0),
-                                    reader.GetString(1),
-                                    reader.GetString(2),
-                                    reader.GetInt32(3),
-                                    reader.GetInt32(4),
-                                    reader.GetBoolean(5),
-                                    reader.GetDouble(6)
-                                ));
+                            reader.GetInt32(0),
+                            reader.GetString(1),
+                            reader.GetString(2),
+                            reader.GetInt32(3),
+                            reader.GetInt32(4),
+                            reader.GetBoolean(5),
+                            reader.GetDouble(6)
+                        ));
                     }
 
                     reader.Close();

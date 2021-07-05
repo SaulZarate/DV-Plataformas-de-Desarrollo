@@ -38,7 +38,7 @@ namespace TP2_Grupo4.Models
                 double.Parse(CabaniaArray[6]),
                 int.Parse(CabaniaArray[7]),
                 int.Parse(CabaniaArray[8])
-                );
+            );
         }
         public static List<Cabania> GetAll()
         {
@@ -54,16 +54,16 @@ namespace TP2_Grupo4.Models
                     while (reader.Read())
                     {
                         cabanias.Add(new Cabania(
-                                    reader.GetInt32(0),
-                                    reader.GetString(1),
-                                    reader.GetString(2),
-                                    reader.GetInt32(3),
-                                    reader.GetInt32(4),
-                                    reader.GetBoolean(5),
-                                    reader.GetDouble(6),
-                                    reader.GetInt32(7),
-                                    reader.GetInt32(8)
-                                ));
+                            reader.GetInt32(0),
+                            reader.GetString(1),
+                            reader.GetString(2),
+                            reader.GetInt32(3),
+                            reader.GetInt32(4),
+                            reader.GetBoolean(5),
+                            reader.GetDouble(6),
+                            reader.GetInt32(7),
+                            reader.GetInt32(8)
+                        ));
                     }
 
                     reader.Close();

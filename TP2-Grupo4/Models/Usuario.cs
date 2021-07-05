@@ -72,13 +72,13 @@ namespace TP2_Grupo4.Models
                     while (reader.Read())
                     {
                         usuarios.Add(new Usuario(
-                                    reader.GetInt32(0),
-                                    reader.GetString(1),
-                                    reader.GetString(2),
-                                    reader.GetString(3),
-                                    reader.GetBoolean(4),
-                                    reader.GetBoolean(5)
-                                ));
+                            reader.GetInt32(0),
+                            reader.GetString(1),
+                            reader.GetString(2),
+                            reader.GetString(3),
+                            reader.GetBoolean(4),
+                            reader.GetBoolean(5)
+                        ));
                     }
 
                     reader.Close();
@@ -89,85 +89,6 @@ namespace TP2_Grupo4.Models
                 }
             }
             return usuarios;
-        }
-        public bool Save()
-        {
-            using(MySqlConnection connection = Database.GetConnection())
-            {
-                bool result = false;
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = connection.CreateCommand();
-
-                    command.CommandText = "INSERT INTO usuarios VALUES(@dni,@nombre,@email,@password,@isAdmin,@isBloqueado)";
-                    command.Parameters.AddWithValue("@dni", this.GetDni());
-                    command.Parameters.AddWithValue("@nombre", this.GetNombre());
-                    command.Parameters.AddWithValue("@email", this.GetEmail());
-                    command.Parameters.AddWithValue("@password", this.GetPassword());
-                    command.Parameters.AddWithValue("@isAdmin", this.GetIsAdmin());
-                    command.Parameters.AddWithValue("@isBloqueado", this.GetBloqueado());
-
-                    if (command.ExecuteNonQuery() == 1) return true;
-                }
-                catch (Exception)
-                {
-                    // No se pudo guardar
-                }
-                connection.Close();
-                return result;
-            }
-        }
-        public bool Update()
-        {
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                bool result = false;
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = connection.CreateCommand();
-                    command.CommandText = "UPDATE usuarios SET nombre = @nombre, email = @email, password = @password, isAdmin = @admin, isBloqueado = @bloqueado  WHERE dni = @dni; ";
-                    command.Parameters.AddWithValue("@dni", this.GetDni());
-                    command.Parameters.AddWithValue("@nombre", this.GetNombre());
-                    command.Parameters.AddWithValue("@email", this.GetEmail());
-                    command.Parameters.AddWithValue("@password", this.GetPassword());
-                    command.Parameters.AddWithValue("@admin", this.GetIsAdmin());
-                    command.Parameters.AddWithValue("@bloqueado", this.GetBloqueado());
-                    command.ExecuteNonQuery();
-                    result = true;
-                }
-                catch (Exception e)
-                {
-                    // No se pudo actualizar
-                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
-                    System.Diagnostics.Debug.WriteLine(e.Message);
-                }
-                return result;
-            }
-        }
-        public bool Delete()
-        {
-            using (MySqlConnection connection = Database.GetConnection())
-            {
-                bool result = false;
-                try
-                {
-                    connection.Open();
-                    MySqlCommand command = connection.CreateCommand();
-                    command.CommandText = "DELETE FROM usuarios WHERE dni = @dni;";
-                    command.Parameters.AddWithValue("@dni", this.dni);
-                    command.ExecuteNonQuery();
-                    result = true;
-                }
-                catch (Exception e)
-                {
-                    // No se pudo actualizar
-                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
-                    System.Diagnostics.Debug.WriteLine(e.Message);
-                }
-                return result;
-            }
         }
 
         /* ToString */

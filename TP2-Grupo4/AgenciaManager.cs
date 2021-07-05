@@ -106,14 +106,13 @@ namespace TP2_Grupo4
                 {
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
-                    command.CommandText = "UPDATE reservas SET id = @id, fechaDesde = @fechaDesde, fechaHasta = @fechaHasta, precio = @precio, alojamiento_codigo = @alojamiento_id, usuario_dni = @usuario_id WHERE id = @id; ";
+                    command.CommandText = "UPDATE reservas SET fechaDesde = @fechaDesde, fechaHasta = @fechaHasta, precio = @precio, alojamiento_codigo = @alojamiento_id, usuario_dni = @usuario_id WHERE id = @id; ";
                     command.Parameters.AddWithValue("@id", id);
                     command.Parameters.AddWithValue("@fechaDesde", fechaDesde);
                     command.Parameters.AddWithValue("@fechaHasta", fechaHasta);
                     command.Parameters.AddWithValue("@precio", precio);
                     command.Parameters.AddWithValue("@alojamiento_id", alojamiento_id);
                     command.Parameters.AddWithValue("@usuario_id", usuario_id);
-                    //                             hay que arreglar esto                          //
                     command.ExecuteNonQuery();
                     result = true;
                 }
@@ -206,8 +205,34 @@ namespace TP2_Grupo4
         public bool AgregarUsuario(int dni, String nombre, String email, String password, bool isAdmin, bool bloqueado)
         {
             Usuario usuarioNuevo = new Usuario(dni, nombre, email, Utils.Encriptar(password), isAdmin, bloqueado);
-            this.usuarios.Add(usuarioNuevo);
-            return usuarioNuevo.Save();
+            //this.usuarios.Add(usuarioNuevo);
+            //return usuarioNuevo.Save();
+
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+
+                    command.CommandText = "INSERT INTO usuarios VALUES(@dni,@nombre,@email,@password,@isAdmin,@isBloqueado)";
+                    command.Parameters.AddWithValue("@dni", usuarioNuevo.GetDni());
+                    command.Parameters.AddWithValue("@nombre", usuarioNuevo.GetNombre());
+                    command.Parameters.AddWithValue("@email", usuarioNuevo.GetEmail());
+                    command.Parameters.AddWithValue("@password", usuarioNuevo.GetPassword());
+                    command.Parameters.AddWithValue("@isAdmin", usuarioNuevo.GetIsAdmin());
+                    command.Parameters.AddWithValue("@isBloqueado", usuarioNuevo.GetBloqueado());
+
+                    if (command.ExecuteNonQuery() == 1) return true;
+                }
+                catch (Exception)
+                {
+                    // No se pudo guardar
+                }
+                connection.Close();
+                return result;
+            }
         }
         public bool ModificarUsuario(int dni, String nombre, String email, String password, String isAdmin, String isBloqueado)
         {
@@ -219,7 +244,33 @@ namespace TP2_Grupo4
             this.usuarios[indexUser].SetPassword( password == "" ? this.usuarios[indexUser].GetPassword() : Utils.Encriptar(password));
             this.usuarios[indexUser].SetIsAdmin( isAdmin == "" ? this.usuarios[indexUser].GetIsAdmin() : bool.Parse(isAdmin));
             this.usuarios[indexUser].SetBloqueado( isBloqueado == "" ? this.usuarios[indexUser].GetBloqueado() : bool.Parse(isBloqueado));
-            return this.usuarios[indexUser].Update();
+            //return this.usuarios[indexUser].Update();
+
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "UPDATE usuarios SET nombre = @nombre, email = @email, password = @password, isAdmin = @admin, isBloqueado = @bloqueado  WHERE dni = @dni; ";
+                    command.Parameters.AddWithValue("@dni", this.usuarios[indexUser].GetDni());
+                    command.Parameters.AddWithValue("@nombre", this.usuarios[indexUser].GetNombre());
+                    command.Parameters.AddWithValue("@email", this.usuarios[indexUser].GetEmail());
+                    command.Parameters.AddWithValue("@password", this.usuarios[indexUser].GetPassword());
+                    command.Parameters.AddWithValue("@admin", this.usuarios[indexUser].GetIsAdmin());
+                    command.Parameters.AddWithValue("@bloqueado", this.usuarios[indexUser].GetBloqueado());
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
         }
         public bool EliminarUsuario(int dni)
         {
@@ -232,9 +283,30 @@ namespace TP2_Grupo4
             foreach (Reserva reserva in reservasDelUsuario)
                 this.EliminarReserva(reserva.GetId());
 
-            this.usuarios[indexUser].Delete();
+            //this.usuarios[indexUser].Delete();
             this.usuarios.RemoveAt(indexUser);
-            return true;
+            //return true;
+
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "DELETE FROM usuarios WHERE dni = @dni;";
+                    command.Parameters.AddWithValue("@dni", dni);
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
         }
         
         public bool autenticarUsuario(int dni, String password)
@@ -253,13 +325,63 @@ namespace TP2_Grupo4
         {
             int indexUser = this.usuarios.FindIndex(user => user.GetDni() == dni);
             this.usuarios[indexUser].SetBloqueado(true);
-            return this.usuarios[indexUser].Update();
+            //return this.usuarios[indexUser].Update();
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "UPDATE usuarios SET nombre = @nombre, email = @email, password = @password, isAdmin = @admin, isBloqueado = @bloqueado  WHERE dni = @dni; ";
+                    command.Parameters.AddWithValue("@dni", this.usuarios[indexUser].GetDni());
+                    command.Parameters.AddWithValue("@nombre", this.usuarios[indexUser].GetNombre());
+                    command.Parameters.AddWithValue("@email", this.usuarios[indexUser].GetEmail());
+                    command.Parameters.AddWithValue("@password", this.usuarios[indexUser].GetPassword());
+                    command.Parameters.AddWithValue("@admin", this.usuarios[indexUser].GetIsAdmin());
+                    command.Parameters.AddWithValue("@bloqueado", this.usuarios[indexUser].GetBloqueado());
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
         }
         public bool DesbloquearUsuario(int dni)
         {
             int indexUser = this.usuarios.FindIndex(user => user.GetDni() == dni);
             this.usuarios[indexUser].SetBloqueado(false);
-            return this.usuarios[indexUser].Update();
+            //return this.usuarios[indexUser].Update();
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "UPDATE usuarios SET nombre = @nombre, email = @email, password = @password, isAdmin = @admin, isBloqueado = @bloqueado  WHERE dni = @dni; ";
+                    command.Parameters.AddWithValue("@dni", this.usuarios[indexUser].GetDni());
+                    command.Parameters.AddWithValue("@nombre", this.usuarios[indexUser].GetNombre());
+                    command.Parameters.AddWithValue("@email", this.usuarios[indexUser].GetEmail());
+                    command.Parameters.AddWithValue("@password", this.usuarios[indexUser].GetPassword());
+                    command.Parameters.AddWithValue("@admin", this.usuarios[indexUser].GetIsAdmin());
+                    command.Parameters.AddWithValue("@bloqueado", this.usuarios[indexUser].GetBloqueado());
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+                return result;
+            }
         }
         public Usuario FindUserForDNI(int dni)
         {
