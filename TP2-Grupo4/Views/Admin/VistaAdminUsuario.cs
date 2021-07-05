@@ -159,7 +159,6 @@ namespace TP2_Grupo4.Views
 
         private void btnTopModificar_Click(object sender, EventArgs e)
         {
-            btnTopModificar.Visible = false;
             int dni = 0;
             try
             {
@@ -172,13 +171,20 @@ namespace TP2_Grupo4.Views
             string nombre = txtNombre.Text;
             string email = txtEmail.Text;
             bool bloqueado = checkBoxBloqueado.Checked;
+            if (!this.agencia.ExisteEmail(txtEmail.Text))
+            {
+                if (this.agencia.ModificarUsuario(dni, nombre, email, "", "", bloqueado.ToString()))
+                    MessageBox.Show("El usuario a sido modificado");
 
-            if (this.agencia.ModificarUsuario(dni, nombre, email, "", "", bloqueado.ToString()))
-                MessageBox.Show("El usuario a sido modificado");
-
-            clearAllControls();
-            groupBoxHoteles.Enabled = false;
-            getUsuariosFromTextFile();
+                clearAllControls();
+                groupBoxHoteles.Enabled = false;
+                getUsuariosFromTextFile();
+                btnTopModificar.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("El email ya esta registrado");
+            }
         }
         #endregion
 
