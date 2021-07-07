@@ -138,7 +138,8 @@ CREATE TABLE `usuarios` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `isAdmin` tinyint(1) DEFAULT 0,
-  `isBloqueado` tinyint(1) DEFAULT 0
+  `isBloqueado` tinyint(1) DEFAULT 0,
+  `intentos` int(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

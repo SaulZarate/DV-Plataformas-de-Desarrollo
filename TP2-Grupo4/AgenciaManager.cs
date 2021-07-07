@@ -216,13 +216,14 @@ namespace TP2_Grupo4
                     connection.Open();
                     MySqlCommand command = connection.CreateCommand();
 
-                    command.CommandText = "INSERT INTO usuarios VALUES(@dni,@nombre,@email,@password,@isAdmin,@isBloqueado)";
+                    command.CommandText = "INSERT INTO usuarios VALUES(@dni,@nombre,@email,@password,@isAdmin,@isBloqueado,@inentos)";
                     command.Parameters.AddWithValue("@dni", usuarioNuevo.GetDni());
                     command.Parameters.AddWithValue("@nombre", usuarioNuevo.GetNombre());
                     command.Parameters.AddWithValue("@email", usuarioNuevo.GetEmail());
                     command.Parameters.AddWithValue("@password", usuarioNuevo.GetPassword());
                     command.Parameters.AddWithValue("@isAdmin", usuarioNuevo.GetIsAdmin());
                     command.Parameters.AddWithValue("@isBloqueado", usuarioNuevo.GetBloqueado());
+                    command.Parameters.AddWithValue("@inentos", usuarioNuevo.GetIntentos());
 
                     if (command.ExecuteNonQuery() == 1) return true;
                 }
@@ -232,6 +233,109 @@ namespace TP2_Grupo4
                 }
                 connection.Close();
                 return result;
+            }
+        }
+        public void ReiniciarIntentos(int dni)
+        {
+            int indexUser = this.findIndexUsuarioForDNIO(dni);
+            this.usuarios[indexUser].SetIntentos(0);
+            this.usuarios[indexUser].SetBloqueado(false);
+            using (MySqlConnection connection = Database.GetConnection())
+                {
+                    bool result = false;
+                    try
+                    {
+                        connection.Open();
+                        MySqlCommand command = connection.CreateCommand();
+                        command.CommandText = "UPDATE usuarios SET nombre = @nombre, email = @email, password = @password, isAdmin = @admin, isBloqueado = @bloqueado , intentos = @intentos WHERE dni = @dni; ";
+                        command.Parameters.AddWithValue("@dni", this.usuarios[indexUser].GetDni());
+                        command.Parameters.AddWithValue("@nombre", this.usuarios[indexUser].GetNombre());
+                        command.Parameters.AddWithValue("@email", this.usuarios[indexUser].GetEmail());
+                        command.Parameters.AddWithValue("@password", this.usuarios[indexUser].GetPassword());
+                        command.Parameters.AddWithValue("@admin", this.usuarios[indexUser].GetIsAdmin());
+                        command.Parameters.AddWithValue("@bloqueado", this.usuarios[indexUser].GetBloqueado());
+                        command.Parameters.AddWithValue("@intentos", this.usuarios[indexUser].GetIntentos());
+                        command.ExecuteNonQuery();
+                        result = true;
+                    }
+                    catch (Exception e)
+                    {
+                        // No se pudo actualizar
+                        System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                        System.Diagnostics.Debug.WriteLine(e.Message);
+                    }                 
+                }
+            
+        }
+        public bool BloquearUsuarioBD(int dni)
+        {
+            int indexUser = this.findIndexUsuarioForDNIO(dni);
+            int intentosTotales = this.usuarios[indexUser].GetIntentos();           
+
+            if (intentosTotales >= 3)
+            {
+                this.usuarios[indexUser].SetBloqueado(true);
+                using (MySqlConnection connection = Database.GetConnection())
+                {
+                    bool result = false;
+                    try
+                    {
+                        connection.Open();
+                        MySqlCommand command = connection.CreateCommand();
+                        command.CommandText = "UPDATE usuarios SET nombre = @nombre, email = @email, password = @password, isAdmin = @admin, isBloqueado = @bloqueado , intentos = @intentos WHERE dni = @dni; ";
+                        command.Parameters.AddWithValue("@dni", this.usuarios[indexUser].GetDni());
+                        command.Parameters.AddWithValue("@nombre", this.usuarios[indexUser].GetNombre());
+                        command.Parameters.AddWithValue("@email", this.usuarios[indexUser].GetEmail());
+                        command.Parameters.AddWithValue("@password", this.usuarios[indexUser].GetPassword());
+                        command.Parameters.AddWithValue("@admin", this.usuarios[indexUser].GetIsAdmin());
+                        command.Parameters.AddWithValue("@bloqueado", this.usuarios[indexUser].GetBloqueado());
+                        command.Parameters.AddWithValue("@intentos", this.usuarios[indexUser].GetIntentos());
+                        command.ExecuteNonQuery();
+                        result = true;
+                    }
+                    catch (Exception e)
+                    {
+                        // No se pudo actualizar
+                        System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                        System.Diagnostics.Debug.WriteLine(e.Message);
+                    }
+                    return result;
+                }
+            }
+            return false;
+        }
+        public void IntentosLogueo(int dni)
+        {
+            int indexUser = this.findIndexUsuarioForDNIO(dni);
+            int intentosNuevos = this.usuarios[indexUser].GetIntentos() + 1;
+            this.usuarios[indexUser].SetIntentos(intentosNuevos);
+
+
+            using (MySqlConnection connection = Database.GetConnection())
+            {
+                bool result = false;
+                try
+                {
+                    connection.Open();
+                    MySqlCommand command = connection.CreateCommand();
+                    command.CommandText = "UPDATE usuarios SET nombre = @nombre, email = @email, password = @password, isAdmin = @admin, isBloqueado = @bloqueado , intentos = @intentos WHERE dni = @dni; ";
+                    command.Parameters.AddWithValue("@dni", this.usuarios[indexUser].GetDni());
+                    command.Parameters.AddWithValue("@nombre", this.usuarios[indexUser].GetNombre());
+                    command.Parameters.AddWithValue("@email", this.usuarios[indexUser].GetEmail());
+                    command.Parameters.AddWithValue("@password", this.usuarios[indexUser].GetPassword());
+                    command.Parameters.AddWithValue("@admin", this.usuarios[indexUser].GetIsAdmin());
+                    command.Parameters.AddWithValue("@bloqueado", this.usuarios[indexUser].GetBloqueado());
+                    command.Parameters.AddWithValue("@intentos", this.usuarios[indexUser].GetIntentos());
+                    command.ExecuteNonQuery();
+                    result = true;
+                }
+                catch (Exception e)
+                {
+                    // No se pudo actualizar
+                    System.Diagnostics.Debug.WriteLine(e.GetType().ToString());
+                    System.Diagnostics.Debug.WriteLine(e.Message);
+                }
+               // return result;
             }
         }
         public bool ModificarUsuario(int dni, String nombre, String email, String password, String isAdmin, String isBloqueado)
