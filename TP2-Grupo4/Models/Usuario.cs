@@ -15,6 +15,7 @@ namespace TP2_Grupo4.Models
         private String password;
         private bool isAdmin;
         private bool bloqueado;
+        private int intentos;
 
         public Usuario(int dni, String nombre, String email,String password, bool isAdmin, bool bloqueado)
         {
@@ -24,6 +25,7 @@ namespace TP2_Grupo4.Models
             this.SetPassword(password);
             this.SetIsAdmin(isAdmin);
             this.SetBloqueado(bloqueado);
+            this.SetIntentos(0);
         }
         
         /* METODOS ESTATICOS */
@@ -100,7 +102,8 @@ namespace TP2_Grupo4.Models
             objetoSerializado += this.GetEmail() + ",";
             objetoSerializado += this.GetPassword() + ",";
             objetoSerializado += this.GetIsAdmin().ToString() + ",";
-            objetoSerializado += this.GetBloqueado().ToString();
+            objetoSerializado += this.GetBloqueado().ToString() + ",";
+            objetoSerializado += this.GetIntentos();
             return objetoSerializado;
         }
 
@@ -111,6 +114,9 @@ namespace TP2_Grupo4.Models
         public String GetPassword() { return this.password; }
         public bool GetIsAdmin() { return this.isAdmin; }
         public bool GetBloqueado() { return this.bloqueado; }
+        public int GetIntentos() { return this.intentos; }
+
+
 
         public void setDni(int dni) { this.dni = dni; }
         public void SetNombre(String nombre) { this.nombre = nombre; }
@@ -118,7 +124,9 @@ namespace TP2_Grupo4.Models
         public void SetPassword(String password) { this.password = password; }
         public void SetIsAdmin(bool isAdmin) { this.isAdmin = isAdmin; }
         public void SetBloqueado(bool bloqueado) { this.bloqueado = bloqueado; }
+        public void SetIntentos(int intentos) { this.intentos = intentos; }
+        public void MasIntentos() { this.intentos = this.intentos + 1; }
         #endregion
-    
+
     }
 }
