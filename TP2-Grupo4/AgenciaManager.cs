@@ -516,7 +516,7 @@ namespace TP2_Grupo4
         public bool IsUsuarioBloqueado(int dni)
         {
             Usuario user = this.usuarios.Find(user => user.GetDni() == dni && user.GetBloqueado() == true);
-            return user == null ? false : true;
+            return user == null;
         }
         public Agencia FiltrarAlojamientos(String tipoAlojamiento, String ciudad, String barrio, double precioMin, double precioMax, String estrellas, String personas)
         {
