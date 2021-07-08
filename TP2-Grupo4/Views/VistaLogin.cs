@@ -171,7 +171,7 @@ namespace TP2_Grupo4.Views
                 return;
             }
            
-            this.agencia.IntentosLogueo(dni);
+            
             this.agencia.BloquearUsuarioBD(dni);
 
             // Al bloquear al usuario salgo del metodo con el return
@@ -199,6 +199,7 @@ namespace TP2_Grupo4.Views
             }
             else
             {
+                this.agencia.IntentosLogueo(dni);
                 MessageBox.Show("Contraseña incorrecta");
             }
         }
